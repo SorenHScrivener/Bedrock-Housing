@@ -120,6 +120,7 @@ li{
     // align-items: center;
     &>div{
         width: 85%;
+        height: 85%;
         // margin: 0 auto;
         // height: 80%;
         display: flex;
@@ -189,7 +190,7 @@ li{
     // justify-content: space-evenly;
     &.properties> div, &.members> div{
         // margin: 0% 2%;    
-        width: 15.5rem;
+        width: 15rem;
         // width: 210px;
         .displaySquares{
             box-sizing: initial;

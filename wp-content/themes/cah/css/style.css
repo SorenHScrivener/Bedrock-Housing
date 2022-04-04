@@ -97,6 +97,7 @@ li {
 }
 .contentContainer > div {
   width: 85%;
+  height: 85%;
   display: flex;
   justify-content: center;
   padding-top: 5.5rem;
@@ -156,7 +157,7 @@ li {
   height: 100%;
 }
 .contentBox.properties > div, .contentBox.members > div {
-  width: 15.5rem;
+  width: 15rem;
 }
 .contentBox.properties > div .displaySquares, .contentBox.members > div .displaySquares {
   box-sizing: initial;
