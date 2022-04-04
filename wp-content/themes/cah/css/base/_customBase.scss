@@ -5,14 +5,14 @@
     }
   }
   
-  @mixin atSmallMedium {
+  @mixin atTablet {
     @media (min-width: 767px) {
       @content;
     }
   }
   
-  @mixin atMedium {
-    @media (min-width: 960px) {
+  @mixin atDesktop {
+    @media (min-width: 1200px) {
       @content;
     }
   }
@@ -27,10 +27,10 @@ html{
     //on mobile when tying stuff in.
     //But would perhaps keep for laptops and up as changle is good for window resizes
     //And/or have a textbox pop-up for mobile that is the box, but moved or mirrors the value you type 
-    @include atSmallMedium {
+    @include atTablet {
         font-size: 1.6vh;
     }
-    @include atMedium {
+    @include atDesktop {
         font-size: 1.8vh;
     }
 
@@ -171,10 +171,10 @@ li{
 
 .contentBox.properties, .contentBox.members{
     display: grid;
-    @include atSmallMedium {
+    @include atTablet {
         grid-template-columns: repeat(3, auto);
     }
-    @include atMedium {    
+    @include atDesktop {    
         grid-template-columns: repeat(4, auto);
     }
 }

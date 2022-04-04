@@ -44,7 +44,7 @@ body{
       font-size: 2.5rem;
     //   color: $darkOrange;
     color: rgb(148, 121, 105);
-    //   @include atMedium {
+    //   @include atDesktop {
     //     font-size: 2.5rem;
     //   }
     }
@@ -79,7 +79,7 @@ body{
     //     top: 18px;
     //     font-size: 2.1rem;
     //   }
-    //   @include atMedium {
+    //   @include atDesktop {
     //     top: 26px;
     //     font-size: 2.8rem;
     //   }
@@ -109,7 +109,7 @@ body{
     // @include atSmall {
     //   font-size: 1.5rem;
     // }
-    // @include atMedium {
+    // @include atDesktop {
     //   width: 80%;
     //   font-size: 3rem;
     // }
