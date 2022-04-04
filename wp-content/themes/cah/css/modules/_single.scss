@@ -1,0 +1,117 @@
+//Use view width max to have all divs inside 
+//adjust to laptop? 
+#singleContainer{
+    // color: rgb(198, 198, 233);
+    height: 87%;
+    // height: 54rem;
+    min-width: 60%;
+    top: 8.3%;
+    // margin-left: 12.5%;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    z-index: 1;
+    padding: 1.5rem 1rem;
+    padding-bottom: 1rem;
+    background-color: rgba(37, 35, 34, 0.9);
+    h4{
+        font-size: 1.6rem;
+    }
+    h3, h4, .related-link{
+        color: rgb(241, 218, 189);
+    }
+    #mainImageAndStats{
+        width: 21vw;
+        text-align: center;
+        img{
+            height: 42%
+        }
+        ul{
+            padding-left: 20%;
+            font-size: 1.65rem;
+            text-align: left;
+            margin-top: 1rem;
+            li{
+                margin-top: .6rem;
+                list-style-type: square;
+                a{
+                    filter: brightness(115%);
+                }
+            }
+        }
+    }
+    #singleInfo{
+        width: 30vw;
+        // width: 70%;
+        display: grid;
+        grid-template-rows: 7% 1fr;
+        height: 100%;
+        p{
+            margin-top: 1.2rem;
+            font-size: 1.7rem;
+            height: 99%;
+        }
+        div{
+            overflow: auto;
+            // height: 100%;
+            padding: 0 1rem;
+        }
+        #mediaContainer{
+            height: auto;
+            iframe{
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+    #vidAndImgCol{
+        height: 100%;
+        width: 16vw;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        overflow: auto;
+        overflow-x: hidden;
+        text-align: center;
+        h3{
+            font-size: 1.9rem;
+            margin: 1rem 0;
+        }
+    }
+
+    #updates-col{
+        width: 26vw;
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-rows: 10% 1fr 4%;
+        h3{
+            font-size: 2rem;
+            a{
+                font-size: 1.7rem;
+            }
+            a:hover{
+                color: white;
+            }
+        }
+        #news-reciever{
+            overflow: auto;
+            margin: 1rem 0;
+            p{
+                font-size: 1.4rem;
+                padding-right: 1rem;
+            }
+        }
+        #pagination-holder{
+            position: absolute;
+            bottom:0;
+            width: 100%;
+            font-size: 1.8rem;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

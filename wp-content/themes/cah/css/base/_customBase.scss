@@ -1,0 +1,218 @@
+// Do imports for tghis and js files near the end
+html{
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    // script calc for this
+    //use automatic container height for image group containers, if use calc?
+    font-size: 1.6vh;
+    &.freeze{
+        overflow: hidden;
+    }
+}
+
+body{
+    margin: 0;
+    color: antiquewhite;
+}
+
+h1{
+    margin: 0;
+    margin-bottom: 3rem;
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+h3{
+    font-size: 2.3rem;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a{
+    cursor: pointer;
+}
+a.hidden, a.selectedPage{
+    pointer-events: none;
+}
+a.hidden{
+    opacity: 0;
+}
+a.selectedPage{
+    color: #e8aa77;
+    filter: saturate(120%);
+}
+
+*.hidden{
+    display: none;
+    pointer-events: none;
+}
+
+div, button{
+    box-sizing: border-box;
+}
+
+button{
+    border: none;
+    background: transparent;
+}
+
+li{
+    list-style-type: none;
+}
+
+//Consider moving all below 
+#overallContainer{
+    position: relative;
+    top: 0;
+    // display: flex;
+    // flex-direction: column;
+    &.faded{
+        filter: opacity(40%);
+    }
+}
+
+//Consider sending to content container scss 
+.contentContainer{
+    height: 59.5rem;
+    // height: 100vh;
+    width: 100%;
+    margin: 4% 0;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    &>div{
+        width: 85%;
+        // margin: 0 auto;
+        // height: 80%;
+        display: flex;
+        justify-content: center;
+        // border: 2px solid rgb(131, 23, 23);
+        // flex-wrap: wrap;
+        padding-top: 5.5rem;
+    }
+    &_paginated{
+        .textBox{
+            .content-pages{
+                text-align: center;
+                a{
+                    font-size: 1.75rem;
+                }
+            }
+        }
+    }
+}
+
+.titleAndTextBox, .contentBox{
+    position: relative;
+}
+
+.titleAndTextBox{
+    margin-right: 5%;
+}
+
+.titleBox, .textBox{
+    height: 50%;
+    width: 16rem;
+}
+
+.titleBox{
+    padding: 10%;
+    &>*{
+        height: 50%;
+        width: 100%;
+        margin: 0;
+    }
+    &>:nth-child(2){
+        display: flex;
+        h2{
+            align-self: flex-end;
+            padding-bottom: 15%;
+        }
+    }
+}
+
+.contentBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    // justify-content: space-evenly;
+    &.properties> div, &.members> div{
+        margin: 0% 2%;
+        width: 15.5rem;
+        // width: 210px;
+        .displaySquares{
+            box-sizing: initial;
+            position: relative;
+            //when us backend, images will be set without this
+            // height: 340px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            &-pageLinks{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                opacity: 0;
+                *{
+                    color: rgb(238, 231, 210);
+                    cursor: pointer;
+                    font-size: 1.3rem;
+                    margin-top: .7rem;
+                }
+                *:hover{
+                    transform: scale(110%);
+                    filter: brightness(120%);
+                }
+                i{
+                    font-size: 1.4rem;
+                }
+            }
+            .displaySquares-pageLinks__visible{
+                opacity: 1;
+            }
+            div{
+                p, a{
+                    margin: 2%;
+                }
+            }
+        }
+        .display-text{
+            text-align: center;
+            font-size: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            p{
+                margin: 0;
+            }
+            p:nth-of-type(2){
+                font-weight: 700;
+            }
+        }
+    }
+
+    .news{
+        margin: 0 1%;
+        padding-top: 5%;
+        height: auto;
+
+        iframe{
+            width: 300px;
+            height: 200px;
+        }
+    }
+}

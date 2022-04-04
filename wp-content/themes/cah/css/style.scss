@@ -1,0 +1,15 @@
+@use "base/customBase";
+
+// @use "modules/header";
+@use "modules/footer";
+@use "modules/opening";
+@use "modules/properties";
+@use "modules/single";
+@use "modules/constant";
+@use "modules/search";
+@use "modules/loader.scss";
+@use "modules/all-news.scss";
+@use "modules/shadow-box.scss";
+
+@use "downloads/css-loader.css";
+@use "downloads/sbl-circ-ripple.css";

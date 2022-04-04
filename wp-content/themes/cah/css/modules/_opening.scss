@@ -1,0 +1,126 @@
+#openingContainer{
+    height: 99.5vh;
+    position: relative;
+    color: rgb(189, 189, 189);
+    display: flex;
+    justify-content: center;
+    h1{
+        // letter-spacing: .3rem;
+        font-size: 6.5rem;
+    }
+    p{
+        font-size: 2.7rem;
+        font-weight: 600;
+    }
+    #welcomeContainer{
+        div    {
+            // background-color: rgba(36, 36, 36, 0.5);
+            padding: 5%;
+            text-shadow: 1px 1px black;
+            width: 70%;
+        }
+    }
+    header{
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 4% 25% 1fr;
+        // grid-template-areas: 'logoText logoSymbol navigation';
+        // grid-area: ;
+        // background-color: black;
+        // color: rgb(104, 104, 197);
+        // background-color: rgba(230, 230, 230, .7);
+        background-color: rgba(70, 62, 55, 0.85);
+        box-shadow: .2rem .2rem 1rem .4rem inset rgba(49, 43, 39, 0.75);
+        width: 100%;
+        height: 5rem;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+        // display: flex;
+        color: rgb(199, 187, 156);
+        &.hidden{
+            display: none;
+        }
+        button{
+            font-size: 1.8rem;
+            width: 10rem;
+            cursor: pointer;
+            i{
+              display: inline;  
+            }
+        }
+        // .header-search{
+        //    position: absolute;
+        // }
+        // label{
+            
+        // }
+        #logo-symbol, #logo-text{
+            height: 4rem;
+        }
+        #logo-symbol{
+            // grid-area: logoSymbol;
+            margin-top: .3rem;
+            padding-left: .5rem;
+        }
+        #logo-text{
+            // grid-area: logoText;
+            margin-top: .6rem; 
+            padding-left: .2rem;
+        }
+        img{
+            height: 100%;
+        }
+        p, nav{
+            margin: 0;
+        }
+        div{
+            // width: 50%;
+            // font-size: 1.6rem;
+            // margin-left: 2%;
+        }
+        nav{
+            // grid-area: navigation;
+            margin-right: 2rem;
+            ul{
+                margin: 0;
+                padding: 0;    
+                // width: 100%;
+                height: 100%;
+                display: flex; 
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                li{
+                    // margin: 0 1rem;
+                    a{
+                      font-size: 1.8rem;  
+                      text-shadow: 1px 1px black;
+                    }
+                }
+            }
+        }
+    }
+    #pageImage{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        img{
+            height: 100%;
+            width: 100%;
+            filter: blur(.6rem) grayscale(50%);
+        }
+    }
+    #welcomeContainer{
+        position: absolute;
+        text-align: center;
+        margin-top: 8%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        img{
+            height: 6rem;    
+        }
+    }
+}

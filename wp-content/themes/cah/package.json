@@ -1,0 +1,29 @@
+{
+  "name": "cah",
+  "version": "1.0.0",
+  "description": "test site for choice affordable housing",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jquery": "^3.6.0",
+    "just-validate": "^3.2.2",
+    "lodash": "^4.17.21",
+    "node-sass": "^7.0.1",
+    "normalize.css": "^8.0.1",
+    "php-express": "0.0.3"
+  },
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
