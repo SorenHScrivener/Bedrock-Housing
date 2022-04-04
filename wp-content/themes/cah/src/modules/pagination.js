@@ -195,7 +195,7 @@ class Pagination {
             let dataCount = 0;
             let postOutput;
             console.log(window.innerWidth)
-            if(window.innerWidth >= 1060){
+            if(window.innerWidth >= 1360){
                 postOutput = 8;
             }else{
                 postOutput = 6;
