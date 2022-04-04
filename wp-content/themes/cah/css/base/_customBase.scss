@@ -23,6 +23,10 @@ html{
     margin: 0;
     // script calc for this
     //use automatic container height for image group containers, if use calc?
+    //Consider having js assign the font-size by doing 1.6% of vh, so there is a stable number assigned, rather than one that changes
+    //on mobile when tying stuff in.
+    //But would perhaps keep for laptops and up as changle is good for window resizes
+    //And/or have a textbox pop-up for mobile that is the box, but moved or mirrors the value you type 
     @include atSmallMedium {
         font-size: 1.6vh;
     }
