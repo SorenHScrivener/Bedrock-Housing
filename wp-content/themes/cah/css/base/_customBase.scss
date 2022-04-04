@@ -172,12 +172,20 @@ li{
 .contentBox{
     width: 100%;
     height: 100%;
-    display: flex;
+
+    // display: flex;
     // flex-direction: column;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     // justify-content: space-evenly;
     &.properties> div, &.members> div{
-        margin: 0% 2%;
+        // margin: 0% 2%;    
+        display: grid;
+        @include atSmallMedium {
+            grid-template-columns: repeat(3, auto);
+        }
+        @include atMedium {    
+            grid-template-columns: repeat(4, auto);
+        }
         width: 15.5rem;
         // width: 210px;
         .displaySquares{
