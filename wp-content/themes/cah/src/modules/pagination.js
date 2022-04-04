@@ -193,7 +193,12 @@ class Pagination {
             // let currentPropertiesShown = this.currentPages.properties;
 
             let dataCount = 0;
-            const postOutput = 8;
+            let postOutput;
+            if(window.innerWidth >= 960){
+                postOutput = 8;
+            }else{
+                postOutput = 6;
+            }
             let pageCount = 0;
             let postPage = [];
             let postPages = [];
