@@ -89,6 +89,36 @@
         .news, form{
             padding: 0 5%;
         }
+        form{
+            display: grid;
+            column-gap: 1.2rem;
+            grid-template-areas:"contactName contactEmail"
+                                "contactPhone contactSubject"
+                                
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "submit ...";
+
+            #contact-name{
+                grid-area: contactName;
+            }
+            #contact-email{
+                grid-area: contactEmail;
+            }
+            #contact-phone{
+                grid-area: contactPhone;
+            }
+            #contact-subject{
+                grid-area: contactSubject;
+            }
+            #contact-message{        
+                grid-area: contactMessage;                
+            }
+        }
     }
 }
 
@@ -111,6 +141,7 @@
             color: rgb(120, 179, 158);
         }
         form{
+            margin-top: 3rem;
             // display: flex;
             // flex-direction: column;
             >div{
@@ -127,18 +158,26 @@
             ul{
                 padding: 0;
             }
-            input{
+            input, select{
                 display: block;
-                margin-top: 1%;
-                width: 40%;
+                margin-top: 2%;
+                // width: 40%;
+            }
+            input{
                 height: 1.5rem;
+            }
+            select{
+                height: 2rem;
             }
             textarea{
                 width: 100%;
                 height: 20rem;
             }
             button{
+                grid-area: submit;
                 color: ivory;
+                font-size: 1.3rem;
+                text-align: left;
             }
         }
     }

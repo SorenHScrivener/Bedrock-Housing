@@ -173,10 +173,10 @@ li{
 .contentBox.properties, .contentBox.members{
     display: grid;
     @include atTablet {
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(3, 33.3%);
     }
     @include atDesktop {    
-        grid-template-columns: repeat(4, auto);
+        grid-template-columns: repeat(4, 25%);
     }
     row-gap: .35rem;
 }
@@ -239,7 +239,7 @@ li{
             font-size: 1.3rem;
             display: flex;
             flex-direction: column;
-            // gap: .4rem;
+            gap: .2rem;
             p{
                 margin: 0;
             }

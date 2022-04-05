@@ -144,12 +144,12 @@ li {
 }
 @media (min-width: 767px) {
   .contentBox.properties, .contentBox.members {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 33.3%);
   }
 }
 @media (min-width: 1200px) {
   .contentBox.properties, .contentBox.members {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 25%);
   }
 }
 
@@ -204,6 +204,7 @@ li {
   font-size: 1.3rem;
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
 }
 .contentBox.properties > div .display-text p, .contentBox.members > div .display-text p {
   margin: 0;
@@ -419,6 +420,27 @@ li {
 #allNewsContainer .contentBox .news, #allNewsContainer .contentBox form, #contactContainer .contentBox .news, #contactContainer .contentBox form {
   padding: 0 5%;
 }
+#allNewsContainer .contentBox form, #contactContainer .contentBox form {
+  display: grid;
+  -moz-column-gap: 1.2rem;
+       column-gap: 1.2rem;
+  grid-template-areas: "contactName contactEmail" "contactPhone contactSubject" "contactMessage contactMessage" "contactMessage contactMessage" "contactMessage contactMessage" "contactMessage contactMessage" "contactMessage contactMessage" "contactMessage contactMessage" "submit ...";
+}
+#allNewsContainer .contentBox form #contact-name, #contactContainer .contentBox form #contact-name {
+  grid-area: contactName;
+}
+#allNewsContainer .contentBox form #contact-email, #contactContainer .contentBox form #contact-email {
+  grid-area: contactEmail;
+}
+#allNewsContainer .contentBox form #contact-phone, #contactContainer .contentBox form #contact-phone {
+  grid-area: contactPhone;
+}
+#allNewsContainer .contentBox form #contact-subject, #contactContainer .contentBox form #contact-subject {
+  grid-area: contactSubject;
+}
+#allNewsContainer .contentBox form #contact-message, #contactContainer .contentBox form #contact-message {
+  grid-area: contactMessage;
+}
 
 #contactContainer {
   background: black;
@@ -437,6 +459,9 @@ li {
   font-weight: 700;
   color: rgb(120, 179, 158);
 }
+#contactContainer .contentBox form {
+  margin-top: 3rem;
+}
 #contactContainer .contentBox form > div {
   margin: 5% 0;
   margin-top: 0;
@@ -451,18 +476,25 @@ li {
 #contactContainer .contentBox form ul {
   padding: 0;
 }
-#contactContainer .contentBox form input {
+#contactContainer .contentBox form input, #contactContainer .contentBox form select {
   display: block;
-  margin-top: 1%;
-  width: 40%;
+  margin-top: 2%;
+}
+#contactContainer .contentBox form input {
   height: 1.5rem;
+}
+#contactContainer .contentBox form select {
+  height: 2rem;
 }
 #contactContainer .contentBox form textarea {
   width: 100%;
   height: 20rem;
 }
 #contactContainer .contentBox form button {
+  grid-area: submit;
   color: ivory;
+  font-size: 1.3rem;
+  text-align: left;
 }
 
 .dot-pulse {

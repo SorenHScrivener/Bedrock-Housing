@@ -244,28 +244,28 @@
       
                 <form action="<?php echo esc_url(home_url()); ?>/contact" id="generalInquiryForm" class="form" method="POST" autocomplete="off">
                      
-                     <div>
+                    <div id="contact-name">
                         <label for="contactName">Name (*required)</label>
                         <input type="text" name="contactName" id="contactName" maxlength="36" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="required requiredField" />
                         <?php if($nameError != '') { ?>
                             <span class="error"><?=$nameError;?></span>
                         <?php } ?>
                     </div>
-                    <div>             
+                    <div id="contact-email">             
                         <label for="email">Email (*required)</label>
                         <input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="required requiredField" />
                         <?php if($emailError != '') { ?>
                             <span class="error"><?=$emailError;?></span>
                         <?php } ?>
                     </div>
-                    <div>
+                    <div id="contact-phone">
                         <label for="phoneNumber">Phone Number (optional)</label>
 						<input title="Invalid Phone Number. Either correct or erase it." name="phoneNumber" id="phoneNumber" type="Tel" <?php if(isset($_POST['phoneNumber']))  echo $_POST['phoneNumber'];?>>  
                         <?php if($phoneNumberError != '') { ?>
                             <span class="error"><?=$phoneNumberError;?></span>
                         <?php } ?>
                     </div>
-                    <div>
+                    <div id="contact-subject">
                         <label for="subject">Subject (*required)</label>
                         <select name="subject" id="subject" title="Please select something!" <?php if(isset($_POST['subject']))  echo $_POST['subject'];?>>
                             <option value="">-select one-</option>
@@ -276,7 +276,7 @@
                             <?php } ?>
                         </select>
                     </div>
-                    <div>
+                    <div id="contact-message">
                         <label for="message">Your Inquiry (limit 1000 chars)</label>
                         <textarea name="message" id="message" rows="20" cols="30" class="required requiredField" maxlength="1000"><?php if(isset($_POST['message'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['message']); } else { echo $_POST['message']; } } ?></textarea>
                         <?php if($messageError != '') { ?>
