@@ -13,11 +13,10 @@
   "dependencies": {
     "axios": "^0.21.1",
     "jquery": "^3.6.0",
-    "just-validate": "^3.2.2",
     "lodash": "^4.17.21",
-    "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
-    "php-express": "0.0.3"
+    "php-express": "0.0.3",
+    "sass": "^1.49.11"
   },
   "devDependencies": {
     "acorn": "^8.7.0",

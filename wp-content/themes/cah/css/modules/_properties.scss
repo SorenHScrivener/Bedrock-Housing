@@ -1,4 +1,5 @@
-// I could nth to do the pattern styling diffs if keep exact one 
+// I could nth to do the pattern styling diffs if keep exact one
+@use "../base/mixins";
 .titleBox{
     background: transparent;
     p{
@@ -133,7 +134,9 @@
         // }
         img{
             filter: saturate(120%);
-            width: 50%;
+            @include mixins.atDesktop {
+                width: 50%;
+            }
         }
         label.error{
             font-size: 1.5rem;

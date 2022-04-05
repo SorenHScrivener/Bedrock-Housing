@@ -1,22 +1,5 @@
 // Do imports for tghis and js files near the end
-@mixin atSmall {
-    @media (min-width: 530px) {
-      @content;
-    }
-  }
-  
-  @mixin atTablet {
-    @media (min-width: 767px) {
-      @content;
-    }
-  }
-  
-  @mixin atDesktop {
-    @media (min-width: 1200px) {
-      @content;
-    }
-  }
-
+@use "mixins";
 html{
     overflow-x: hidden;
     height: 100%;
@@ -27,10 +10,10 @@ html{
     //on mobile when tying stuff in.
     //But would perhaps keep for laptops and up as changle is good for window resizes
     //And/or have a textbox pop-up for mobile that is the box, but moved or mirrors the value you type 
-    @include atTablet {
+    @include mixins.atTablet {
         font-size: 1.7vh;
     }
-    @include atDesktop {
+    @include mixins.atDesktop {
         font-size: 1.8vh;
     }
 
@@ -172,10 +155,10 @@ li{
 
 .contentBox.properties, .contentBox.members{
     display: grid;
-    @include atTablet {
+    @include mixins.atTablet {
         grid-template-columns: repeat(3, 33.3%);
     }
-    @include atDesktop {    
+    @include mixins.atDesktop {    
         grid-template-columns: repeat(4, 25%);
     }
     row-gap: .35rem;
@@ -212,7 +195,7 @@ li{
                     color: rgb(238, 231, 210);
                     cursor: pointer;
                     font-size: 1.4rem;
-                    @include atDesktop{
+                    @include mixins.atDesktop{
                         font-size: 1.3rem;
                     }
                     margin-top: .7rem;

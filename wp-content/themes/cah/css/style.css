@@ -452,7 +452,11 @@ li {
 }
 #contactContainer .contentBox img {
   filter: saturate(120%);
-  width: 50%;
+}
+@media (min-width: 1200px) {
+  #contactContainer .contentBox img {
+    width: 50%;
+  }
 }
 #contactContainer .contentBox label.error {
   font-size: 1.5rem;
