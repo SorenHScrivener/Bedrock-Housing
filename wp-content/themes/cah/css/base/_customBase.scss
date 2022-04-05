@@ -178,6 +178,7 @@ li{
     @include atDesktop {    
         grid-template-columns: repeat(4, auto);
     }
+    row-gap: .35rem;
 }
 
 .contentBox{
@@ -190,7 +191,7 @@ li{
     // justify-content: space-evenly;
     &.properties> div, &.members> div{
         // margin: 0% 2%;    
-        width: 15rem;
+        width: 14rem;
         // width: 210px;
         .displaySquares{
             box-sizing: initial;
@@ -232,10 +233,10 @@ li{
         }
         .display-text{
             text-align: center;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            // gap: .4rem;
             p{
                 margin: 0;
             }

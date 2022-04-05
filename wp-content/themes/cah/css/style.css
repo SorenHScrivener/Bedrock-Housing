@@ -140,6 +140,7 @@ li {
 
 .contentBox.properties, .contentBox.members {
   display: grid;
+  row-gap: 0.35rem;
 }
 @media (min-width: 767px) {
   .contentBox.properties, .contentBox.members {
@@ -157,7 +158,7 @@ li {
   height: 100%;
 }
 .contentBox.properties > div, .contentBox.members > div {
-  width: 15rem;
+  width: 14rem;
 }
 .contentBox.properties > div .displaySquares, .contentBox.members > div .displaySquares {
   box-sizing: initial;
@@ -195,10 +196,9 @@ li {
 }
 .contentBox.properties > div .display-text, .contentBox.members > div .display-text {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 .contentBox.properties > div .display-text p, .contentBox.members > div .display-text p {
   margin: 0;
@@ -227,6 +227,9 @@ li {
   justify-content: flex-end;
   padding-right: 2rem;
   color: ivory;
+}
+#footerContainer p {
+  margin: 0.65rem;
 }
 
 #openingContainer {
