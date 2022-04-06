@@ -25,7 +25,7 @@
             padding: 5%;
             text-shadow: 1px 1px black;
             width: 90%;
-            @include atDesktop{
+            @include mixins.atDesktop{
                 width: 70%;
             }
         }

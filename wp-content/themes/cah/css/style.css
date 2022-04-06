@@ -261,7 +261,7 @@ li {
   justify-content: center;
 }
 #openingContainer h1 {
-  font-size: 5.8rem;
+  font-size: 5.2rem;
 }
 @media (min-width: 1200px) {
   #openingContainer h1 {
@@ -280,7 +280,12 @@ li {
 #openingContainer #welcomeContainer div {
   padding: 5%;
   text-shadow: 1px 1px black;
-  width: 70%;
+  width: 90%;
+}
+@media (min-width: 1200px) {
+  #openingContainer #welcomeContainer div {
+    width: 70%;
+  }
 }
 #openingContainer header {
   display: grid;
