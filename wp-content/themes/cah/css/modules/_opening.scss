@@ -1,3 +1,5 @@
+@use "../base/mixins";
+
 #openingContainer{
     height: 99.5vh;
     position: relative;
@@ -5,11 +7,16 @@
     display: flex;
     justify-content: center;
     h1{
-        // letter-spacing: .3rem;
-        font-size: 6.5rem;
+        font-size: 5.8rem;
+        @include mixins.atDesktop{
+            font-size: 6.5rem;
+        }
     }
     p{
-        font-size: 2.7rem;
+        font-size: 2.5rem;
+        @include mixins.atDesktop{
+            font-size: 2.7rem;
+        }
         font-weight: 600;
     }
     #welcomeContainer{

@@ -1,3 +1,4 @@
+@use "../base/mixins";
 #footerContainer{
     background-color: rgb(39, 39, 39, .6);
     margin: 0;
@@ -10,6 +11,9 @@
     padding-right: 2rem;
     color: ivory;
     p{
-        margin: .65rem;
+        margin: 1rem;
+        @include mixins.atDesktop{
+            margin: .65rem; 
+        }
     }
 }

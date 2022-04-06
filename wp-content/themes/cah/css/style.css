@@ -6,12 +6,12 @@ html {
 }
 @media (min-width: 767px) {
   html {
-    font-size: 1.7vh;
+    font-size: 1.85vh;
   }
 }
 @media (min-width: 1200px) {
   html {
-    font-size: 1.8vh;
+    font-size: 1.85vh;
   }
 }
 html.freeze {
@@ -88,28 +88,28 @@ li {
 }
 
 .contentContainer {
+  height: initial;
   width: 100%;
   margin: 4% 0;
   margin-bottom: 5%;
   display: flex;
   justify-content: center;
 }
-@media (min-width: 767px) {
-  .contentContainer {
-    height: 59.5rem;
-  }
-}
-@media (min-width: 1200px) {
-  .contentContainer {
-    height: initial;
-  }
-}
 .contentContainer > div {
-  width: 85%;
   height: 85%;
   display: flex;
   justify-content: center;
   padding-top: 5.5rem;
+}
+@media (min-width: 767px) {
+  .contentContainer > div {
+    width: 95%;
+  }
+}
+@media (min-width: 1200px) {
+  .contentContainer > div {
+    width: 85%;
+  }
 }
 .contentContainer_paginated .textBox .content-pages {
   text-align: center;
@@ -209,6 +209,7 @@ li {
   margin: 2%;
 }
 .contentBox.properties > div .display-text, .contentBox.members > div .display-text {
+  margin-top: -0.3rem;
   text-align: center;
   font-size: 1.3rem;
   display: flex;
@@ -244,7 +245,12 @@ li {
   color: ivory;
 }
 #footerContainer p {
-  margin: 0.65rem;
+  margin: 1rem;
+}
+@media (min-width: 1200px) {
+  #footerContainer p {
+    margin: 0.65rem;
+  }
 }
 
 #openingContainer {
@@ -255,11 +261,21 @@ li {
   justify-content: center;
 }
 #openingContainer h1 {
-  font-size: 6.5rem;
+  font-size: 5.8rem;
+}
+@media (min-width: 1200px) {
+  #openingContainer h1 {
+    font-size: 6.5rem;
+  }
 }
 #openingContainer p {
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   font-weight: 600;
+}
+@media (min-width: 1200px) {
+  #openingContainer p {
+    font-size: 2.7rem;
+  }
 }
 #openingContainer #welcomeContainer div {
   padding: 5%;
@@ -419,8 +435,9 @@ li {
   clear: both;
 }
 #allNewsContainer .contentBox .news img, #contactContainer .contentBox .news img {
+  width: 13rem;
   float: left;
-  margin-right: 2%;
+  margin-right: 2.5%;
   cursor: pointer;
 }
 #allNewsContainer .contentBox .news p, #contactContainer .contentBox .news p {
@@ -462,10 +479,13 @@ li {
 }
 #contactContainer .contentBox img {
   filter: saturate(120%);
+  width: 45%;
+  margin-left: 2rem;
 }
 @media (min-width: 1200px) {
   #contactContainer .contentBox img {
     width: 50%;
+    margin-left: 0;
   }
 }
 #contactContainer .contentBox label.error {

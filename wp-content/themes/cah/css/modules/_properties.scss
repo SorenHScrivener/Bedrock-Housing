@@ -79,8 +79,9 @@
                 clear: both;
             }
             img{
+                width: 13rem;
                 float: left;
-                margin-right: 2%;
+                margin-right: 2.5%;
                 cursor: pointer;
             }
             p{
@@ -135,8 +136,11 @@
         // }
         img{
             filter: saturate(120%);
+            width: 45%;
+            margin-left: 2rem;
             @include mixins.atDesktop {
                 width: 50%;
+                margin-left: 0;
             }
         }
         label.error{

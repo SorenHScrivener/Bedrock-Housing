@@ -11,10 +11,10 @@ html{
     //But would perhaps keep for laptops and up as changle is good for window resizes
     //And/or have a textbox pop-up for mobile that is the box, but moved or mirrors the value you type 
     @include mixins.atTablet {
-        font-size: 1.7vh;
+        font-size: 1.85vh;
     }
     @include mixins.atDesktop {
-        font-size: 1.8vh;
+        font-size: 1.85vh;
     }
 
     &.freeze{
@@ -93,13 +93,13 @@ li{
 
 //Consider sending to content container scss 
 .contentContainer{
-    @include mixins.atTablet {
-        height: 59.5rem;
-    }
-    @include mixins.atDesktop {
-        height: initial;
-    }
-    // height: 59.5rem;
+    // @include mixins.atTablet {
+    //     height: 59.5rem;
+    // }
+    // @include mixins.atDesktop {
+    //     height: initial;
+    // }
+    height: initial;
     // height: 100vh;
     width: 100%;
     margin: 4% 0;
@@ -108,7 +108,13 @@ li{
     justify-content: center;
     // align-items: center;
     &>div{
-        width: 85%;
+        @include mixins.atTablet {
+            width: 95%;
+        }
+        @include mixins.atDesktop {
+            width: 85%;
+        }
+        
         height: 85%;
         // margin: 0 auto;
         // height: 80%;
@@ -224,6 +230,7 @@ li{
             }
         }
         .display-text{
+            margin-top: -.3rem;
             text-align: center;
             font-size: 1.3rem;
             display: flex;
