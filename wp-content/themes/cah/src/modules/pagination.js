@@ -194,7 +194,8 @@ class Pagination {
 
             let dataCount = 0;
             let postOutput;
-            // window.alert(window.innerWidth)
+            
+            //Consider localized reload on page resize
             if(window.innerWidth >= 1200){
                 postOutput = 8;
             }else{
