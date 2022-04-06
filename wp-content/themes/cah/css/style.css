@@ -358,11 +358,16 @@ li {
   position: absolute;
   text-align: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 1%;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+@media (min-width: 1200px) {
+  #openingContainer #welcomeContainer {
+    margin-top: 2%;
+  }
 }
 #openingContainer #welcomeContainer img {
   height: 6rem;

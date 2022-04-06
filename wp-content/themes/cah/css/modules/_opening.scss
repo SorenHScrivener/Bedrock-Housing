@@ -127,7 +127,10 @@
         position: absolute;
         text-align: center;
         align-items: center;
-        margin-top: 2%;
+        margin-top: 1%;
+        @include mixins.atDesktop{
+            margin-top: 2%;
+        }
         display: flex;
         justify-content: center;
         width: 100%;
