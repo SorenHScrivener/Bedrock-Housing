@@ -194,7 +194,7 @@ class Pagination {
 
             let dataCount = 0;
             let postOutput;
-            
+            window.alert('on tablet!')
             //Consider localized reload on page resize
             if(window.innerWidth >= 1200){
                 postOutput = 8;
