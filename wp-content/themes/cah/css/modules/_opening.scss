@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     h1{
-        font-size: 5.8rem;
+        font-size: 5.2rem;
         @include mixins.atDesktop{
             font-size: 6.5rem;
         }
