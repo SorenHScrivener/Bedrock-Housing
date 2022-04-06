@@ -278,9 +278,8 @@ li {
   }
 }
 #openingContainer #welcomeContainer div {
-  padding: 5%;
   text-shadow: 1px 1px black;
-  width: 90%;
+  width: 80%;
 }
 @media (min-width: 1200px) {
   #openingContainer #welcomeContainer div {
@@ -358,10 +357,12 @@ li {
 #openingContainer #welcomeContainer {
   position: absolute;
   text-align: center;
-  margin-top: 8%;
+  align-items: center;
+  margin-top: 2%;
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 #openingContainer #welcomeContainer img {
   height: 6rem;
