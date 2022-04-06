@@ -24,7 +24,10 @@
             // background-color: rgba(36, 36, 36, 0.5);
             padding: 5%;
             text-shadow: 1px 1px black;
-            width: 70%;
+            width: 90%;
+            @include atDesktop{
+                width: 70%;
+            }
         }
     }
     header{
