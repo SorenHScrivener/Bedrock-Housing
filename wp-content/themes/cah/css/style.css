@@ -485,8 +485,14 @@ li {
   color: white;
 }
 #contactContainer .contentBox {
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+  width: 50%;
   display: flex;
   padding-bottom: 1rem;
+}
+#contactContainer .contentBox generalInquiry {
+  margin-right: 3rem;
 }
 #contactContainer .contentBox img {
   filter: saturate(120%);
