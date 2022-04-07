@@ -130,19 +130,19 @@
     color: white;
     .contentBox{
         column-gap: 3rem;
-        width: 50%;
-        // width: 55%;
-        // @include mixins.atDesktop{
-        //     width: 50%;
-        // }
+        // width: 50%;
+        width: 75%;
+        @include mixins.atDesktop{
+            width: 50%;
+        }
         display: flex;
         padding-bottom: 1rem;
         // > :first-child{
         //     border-right: 3px solid rgba(199, 195, 195, .4);
         // }
-        generalInquiry{
-            margin-right: 3rem;
-        }
+        // #generalInquiry{
+        //     margin-right: 3rem;
+        // }
         img{
             filter: saturate(120%);
             width: 45%;

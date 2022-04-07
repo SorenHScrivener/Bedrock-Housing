@@ -487,12 +487,14 @@ li {
 #contactContainer .contentBox {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
-  width: 50%;
+  width: 75%;
   display: flex;
   padding-bottom: 1rem;
 }
-#contactContainer .contentBox generalInquiry {
-  margin-right: 3rem;
+@media (min-width: 1200px) {
+  #contactContainer .contentBox {
+    width: 50%;
+  }
 }
 #contactContainer .contentBox img {
   filter: saturate(120%);
