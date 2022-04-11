@@ -357,7 +357,7 @@ class Pagination {
                 <div class="overall-squares">
                     <div class="displaySquares">
                         <div class="interaction-prompt">
-                            <p class="interaction-prompt-text"><span class="click-prompt">click here</span><span class="hover-prompt">hover here</span></p>
+                            <p class="interaction-prompt-text"><span class="click-prompt">Touch</span><span class="hover-prompt">Hover</span></p>
                         </div>
                         <img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.image : item.projectedImage}" alt="${item.title}">
                         <div class="displaySquares-pageLinks">
