@@ -196,11 +196,11 @@ li{
             align-items: center;
             &-pageLinks{
                 position: absolute;
-                display: flex;
+                display: none;
                 flex-direction: column;
                 width: 100%;
                 text-align: center;
-                opacity: 0;
+                // opacity: 0;
                 *{
                     color: rgb(238, 231, 210);
                     cursor: pointer;
@@ -225,7 +225,7 @@ li{
                 }
             }
             .displaySquares-pageLinks__visible{
-                opacity: 1;
+                display: flex;
             }
             div{
                 p, a{

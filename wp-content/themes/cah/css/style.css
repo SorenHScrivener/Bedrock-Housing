@@ -177,11 +177,10 @@ li {
 }
 .contentBox.properties > div .displaySquares-pageLinks, .contentBox.members > div .displaySquares-pageLinks {
   position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 100%;
   text-align: center;
-  opacity: 0;
 }
 .contentBox.properties > div .displaySquares-pageLinks *, .contentBox.members > div .displaySquares-pageLinks * {
   color: rgb(238, 231, 210);
@@ -210,7 +209,7 @@ li {
   font-size: 1.4rem;
 }
 .contentBox.properties > div .displaySquares .displaySquares-pageLinks__visible, .contentBox.members > div .displaySquares .displaySquares-pageLinks__visible {
-  opacity: 1;
+  display: flex;
 }
 .contentBox.properties > div .displaySquares div p, .contentBox.properties > div .displaySquares div a, .contentBox.members > div .displaySquares div p, .contentBox.members > div .displaySquares div a {
   margin: 2%;
