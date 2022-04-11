@@ -562,7 +562,7 @@ li {
 }
 #contactContainer .contentBox form textarea {
   width: 100%;
-  height: 15rem;
+  height: 18rem;
 }
 @media (min-width: 1200px) {
   #contactContainer .contentBox form textarea {
