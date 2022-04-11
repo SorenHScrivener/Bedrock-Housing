@@ -96,7 +96,6 @@ li {
   justify-content: center;
 }
 .contentContainer > div {
-  height: 85%;
   display: flex;
   justify-content: center;
   padding-top: 5.5rem;
@@ -408,9 +407,12 @@ li {
   filter: brightness(27%);
 }
 
+#allNewsContainer {
+  height: 52rem;
+}
+
 #allNewsContainer, #contactContainer {
   background-color: rgb(31, 27, 21);
-  height: 59.5rem;
   color: white;
 }
 #allNewsContainer > div .titleBox, #contactContainer > div .titleBox {
@@ -501,7 +503,7 @@ li {
 }
 @media (min-width: 1200px) {
   #contactContainer .contentBox {
-    width: 50%;
+    width: 70%;
   }
 }
 #contactContainer .contentBox img {
