@@ -407,8 +407,19 @@ li {
   filter: brightness(27%);
 }
 
-#allNewsContainer {
-  height: 52rem;
+@media (min-width: 1200px) {
+  #allNewsContainer {
+    height: 52rem;
+  }
+}
+
+#contactContainer {
+  height: 58.5rem;
+}
+@media (min-width: 1200px) {
+  #contactContainer {
+    height: 52rem;
+  }
 }
 
 #allNewsContainer, #contactContainer {
