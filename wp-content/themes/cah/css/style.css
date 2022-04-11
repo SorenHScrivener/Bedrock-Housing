@@ -407,6 +407,9 @@ li {
   filter: brightness(27%);
 }
 
+#allNewsContainer {
+  height: 55.5rem;
+}
 @media (min-width: 1200px) {
   #allNewsContainer {
     height: 52rem;

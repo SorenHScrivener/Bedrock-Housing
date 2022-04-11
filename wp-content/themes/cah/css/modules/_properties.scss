@@ -32,6 +32,7 @@
 }
 
 #allNewsContainer{
+    height: 55.5rem;
     @include mixins.atDesktop{
         height: 52rem;
     }
