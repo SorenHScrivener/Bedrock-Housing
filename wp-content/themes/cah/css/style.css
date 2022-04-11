@@ -187,7 +187,7 @@ li {
 .contentBox.properties > div .displaySquares-pageLinks *, .contentBox.members > div .displaySquares-pageLinks * {
   color: rgb(238, 231, 210);
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-top: 0.7rem;
 }
 @media (min-width: 1200px) {
@@ -200,7 +200,7 @@ li {
 }
 @media (min-width: 1200px) {
   .contentBox.properties > div .displaySquares-pageLinks .fa-search-plus, .contentBox.members > div .displaySquares-pageLinks .fa-search-plus {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 .contentBox.properties > div .displaySquares-pageLinks *:hover, .contentBox.members > div .displaySquares-pageLinks *:hover {
@@ -549,7 +549,12 @@ li {
 }
 #contactContainer .contentBox form textarea {
   width: 100%;
-  height: 20rem;
+  height: 15rem;
+}
+@media (min-width: 1200px) {
+  #contactContainer .contentBox form textarea {
+    height: 20rem;
+  }
 }
 #contactContainer .contentBox form button {
   grid-area: submit;

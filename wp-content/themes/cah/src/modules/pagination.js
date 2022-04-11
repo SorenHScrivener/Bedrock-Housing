@@ -77,6 +77,8 @@ class Pagination {
 
     
     contentInterface(){
+        //I think that I need to delay clickability for touch, otherwise can click when bringing up
+        //Also, perhaps I need to add a symbol to indicate that you can bring up options 
         
         this.displaySquares = document.querySelectorAll('.displaySquares');
   
