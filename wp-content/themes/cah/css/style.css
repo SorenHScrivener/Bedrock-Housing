@@ -617,7 +617,7 @@ li {
   top: 8vh;
   left: 3vw;
   display: none;
-  justify-content: space-around;
+  row-gap: 1rem;
   align-items: center;
   flex-direction: column;
   padding-top: 1rem;
