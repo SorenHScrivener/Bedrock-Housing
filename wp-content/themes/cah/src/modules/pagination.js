@@ -93,7 +93,11 @@ class Pagination {
 
               link.classList.add('displaySquares-pageLinks__visible');
               image.classList.add('pageLinks__visible');
-          })
+              link.style.pointerEvents = 'none';
+              setTimeout(()=>{
+                link.style.pointerEvents = '';
+              }, 300)          
+            })
           displaySquare.addEventListener("mouseleave", e => {
 
               link.classList.remove('displaySquares-pageLinks__visible');
