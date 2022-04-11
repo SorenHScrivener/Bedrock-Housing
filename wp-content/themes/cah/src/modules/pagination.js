@@ -16,6 +16,7 @@ class Pagination {
         // this.overallContainer = document.querySelector('#overallContainer');
         // For now, this will be how I prevent errors on other pages 
         this.frontTest = document.querySelector('.contentContainer_paginated') 
+        this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
         // Can I setup to load in and Paginate depending on identity, so as to make adaptable? Yes!!!
 
         //Will target a shared, specific class using querySelectorAll and use a loop
@@ -95,10 +96,15 @@ class Pagination {
               link.classList.add('displaySquares-pageLinks__visible');
               image.classList.add('pageLinks__visible');
               link.style.pointerEvents = 'none';
-              magnifyButton.style.pointerEvents = 'none';
+              if(magnifyButton){
+                magnifyButton.style.pointerEvents = 'none';
+              }
+
               setTimeout(()=>{
                 link.style.pointerEvents = '';
-                magnifyButton.style.pointerEvents = 'none';
+                if(magnifyButton){
+                    magnifyButton.style.pointerEvents = '';
+                }
               }, 300)          
             })
           displaySquare.addEventListener("mouseleave", e => {
@@ -112,6 +118,7 @@ class Pagination {
           b.onclick = e=>{
 
             let image = e.target.closest('.displaySquares-pageLinks').previousElementSibling.cloneNode();
+            console.log(image)
             //Perhaps carry over associated news, as well
 
             //this is not necessary as one directly below does it by accessing the parent and query selecting, but keeping this as could be useful to have on hand
@@ -352,14 +359,14 @@ class Pagination {
     insertContent(destination, type, pageName){
             //Change desitination set-up to accomadate loader
             console.log(pageName)
+            //replace word interaction prompts, with custom, drawn symbols
             destination.innerHTML = `
                 ${type.map(item => `
                 <div class="overall-squares">
                     <div class="displaySquares">
-                        <div class="interaction-prompt">
-                            <p class="interaction-prompt-text"><span class="click-prompt">Touch</span><span class="hover-prompt">Hover</span></p>
-                        </div>
-                        <img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.image : item.projectedImage}" alt="${item.title}">
+                        <p class="interaction-prompt"><span class="click-prompt">Touch</span><span class="hover-prompt">Hover</span></p>
+                        ${this.vw >= 1200 ? `<img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.image : item.projectedImage}" alt="${item.title}">`: ''}
+                        ${this.vw < 1200 ? `<img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.imageMedium : item.projectedImageMedium}" alt="${item.title}">`: ''}
                         <div class="displaySquares-pageLinks">
                             <a class="more-info-link" href="${item.permalink}">Find Out More</a>
                             <a href="${siteData.root_url}/all-news/#${item.id}-related-${item.postTypePlural}">Associated News?</a>

@@ -37,6 +37,8 @@ function cahFrontPaginationResults($data){
                     'permalink' => get_the_permalink(),
                     'projectedImage' => get_field('projected_info')['final_product']['sizes']['imagePortraitLarge'],
                     'image' => get_field('finished_info')['final_product']['sizes']['imagePortraitLarge'],
+                    'projectedImageMedium' => get_field('projected_info')['final_product']['sizes']['imagePortrait'],
+                    'imageMedium' => get_field('finished_info')['final_product']['sizes']['imagePortrait'],
                     'isCompleted' => get_field('is_the_building_completed'),
                     'id' => get_the_id()
                 ));
