@@ -194,6 +194,28 @@ li{
             text-align: center;
             display: flex;
             align-items: center;
+            justify-content: center;
+            .interaction-prompt{
+                // width: 80%;
+                text-align: center;
+                position: absolute;
+                p{
+                    color: rgb(238, 231, 210);
+                    background-color: rgba(20, 20, 20, .7);
+                    font-size: 1.5rem;
+                }
+                .click-prompt{
+                    @include mixins.atDesktop{
+                        display: none;
+                    }
+                }
+                .hover-prompt{
+                    display: none;
+                    @include mixins.atDesktop{
+                        display: block;
+                    }
+                }
+            }
             &-pageLinks{
                 position: absolute;
                 display: none;

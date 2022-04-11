@@ -88,14 +88,17 @@ class Pagination {
         this.displaySquares.forEach(displaySquare => {
           let link = displaySquare.querySelector('.displaySquares-pageLinks');
           let image = displaySquare.querySelector('.displayImages');
+          let magnifyButton = displaySquare.querySelector('.fa-search-plus')
           
           displaySquare.addEventListener("mouseenter", e => {
 
               link.classList.add('displaySquares-pageLinks__visible');
               image.classList.add('pageLinks__visible');
               link.style.pointerEvents = 'none';
+              magnifyButton.style.pointerEvents = 'none';
               setTimeout(()=>{
                 link.style.pointerEvents = '';
+                magnifyButton.style.pointerEvents = 'none';
               }, 300)          
             })
           displaySquare.addEventListener("mouseleave", e => {
@@ -353,6 +356,9 @@ class Pagination {
                 ${type.map(item => `
                 <div class="overall-squares">
                     <div class="displaySquares">
+                        <div class="interaction-prompt">
+                            <p class="interaction-prompt-text"><span class="click-prompt">click here</span><span class="hover-prompt">hover here</span></p>
+                        </div>
                         <img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.image : item.projectedImage}" alt="${item.title}">
                         <div class="displaySquares-pageLinks">
                             <a class="more-info-link" href="${item.permalink}">Find Out More</a>
