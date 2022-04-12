@@ -689,7 +689,12 @@ li {
   text-align: center;
 }
 #singleContainer #mainImageAndStats img {
-  height: 42%;
+  height: 35%;
+}
+@media (min-width: 1200px) {
+  #singleContainer #mainImageAndStats img {
+    height: 42%;
+  }
 }
 #singleContainer #mainImageAndStats ul {
   padding-left: 20%;
@@ -705,10 +710,15 @@ li {
   filter: brightness(115%);
 }
 #singleContainer #singleInfo {
-  width: 30vw;
+  width: 40vw;
   display: grid;
   grid-template-rows: 7% 1fr;
   height: 100%;
+}
+@media (min-width: 1200px) {
+  #singleContainer #singleInfo {
+    width: 30vw;
+  }
 }
 #singleContainer #singleInfo p {
   margin-top: 1.2rem;
