@@ -4,7 +4,7 @@
 #singleContainer{
     // color: rgb(198, 198, 233);
     // height: 54rem;
-    height: 80%;
+    height: 75%;
     min-width: 96%;
     @include mixins.atDesktop{
         min-width: 60%; 
@@ -38,7 +38,10 @@
         }
         ul{
             padding-left: 20%;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            @include mixins.atDesktop{
+                font-size: 1.5rem;
+            }
             text-align: left;
             margin-top: 1rem;
             // display: flex;
