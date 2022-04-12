@@ -119,26 +119,24 @@ function pageBanner($args = NULL){
                   
                     <?php if(!get_field('is_the_building_completed')){?>
                         <li>Set to be completed between: <?php echo $dateRange['range_start'] . ' - ' . $dateRange['range_end']?></li>
-                        <li>Projected Minimum Occupancy:
+                        <li>Projected Minimum Occupancy(<?php echo $projectedComposition['studio_amount'] + $projectedComposition['1br_amount'] + 
+                                $projectedComposition['2br_amount']*2 + $projectedComposition['3br_amount']*3?>)
                             <ul>
                                 <li>Studios: <?php echo $projectedComposition['studio_amount'] ?></li>
                                 <li>1BR: <?php echo $projectedComposition['1br_amount'] ?></li>
                                 <li>2BR: <?php echo $projectedComposition['2br_amount'] ?></li>
                                 <li>3BR: <?php echo $projectedComposition['3br_amount'] ?></li>
-                                <li>Total: <?php echo $projectedComposition['studio_amount'] + $projectedComposition['1br_amount'] + 
-                                $projectedComposition['2br_amount']*2 + $projectedComposition['3br_amount']*3?></li> 
                             </ul>
                         </li>   
                     <?php } else{?>
                         <li><?php echo $finished['date_of_completion']; ?></li>
-                        <li>Projected Minimum Occupancy:
+                        <li>Projected Minimum Occupancy(Total: <?php echo $finishedComposition['studio_amount'] + $finishedComposition['1br_amount'] + 
+                                $finishedComposition['2br_amount']*2 + $finishedComposition['3br_amount']*3?>)
                             <ul>
                                 <li>Studios: <?php echo $finishedComposition['studio_amount'] ?></li>
                                 <li>1BR: <?php echo $finishedComposition['1br_amount'] ?></li>
                                 <li>2BR: <?php echo $finishedComposition['2br_amount'] ?></li>
                                 <li>3BR: <?php echo $finishedComposition['3br_amount'] ?></li>
-                                <li>Total: <?php echo $finishedComposition['studio_amount'] + $finishedComposition['1br_amount'] + 
-                                $finishedComposition['2br_amount']*2 + $finishedComposition['3br_amount']*3?></li>
                             </ul>
                         </li> 
                     <?php } ?>

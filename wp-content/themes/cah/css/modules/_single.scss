@@ -29,9 +29,14 @@
         }
         ul{
             padding-left: 20%;
-            font-size: 1.65rem;
+            font-size: 1.5rem;
             text-align: left;
             margin-top: 1rem;
+            // display: flex;
+            // flex-wrap: wrap;
+            // column-gap: 2rem;
+            // display: grid;
+            // grid-template-columns: repeat(2, 50%);
             li{
                 margin-top: .6rem;
                 list-style-type: square;

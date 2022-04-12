@@ -620,10 +620,10 @@ li {
   row-gap: 1rem;
   align-items: center;
   flex-direction: column;
-  padding-top: 1rem;
+  padding-top: 2.5rem;
 }
 #pop-up-display-box img {
-  width: 27rem;
+  width: 26rem;
 }
 #pop-up-display-box a, #pop-up-display-box button {
   font-size: 2rem;
@@ -688,7 +688,7 @@ li {
 }
 #singleContainer #mainImageAndStats ul {
   padding-left: 20%;
-  font-size: 1.65rem;
+  font-size: 1.5rem;
   text-align: left;
   margin-top: 1rem;
 }
