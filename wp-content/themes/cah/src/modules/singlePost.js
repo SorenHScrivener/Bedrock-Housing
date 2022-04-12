@@ -12,6 +12,7 @@ class RelatedNews{
         this.contentShown;
         this.contentPageOptions;
         this.contentLoaded = false;
+        this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
         this.events();
     }
 
@@ -62,7 +63,7 @@ class RelatedNews{
         this.newsReciever.innerHTML = `
             <h4>${this.contentShown[this.currentPage].title}</h4>
             <p>${this.contentShown[this.currentPage].caption ? `${this.contentShown[this.currentPage].caption} -` : ''} ${this.contentShown[this.currentPage].date}</p>
-            <div class="media-card"><img data-post="${this.contentShown[this.currentPage].postTypePlural}" data-id="${this.contentShown[this.currentPage].id}" src="${this.contentShown[this.currentPage].gallery[0].image}"></div>
+            <div class="media-card"><img data-post="${this.contentShown[this.currentPage].postTypePlural}" data-id="${this.contentShown[this.currentPage].id}" src="${this.vw >= 1200 ? `${this.contentShown[this.currentPage].gallery[0].image}` : `${this.contentShown[this.currentPage].gallery[0].selectImage}`}"></div>
             <p>${this.contentShown[this.currentPage].fullDescription}</p>
         `;
   
