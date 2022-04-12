@@ -688,12 +688,11 @@ li {
 }
 #singleContainer #mainImageAndStats {
   width: 24vw;
-  height: 33%;
   text-align: center;
 }
 @media (min-width: 1200px) {
   #singleContainer #mainImageAndStats {
-    width: 26vw;
+    width: 25vw;
   }
 }
 #singleContainer #mainImageAndStats img {
