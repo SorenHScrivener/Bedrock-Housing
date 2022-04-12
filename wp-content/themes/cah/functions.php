@@ -77,7 +77,7 @@ function pageBanner($args = NULL){
         <div id="singleContainer">
             
             <div id="updates-col">
-                <h3>Most Recent News(<a class="related-link" href="<?php echo get_home_url(); ?>/all-news/#<?php echo get_the_ID();?>-related-<?php echo strtolower($postType->labels->name); ?>"">See All Related News</a>)</h3>
+                <h3>Most Recent News(<a class="related-link" href="<?php echo get_home_url(); ?>/all-news/#<?php echo get_the_ID();?>-related-<?php echo strtolower($postType->labels->name); ?>"">See All</a>)</h3>
                 <div id="news-reciever"></div>
                 <div id="pagination-holder"></div>
             </div>
@@ -146,7 +146,7 @@ function pageBanner($args = NULL){
             </div>
             
             <div id="singleInfo">
-                <div class="media-card">
+                <div>
                     <button data-id="<?php echo get_the_id(); ?>" data-post="<?php echo strtolower($postType->labels->name); ?>" data-full="<?php echo $imgInputLarge; ?>">View Gallery</button>
                 </div>
  

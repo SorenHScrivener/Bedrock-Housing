@@ -739,6 +739,7 @@ li {
 }
 @media (min-width: 1200px) {
   #singleContainer #singleInfo p {
+    margin-top: 2.5rem;
     font-size: 1.7rem;
   }
 }

@@ -76,6 +76,7 @@
             margin-top: 1.5rem;
             font-size: 1.6rem;
             @include mixins.atDesktop{
+                margin-top: 2.5rem;
                 font-size: 1.7rem;
             }
             height: 99%;
