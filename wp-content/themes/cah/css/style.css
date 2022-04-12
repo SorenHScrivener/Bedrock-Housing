@@ -664,7 +664,7 @@ li {
 #singleContainer {
   height: 75%;
   min-width: 96%;
-  top: 8.3%;
+  top: 10%;
   display: flex;
   flex-wrap: wrap;
   position: absolute;
@@ -677,6 +677,7 @@ li {
   #singleContainer {
     min-width: 60%;
     height: 87%;
+    top: 8.3%;
   }
 }
 #singleContainer h4 {
@@ -690,7 +691,7 @@ li {
   text-align: center;
 }
 #singleContainer #mainImageAndStats img {
-  height: 35%;
+  height: 33%;
 }
 @media (min-width: 1200px) {
   #singleContainer #mainImageAndStats img {
