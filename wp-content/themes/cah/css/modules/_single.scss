@@ -9,8 +9,8 @@
     top: 9.5%;
     @include mixins.atDesktop{
         min-width: 60%; 
-        height: 87%;
-        top: 8.3%;
+        height: 86%;
+        // top: 9.5%;
     }
     // left: 3rem;
     
@@ -30,6 +30,7 @@
         color: rgb(241, 218, 189);
     }
     #mainImageAndStats{
+        height: 100%;
         width: 24vw;
         @include mixins.atDesktop{
             width: 25vw;

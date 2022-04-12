@@ -50,7 +50,7 @@ function cahFrontPaginationResults($data){
                     'postTypePlural' => strtolower(get_post_type_object(get_post_type())->labels->name),
                     'title' => get_the_title(),
                     'permalink' => get_the_permalink(),
-                    'image' => get_field('profile_image')['sizes']['imagePortrait'],
+                    'imageMedium' => get_field('profile_image')['sizes']['imagePortrait'],
                     'positionOrRole' => get_field('position_or_role'),
                     'id' => get_the_id()
                 ));

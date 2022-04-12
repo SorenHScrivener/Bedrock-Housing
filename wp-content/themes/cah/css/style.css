@@ -676,8 +676,7 @@ li {
 @media (min-width: 1200px) {
   #singleContainer {
     min-width: 60%;
-    height: 87%;
-    top: 8.3%;
+    height: 86%;
   }
 }
 #singleContainer h4 {
@@ -687,6 +686,7 @@ li {
   color: rgb(241, 218, 189);
 }
 #singleContainer #mainImageAndStats {
+  height: 100%;
   width: 24vw;
   text-align: center;
 }
