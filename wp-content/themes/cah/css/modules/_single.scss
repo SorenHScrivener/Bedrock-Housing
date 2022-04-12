@@ -9,7 +9,7 @@
     @include mixins.atDesktop{
         min-width: 60%; 
     }
-
+    // left: 3rem;
     top: 8.3%;
     // margin-left: 12.5%;
     display: flex;
@@ -27,7 +27,7 @@
         color: rgb(241, 218, 189);
     }
     #mainImageAndStats{
-        width: 21vw;
+        width: 24vw;
         text-align: center;
         img{
             height: 35%;
@@ -57,7 +57,7 @@
     #singleInfo{
         width: 40vw;
         @include mixins.atDesktop{
-            width: 30vw;
+            width: 35vw;
         }
         // width: 70%;
         display: grid;

@@ -685,7 +685,7 @@ li {
   color: rgb(241, 218, 189);
 }
 #singleContainer #mainImageAndStats {
-  width: 21vw;
+  width: 24vw;
   text-align: center;
 }
 #singleContainer #mainImageAndStats img {
@@ -717,7 +717,7 @@ li {
 }
 @media (min-width: 1200px) {
   #singleContainer #singleInfo {
-    width: 30vw;
+    width: 35vw;
   }
 }
 #singleContainer #singleInfo p {
