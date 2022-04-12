@@ -748,7 +748,8 @@ li {
 }
 #singleContainer #singleInfo button {
   color: antiquewhite;
-  font-size: 2.3rem;
+  font-size: 2rem;
+  align-self: start;
 }
 #singleContainer #vidAndImgCol {
   height: 100%;
