@@ -76,7 +76,6 @@
             margin-top: 1.5rem;
             font-size: 1.6rem;
             @include mixins.atDesktop{
-                margin-top: 2.5rem;
                 font-size: 1.7rem;
             }
             height: 99%;
@@ -86,12 +85,9 @@
             // height: 100%;
             padding: 0 1rem;
         }
-        #mediaContainer{
-            height: auto;
-            iframe{
-                width: 200px;
-                height: 200px;
-            }
+        button{
+            color: antiquewhite;
+            font-size: 2.3rem;
         }
     }
     #vidAndImgCol{

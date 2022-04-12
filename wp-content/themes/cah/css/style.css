@@ -739,7 +739,6 @@ li {
 }
 @media (min-width: 1200px) {
   #singleContainer #singleInfo p {
-    margin-top: 2.5rem;
     font-size: 1.7rem;
   }
 }
@@ -747,12 +746,9 @@ li {
   overflow: auto;
   padding: 0 1rem;
 }
-#singleContainer #singleInfo #mediaContainer {
-  height: auto;
-}
-#singleContainer #singleInfo #mediaContainer iframe {
-  width: 200px;
-  height: 200px;
+#singleContainer #singleInfo button {
+  color: antiquewhite;
+  font-size: 2.3rem;
 }
 #singleContainer #vidAndImgCol {
   height: 100%;
