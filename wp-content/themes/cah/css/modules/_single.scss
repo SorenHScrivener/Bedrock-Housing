@@ -101,6 +101,9 @@
 
     #updates-col{
         width: 26vw;
+        @include mixins.atDesktop{
+            width: 28vw;
+        }
         position: relative;
         height: 100%;
         overflow: auto;
@@ -122,6 +125,9 @@
             p{
                 font-size: 1.4rem;
                 padding-right: 1rem;
+            }
+            img{
+                width: 95%;
             }
         }
         #pagination-holder{

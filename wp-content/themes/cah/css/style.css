@@ -761,6 +761,11 @@ li {
   display: grid;
   grid-template-rows: 10% 1fr 4%;
 }
+@media (min-width: 1200px) {
+  #singleContainer #updates-col {
+    width: 28vw;
+  }
+}
 #singleContainer #updates-col h3 {
   font-size: 2rem;
 }
@@ -777,6 +782,9 @@ li {
 #singleContainer #updates-col #news-reciever p {
   font-size: 1.4rem;
   padding-right: 1rem;
+}
+#singleContainer #updates-col #news-reciever img {
+  width: 95%;
 }
 #singleContainer #updates-col #pagination-holder {
   position: absolute;
