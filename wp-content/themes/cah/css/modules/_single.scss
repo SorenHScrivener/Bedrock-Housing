@@ -31,6 +31,10 @@
     }
     #mainImageAndStats{
         width: 24vw;
+        height: 33%;
+        @include mixins.atDesktop{
+            width: 26vw;
+        }
         text-align: center;
         img{
             height: 33%;
