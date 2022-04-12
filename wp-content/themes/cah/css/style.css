@@ -662,9 +662,9 @@ li {
 }
 
 #singleContainer {
-  height: 75%;
+  height: 76%;
   min-width: 96%;
-  top: 10%;
+  top: 9.5%;
   display: flex;
   flex-wrap: wrap;
   position: absolute;
