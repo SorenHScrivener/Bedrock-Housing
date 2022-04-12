@@ -373,6 +373,7 @@ li {
   text-shadow: 1px 1px black;
 }
 #openingContainer #pageImage {
+  display: none;
   position: absolute;
   top: 0;
   height: 100%;
