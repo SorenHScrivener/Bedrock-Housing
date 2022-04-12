@@ -663,7 +663,7 @@ li {
 
 #singleContainer {
   height: 87%;
-  min-width: 60%;
+  min-width: 96%;
   top: 8.3%;
   display: flex;
   flex-wrap: wrap;
@@ -672,6 +672,11 @@ li {
   padding: 1.5rem 1rem;
   padding-bottom: 1rem;
   background-color: rgba(37, 35, 34, 0.9);
+}
+@media (min-width: 1200px) {
+  #singleContainer {
+    min-width: 60%;
+  }
 }
 #singleContainer h4 {
   font-size: 1.6rem;
