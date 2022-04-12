@@ -721,9 +721,14 @@ li {
   }
 }
 #singleContainer #singleInfo p {
-  margin-top: 1.2rem;
-  font-size: 1.7rem;
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
   height: 99%;
+}
+@media (min-width: 1200px) {
+  #singleContainer #singleInfo p {
+    font-size: 1.7rem;
+  }
 }
 #singleContainer #singleInfo div {
   overflow: auto;

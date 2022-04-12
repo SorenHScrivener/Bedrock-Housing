@@ -64,8 +64,11 @@
         grid-template-rows: 7% 1fr;
         height: 100%;
         p{
-            margin-top: 1.2rem;
-            font-size: 1.7rem;
+            margin-top: 1.5rem;
+            font-size: 1.6rem;
+            @include mixins.atDesktop{
+                font-size: 1.7rem;
+            }
             height: 99%;
         }
         div{
