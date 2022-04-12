@@ -662,7 +662,7 @@ li {
 }
 
 #singleContainer {
-  height: 87%;
+  height: 80%;
   min-width: 96%;
   top: 8.3%;
   display: flex;
@@ -676,6 +676,7 @@ li {
 @media (min-width: 1200px) {
   #singleContainer {
     min-width: 60%;
+    height: 87%;
   }
 }
 #singleContainer h4 {

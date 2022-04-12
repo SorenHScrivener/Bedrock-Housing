@@ -3,11 +3,12 @@
 @use "../base/mixins";
 #singleContainer{
     // color: rgb(198, 198, 233);
-    height: 87%;
     // height: 54rem;
+    height: 80%;
     min-width: 96%;
     @include mixins.atDesktop{
         min-width: 60%; 
+        height: 87%;
     }
     // left: 3rem;
     top: 8.3%;
