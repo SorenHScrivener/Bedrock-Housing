@@ -113,12 +113,14 @@
         }
     }
     #pageImage{
+        display: flex;
+        justify-content: center;
         position: absolute;
         top: 0;
         height: 100%;
         width: 100%;
         img{
-            height: 100%;
+            // height: 100%;
             width: 100%;
             filter: blur(.6rem) grayscale(50%);
         }

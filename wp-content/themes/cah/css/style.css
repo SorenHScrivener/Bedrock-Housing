@@ -373,13 +373,14 @@ li {
   text-shadow: 1px 1px black;
 }
 #openingContainer #pageImage {
+  display: flex;
+  justify-content: center;
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
 }
 #openingContainer #pageImage img {
-  height: 100%;
   width: 100%;
   filter: blur(0.6rem) grayscale(50%);
 }
