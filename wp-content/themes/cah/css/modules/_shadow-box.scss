@@ -18,9 +18,9 @@
     #current-media{
         // margin-top: 1rem;
         // margin-right: 14rem;
-        margin-left: 4rem;
+        margin-left: 6rem;
         position: absolute;
-        top: 3rem;
+        top: 6rem;
         // display: flex;
         // justify-content: center;
         // align-items: center;
@@ -154,7 +154,7 @@
         color: white;
         left: 1.5rem;
         top: 1.5rem;
-        font-size: 3rem;
+        font-size: 3.5rem;
         @include mixins.atDesktop{
             left: 3.5rem;
             top: 3.5rem;

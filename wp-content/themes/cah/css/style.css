@@ -1317,9 +1317,9 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   z-index: 1;
 }
 #media-reciever #current-media {
-  margin-left: 4rem;
+  margin-left: 6rem;
   position: absolute;
-  top: 3rem;
+  top: 6rem;
   width: 40rem;
   height: 23.5rem;
 }
@@ -1439,7 +1439,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   color: white;
   left: 1.5rem;
   top: 1.5rem;
-  font-size: 3rem;
+  font-size: 3.5rem;
   cursor: pointer;
 }
 @media (min-width: 1200px) {
