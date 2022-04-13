@@ -3,7 +3,7 @@
 //Also look for reaction to being hovered over. And of course they will be clicked to bring up video
 //I think don't play vids autmatically, as in this case it makes less sense
 //emulate youtube's tyle of growing oon shriking on desktops, like how the vid column seems to stay the same size, while the cureent vid grows
-
+@use "../base/mixins";
 #media-reciever{
     display: none;
     // justify-content: center;
@@ -26,8 +26,13 @@
         // align-items: center;
 
         //16:9 aspect ratio
-        width: 72rem;
-        height: 40.5rem;
+        width: 32rem;
+        height: 18rem;
+        @include mixins.atDesktop{
+            width: 72rem;
+            height: 40.5rem;
+        }
+
         iframe, img{
             width: 100%;
             height: 100%;
