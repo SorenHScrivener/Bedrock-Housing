@@ -1,6 +1,11 @@
+@use "../base/mixins";
 #all-news-container{
-    height: 85vh; 
-    top: 9%; 
+    height: 75%; 
+    top: 8%; 
+    @include mixins.atDesktop{
+        height: 85%; 
+        top: 9%; 
+    }
     width: 95%; 
     left: 2.5%; 
     // border: 2px solid rgb(50, 50, 50); 

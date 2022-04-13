@@ -1108,14 +1108,20 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   }
 }
 #all-news-container {
-  height: 85vh;
-  top: 9%;
+  height: 75%;
+  top: 8%;
   width: 95%;
   left: 2.5%;
   background-color: rgba(37, 35, 34, 0.75);
   position: absolute;
   display: flex;
   color: aliceblue;
+}
+@media (min-width: 1200px) {
+  #all-news-container {
+    height: 85%;
+    top: 9%;
+  }
 }
 #all-news-container button {
   color: antiquewhite;
