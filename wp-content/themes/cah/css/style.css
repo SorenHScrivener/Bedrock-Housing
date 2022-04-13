@@ -1317,7 +1317,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   z-index: 1;
 }
 #media-reciever #current-media {
-  margin-left: 8rem;
+  margin-left: 4rem;
   position: absolute;
   top: 3rem;
   width: 48rem;
@@ -1325,6 +1325,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 }
 @media (min-width: 1200px) {
   #media-reciever #current-media {
+    margin-left: 8rem;
     width: 72rem;
     height: 40.5rem;
   }
@@ -1389,6 +1390,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   pointer-events: none;
 }
 #media-reciever #media-selection-interface #media-column {
+  width: 80%;
   max-width: 380px;
   display: flex;
   flex-direction: column;
@@ -1435,10 +1437,17 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 #media-reciever #media-close {
   position: absolute;
   color: white;
-  left: 3.5rem;
-  top: 3.5rem;
-  font-size: 3.5rem;
+  left: 1.5rem;
+  top: 1.5rem;
+  font-size: 2.5rem;
   cursor: pointer;
+}
+@media (min-width: 1200px) {
+  #media-reciever #media-close {
+    left: 3.5rem;
+    top: 3.5rem;
+    font-size: 3.5rem;
+  }
 }
 
 .media-card:hover img, .property-media-card:hover img {
