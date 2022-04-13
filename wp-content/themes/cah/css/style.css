@@ -322,7 +322,7 @@ li {
   background-color: rgba(70, 62, 55, 0.85);
   box-shadow: 0.2rem 0.2rem 1rem 0.4rem inset rgba(49, 43, 39, 0.75);
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   position: fixed;
   top: 0;
   z-index: 9999;
@@ -340,7 +340,7 @@ li {
   display: inline;
 }
 #openingContainer header #logo-symbol, #openingContainer header #logo-text {
-  height: 4rem;
+  height: 3rem;
 }
 #openingContainer header #logo-symbol {
   margin-top: 0.3rem;
@@ -745,11 +745,6 @@ li {
 #singleContainer #singleInfo div {
   overflow: auto;
   padding: 0 1rem;
-}
-#singleContainer #singleInfo button {
-  color: antiquewhite;
-  font-size: 2rem;
-  align-self: start;
 }
 #singleContainer #vidAndImgCol {
   height: 100%;
@@ -1322,11 +1317,11 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   z-index: 1;
 }
 #media-reciever #current-media {
-  margin-left: 14rem;
+  margin-left: 8rem;
   position: absolute;
   top: 3rem;
-  height: 45rem;
-  width: 80rem;
+  width: 72rem;
+  height: 40.5rem;
 }
 #media-reciever #current-media iframe, #media-reciever #current-media img {
   width: 100%;

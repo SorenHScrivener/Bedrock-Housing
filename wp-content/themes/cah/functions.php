@@ -146,7 +146,7 @@ function pageBanner($args = NULL){
             </div>
             
             <div id="singleInfo">
-                <div>
+                <div class="media-card">
                     <button data-id="<?php echo get_the_id(); ?>" data-post="<?php echo strtolower($postType->labels->name); ?>" data-full="<?php echo $imgInputLarge; ?>">View Gallery</button>
                 </div>
  

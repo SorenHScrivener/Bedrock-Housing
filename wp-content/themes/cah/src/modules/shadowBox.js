@@ -218,6 +218,10 @@ class ShadowBox {
         }
 
         renderCurrentMedia(item){
+            if(this.newLoad === true){
+                this.galleryPosition = 0;
+            }
+            console.log(this.postField, this.galleryPosition)
 
             this.currentMedia.innerHTML = `       
                 ${item[this.postField][this.galleryPosition].videoSource ? '<div id="play-button-container"><button id="play-button"><div></div></button></div>' : ''}
@@ -258,7 +262,7 @@ class ShadowBox {
             if(this.newLoad === true){
                 this.mediaThumb[0].classList.add('selected');
                 this.currentSelection = document.querySelector('.media-thumb.selected').parentNode.dataset.position;
-                console.log(this.currentSelection)
+                // console.log(this.currentSelection, 'red')
             }
 
             this.mediaThumb.forEach(thumb=>{
@@ -286,7 +290,7 @@ class ShadowBox {
 
             if(document.querySelector('.content-page[data-page="0"]')){
                 this.firstPageButton = document.querySelector('#media-pagination .content-page[data-page="0"]');
-                console.log(this.firstPageButton)
+                console.log(document.querySelector('.content-page[data-page="0"]'))
                 this.firstPageButton.classList.add('selectedPage');
             }
 
