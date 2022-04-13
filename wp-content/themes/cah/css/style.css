@@ -1317,9 +1317,9 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   z-index: 1;
 }
 #media-reciever #current-media {
-  margin-left: 0.5rem;
+  margin-left: 4rem;
   position: absolute;
-  top: 15rem;
+  top: 3rem;
   width: 40rem;
   height: 23.5rem;
 }
