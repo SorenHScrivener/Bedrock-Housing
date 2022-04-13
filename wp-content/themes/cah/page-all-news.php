@@ -27,6 +27,7 @@
             <!-- News loaded in from link will display with change to the title and specific way to dismiss it? -->
         </div>
 
+        <!-- add buttons that change results per page, such as 1, 3, and 5 -->
         <div id="pagination-holder"></div>
     </div>
     <div id="filters-and-links-container">

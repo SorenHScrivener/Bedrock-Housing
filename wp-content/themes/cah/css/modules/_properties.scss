@@ -16,6 +16,9 @@
 }
 
 #propertiesContainer, #membersContainer{
+    @include mixins.atDesktop{
+        height: 52rem;
+    }
     >div{
         .titleBox{
             border: .35rem solid rgb(199, 187, 156);;

@@ -29,9 +29,10 @@
         width: 40rem;
         height: 23.5rem;
         @include mixins.atDesktop{
+            top: 4rem;
             margin-left: 8rem;
-            width: 72rem;
-            height: 40.5rem;
+            width: 64rem;
+            height: 36rem;
         }
 
         iframe, img{
