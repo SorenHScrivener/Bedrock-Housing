@@ -1320,8 +1320,8 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   margin-left: 0.5rem;
   position: absolute;
   top: 15rem;
-  width: 48rem;
-  height: 27rem;
+  width: 40rem;
+  height: 23.5rem;
 }
 @media (min-width: 1200px) {
   #media-reciever #current-media {
@@ -1390,7 +1390,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   pointer-events: none;
 }
 #media-reciever #media-selection-interface #media-column {
-  width: 80%;
+  width: 75%;
   max-width: 380px;
   display: flex;
   flex-direction: column;
