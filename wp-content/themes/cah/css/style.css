@@ -1320,8 +1320,8 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   margin-left: 8rem;
   position: absolute;
   top: 3rem;
-  width: 32rem;
-  height: 18rem;
+  width: 48rem;
+  height: 27rem;
 }
 @media (min-width: 1200px) {
   #media-reciever #current-media {
