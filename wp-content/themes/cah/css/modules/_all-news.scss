@@ -27,6 +27,9 @@
         //     }
         // }
     }
+    #filters-and-links-container.faded-in{
+        display: grid;
+    }
     #filters-and-links-container{
         display: none;
         @include mixins.atDesktop{
@@ -161,6 +164,9 @@
     }
     #selected-news-container{
         width: 66%;
+        @include mixins.atDesktop{
+            width: 100%;
+        }
         display: grid;
         grid-template-rows: 10% 84% 6%;
         border: .2rem solid rgb(180, 174, 164);
