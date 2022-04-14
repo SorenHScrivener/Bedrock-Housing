@@ -163,9 +163,9 @@
         }
     }
     #selected-news-container{
-        width: 66%;
+        width: 100%;
         @include mixins.atDesktop{
-            width: 100%;
+            width: 66%;
         }
         display: grid;
         grid-template-rows: 10% 84% 6%;
