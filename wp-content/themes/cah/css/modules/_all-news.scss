@@ -1,4 +1,5 @@
 @use "../base/mixins";
+
 #all-news-container{
     height: 77%; 
     top: 8%; 
@@ -27,14 +28,17 @@
         // }
     }
     #filters-and-links-container{
-        border: .2rem solid rgba(212, 193, 130, .4);
-        border-left: none;
+        display: none;
+        @include mixins.atDesktop{
+            display: grid;
+            grid-template-areas:  
+                                 "realtimeFiltersAndSorting"
+                                 "searchFilters"
+                                 "resetAll";
+            border: .2rem solid rgba(212, 193, 130, .4);
+            border-left: none;
+        }
         padding-left: 1.5rem;
-        display: grid;
-        grid-template-areas:  
-                             "realtimeFiltersAndSorting"
-                             "searchFilters"
-                             "resetAll";
         #realtime-filters-and-sorting{
             grid-area: realtimeFiltersAndSorting;
             display: grid;
