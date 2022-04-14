@@ -12,27 +12,34 @@
     // border: 2px solid rgb(50, 50, 50); 
     background-color: rgba(37, 35, 34, 0.75);
     position: absolute;
-    display: flex;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 80% 20%;
+        @include mixins.atDesktop{
+            grid-template-columns: 66% 34%;
+        }
     color: aliceblue;
+    #filter-sort-toggle{
+        display: block;
+        @include mixins.atDesktop{
+            display: none;
+        }
+    }
     button{
         color: antiquewhite;
     }
     #media-container, #filters-and-links-container, #selected-news-container{        
-        // top: 8%;
         position: relative;
-        height: 100%;
-        // #selected-news-reciever{
-        //     #relationship-link, #single-link{
-        //         color: antiquewhite;
-        //     }
-        // }
+        // height: 100%;
     }
     #filters-and-links-container.faded-in{
         display: grid;
     }
     #filters-and-links-container{
         display: none;
+        position: fixed;
         @include mixins.atDesktop{
+            position: relative;
             display: grid;
             grid-template-areas:  
                                  "realtimeFiltersAndSorting"
@@ -163,10 +170,11 @@
         }
     }
     #selected-news-container{
-        width: 100%;
-        @include mixins.atDesktop{
-            width: 66%;
-        }
+        overflow: auto;
+        // width: 80%;
+        // @include mixins.atDesktop{
+        //     width: 66%;
+        // }
         display: grid;
         grid-template-rows: 10% 84% 6%;
         border: .2rem solid rgb(180, 174, 164);
@@ -201,7 +209,11 @@
                 pointer-events: none;
             }
             .news{
-                font-size: 1.2rem;
+                font-size: 1.65rem;
+                @include mixins.atDesktop{
+                    font-size: 1.2rem;
+                }
+
                 padding-top: 0;
                 &::after{
                     content: " ";
@@ -235,7 +247,7 @@
         }
     }
     #filters-and-links-container{
-        width: 36%;
+        // width: 36%;
         padding-top: 1rem;
     }
     #pagination-holder{

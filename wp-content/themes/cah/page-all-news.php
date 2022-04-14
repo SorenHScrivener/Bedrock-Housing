@@ -30,8 +30,11 @@
         <!-- add buttons that change results per page, such as 1, 3, and 5 -->
         <div id="pagination-holder"></div>
     </div>
+    <div id="filter-sort-toggle">
+        <button>red</button>
+    </div>
     <div id="filters-and-links-container">
-        <!--Might move all search and filters into here and get rid of top bar.
+                <!--Might move all search and filters into here and get rid of top bar.
         Plus, that would mean, all filters and such would be hidden until single view is canceled
         (might add pointer events none just to be safe)--> 
         <!-- switch out -->
