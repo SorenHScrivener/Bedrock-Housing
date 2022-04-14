@@ -1236,14 +1236,14 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   margin-bottom: 0.8rem;
 }
 #all-news-container #selected-news-container {
-  width: 66%;
+  width: 100%;
   display: grid;
   grid-template-rows: 10% 84% 6%;
   border: 0.2rem solid rgb(180, 174, 164);
 }
 @media (min-width: 1200px) {
   #all-news-container #selected-news-container {
-    width: 100%;
+    width: 66%;
   }
 }
 #all-news-container #selected-news-container h2 {
