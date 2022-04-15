@@ -34,12 +34,13 @@
     }
     #filters-and-links-container.fade-in, #filters-and-links-container.fade-out{
         display: grid;
-        background-color: rgba(70, 62, 55, 1);
+        background-color: rgba(51, 49, 47, .9);
         border-radius: 2%;
         box-shadow: .2rem .2rem 1rem .4rem inset rgba(37, 33, 30, 0.85);
         position: fixed;
-        width: 60%;
+        width: 80%;
         height: 80%;
+        margin-left: 10%;
         grid-template-areas:"realtimeFiltersAndSorting"
                             "searchFilters"
                             "resetAll";
@@ -89,7 +90,10 @@
             // column-gap: 30px;
             width: 100%;
             button, label{
-                font-size: 1.3rem;
+                font-size: 1.6rem;
+                @include mixins.atDesktop{
+                    font-size: 1.3rem;
+                }
             }
             button.inactive{
                 pointer-events: none;
@@ -237,22 +241,25 @@
                 justify-content: center;
                 align-items: center;
             }
-            #options-switch, #dismiss-selection{
-                font-size: 1.2rem;
+            .options-switch, #dismiss-selection{
+                font-size: 1.5rem;
+                @include mixins.atDesktop{
+                    font-size: 1.2rem;
+                }
                 cursor: pointer;
                 border: .2rem solid rgba(212, 193, 130, 1);
                 border-bottom: none;
                 border-top: none;
             }
-            #options-switch{
+            .options-switch{
                 grid-area: os;
                 @include mixins.atDesktop{
                     display: none;
                 }
-                &.dismissed{
-                    filter: contrast(20%);
-                    pointer-events: none;
-                }
+                // &.dismissed{
+                //     filter: contrast(20%);
+                //     pointer-events: none;
+                // }
             }
             #dismiss-selection{
                 grid-area: ds;
@@ -348,5 +355,29 @@
                 //     filter: saturate(120%);
                 // }
         }
+    }
+}
+
+#mobile-typing-container{
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: rgba(24, 23, 23, .9);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    input{
+        margin-bottom: 5rem;
+        font-size: 1.15rem;
+        height: 2.3rem;
+        width: 18rem;
+    }
+}
+
+.options-switch{
+    @include mixins.atDesktop{
+        display: none;
     }
 }

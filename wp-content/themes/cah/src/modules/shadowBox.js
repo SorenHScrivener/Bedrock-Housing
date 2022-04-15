@@ -353,7 +353,7 @@ class ShadowBox {
         }
 
         keyPressDispatcher(e){
-            console.log(e.keyCode, this.isMediaRecieverOpen)
+            // console.log(e.keyCode, this.isMediaRecieverOpen)
             if(e.keyCode === 27 && this.isMediaRecieverOpen){
                 this.closeMediaReciever();
             }

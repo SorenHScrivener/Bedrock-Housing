@@ -179,7 +179,6 @@ class Search {
      }
 
     keyPressDispatcher(e) {
-        // console.log(e.keyCode);
         if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != "INPUT" && document.activeElement.tagName != "TEXTAREA") {
             this.openOverlay();
         }

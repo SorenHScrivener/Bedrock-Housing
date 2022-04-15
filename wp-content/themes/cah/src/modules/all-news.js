@@ -13,7 +13,7 @@ class News {
         this.relationshipLinks;
         this.seeMore;
         this.allOptions = document.querySelector('#filters-and-links-container')
-        this.optionsButton = document.querySelector('#options-switch');
+        this.optionsButton = document.querySelectorAll('.options-switch');
         this.allOptionsVisible = false;
         this.dismissButton = document.querySelector('#dismiss-selection');
 
@@ -37,6 +37,8 @@ class News {
         this.isSpinnerVisible = false
         this.previousValue = "";
         this.typingTimer;
+
+        this.newsSearchClone = document.querySelector('#mobile-typing-container input');
 
         this.currentReport;      
         this.fullDisplayContainer = document.querySelector('#full-display-container');    
@@ -333,8 +335,12 @@ class News {
         })
 
         this.newsSearch.addEventListener("keyup", () => this.typingLogic())
-        this.optionsButton.addEventListener('click', () => this.toggleAllOptions())
+        this.optionsButton.forEach(e=>{e.addEventListener('click', () => this.toggleAllOptions())})
         this.dismissButton.addEventListener('click', () => this.dismissSelection())
+
+        this.newsSearchClone.addEventListener("keyup", () => this.simuTyping());
+        this.newsSearchClone.addEventListener('focusout', ()=> this.closeClone());
+        this.newsSearchClone.addEventListener('focusout', ()=> this.closeClone());
 
         this.toggleText(target);
         this.toggleOptions.forEach(e=>{e.addEventListener('click', ()=> this.toggleText(target))})
@@ -394,6 +400,21 @@ class News {
     
         this.previousValue = this.newsSearch.value
       }
+
+      simuTyping(){
+        this.newsSearch.value = this.newsSearchClone.value;
+        this.typingLogic()
+      }
+
+      keyPressDispatcher(e) {
+            if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != "INPUT" && document.activeElement.tagName != "TEXTAREA") {
+                this.simuTyping();
+            }
+
+            if(e.keyCode === 27 && this.isOverlayOpen){
+                this.closeClone();
+            }
+        }
 
       async populateDateFilters(){
         try{

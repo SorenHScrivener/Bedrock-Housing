@@ -19,7 +19,7 @@
     <div id="selected-news-container">
         <div id="titleAndOptions">
             <h2 id="main-header">All News</h2>
-            <button id="options-switch">Options</button>
+            <button class="options-switch">Options</button>
             <button id="dismiss-selection" class="dismissed">Dismiss</button>
         </div>
         <div id="selected-news-reciever">
@@ -42,7 +42,7 @@
 
         <div id="realtime-filters-and-sorting">
         
-        <h2>Realtime Filter and Reorder</h2>
+        <h2>Realtime Filter and Reorder <span><button class="options-switch">(Close)</button></span></h2>
                         <!-- swap span display on click, ASC on as DESC is the default. Same for alpha-->
             <!-- Using one pair, will cause the other to reset -->
             <!--All apply on search-->
@@ -145,6 +145,10 @@
 
         <button id="reset-all">Reset All</button>
     </div>
+</div>
+
+<div id="mobile-typing-container">
+    <input type="search" placeholder="search for news..." autocomplete="off">
 </div>
 <?php
     get_footer();
