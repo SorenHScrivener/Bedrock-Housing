@@ -19,9 +19,7 @@
     <div id="selected-news-container">
         <div id="titleAndOptions">
             <h2 id="main-header">All News</h2>
-            <!-- Have both line up at end of div, with dismiss grayed out and options conditionally appearing, both in thin-bordered box -->
-            <!-- grid? -->
-            <button id="optionsSwitch">Options</button>
+            <button id="options-switch">Options</button>
             <button id="dismiss-selection" class="dismissed">Dismiss</button>
         </div>
         <div id="selected-news-reciever">

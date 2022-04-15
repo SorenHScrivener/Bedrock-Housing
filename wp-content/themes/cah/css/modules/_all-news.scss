@@ -32,19 +32,48 @@
         position: relative;
         // height: 100%;
     }
-    #filters-and-links-container.faded-in{
+    #filters-and-links-container.fade-in, #filters-and-links-container.fade-out{
         display: grid;
+        background-color: rgba(70, 62, 55, 1);
+        border-radius: 2%;
+        box-shadow: .2rem .2rem 1rem .4rem inset rgba(37, 33, 30, 0.85);
+        position: fixed;
+        width: 60%;
+        height: 80%;
+        grid-template-areas:"realtimeFiltersAndSorting"
+                            "searchFilters"
+                            "resetAll";
+    }
+    #filters-and-links-container.fade-in{
+        animation: fadeOptionsIn 1s ease-in-out;
+    }
+    #filters-and-links-container.fade-out{
+        animation: fadeOptionsOut 1s ease-in-out;
+    }
+    @keyframes fadeOptionsIn{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes fadeOptionsOut{
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
     }
     #filters-and-links-container{
         display: none;
-        position: fixed;
         @include mixins.atDesktop{
             position: relative;
             display: grid;
-            grid-template-areas:  
-                                 "realtimeFiltersAndSorting"
-                                 "searchFilters"
-                                 "resetAll";
+            grid-template-areas:"realtimeFiltersAndSorting"
+                                "searchFilters"
+                                "resetAll";
             border: .2rem solid rgba(212, 193, 130, .4);
             border-left: none;
         }
@@ -208,15 +237,14 @@
                 justify-content: center;
                 align-items: center;
             }
-            #optionsSwitch, #dismiss-selection{
+            #options-switch, #dismiss-selection{
                 font-size: 1.2rem;
                 cursor: pointer;
                 border: .2rem solid rgba(212, 193, 130, 1);
                 border-bottom: none;
-                // padding: 0;
-                // margin: 0;
+                border-top: none;
             }
-            #optionsSwitch{
+            #options-switch{
                 grid-area: os;
                 @include mixins.atDesktop{
                     display: none;

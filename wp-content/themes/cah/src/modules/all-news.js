@@ -4,15 +4,18 @@ import ShadowBox from './shadowBox';
 class News {
     constructor(){
         // this.closeMediaButton = document.querySelector('#media-close');
-    if(document.getElementById('all-news-container')){
+    if(document.querySelector('#all-news-container')){
         this.returnHome = document.querySelector('#return-home');
                  //Later, find way to make this not cause errors on other pages
-        this.mainContainer = document.getElementById('all-news-container');
+        this.mainContainer = document.querySelector('#all-news-container');
         this.newsReciever = document.querySelector('#main-display');
-        this.paginationHolder = document.getElementById('pagination-holder')
+        this.paginationHolder = document.querySelector('#pagination-holder')
         this.relationshipLinks;
         this.seeMore;
-        this.dismissButton = document.getElementById('dismiss-selection');
+        this.allOptions = document.querySelector('#filters-and-links-container')
+        this.optionsButton = document.querySelector('#options-switch');
+        this.allOptionsVisible = false;
+        this.dismissButton = document.querySelector('#dismiss-selection');
 
         this.contentPageOptions;
 
@@ -140,7 +143,15 @@ class News {
     }
 
     events(target){
-        
+        window.addEventListener('resize', ()=>{
+            setTimeout(()=>{
+                if(window.innerWidth >= 1200){
+                    this.allOptionsVisible = false;
+                    this.allOptions.classList.remove('fade-in');
+                    this.allOptions.classList.remove('fade-out');
+                }
+            }, 300)
+        })
         // const defaultSwitchSettings = {...this.toggableSettings, alphaOrder: {...this.toggableSettings.alphaOrder}};
         let defaultSwitchSettings = JSON.parse(JSON.stringify(this.toggableSettings))
 
@@ -322,7 +333,7 @@ class News {
         })
 
         this.newsSearch.addEventListener("keyup", () => this.typingLogic())
-
+        this.optionsButton.addEventListener('click', () => this.toggleAllOptions())
         this.dismissButton.addEventListener('click', () => this.dismissSelection())
 
         this.toggleText(target);
@@ -1036,6 +1047,19 @@ class News {
                 console.log(newCurrent)
             }
         })
+    }
+
+    toggleAllOptions(){
+        if(!this.allOptionsVisible){
+            this.allOptions.classList.add('fade-in');
+            this.allOptionsVisible = true;
+        }else{
+            this.allOptions.classList.remove('fade-in');
+            this.allOptions.classList.add('fade-out');
+            setTimeout(()=>{this.allOptions.classList.remove('fade-out');}, 950)
+
+            this.allOptionsVisible = false;
+        }
     }
 }
 
