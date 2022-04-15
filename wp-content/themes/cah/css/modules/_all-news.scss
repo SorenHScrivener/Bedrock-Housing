@@ -14,7 +14,7 @@
     position: absolute;
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 100%;
         @include mixins.atDesktop{
             grid-template-columns: 66% 34%;
         }
@@ -61,6 +61,12 @@
             width: 100%;
             button, label{
                 font-size: 1.3rem;
+            }
+            button.inactive{
+                pointer-events: none;
+                span{
+                    color: red;
+                }
             }
             h2{
                 grid-area: headingRFS;
@@ -124,6 +130,10 @@
                     height: 2.3rem;
                     width: 18rem;
                 }
+                #news-search.inactive{
+                    pointer-events: none;
+                    background-color: gray;
+                }
             }
 
             #full-word-only{
@@ -158,6 +168,10 @@
             font-size: 1.4rem;
             grid-area: resetAll;
         }
+        #reset-all.inactive{
+            pointer-events: none;
+            color: red;
+        }
         button{
             cursor: pointer;
         }
@@ -178,23 +192,49 @@
         display: grid;
         grid-template-rows: 10% 84% 6%;
         border: .2rem solid rgb(180, 174, 164);
-        h2{
-            width: 100%;
-            // height: 8%;
-            text-align: center;
-            font-size: 2.7rem;
-            margin-bottom: 1rem;
-            // position: absolute;
-            // top: 0;
+        #titleAndOptions{
+            display: grid;
+            grid-template-columns: [mh]80% [os]10% [ds]10%;
+            grid-template-areas: "mh os ds";
+            @include mixins.atDesktop{
+                grid-template-columns: [mh]90% [ds]1fr;
+                grid-template-areas: "mh ds";
+            }
             border-bottom: .3rem solid rgb(185, 158, 122);
-        }
-        #dismiss-selection{
-            position: absolute;
-            &.dismissed{
-                display: none;
-                pointer-events: none;
+            #main-header{
+                grid-area: mh;
+                font-size: 2.3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #optionsSwitch, #dismiss-selection{
+                font-size: 1.2rem;
+                cursor: pointer;
+                border: .2rem solid rgba(212, 193, 130, 1);
+                border-bottom: none;
+                // padding: 0;
+                // margin: 0;
+            }
+            #optionsSwitch{
+                grid-area: os;
+                @include mixins.atDesktop{
+                    display: none;
+                }
+                &.dismissed{
+                    filter: contrast(20%);
+                    pointer-events: none;
+                }
+            }
+            #dismiss-selection{
+                grid-area: ds;
+                &.dismissed{
+                    filter: contrast(20%);
+                    pointer-events: none;
+                }
             }
         }
+        
         #selected-news-reciever{
             margin-bottom: .5rem;
             padding-right: 2rem;

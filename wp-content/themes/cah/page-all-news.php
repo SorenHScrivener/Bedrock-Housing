@@ -17,9 +17,12 @@
         
 <div id="all-news-container">
     <div id="selected-news-container">
-        <div>
+        <div id="titleAndOptions">
             <h2 id="main-header">All News</h2>
-            <button id="dismiss-selection" class="dismissed">(Dismiss)</button>
+            <!-- Have both line up at end of div, with dismiss grayed out and options conditionally appearing, both in thin-bordered box -->
+            <!-- grid? -->
+            <button id="optionsSwitch">Options</button>
+            <button id="dismiss-selection" class="dismissed">Dismiss</button>
         </div>
         <div id="selected-news-reciever">
             <div id="main-display"></div>
@@ -30,9 +33,9 @@
         <!-- add buttons that change results per page, such as 1, 3, and 5 -->
         <div id="pagination-holder"></div>
     </div>
-    <div id="filter-sort-toggle">
-        <button>red</button>
-    </div>
+    <!-- <div id="filter-sort-toggle">
+        <button>Open Filters and sorting</button>
+    </div> -->
     <div id="filters-and-links-container">
                 <!--Might move all search and filters into here and get rid of top bar.
         Plus, that would mean, all filters and such would be hidden until single view is canceled

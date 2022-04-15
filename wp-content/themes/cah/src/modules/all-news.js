@@ -730,6 +730,8 @@ class News {
                 //This needs to change to
                 this.toggleOptions.forEach(o => {o.classList.add('inactive');}); 
                 this.dateFilterOptions.forEach(f => {f.disabled = true});
+                this.newsSearch.classList.add('inactive');
+                this.resetAll.classList.add('inactive');
                 this.fullDisplayContent = [];
                 this.calledIds = [];
                 for(let news of allNews){
@@ -926,6 +928,8 @@ class News {
         }
         this.toggleOptions.forEach(o => {o.classList.remove('inactive');}) 
         this.dateFilterOptions.forEach(f => {f.disabled = ''})
+        this.newsSearch.classList.remove('inactive');
+        this.resetAll.classList.remove('inactive');
         this.newsReciever.classList.remove('dismissed');
         this.paginationHolder.classList.remove('dismissed');
         this.fullDisplayContainer.classList.add('dismissed');
