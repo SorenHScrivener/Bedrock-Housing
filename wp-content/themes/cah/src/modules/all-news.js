@@ -342,7 +342,7 @@ class News {
         this.dismissButton.addEventListener('click', () => this.dismissSelection())
 
         this.newsSearchClone.addEventListener('keyup', () => this.simuTyping());
-        this.newsSearch.addEventListener('focusin', ()=> this.openClone());
+        // this.newsSearch.addEventListener('focusin', ()=> this.openClone());
         this.closeNewsSearchClone.addEventListener('click', ()=> this.closeClone());
 
         this.toggleText(target);

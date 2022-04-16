@@ -1,7 +1,7 @@
 @use "../base/mixins";
 
 #all-news-container{
-    height: 43rem; 
+    height: 50rem; 
     @include mixins.atDesktop{
         height: 77%;
     }
