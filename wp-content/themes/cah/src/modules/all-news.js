@@ -1089,7 +1089,7 @@ class News {
         }else{
             this.allOptions.classList.remove('fade-in');
             this.allOptions.classList.add('fade-out');
-            setTimeout(()=>{this.allOptions.classList.remove('fade-out');}, 950)
+            setTimeout(()=>{this.allOptions.classList.remove('fade-out');}, 450)
 
             this.allOptionsVisible = false;
         }

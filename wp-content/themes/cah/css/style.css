@@ -1108,8 +1108,8 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   }
 }
 #all-news-container {
-  height: 58rem;
-  top: 4rem;
+  height: 56rem;
+  top: 6rem;
   width: 95%;
   left: 2.5%;
   background-color: rgba(37, 35, 34, 0.75);
@@ -1118,11 +1118,6 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-auto-flow: row;
   grid-template-columns: 100%;
   color: aliceblue;
-}
-@media (min-width: 1200px) {
-  #all-news-container {
-    height: 77%;
-  }
 }
 @media (min-width: 1200px) {
   #all-news-container {
@@ -1161,12 +1156,12 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-template-areas: "realtimeFiltersAndSorting" "searchFilters" "resetAll";
 }
 #all-news-container #filters-and-links-container.fade-in {
-  -webkit-animation: fadeOptionsIn 1s ease-in-out;
-          animation: fadeOptionsIn 1s ease-in-out;
+  -webkit-animation: fadeOptionsIn 0.5s ease-in-out;
+          animation: fadeOptionsIn 0.5s ease-in-out;
 }
 #all-news-container #filters-and-links-container.fade-out {
-  -webkit-animation: fadeOptionsOut 1s ease-in-out;
-          animation: fadeOptionsOut 1s ease-in-out;
+  -webkit-animation: fadeOptionsOut 0.5s ease-in-out;
+          animation: fadeOptionsOut 0.5s ease-in-out;
 }
 @-webkit-keyframes fadeOptionsIn {
   0% {

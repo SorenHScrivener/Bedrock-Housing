@@ -1,11 +1,8 @@
 @use "../base/mixins";
 
 #all-news-container{
-    height: 58rem; 
-    @include mixins.atDesktop{
-        height: 77%;
-    }
-    top: 4rem; 
+    height: 56rem; 
+    top: 6rem; 
     @include mixins.atDesktop{
         height: 85%; 
         top: 5rem; 
@@ -49,10 +46,10 @@
                             "resetAll";
     }
     #filters-and-links-container.fade-in{
-        animation: fadeOptionsIn 1s ease-in-out;
+        animation: fadeOptionsIn .5s ease-in-out;
     }
     #filters-and-links-container.fade-out{
-        animation: fadeOptionsOut 1s ease-in-out;
+        animation: fadeOptionsOut .5s ease-in-out;
     }
     @keyframes fadeOptionsIn{
         0%{
