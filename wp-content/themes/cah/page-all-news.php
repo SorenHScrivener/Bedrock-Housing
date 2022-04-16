@@ -148,7 +148,11 @@
 </div>
 
 <div id="mobile-typing-container">
-    <input type="search" placeholder="search for news..." autocomplete="off">
+    <div>
+        <label for="mobile-news-search">News Search</label>
+        <input id="mobile-news-search" type="search" placeholder="search for news..." autocomplete="off">
+        <button id="close-mobile-news-search">Close</button>
+    </div>
 </div>
 <?php
     get_footer();

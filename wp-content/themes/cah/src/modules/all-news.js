@@ -38,7 +38,9 @@ class News {
         this.previousValue = "";
         this.typingTimer;
 
-        this.newsSearchClone = document.querySelector('#mobile-typing-container input');
+        this.newsSearchCloneContainer = document.querySelector('#mobile-typing-container');
+        this.newsSearchClone = this.newsSearchCloneContainer.querySelector('input');
+        this.closeNewsSearchClone = document.querySelector('#close-mobile-news-search');
 
         this.currentReport;      
         this.fullDisplayContainer = document.querySelector('#full-display-container');    
@@ -334,13 +336,13 @@ class News {
             })
         })
 
-        this.newsSearch.addEventListener("keyup", () => this.typingLogic())
+        this.newsSearch.addEventListener('keyup', () => this.typingLogic())
         this.optionsButton.forEach(e=>{e.addEventListener('click', () => this.toggleAllOptions())})
         this.dismissButton.addEventListener('click', () => this.dismissSelection())
 
-        this.newsSearchClone.addEventListener("keyup", () => this.simuTyping());
-        this.newsSearchClone.addEventListener('focusout', ()=> this.closeClone());
-        this.newsSearchClone.addEventListener('focusout', ()=> this.closeClone());
+        this.newsSearchClone.addEventListener('keyup', () => this.simuTyping());
+        this.newsSearch.addEventListener('focusin', ()=> this.openClone());
+        this.closeNewsSearchClone.addEventListener('click', ()=> this.closeClone());
 
         this.toggleText(target);
         this.toggleOptions.forEach(e=>{e.addEventListener('click', ()=> this.toggleText(target))})
@@ -401,6 +403,15 @@ class News {
         this.previousValue = this.newsSearch.value
       }
 
+      openClone(){
+        this.newsSearchCloneContainer.classList.add('opened');
+        this.newsSearchClone.focus();
+      }
+
+      closeClone(){
+        this.newsSearchCloneContainer.classList.remove('opened');
+      }
+
       simuTyping(){
         this.newsSearch.value = this.newsSearchClone.value;
         this.typingLogic()
@@ -408,7 +419,7 @@ class News {
 
       keyPressDispatcher(e) {
             if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != "INPUT" && document.activeElement.tagName != "TEXTAREA") {
-                this.simuTyping();
+                this.openClone();
             }
 
             if(e.keyCode === 27 && this.isOverlayOpen){

@@ -359,7 +359,6 @@
 }
 
 #mobile-typing-container{
-    display: flex;
     display: none;
     justify-content: center;
     align-items: flex-end;
@@ -368,12 +367,30 @@
     width: 100%;
     position: fixed;
     top: 0;
-    input{
+    div{
+        width: 50%;
         margin-bottom: 5rem;
-        font-size: 1.15rem;
-        height: 2.3rem;
-        width: 18rem;
+        display: flex;
+        justify-content: center;
+        column-gap: 1rem;
+        align-items: center;
+        input{
+            font-size: 1.15rem;
+            height: 2.3rem;
+            width: 18rem;
+        }
+        button, label{
+            font-size: 1.35rem;
+        }
+        button{
+            cursor: pointer;
+            color: antiquewhite;
+        }
     }
+}
+
+#mobile-typing-container.opened{
+    display: flex;
 }
 
 .options-switch{

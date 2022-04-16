@@ -1444,7 +1444,6 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 }
 
 #mobile-typing-container {
-  display: flex;
   display: none;
   justify-content: center;
   align-items: flex-end;
@@ -1454,11 +1453,30 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   position: fixed;
   top: 0;
 }
-#mobile-typing-container input {
+#mobile-typing-container div {
+  width: 50%;
   margin-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+}
+#mobile-typing-container div input {
   font-size: 1.15rem;
   height: 2.3rem;
   width: 18rem;
+}
+#mobile-typing-container div button, #mobile-typing-container div label {
+  font-size: 1.35rem;
+}
+#mobile-typing-container div button {
+  cursor: pointer;
+  color: antiquewhite;
+}
+
+#mobile-typing-container.opened {
+  display: flex;
 }
 
 @media (min-width: 1200px) {
