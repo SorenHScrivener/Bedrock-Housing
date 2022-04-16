@@ -1086,12 +1086,14 @@ class News {
         if(!this.allOptionsVisible){
             this.allOptions.classList.add('fade-in');
             this.allOptionsVisible = true;
+            this.newsReciever.querySelectorAll('*').forEach(e=>e.style.pointerEvents = 'none')
         }else{
             this.allOptions.classList.remove('fade-in');
             this.allOptions.classList.add('fade-out');
             setTimeout(()=>{this.allOptions.classList.remove('fade-out');}, 450)
 
             this.allOptionsVisible = false;
+            this.newsReciever.querySelectorAll('*').forEach(e=>e.style.pointerEvents = '')
         }
     }
 }
