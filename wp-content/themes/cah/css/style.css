@@ -1108,7 +1108,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   }
 }
 #all-news-container {
-  height: 77%;
+  height: 45vw;
   top: 8%;
   width: 95%;
   left: 2.5%;
@@ -1118,6 +1118,11 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-auto-flow: row;
   grid-template-columns: 100%;
   color: aliceblue;
+}
+@media (min-width: 1200px) {
+  #all-news-container {
+    height: 77%;
+  }
 }
 @media (min-width: 1200px) {
   #all-news-container {
