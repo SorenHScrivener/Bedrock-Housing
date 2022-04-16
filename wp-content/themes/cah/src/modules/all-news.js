@@ -5,6 +5,7 @@ class News {
     constructor(){
         // this.closeMediaButton = document.querySelector('#media-close');
     if(document.querySelector('#all-news-container')){
+        this.viewPortHeight = window.innerHeight
         this.returnHome = document.querySelector('#return-home');
                  //Later, find way to make this not cause errors on other pages
         this.mainContainer = document.querySelector('#all-news-container');
