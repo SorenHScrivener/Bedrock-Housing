@@ -5,7 +5,7 @@ html {
 }
 @media (min-width: 767px) {
   html {
-    font-size: 1.7vh;
+    font-size: 1vw;
   }
 }
 @media (min-width: 1200px) {
@@ -1108,7 +1108,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   }
 }
 #all-news-container {
-  height: 57vw;
+  height: 43rem;
   top: 8%;
   width: 95%;
   left: 2.5%;

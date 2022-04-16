@@ -16,7 +16,8 @@ class Pagination {
         // this.overallContainer = document.querySelector('#overallContainer');
         // For now, this will be how I prevent errors on other pages 
         this.frontTest = document.querySelector('.contentContainer_paginated') 
-        this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        this.vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+
         // Can I setup to load in and Paginate depending on identity, so as to make adaptable? Yes!!!
 
         //Will target a shared, specific class using querySelectorAll and use a loop
@@ -59,6 +60,8 @@ class Pagination {
     }
 
     events(){
+        // this.html.style.fontSize = `${this.vh*.017}px`;
+        // console.log(this.vh*.017)
         if(this.frontTest){
             // const mainLoaderText = ["One Moment Please...", "Perfection takes time", "Groaning only makes this slower...", "I'm watching you... :)"
             // , "Commencing Hack ;)", "One Moment. Retrieving your SSN", "Shaving your cat...", "You like Scary Movies...? >:)"];
