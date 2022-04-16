@@ -1,14 +1,14 @@
 @use "../base/mixins";
 
 #all-news-container{
-    height: 50rem; 
+    height: 58rem; 
     @include mixins.atDesktop{
         height: 77%;
     }
-    top: 8%; 
+    top: 4rem; 
     @include mixins.atDesktop{
         height: 85%; 
-        top: 9%; 
+        top: 5rem; 
     }
     width: 95%; 
     left: 2.5%; 
