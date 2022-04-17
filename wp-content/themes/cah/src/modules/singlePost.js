@@ -3,17 +3,19 @@ import ShadowBox from './shadowBox';
 //The simplicity of this is a chance to try to make my pagination code and code in general cleaner and more efficient
 class RelatedNews{
     constructor(){
-        this.newsReciever = document.querySelector('#news-reciever');
-        this.paginationHolder = document.querySelector('#pagination-holder');
-        //interferes with SB. Figure out how to prevent on pages where invalid.
-        //Also with all-news if only 1 page
-        this.currentPostID = document.querySelector('#mainImageAndStats img').dataset.id;
-        this.currentPage = 0;
-        this.contentShown;
-        this.contentPageOptions;
-        this.contentLoaded = false;
-        this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-        this.events();
+        if(document.querySelector('#singleContainer')){
+            this.newsReciever = document.querySelector('#news-reciever');
+            this.paginationHolder = document.querySelector('#pagination-holder');
+            //interferes with SB. Figure out how to prevent on pages where invalid.
+            //Also with all-news if only 1 page
+            this.currentPostID = document.querySelector('#mainImageAndStats img').dataset.id;
+            this.currentPage = 0;
+            this.contentShown;
+            this.contentPageOptions;
+            this.contentLoaded = false;
+            this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+            this.events();
+        }
     }
 
     events(){

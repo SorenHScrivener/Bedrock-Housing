@@ -317,8 +317,10 @@ li {
 }
 #openingContainer header {
   display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: 4% 25% 1fr;
+  grid-template-columns: [logoSymbol] 4% [logoText] 25% [navigation] 1fr;
+  grid-template-areas: "logoSymbol logoText navigation";
+  grid-auto-flow: column;
+  justify-self: end;
   background-color: rgba(70, 62, 55, 0.85);
   box-shadow: 0.2rem 0.2rem 1rem 0.4rem inset rgba(49, 43, 39, 0.75);
   width: 100%;
@@ -327,6 +329,13 @@ li {
   top: 0;
   z-index: 9999;
   color: rgb(199, 187, 156);
+}
+@media (min-width: 1200px) {
+  #openingContainer header {
+    grid-auto-flow: row;
+    grid-template-columns: [logoSymbol] 4% [logoText] 25% [navigation] 1fr;
+    grid-template-areas: "logoSymbol logoText navigation";
+  }
 }
 #openingContainer header.hidden {
   display: none;
@@ -343,10 +352,12 @@ li {
   height: 3rem;
 }
 #openingContainer header #logo-symbol {
+  grid-area: logoSymbol;
   margin-top: 0.3rem;
   padding-left: 0.5rem;
 }
 #openingContainer header #logo-text {
+  grid-area: logoText;
   margin-top: 0.6rem;
   padding-left: 0.2rem;
 }
@@ -357,20 +368,80 @@ li {
   margin: 0;
 }
 #openingContainer header nav {
+  position: relative;
+  justify-self: end;
+  overflow: hidden;
   margin-right: 2rem;
 }
+@media (min-width: 1200px) {
+  #openingContainer header nav {
+    grid-area: navigation;
+    background-color: transparent;
+    overflow: visible;
+    justify-self: unset;
+  }
+}
 #openingContainer header nav ul {
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@media (min-width: 1200px) {
+  #openingContainer header nav ul {
+    flex-direction: row;
+    gap: 1.5rem;
+    height: 100%;
+    justify-content: initial;
+  }
+}
+#openingContainer header nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  width: 100%;
+  background-color: rgb(70, 62, 55);
+  box-shadow: 0.2rem 0.2rem 1rem 0.6rem inset rgba(49, 43, 39, 0.75);
+  border-radius: 5%;
+  border-bottom: 0.3rem solid rgba(51, 45, 40, 0.85);
+}
+@media (min-width: 1200px) {
+  #openingContainer header nav ul li {
+    box-shadow: none;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    border-radius: initial;
+  }
 }
 #openingContainer header nav ul li a {
+  padding: 0.5rem 1rem;
   font-size: 1.8rem;
-  text-shadow: 1px 1px black;
+}
+@media (min-width: 1200px) {
+  #openingContainer header nav ul li a {
+    padding: 0;
+  }
+}
+#openingContainer header nav ul #mobile-nav-caller {
+  height: 4rem;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+@media (min-width: 1200px) {
+  #openingContainer header nav ul #mobile-nav-caller {
+    display: none;
+  }
+}
+#openingContainer header nav ul #mobile-nav-caller button {
+  color: aliceblue;
+}
+#openingContainer header nav.opened {
+  overflow: visible;
 }
 #openingContainer #pageImage {
   top: 0;

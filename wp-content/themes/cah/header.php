@@ -21,9 +21,8 @@
             <div id="logo-symbol"><img src="<?php echo get_theme_file_uri('/images/logo_symbol_v1.png');?>" alt="company logo-symbol"></div>
             <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2.png');?>" alt="company logo-type"></div>
             <!-- Also do alt function for mobile search button -->
-            
             <nav>
-                <ul>        
+                <ul>       
                 <!--Have focus in contact container after press a tag. And jump onto news scroll when press its a tag-->    
                 <?php if(!is_front_page()){ ?>
                     <li>
@@ -43,6 +42,10 @@
                         <a id="return-home" href="<?php echo esc_url(home_url()); ?>/#<?php echo $scrollTo ?>">Return</a>
                     </li>
                 <?php }else{ ?>
+                    <!-- use custom symbols for open and closed -->
+                    <li id="mobile-nav-caller">
+                        <button>Open</button>
+                    </li> 
                     <li>
                         <a href="#openingContainer">
                             Home

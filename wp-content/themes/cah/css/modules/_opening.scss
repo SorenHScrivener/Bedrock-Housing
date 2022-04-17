@@ -33,8 +33,17 @@
     }
     header{
         display: grid;
-        grid-auto-flow: row;
-        grid-template-columns: 4% 25% 1fr;
+        grid-template-columns: [logoSymbol]4% [logoText]25% [navigation]1fr;
+        grid-template-areas: "logoSymbol logoText navigation"; 
+        grid-auto-flow: column;
+        justify-self: end;
+        @include mixins.atDesktop{
+            grid-auto-flow: row;
+            // grid-template-columns: 4% 25% 1fr; 
+            grid-template-columns: [logoSymbol]4% [logoText]25% [navigation]1fr;
+            grid-template-areas: "logoSymbol logoText navigation"; 
+        }
+
         // grid-template-areas: 'logoText logoSymbol navigation';
         // grid-area: ;
         // background-color: black;
@@ -70,11 +79,13 @@
             height: 3rem;
         }
         #logo-symbol{
+            grid-area: logoSymbol;
             // grid-area: logoSymbol;
             margin-top: .3rem;
             padding-left: .5rem;
         }
         #logo-text{
+            grid-area: logoText;
             // grid-area: logoText;
             margin-top: .6rem; 
             padding-left: .2rem;
@@ -85,31 +96,88 @@
         p, nav{
             margin: 0;
         }
-        // div{
-            // width: 50%;
-            // font-size: 1.6rem;
-            // margin-left: 2%;
-        // }
+        //change to mobile caller being button on nav, the rest hidden by overflow hidden
+
         nav{
+            // display: none;
+            position: relative;
+            // padding: 1rem 1.2rem;
+            // display: flex;
+            justify-self: end;
+            overflow: hidden;
+            // height: 100%;
+            @include mixins.atDesktop{
+                // width: initial;
+                // display: block;
+                // position: initial;
+                grid-area: navigation;
+                background-color: transparent;
+                overflow: visible;
+                justify-self: unset;
+            }
             // grid-area: navigation;
             margin-right: 2rem;
             ul{
+                overflow: hidden;
                 margin: 0;
                 padding: 0;    
                 // width: 100%;
-                height: 100%;
                 display: flex; 
-                justify-content: center;
+                flex-direction: column;
+                justify-content: space-evenly;
                 align-items: center;
-                gap: 1.5rem;
+                @include mixins.atDesktop{
+                    flex-direction: row;
+                    gap: 1.5rem;
+                    height: 100%;
+                    justify-content: initial;
+                }
                 li{
-                    // margin: 0 1rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    background-color: rgba(70, 62, 55, 1);
+                    box-shadow: .2rem .2rem 1rem .6rem inset rgba(49, 43, 39, 0.75);
+                    border-radius: 5%;
+                    // border-top: .3rem solid rgba(51, 45, 40, 0.85);
+                    border-bottom: .3rem solid rgba(51, 45, 40, 0.85);
+                    @include mixins.atDesktop{
+                        box-shadow: none;
+                        width: initial;
+                        height: initial;
+                        background-color: transparent;
+                        border-radius: initial;
+                    }
                     a{
-                      font-size: 1.8rem;  
-                      text-shadow: 1px 1px black;
+                      padding: .5rem 1rem;
+                      font-size: 1.8rem; 
+                        @include mixins.atDesktop{
+                            padding: 0;
+                        } 
                     }
                 }
+                // li:nth-of-type(2){
+                //     border: none;
+                // }
+                #mobile-nav-caller{
+                    // fix so adapts to height of bar, automatically
+                    height: 4rem;
+                    box-shadow: none;
+                    border: none;
+                    background: transparent;
+                    @include mixins.atDesktop{
+                        display: none;
+                    }
+                    button{
+                        color: aliceblue;
+                    }
+                    // justify-self: end;
+                }
             }
+        }
+        nav.opened{
+            overflow: visible;
         }
     }
     #pageImage{
