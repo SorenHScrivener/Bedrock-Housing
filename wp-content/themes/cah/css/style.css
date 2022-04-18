@@ -322,14 +322,14 @@ li {
 }
 #openingContainer header {
   display: grid;
-  grid-template-columns: [logoSymbol] 4% [logoText] 25% [navigation] 1fr;
+  grid-template-columns: [logoSymbol] 6% [logoText] 29% [navigation] 1fr;
   grid-template-areas: "logoSymbol logoText navigation";
   grid-auto-flow: column;
   justify-self: end;
   background-color: rgba(70, 62, 55, 0.85);
   box-shadow: 0.2rem 0.2rem 1rem 0.4rem inset rgba(49, 43, 39, 0.75);
   width: 100%;
-  height: 6rem;
+  height: 5.5rem;
   position: fixed;
   top: 0;
   z-index: 9999;
@@ -359,7 +359,12 @@ li {
   display: inline;
 }
 #openingContainer header #logo-symbol, #openingContainer header #logo-text {
-  height: 3rem;
+  height: 4.5rem;
+}
+@media (min-width: 1200px) {
+  #openingContainer header #logo-symbol, #openingContainer header #logo-text {
+    height: 3rem;
+  }
 }
 #openingContainer header #logo-symbol {
   grid-area: logoSymbol;
@@ -438,7 +443,7 @@ li {
   }
 }
 #openingContainer header nav ul #mobile-nav-caller {
-  height: 6rem;
+  height: 5.5rem;
   box-shadow: none;
   border: none;
   background: transparent;
@@ -1223,7 +1228,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 @media (min-width: 1200px) {
   #all-news-container {
     height: 78%;
-    top: 7rem;
+    top: 7.3rem;
   }
 }
 @media (min-width: 1200px) {

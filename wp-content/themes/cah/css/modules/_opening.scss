@@ -33,7 +33,7 @@
     }
     header{
         display: grid;
-        grid-template-columns: [logoSymbol]4% [logoText]25% [navigation]1fr;
+        grid-template-columns: [logoSymbol]6% [logoText]29% [navigation]1fr;
         grid-template-areas: "logoSymbol logoText navigation"; 
         grid-auto-flow: column;
         justify-self: end;
@@ -52,7 +52,7 @@
         background-color: rgba(70, 62, 55, 0.85);
         box-shadow: .2rem .2rem 1rem .4rem inset rgba(49, 43, 39, 0.75);
         width: 100%;
-        height: 6rem;
+        height: 5.5rem;
         @include mixins.atDesktop{
             height: 4rem;
         }
@@ -79,7 +79,10 @@
             
         // }
         #logo-symbol, #logo-text{
-            height: 3rem;
+            height: 4.5rem;
+                @include mixins.atDesktop{
+                    height: 3rem;
+                }
         }
         #logo-symbol{
             grid-area: logoSymbol;
@@ -166,7 +169,7 @@
                 // }
                 #mobile-nav-caller{
                     // fix so adapts to height of bar, automatically
-                    height: 6rem;
+                    height: 5.5rem;
                     @include mixins.atDesktop{
                         height: 4rem;
                     }
