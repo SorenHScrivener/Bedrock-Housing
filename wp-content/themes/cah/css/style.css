@@ -1402,7 +1402,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   margin-right: 0.5rem;
 }
 #all-news-container #filters-and-links-container #reset-all {
-  font-size: 1.65rem;
+  font-size: 1.8rem;
   grid-area: resetAll;
 }
 @media (min-width: 1200px) {
