@@ -83,9 +83,14 @@
             grid-area: realtimeFiltersAndSorting;
             display: grid;
             margin-top: 1.5rem;
-            grid-template-areas:"headingRFS headingRFS" 
-                                "orderBy toggleType"
-                                "filterDate filterDate";
+            grid-template-areas:"headingRFS headingRFS headingRFS" 
+                                "orderBy toggleType filterDate";
+            @include mixins.atDesktop{
+                grid-template-areas:"headingRFS headingRFS" 
+                                    "orderBy toggleType"
+                                    "filterDate filterDate";
+            }
+
             // grid-template-columns: repeat(2, 300px);
             // column-gap: 30px;
             width: 100%;
@@ -153,16 +158,14 @@
                 grid-area: headingSF;
             }
             button{
-                font-size: 1.2rem;
+                font-size: 1.6rem;
+                @include mixins.atDesktop{
+                    font-size: 1.2rem;
+                }
                 text-align: left;
             }
             #news-search-container{
                 grid-area: newsSearch;
-                #news-search{
-                    font-size: 1.15rem;
-                    height: 2.3rem;
-                    width: 18rem;
-                }
                 #news-search.inactive{
                     pointer-events: none;
                     background-color: gray;
@@ -195,10 +198,19 @@
             }
         }
         button, select, label{
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            @include mixins.atDesktop{
+                font-size: 1.15rem;
+            }
+        }
+        label{
+            margin-right: .5rem;
         }
         #reset-all{
-            font-size: 1.4rem;
+            font-size: 1.65rem;
+            @include mixins.atDesktop{
+                font-size: 1.4rem;
+            }
             grid-area: resetAll;
         }
         #reset-all.inactive{
@@ -377,13 +389,8 @@
         justify-content: center;
         column-gap: 1rem;
         align-items: center;
-        input{
-            font-size: 1.15rem;
-            height: 2.3rem;
-            width: 18rem;
-        }
         button, label{
-            font-size: 1.35rem;
+            font-size: 1.8rem;
         }
         button{
             cursor: pointer;
@@ -399,5 +406,16 @@
 .options-switch{
     @include mixins.atDesktop{
         display: none;
+    }
+}
+
+.news-search-field{
+    font-size: 1.4rem;
+    height: 2.6rem;
+    width: 24rem;
+    @include mixins.atDesktop{
+        font-size: 1.15rem;
+        height: 2.3rem;
+        width: 18rem;
     }
 }

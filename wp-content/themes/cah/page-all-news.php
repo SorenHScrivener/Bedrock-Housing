@@ -124,7 +124,8 @@
             <!-- //it should at least be inacessible on the frontend with visual cue -->
             <!-- shelf whole word, for now. 8+ hours wasted on it-->
             <div id="news-search-container">
-                <input id="news-search" type="search" placeholder="search for news..." autocomplete="off">   
+            <label for="news-search">News Search</label>
+                <input class="news-search-field" id="news-search" type="search" placeholder="search for news..." autocomplete="off">   
             </div>
     
             <!-- <div id="test"> -->
@@ -150,7 +151,7 @@
 <div id="mobile-typing-container">
     <div>
         <label for="mobile-news-search">News Search</label>
-        <input id="mobile-news-search" type="search" placeholder="search for news..." autocomplete="off">
+        <input class="news-search-field" id="mobile-news-search" type="search" placeholder="search for news..." autocomplete="off">
         <button id="close-mobile-news-search">Close</button>
     </div>
 </div>

@@ -38,7 +38,8 @@
                             }
 
                         ?>
-                        <!--Have return scroll down to what post-type called by added name to address bar, example: '#membersContainer'-->
+                        <!--Have return also go back with set-up intact when called to page from all-news page-->
+                        <!--Also get rid of background and border -->
                         <a id="return-home" href="<?php echo esc_url(home_url()); ?>/#<?php echo $scrollTo ?>">Return</a>
                     </li>
                 <?php }else{ ?>

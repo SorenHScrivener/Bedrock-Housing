@@ -1301,8 +1301,13 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-area: realtimeFiltersAndSorting;
   display: grid;
   margin-top: 1.5rem;
-  grid-template-areas: "headingRFS headingRFS" "orderBy toggleType" "filterDate filterDate";
+  grid-template-areas: "headingRFS headingRFS headingRFS" "orderBy toggleType filterDate";
   width: 100%;
+}
+@media (min-width: 1200px) {
+  #all-news-container #filters-and-links-container #realtime-filters-and-sorting {
+    grid-template-areas: "headingRFS headingRFS" "orderBy toggleType" "filterDate filterDate";
+  }
 }
 #all-news-container #filters-and-links-container #realtime-filters-and-sorting button, #all-news-container #filters-and-links-container #realtime-filters-and-sorting label {
   font-size: 1.6rem;
@@ -1349,16 +1354,16 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-area: headingSF;
 }
 #all-news-container #filters-and-links-container #search-filters button {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   text-align: left;
+}
+@media (min-width: 1200px) {
+  #all-news-container #filters-and-links-container #search-filters button {
+    font-size: 1.2rem;
+  }
 }
 #all-news-container #filters-and-links-container #search-filters #news-search-container {
   grid-area: newsSearch;
-}
-#all-news-container #filters-and-links-container #search-filters #news-search-container #news-search {
-  font-size: 1.15rem;
-  height: 2.3rem;
-  width: 18rem;
 }
 #all-news-container #filters-and-links-container #search-filters #news-search-container #news-search.inactive {
   pointer-events: none;
@@ -1386,11 +1391,24 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   color: red;
 }
 #all-news-container #filters-and-links-container button, #all-news-container #filters-and-links-container select, #all-news-container #filters-and-links-container label {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+}
+@media (min-width: 1200px) {
+  #all-news-container #filters-and-links-container button, #all-news-container #filters-and-links-container select, #all-news-container #filters-and-links-container label {
+    font-size: 1.15rem;
+  }
+}
+#all-news-container #filters-and-links-container label {
+  margin-right: 0.5rem;
 }
 #all-news-container #filters-and-links-container #reset-all {
-  font-size: 1.4rem;
+  font-size: 1.65rem;
   grid-area: resetAll;
+}
+@media (min-width: 1200px) {
+  #all-news-container #filters-and-links-container #reset-all {
+    font-size: 1.4rem;
+  }
 }
 #all-news-container #filters-and-links-container #reset-all.inactive {
   pointer-events: none;
@@ -1556,13 +1574,8 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
        column-gap: 1rem;
   align-items: center;
 }
-#mobile-typing-container div input {
-  font-size: 1.15rem;
-  height: 2.3rem;
-  width: 18rem;
-}
 #mobile-typing-container div button, #mobile-typing-container div label {
-  font-size: 1.35rem;
+  font-size: 1.8rem;
 }
 #mobile-typing-container div button {
   cursor: pointer;
@@ -1576,6 +1589,19 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 @media (min-width: 1200px) {
   .options-switch {
     display: none;
+  }
+}
+
+.news-search-field {
+  font-size: 1.4rem;
+  height: 2.6rem;
+  width: 24rem;
+}
+@media (min-width: 1200px) {
+  .news-search-field {
+    font-size: 1.15rem;
+    height: 2.3rem;
+    width: 18rem;
   }
 }
 
