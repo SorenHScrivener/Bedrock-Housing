@@ -33,6 +33,9 @@ h2 {
   font-size: 2.5rem;
   margin: 0;
 }
+h2 a {
+  font-size: 1.9rem;
+}
 
 h3 {
   font-size: 2.3rem;
@@ -1040,6 +1043,10 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 
 .news p {
   font-family: "Roboto", sans-serif;
+}
+
+.news p {
+  font-weight: 300;
 }
 
 .search-form {

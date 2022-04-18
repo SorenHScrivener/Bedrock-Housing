@@ -17,6 +17,7 @@ class Pagination {
         // For now, this will be how I prevent errors on other pages 
         this.frontTest = document.querySelector('.contentContainer_paginated') 
         this.vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+        this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
         // Can I setup to load in and Paginate depending on identity, so as to make adaptable? Yes!!!
 
