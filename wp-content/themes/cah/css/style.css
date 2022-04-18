@@ -574,8 +574,14 @@ li {
   cursor: pointer;
 }
 #allNewsContainer .contentBox .news p, #contactContainer .contentBox .news p {
-  line-height: 1.25rem;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
+  line-height: 1.4rem;
+}
+@media (min-width: 1200px) {
+  #allNewsContainer .contentBox .news p, #contactContainer .contentBox .news p {
+    font-size: 1.25rem;
+    line-height: 1.2rem;
+  }
 }
 #allNewsContainer .contentBox .news, #allNewsContainer .contentBox form, #contactContainer .contentBox .news, #contactContainer .contentBox form {
   padding: 0 5%;

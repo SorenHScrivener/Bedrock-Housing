@@ -101,8 +101,12 @@
                 cursor: pointer;
             }
             p{
-                line-height: 1.25rem;
-                font-size: 1.25rem;
+                font-size: 1.45rem;
+                line-height: 1.4rem;
+                @include mixins.atDesktop{
+                    font-size: 1.25rem;
+                    line-height: 1.2rem;
+                }
             }
         }
         .news, form{
