@@ -1239,7 +1239,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   border-radius: 2%;
   box-shadow: 0.2rem 0.2rem 1rem 0.4rem inset rgba(37, 33, 30, 0.85);
   position: fixed;
-  width: 80%;
+  width: 85%;
   height: 80%;
   margin-left: 10%;
   grid-template-areas: "realtimeFiltersAndSorting" "searchFilters" "resetAll";
