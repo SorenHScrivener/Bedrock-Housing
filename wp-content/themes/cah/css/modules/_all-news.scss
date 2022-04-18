@@ -301,7 +301,10 @@
                     margin-right: 2%;
                 }
                 p{
-                    line-height: 1.2rem;
+                    line-height: 1.6rem;
+                    @include mixins.atDesktop{
+                        line-height: 1.2rem;
+                    }
                 }
                 iframe{
                     width: 150px;

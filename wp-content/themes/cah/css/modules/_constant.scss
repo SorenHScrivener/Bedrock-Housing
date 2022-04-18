@@ -168,7 +168,7 @@ body{
     font-family: 'Libre Caslon Text', serif;
   }
 
-  .news p, .textBox p, #relationship-link, #single-link{
+  .textBox p, #relationship-link, #single-link{
     font-family: 'Libre Caslon Display', serif;
   }
 
@@ -186,4 +186,7 @@ body{
 
   input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #search-filters button, #reset-all{
     font-family: 'Lora', serif;
+  }
+  .news p{
+    font-family: 'Roboto', sans-serif;
   }
