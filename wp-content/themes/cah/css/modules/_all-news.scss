@@ -40,7 +40,7 @@
         position: fixed;
         width: 85%;
         height: 80%;
-        margin-left: 10%;
+        margin-left: 7.5%;
         grid-template-areas:"realtimeFiltersAndSorting"
                             "searchFilters"
                             "resetAll";
@@ -95,7 +95,7 @@
             // column-gap: 30px;
             width: 100%;
             button, label{
-                font-size: 1.6rem;
+                font-size: 1.8rem;
                 @include mixins.atDesktop{
                     font-size: 1.3rem;
                 }
@@ -158,7 +158,7 @@
                 grid-area: headingSF;
             }
             button{
-                font-size: 1.6rem;
+                font-size: 1.8rem;
                 @include mixins.atDesktop{
                     font-size: 1.2rem;
                 }
@@ -221,7 +221,10 @@
             cursor: pointer;
         }
         h3{
-            font-size: 1.7rem;
+            font-size: 2rem;
+            @include mixins.atDesktop{
+                font-size: 1.7rem;
+            }
         }
         h4{
             font-size: 1.5rem;
@@ -410,9 +413,9 @@
 }
 
 .news-search-field{
-    font-size: 1.4rem;
-    height: 2.6rem;
-    width: 24rem;
+    font-size: 1.6rem;
+    height: 2.8rem;
+    width: 26rem;
     @include mixins.atDesktop{
         font-size: 1.15rem;
         height: 2.3rem;

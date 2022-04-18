@@ -1241,7 +1241,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   position: fixed;
   width: 85%;
   height: 80%;
-  margin-left: 10%;
+  margin-left: 7.5%;
   grid-template-areas: "realtimeFiltersAndSorting" "searchFilters" "resetAll";
 }
 #all-news-container #filters-and-links-container.fade-in {
@@ -1310,7 +1310,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   }
 }
 #all-news-container #filters-and-links-container #realtime-filters-and-sorting button, #all-news-container #filters-and-links-container #realtime-filters-and-sorting label {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 @media (min-width: 1200px) {
   #all-news-container #filters-and-links-container #realtime-filters-and-sorting button, #all-news-container #filters-and-links-container #realtime-filters-and-sorting label {
@@ -1354,7 +1354,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-area: headingSF;
 }
 #all-news-container #filters-and-links-container #search-filters button {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   text-align: left;
 }
 @media (min-width: 1200px) {
@@ -1418,7 +1418,12 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   cursor: pointer;
 }
 #all-news-container #filters-and-links-container h3 {
-  font-size: 1.7rem;
+  font-size: 2rem;
+}
+@media (min-width: 1200px) {
+  #all-news-container #filters-and-links-container h3 {
+    font-size: 1.7rem;
+  }
 }
 #all-news-container #filters-and-links-container h4 {
   font-size: 1.5rem;
@@ -1593,9 +1598,9 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 }
 
 .news-search-field {
-  font-size: 1.4rem;
-  height: 2.6rem;
-  width: 24rem;
+  font-size: 1.6rem;
+  height: 2.8rem;
+  width: 26rem;
 }
 @media (min-width: 1200px) {
   .news-search-field {
