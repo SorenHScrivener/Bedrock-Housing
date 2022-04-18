@@ -11,8 +11,10 @@
     padding-right: 2rem;
     color: ivory;
     p{
+        font-size: 1.5rem;
         margin: 1rem;
         @include mixins.atDesktop{
+            font-size: 1.2rem;
             margin: .65rem; 
         }
     }
