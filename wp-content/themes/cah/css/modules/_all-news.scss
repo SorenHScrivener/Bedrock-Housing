@@ -360,9 +360,11 @@
         grid-area: ph;
         display: flex;
         flex-direction: column;
+        border-left: .2rem solid rgba(212, 193, 130, .4);;
         @include mixins.atDesktop{
             display: block;
             width: 100%;
+            border: none;
         }          
         // height: 10%;
         &.dismissed{

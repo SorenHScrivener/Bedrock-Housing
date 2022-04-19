@@ -1581,11 +1581,13 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-area: ph;
   display: flex;
   flex-direction: column;
+  border-left: 0.2rem solid rgba(212, 193, 130, 0.4);
 }
 @media (min-width: 1200px) {
   #all-news-container #pagination-holder {
     display: block;
     width: 100%;
+    border: none;
   }
 }
 #all-news-container #pagination-holder.dismissed {
