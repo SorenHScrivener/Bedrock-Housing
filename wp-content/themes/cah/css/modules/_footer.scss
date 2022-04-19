@@ -1,21 +1,31 @@
 @use "../base/mixins";
 #footerContainer{
-    background-color: rgb(39, 39, 39, .6);
+    background-color: rgb(39, 39, 39, .7);
     margin: 0;
     display: flex;
     position: fixed;
     bottom: 0;
     width: 100%;
-    text-align: center;
-    justify-content: flex-end;
+    // text-align: center;
+    justify-content: space-between;
+    align-items: center;
     padding-right: 2rem;
+    padding-left: 2rem;
     color: ivory;
-    p{
+    .credit{
         font-size: 1.5rem;
-        margin: 1rem;
         @include mixins.atDesktop{
-            font-size: 1.2rem;
-            margin: .65rem; 
+            font-size: 1.2rem; 
+        }
+    }
+    #social-container{
+        a{
+            font-size: 1.7rem;
+            margin: 1rem;
+            @include mixins.atDesktop{
+                font-size: 1.3rem;
+                margin: .65rem; 
+            }
         }
     }
 }

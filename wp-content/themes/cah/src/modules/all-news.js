@@ -142,9 +142,10 @@ class News {
         this.months = [];
 
         let target = this.toggableSettings;
-        this.events(target);
+            this.events(target);
         }
-       
+
+        this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     }
 
     events(target){
@@ -343,7 +344,9 @@ class News {
 
         this.newsSearchClone.addEventListener('keyup', () => this.simuTyping());
         //considering change layout of options as alt to clone
-        this.newsSearch.addEventListener('focusin', ()=> this.openClone());
+        if(this.vw < 1200){
+            this.newsSearch.addEventListener('focusin', ()=> this.openClone());
+        }
         this.closeNewsSearchClone.addEventListener('click', ()=> this.closeClone());
 
         this.toggleText(target);
@@ -924,6 +927,9 @@ class News {
         //Do the number limit, though, one where hide and reveal when at certain points
 
         //Remember to add the loader
+        // if(this.vw >= 1200){
+            
+        // }
         this.paginationHolder.innerHTML = `
                 <div class="content-pages">
                     <a id="" class="content-direction content-direction_previous">Prev</a>

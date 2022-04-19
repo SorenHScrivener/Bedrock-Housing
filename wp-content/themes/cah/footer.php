@@ -13,7 +13,12 @@
 </div>
 
 <div id="footerContainer">
-    <p>footer buttons, links, etc go here</p>   
+    <p id="credit-copyright" class="credit">Copyright goes here</p>
+    <p id="credit-creator" class="credit">Powered by Passing Cloud Productions</p>
+    <div id="social-container">
+        <a href="#"><i class="fab fa-twitter"></i></a>  
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
 </div>
 
 <?php wp_footer(); ?>

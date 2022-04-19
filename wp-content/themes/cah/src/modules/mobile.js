@@ -6,7 +6,7 @@ class MobileInterfece {
         this.events();
     }
     events(){
-        this.mobileNavCaller.addEventListener('click', ()=>this.openNav())
+        // this.mobileNavCaller.addEventListener('click', ()=>this.openNav())
     }
 
     openNav(){

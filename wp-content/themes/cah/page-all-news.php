@@ -146,6 +146,7 @@
 
         <button id="reset-all">Reset All</button>
     </div>
+    <!-- <div class="pagination-holder" id="pagination-holder_mobile"></div> -->
 </div>
 
 <div id="mobile-typing-container">
@@ -155,6 +156,7 @@
         <button id="close-mobile-news-search">Close</button>
     </div>
 </div>
+
 <?php
     get_footer();
 ?>
