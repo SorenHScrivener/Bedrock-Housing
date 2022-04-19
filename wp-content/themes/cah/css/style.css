@@ -1241,7 +1241,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 }
 @media (min-width: 1200px) {
   #all-news-container {
-    height: 73%;
+    height: 68%;
     top: 7.3rem;
   }
 }
