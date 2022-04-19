@@ -1228,8 +1228,8 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   }
 }
 #all-news-container {
-  height: 52rem;
-  top: 6rem;
+  height: 53rem;
+  top: 7rem;
   width: 95%;
   left: 2.5%;
   background-color: rgba(37, 35, 34, 0.75);
