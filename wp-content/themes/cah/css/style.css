@@ -1228,8 +1228,8 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   }
 }
 #all-news-container {
-  height: 56rem;
-  top: 7rem;
+  height: 52rem;
+  top: 6rem;
   width: 95%;
   left: 2.5%;
   background-color: rgba(37, 35, 34, 0.75);
@@ -1241,7 +1241,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
 }
 @media (min-width: 1200px) {
   #all-news-container {
-    height: 68%;
+    height: 78%;
     top: 7.3rem;
   }
 }
@@ -1581,6 +1581,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #
   grid-area: ph;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border-left: 0.2rem solid rgba(212, 193, 130, 0.4);
 }
 @media (min-width: 1200px) {
