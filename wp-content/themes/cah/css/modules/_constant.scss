@@ -184,12 +184,13 @@ body{
     font-family: 'Cormorant SC', serif;
   }
 
-  input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, #search-filters button, #reset-all{
+  input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, 
+  #search-filters button, #reset-all, .news p, .see-more-link{
     font-family: 'Lora', serif;
   }
-  .news p{
-    font-family: 'Roboto', sans-serif;
-  }
+  // .news p{
+  //   font-family: 'Roboto', sans-serif;
+  // }
 
   .news p{
     font-weight: 300;
