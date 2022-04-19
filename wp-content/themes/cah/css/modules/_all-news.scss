@@ -2,9 +2,9 @@
 
 #all-news-container{
     height: 56rem; 
-    top: 6rem; 
+    top: 7rem; 
     @include mixins.atDesktop{
-        height: 78%; 
+        height: 73%; 
         top: 7.3rem; 
     }
     width: 95%; 
