@@ -1325,6 +1325,12 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button,
     border-left: none;
   }
 }
+#all-news-container #filters-and-links-container .options-switch {
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  font-size: 4rem;
+}
 #all-news-container #filters-and-links-container #realtime-filters-and-sorting {
   grid-area: realtimeFiltersAndSorting;
   display: grid;
@@ -1469,6 +1475,7 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button,
   #all-news-container #selected-news-container {
     grid-template-rows: 10% 84% 6%;
     grid-template-areas: "tao" "snr" "ph";
+    grid-template-columns: 100%;
   }
 }
 #all-news-container #selected-news-container #titleAndOptions {
@@ -1484,12 +1491,23 @@ input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button,
     grid-template-areas: "mh ds";
   }
 }
-#all-news-container #selected-news-container #titleAndOptions #main-header {
+#all-news-container #selected-news-container #titleAndOptions #main-header-container {
   grid-area: mh;
-  font-size: 2.3rem;
   display: flex;
   justify-content: center;
+}
+#all-news-container #selected-news-container #titleAndOptions #main-header-container #main-header {
+  font-size: 2.3rem;
+  display: flex;
   align-items: center;
+}
+#all-news-container #selected-news-container #titleAndOptions #main-header-container button {
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+#all-news-container #selected-news-container #titleAndOptions #main-header-container button.dismissed {
+  pointer-events: none;
+  display: none;
 }
 #all-news-container #selected-news-container #titleAndOptions .options-switch, #all-news-container #selected-news-container #titleAndOptions #dismiss-selection {
   font-size: 1.5rem;

@@ -35,7 +35,7 @@
                         <?php echo get_the_date( 'm/d/y' ); ?>  
                     </p>
                     <?php if( $relatedPosts && is_front_page() ){ 
-                        echo '<ul>';
+                        echo '<ul><span>Related:</span> ';
                         foreach($relatedPosts as $relatedPost){?>
                               <?php
                               if (next($relatedPosts )) {

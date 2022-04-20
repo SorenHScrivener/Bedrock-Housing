@@ -38,6 +38,7 @@ class News {
         this.isSpinnerVisible = false
         this.previousValue = "";
         this.typingTimer;
+        this.clearSearch = document.querySelector('#clear-search')
 
         this.newsSearchCloneContainer = document.querySelector('#mobile-typing-container');
         this.newsSearchClone = this.newsSearchCloneContainer.querySelector('input');
@@ -351,6 +352,13 @@ class News {
 
         this.toggleText(target);
         this.toggleOptions.forEach(e=>{e.addEventListener('click', ()=> this.toggleText(target))})
+        
+        this.clearSearch.addEventListener('click', e=>{
+            this.newsSearch.value = '';
+            this.newsSearchClone.value = '';
+            this.typingLogic();
+            e.currentTarget.classList.add('dismissed');
+        })
     }
 //Add 'isOn' to excludes, with include having class off and exclude having class of *value?
     toggleText(target){
@@ -396,8 +404,10 @@ class News {
             this.mainHeader.innerHTML = `Showing Results for: ${this.newsDelivery}`;
             this.currentPages = 0;
             this.typingTimer = setTimeout(this.gatherNews.bind(this), 750);
+            this.clearSearch.classList.remove('dismissed');
           } else {
             this.newsDelivery = "";
+            this.clearSearch.classList.add('dismissed');
             this.mainHeader.innerHTML = `${this.initialTitle}`;
             this.isSpinnerVisible = false;
             

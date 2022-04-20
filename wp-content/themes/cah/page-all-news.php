@@ -18,7 +18,10 @@
 <div id="all-news-container">
     <div id="selected-news-container">
         <div id="titleAndOptions">
-            <h2 id="main-header">All News</h2>
+            <div id="main-header-container">
+                <h2 id="main-header">All News</h2><button class="dismissed" id="clear-search">[Clear]</button>
+            </div>
+
             <button class="options-switch">Options</button>
             <button id="dismiss-selection" class="dismissed">Dismiss</button>
         </div>
@@ -35,6 +38,8 @@
         <button>Open Filters and sorting</button>
     </div> -->
     <div id="filters-and-links-container">
+
+    <button class="options-switch">x</button>
                 <!--Might move all search and filters into here and get rid of top bar.
         Plus, that would mean, all filters and such would be hidden until single view is canceled
         (might add pointer events none just to be safe)--> 
@@ -42,7 +47,7 @@
 
         <div id="realtime-filters-and-sorting">
         
-        <h2>Realtime Filter and Reorder <span><button class="options-switch">(Close)</button></span></h2>
+        <h2>Realtime Filter and Reorder</h2>
                         <!-- swap span display on click, ASC on as DESC is the default. Same for alpha-->
             <!-- Using one pair, will cause the other to reset -->
             <!--All apply on search-->
