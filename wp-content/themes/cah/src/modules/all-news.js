@@ -1,4 +1,11 @@
 //Continue to work on making this more efficient and readable
+
+//First and foremost, get everything sorted out in the code at large(see above), before addressing the following:
+//Keep current associated functionality. It is flawed, but that's okay. It should be implemented as a dropdown of filters, than putting text in the search box
+//there will be a dropdown for props and mems, respectively, with id's associated with 'data-' that is used as the filter
+//Exterior calls will select it
+//Also, might want to move reset-all when on tab and below
+
 import axios from "axios"
 import ShadowBox from './shadowBox';
 class News {
@@ -29,6 +36,7 @@ class News {
         this.origin;
 
         this.currentPages = 0;
+        this.storedPages = 0;
         this.contentLoaded = false;
 
         this.mainHeader = document.querySelector('#main-header');
@@ -39,6 +47,7 @@ class News {
         this.previousValue = "";
         this.typingTimer;
         this.clearSearch = document.querySelector('#clear-search')
+        this.cleared = false;
 
         this.newsSearchCloneContainer = document.querySelector('#mobile-typing-container');
         this.newsSearchClone = this.newsSearchCloneContainer.querySelector('input');
@@ -143,10 +152,10 @@ class News {
         this.months = [];
 
         let target = this.toggableSettings;
-            this.events(target);
-        }
-
-        this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        
+        // this.allOptionsPosition = this.allOptionsPosition.bind(this);
+        this.events(target);
+    }
     }
 
     events(target){
@@ -156,10 +165,11 @@ class News {
                     this.allOptionsVisible = false;
                     this.allOptions.classList.remove('fade-in');
                     this.allOptions.classList.remove('fade-out');
+                    this.closeClone()
                 }
             }, 300)
+            this.allOptionsPosition();
         })
-        // const defaultSwitchSettings = {...this.toggableSettings, alphaOrder: {...this.toggableSettings.alphaOrder}};
         let defaultSwitchSettings = JSON.parse(JSON.stringify(this.toggableSettings))
 
         this.gatherNews();
@@ -188,6 +198,7 @@ class News {
             this.monthOptions.value = ''
             this.yearOptions.dispatchEvent(new Event('change'));
             this.monthOptions.dispatchEvent(new Event('change'));
+            this.clearSearch.classList.add('dismissed');
             // console.log(year.options[year.selectedIndex].value)
         }
         //desc date not working
@@ -345,9 +356,7 @@ class News {
 
         this.newsSearchClone.addEventListener('keyup', () => this.simuTyping());
         //considering change layout of options as alt to clone
-        if(this.vw < 1200){
-            this.newsSearch.addEventListener('focusin', ()=> this.openClone());
-        }
+        this.allOptionsPosition();
         this.closeNewsSearchClone.addEventListener('click', ()=> this.closeClone());
 
         this.toggleText(target);
@@ -356,9 +365,19 @@ class News {
         this.clearSearch.addEventListener('click', e=>{
             this.newsSearch.value = '';
             this.newsSearchClone.value = '';
+            this.cleared = true;   
             this.typingLogic();
             e.currentTarget.classList.add('dismissed');
         })
+    }
+
+    allOptionsPosition(){
+        if(window.innerWidth < 1200){
+            this.newsSearch.addEventListener('focusin', this.openClone);
+            this.newsSearchClone.value = this.newsSearch.value; 
+        }else{
+            this.newsSearch.removeEventListener('focusin', this.openClone);
+        }
     }
 //Add 'isOn' to excludes, with include having class off and exclude having class of *value?
     toggleText(target){
@@ -395,7 +414,12 @@ class News {
             this.contentLoaded = false;
             clearTimeout(this.typingTimer)
     
-          if (this.newsSearch.value) {
+          if(this.newsSearch.value) {
+              if(!this.newsSearch.value.startsWith('#')){
+                this.storedPages = 0;
+              }else{
+                this.clearSearch.classList.remove('dismissed');
+              }
             if (!this.isSpinnerVisible) {
               this.newsReciever.innerHTML = '<div class="spinner-loader"></div>'
               this.isSpinnerVisible = true
@@ -404,13 +428,12 @@ class News {
             this.mainHeader.innerHTML = `Showing Results for: ${this.newsDelivery}`;
             this.currentPages = 0;
             this.typingTimer = setTimeout(this.gatherNews.bind(this), 750);
-            this.clearSearch.classList.remove('dismissed');
           } else {
             this.newsDelivery = "";
             this.clearSearch.classList.add('dismissed');
             this.mainHeader.innerHTML = `${this.initialTitle}`;
             this.isSpinnerVisible = false;
-            
+
             this.gatherNews()
           }
         }
@@ -419,8 +442,11 @@ class News {
       }
 
       openClone(){
-        this.newsSearchCloneContainer.classList.add('opened');
-        this.newsSearchClone.focus();
+        //necessary to remove the event listener
+        const newsSearchCloneContainer = document.querySelector('#mobile-typing-container');
+        const newsSearchClone = newsSearchCloneContainer.querySelector('input');
+        newsSearchCloneContainer.classList.add('opened');
+        newsSearchClone.focus();
       }
 
       closeClone(){
@@ -433,6 +459,7 @@ class News {
       }
 
       keyPressDispatcher(e) {
+          //Fix this!
             if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != "INPUT" && document.activeElement.tagName != "TEXTAREA") {
                 this.openClone();
             }
@@ -622,6 +649,7 @@ class News {
                             this.returnHome.href=`${siteData.root_url}/#${this.origin}Container`; 
                             this.mainHeader.innerHTML = `Showing Results for: ${name}`;
                             this.storedTitle = `Showing Results for: ${name}`;
+                            this.clearSearch.classList.remove('dismissed');
                         }
                     }else{    
                         if(target.includeTitle.isOn){
@@ -766,8 +794,11 @@ class News {
                         }
                 }
 
-                if(newsPages.length){                
+                if(newsPages.length && !this.cleared){                
                     contentShown = newsPages[this.currentPages];
+                    console.log(this.currentPages)
+                }else if(newsPages.length && this.cleared){
+                    contentShown = newsPages[this.storedPages];
                 }else{
                     contentShown = [];
                 }
@@ -922,7 +953,12 @@ class News {
                 this.newsDelivery = `#${linkId}`; 
                 this.mainHeader.innerHTML = `Showing Results for: ${name}`;
                 this.storedTitle =`Showing Results for: ${name}`;
+                this.clearSearch.classList.remove('dismissed');
                 this.contentLoaded = false;
+
+                this.storedPages = this.currentPages;
+                this.currentPages = 0;
+                
                 this.gatherNews();
             })
         })
@@ -937,9 +973,7 @@ class News {
         //Do the number limit, though, one where hide and reveal when at certain points
 
         //Remember to add the loader
-        // if(this.vw >= 1200){
-            
-        // }
+
         this.paginationHolder.innerHTML = `
                 <div class="content-pages">
                     <a id="" class="content-direction content-direction_previous">Prev</a>
@@ -955,10 +989,19 @@ class News {
             })
             
                 this.nextContentDirection = document.querySelector('.content-direction_next'); 
-        
-                this.firstPageButton = document.querySelector('.content-page[data-page="0"]');
+                if(!this.cleared){
+                    this.firstPageButton = document.querySelector('.content-page[data-page="0"]');
                 
-                this.firstPageButton.classList.add('selectedPage')
+                    this.firstPageButton.classList.add('selectedPage')
+                }else{
+                    console.log(this.currentPages, 'cleared')
+                    //clearSearch
+                    let r = document.querySelector(`.content-page[data-page="${this.storedPages}"]`)
+                    console.log(this.storedPages, document.querySelector(`.content-page[data-page="${this.storedPages}"]`))
+                    r.classList.add('selectedPage');
+                    this.cleared = false;
+                }
+
                 this.contentPageHolder
                 this.contentPageOptions = document.querySelectorAll('.content-pages a')
     
@@ -976,6 +1019,7 @@ class News {
                 this.fullDisplay = true;
                 // this.singleCall = true;
                 this.gatherNews();
+                this.clearSearch.classList.add('dismissed');
                 // console.log(`full display is ${this.fullDisplay}`)
             })
         })
@@ -984,6 +1028,7 @@ class News {
     dismissSelection(){
         if(this.newsDelivery !== ''){
             this.mainHeader.innerHTML = `${this.storedTitle}`;
+            this.clearSearch.classList.remove('dismissed');
         }else{
             this.mainHeader.innerHTML = `${this.initialTitle}`;
         }
@@ -1066,7 +1111,6 @@ class News {
         let current = document.querySelector(`.selectedPage`);
 
         if(this.currentPages > 0){
-            console.log(this.currentPages)
             prevButton.classList.remove('hidden')
         }else{
             prevButton.classList.add('hidden')

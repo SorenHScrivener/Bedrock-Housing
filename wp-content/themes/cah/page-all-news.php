@@ -21,7 +21,6 @@
             <div id="main-header-container">
                 <h2 id="main-header">All News</h2><button class="dismissed" id="clear-search">[Clear]</button>
             </div>
-
             <button class="options-switch">Options</button>
             <button id="dismiss-selection" class="dismissed">Dismiss</button>
         </div>

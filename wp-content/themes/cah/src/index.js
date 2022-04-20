@@ -3,14 +3,14 @@
 import '../css/style.css';
 import '../css/dots.css'
 
-import Search from './modules/search';
+// import Search from './modules/search';
 import Pagination from './modules/pagination';
 import News from './modules/all-news';
 import RelatedNews from './modules/singlePost';
 import ShadowBox from './modules/shadowBox';
 import MobileInterfece from './modules/mobile';
 
-const search = new Search();
+// const search = new Search();
 const pagination = new Pagination();
 const news = new News();
 const relatedNews = new RelatedNews();
