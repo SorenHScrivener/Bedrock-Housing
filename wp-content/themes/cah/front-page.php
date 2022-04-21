@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class="textBox">
-                <p>Meet our team; the foundation of our efforts. Every single one of them is integral in ensuring our properties are best out there. Their dedication is only matched by their pride in knowing that what they helps so many families. More than just hardworking, they're <b>Bedrock</b>.</p>
+                <p>Meet our team; the foundation of our efforts. Every single one of them is integral in ensuring our properties are perfect. Their dedication is only matched by their pride in knowing that what they do helps so many families. More than just hardworking, they're <b>Bedrock</b>.</p>
             </div>
         </div>             
         <div class="contentBox">
