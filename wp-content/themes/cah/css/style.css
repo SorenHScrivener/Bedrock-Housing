@@ -106,7 +106,7 @@ li {
 .contentContainer > div {
   display: flex;
   justify-content: center;
-  padding-top: 5.5rem;
+  padding-top: 6rem;
 }
 @media (min-width: 767px) {
   .contentContainer > div {
@@ -174,7 +174,12 @@ li {
   height: 100%;
 }
 .contentBox.properties > div, .contentBox.members > div {
-  width: 14rem;
+  width: 16.5rem;
+}
+@media (min-width: 1200px) {
+  .contentBox.properties > div, .contentBox.members > div {
+    width: 13rem;
+  }
 }
 .contentBox.properties > div .displaySquares, .contentBox.members > div .displaySquares {
   box-sizing: initial;
@@ -248,10 +253,15 @@ li {
 .contentBox.properties > div .display-text, .contentBox.members > div .display-text {
   margin-top: -0.3rem;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.65rem;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+}
+@media (min-width: 1200px) {
+  .contentBox.properties > div .display-text, .contentBox.members > div .display-text {
+    font-size: 1.3rem;
+  }
 }
 .contentBox.properties > div .display-text p, .contentBox.members > div .display-text p {
   margin: 0;
@@ -540,20 +550,20 @@ li {
 }
 
 #allNewsContainer {
-  height: 51rem;
+  height: 62rem;
 }
 @media (min-width: 1200px) {
   #allNewsContainer {
-    height: 52rem;
+    height: 50.5rem;
   }
 }
 
 #contactContainer {
-  height: 55rem;
+  height: 56rem;
 }
 @media (min-width: 1200px) {
   #contactContainer {
-    height: 52rem;
+    height: 50.5rem;
   }
 }
 

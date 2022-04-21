@@ -35,16 +35,16 @@
 }
 
 #allNewsContainer{
-    height: 51rem;
+    height: 62rem;
     @include mixins.atDesktop{
-        height: 52rem;
+        height: 50.5rem;
     }
 }
 
 #contactContainer{
-    height: 55rem;
+    height: 56rem;
     @include mixins.atDesktop{
-        height: 52rem;
+        height: 50.5rem;
     }
 }
 

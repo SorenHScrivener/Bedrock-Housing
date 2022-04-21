@@ -130,7 +130,7 @@ li{
         justify-content: center;
         // border: 2px solid rgb(131, 23, 23);
         // flex-wrap: wrap;
-        padding-top: 5.5rem;
+        padding-top: 6rem;
     }
     &_paginated{
         .textBox{
@@ -193,8 +193,11 @@ li{
     // flex-wrap: wrap;
     // justify-content: space-evenly;
     &.properties> div, &.members> div{
-        // margin: 0% 2%;    
-        width: 14rem;
+        // margin: 0% 2%;
+        width: 16.5rem; 
+        @include mixins.atDesktop{
+            width: 13rem;
+        }   
         // width: 210px;
         .displaySquares{
             box-sizing: initial;
@@ -269,7 +272,10 @@ li{
         .display-text{
             margin-top: -.3rem;
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.65rem;
+            @include mixins.atDesktop{
+                font-size: 1.3rem;
+            }
             display: flex;
             flex-direction: column;
             gap: .2rem;
