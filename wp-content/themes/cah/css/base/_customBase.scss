@@ -109,7 +109,7 @@ li{
     // @include mixins.atDesktop {
     //     height: initial;
     // }
-    height: initial;
+    // height: initial;
     // height: 100vh;
     width: 100%;
     margin: 4% 0;
@@ -154,7 +154,7 @@ li{
 
 .titleBox, .textBox{
     height: 50%;
-    width: 16rem;
+    width: 17rem;
 }
 
 .titleBox{
@@ -274,7 +274,7 @@ li{
             text-align: center;
             font-size: 1.65rem;
             @include mixins.atDesktop{
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             display: flex;
             flex-direction: column;

@@ -96,7 +96,6 @@ li {
 }
 
 .contentContainer {
-  height: initial;
   width: 100%;
   margin: 4% 0;
   margin-bottom: 5%;
@@ -135,7 +134,7 @@ li {
 
 .titleBox, .textBox {
   height: 50%;
-  width: 16rem;
+  width: 17rem;
 }
 
 .titleBox {
@@ -260,7 +259,7 @@ li {
 }
 @media (min-width: 1200px) {
   .contentBox.properties > div .display-text, .contentBox.members > div .display-text {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 .contentBox.properties > div .display-text p, .contentBox.members > div .display-text p {
@@ -521,20 +520,34 @@ li {
   background: transparent;
 }
 .titleBox p {
-  font-size: 1.5rem;
+  font-size: 1.95rem;
+}
+@media (min-width: 1200px) {
+  .titleBox p {
+    font-size: 1.7rem;
+  }
 }
 
 .textBox {
   padding-left: 0.5rem;
 }
 .textBox p {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: white;
 }
+@media (min-width: 1200px) {
+  .textBox p {
+    font-size: 1.4rem;
+  }
+}
 
+#propertiesContainer, #membersContainer {
+  min-height: 58rem;
+}
 @media (min-width: 1200px) {
   #propertiesContainer, #membersContainer {
-    height: 52rem;
+    height: 50rem;
+    min-height: initial;
   }
 }
 #propertiesContainer > div .titleBox, #membersContainer > div .titleBox {
