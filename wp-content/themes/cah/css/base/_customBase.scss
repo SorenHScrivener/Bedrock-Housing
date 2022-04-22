@@ -134,6 +134,8 @@ li{
     }
     &_paginated{
         .textBox{
+            //Put this on the right for tab landscape, like how i did in all news
+            //Will switch on a lefty toggle with title and text box
             .content-pages{
                 text-align: center;
                 a{
