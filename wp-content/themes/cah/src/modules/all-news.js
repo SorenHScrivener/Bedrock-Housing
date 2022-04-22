@@ -354,6 +354,7 @@ class News {
         this.optionsButton.forEach(e=>{e.addEventListener('click', () => this.toggleAllOptions())})
         this.dismissButton.addEventListener('click', () => this.dismissSelection())
 
+        document.addEventListener("keydown", e => this.keyPressDispatcher(e))
         this.newsSearchClone.addEventListener('keyup', () => this.simuTyping());
         //considering change layout of options as alt to clone
         this.allOptionsPosition();
@@ -459,14 +460,15 @@ class News {
       }
 
       keyPressDispatcher(e) {
-          //Fix this!
-            if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != "INPUT" && document.activeElement.tagName != "TEXTAREA") {
-                this.openClone();
+          if(window.innerWidth < 1200){
+            if (e.keyCode == 83 && !this.allOptionsVisible) {
+                this.toggleAllOptions();
             }
 
-            if(e.keyCode === 27 && this.isOverlayOpen){
-                this.closeClone();
+            if(e.keyCode === 27 && this.allOptionsVisible){
+                this.toggleAllOptions();
             }
+          }
         }
 
       async populateDateFilters(){

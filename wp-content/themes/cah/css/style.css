@@ -801,6 +801,17 @@ li {
   flex-direction: column;
 }
 
+#mobile-typing-container .form-field-container_front {
+  display: none;
+}
+#mobile-typing-container .form-field-container_front.opened {
+  display: block;
+}
+#mobile-typing-container textarea {
+  width: 100%;
+  height: 18rem;
+}
+
 #singleContainer {
   height: 77%;
   min-width: 96%;
