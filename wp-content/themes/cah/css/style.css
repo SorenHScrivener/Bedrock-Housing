@@ -711,7 +711,12 @@ li {
   margin-top: 0;
 }
 #contactContainer .contentBox form label {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+}
+@media (min-width: 1200px) {
+  #contactContainer .contentBox form label {
+    font-size: 1.4rem;
+  }
 }
 #contactContainer .contentBox form [type=radio] {
   width: 10%;

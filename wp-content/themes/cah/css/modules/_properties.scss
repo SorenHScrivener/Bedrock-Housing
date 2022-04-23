@@ -202,7 +202,10 @@
                 margin-top: 0;
             }
             label{
-                font-size: 1.4rem;
+                font-size: 1.7rem;
+                @include mixins.atDesktop{
+                    font-size: 1.4rem;
+                }
             }
             [type="radio"]{
                 width: 10%;
