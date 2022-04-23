@@ -720,14 +720,19 @@ li {
   margin-top: 2%;
 }
 #contactContainer .contentBox form input {
-  height: 1.5rem;
+  height: 2.5rem;
+}
+@media (min-width: 1200px) {
+  #contactContainer .contentBox form input {
+    height: 2rem;
+  }
 }
 #contactContainer .contentBox form select {
   height: 2rem;
 }
 #contactContainer .contentBox form textarea {
   width: 100%;
-  height: 18rem;
+  height: 20rem;
 }
 @media (min-width: 1200px) {
   #contactContainer .contentBox form textarea {

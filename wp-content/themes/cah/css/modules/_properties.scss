@@ -214,14 +214,17 @@
                 // width: 40%;
             }
             input{
-                height: 1.5rem;
+                height: 2.5rem;
+                @include mixins.atDesktop{
+                    height: 2rem;
+                }
             }
             select{
                 height: 2rem;
             }
             textarea{
                 width: 100%;
-                height: 18rem;
+                height: 20rem;
                 @include mixins.atDesktop{
                     height: 20rem;
                 }
