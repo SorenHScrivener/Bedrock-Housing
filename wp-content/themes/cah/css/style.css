@@ -711,7 +711,7 @@ li {
   margin-top: 0;
 }
 #contactContainer .contentBox form label {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }
 @media (min-width: 1200px) {
   #contactContainer .contentBox form label {
@@ -725,6 +725,9 @@ li {
 #contactContainer .contentBox form ul {
   padding: 0;
 }
+#contactContainer .contentBox form input, #contactContainer .contentBox form select, #contactContainer .contentBox form textarea {
+  font-size: 1.2rem;
+}
 #contactContainer .contentBox form input, #contactContainer .contentBox form select {
   display: block;
   margin-top: 2%;
@@ -734,7 +737,7 @@ li {
 }
 @media (min-width: 1200px) {
   #contactContainer .contentBox form input {
-    height: 2rem;
+    height: 1.6rem;
   }
 }
 #contactContainer .contentBox form select {
@@ -746,7 +749,7 @@ li {
 }
 @media (min-width: 1200px) {
   #contactContainer .contentBox form textarea {
-    height: 20rem;
+    height: 16rem;
   }
 }
 #contactContainer .contentBox form button {
