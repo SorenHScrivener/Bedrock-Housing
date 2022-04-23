@@ -564,7 +564,7 @@ li {
 }
 
 #allNewsContainer {
-  height: 67rem;
+  height: 62rem;
 }
 @media (min-width: 1200px) {
   #allNewsContainer {
@@ -573,7 +573,7 @@ li {
 }
 
 #contactContainer {
-  height: 56rem;
+  height: 62rem;
 }
 @media (min-width: 1200px) {
   #contactContainer {

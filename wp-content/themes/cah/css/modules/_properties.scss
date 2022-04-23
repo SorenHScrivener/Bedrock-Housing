@@ -44,14 +44,14 @@
 }
 
 #allNewsContainer{
-    height: 67rem;
+    height: 62rem;
     @include mixins.atDesktop{
         height: 50.5rem;
     }
 }
 
 #contactContainer{
-    height: 56rem;
+    height: 62rem;
     @include mixins.atDesktop{
         height: 50.5rem;
     }
