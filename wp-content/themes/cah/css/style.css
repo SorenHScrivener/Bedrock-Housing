@@ -801,10 +801,21 @@ li {
   padding-top: 2.5rem;
 }
 #pop-up-display-box img {
-  width: 26rem;
+  width: 34rem;
+}
+@media (min-width: 1200px) {
+  #pop-up-display-box img {
+    width: 29rem;
+  }
 }
 #pop-up-display-box a, #pop-up-display-box button {
   font-size: 2rem;
+}
+#pop-up-display-box #closeMagnify {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  font-size: 3.5rem;
 }
 #pop-up-display-box button {
   color: antiquewhite;

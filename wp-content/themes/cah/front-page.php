@@ -304,7 +304,7 @@
         <button id="next-image" class="pop-up-directional">next</button>
     </div>
 
-    <button id="closeMagnify">Close</button>
+    <button id="closeMagnify">x</button>
 </div>
 
 <!-- Get bogger images,  it looks like sizes that exceed the image's dimensions cannot be created cannot be created-->

@@ -279,15 +279,22 @@
     flex-direction: column;
     padding-top: 2.5rem;
     img{
-        width: 26rem
-        // margin-top: 6vh;
+        width: 34rem;
+        @include mixins.atDesktop{
+            width: 29rem
+        }
     }
     a, button{
         font-size: 2rem;
     }
+    #closeMagnify{
+        position: absolute;
+        right: 3rem;
+        top: 3rem;
+        font-size: 3.5rem;
+    }
     button{
         color: antiquewhite;
-        // border: .2rem solid black;
         cursor: pointer;
     }
     button:hover, a:hover{
