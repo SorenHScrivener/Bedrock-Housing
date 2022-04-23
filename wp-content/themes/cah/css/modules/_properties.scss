@@ -51,7 +51,7 @@
 }
 
 #contactContainer{
-    height: 62rem;
+    height: 62.5rem;
     @include mixins.atDesktop{
         height: 50.5rem;
     }
@@ -72,7 +72,10 @@
     }
     .contentBox{
         display: flex;
-        font-size: 1.1rem;
+        font-size: 1.6rem;
+        @include mixins.atDesktop{
+            font-size: 1.3rem;
+        }
         >div{
             flex-basis: 50%;
             height: 100%;
@@ -232,7 +235,10 @@
             button{
                 grid-area: submit;
                 color: ivory;
-                font-size: 1.3rem;
+                font-size: 1.8rem;
+                @include mixins.atDesktop{
+                    font-size: 1.3rem;
+                }
                 text-align: left;
             }
         }

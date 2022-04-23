@@ -573,7 +573,7 @@ li {
 }
 
 #contactContainer {
-  height: 62rem;
+  height: 62.5rem;
 }
 @media (min-width: 1200px) {
   #contactContainer {
@@ -593,7 +593,12 @@ li {
 }
 #allNewsContainer .contentBox, #contactContainer .contentBox {
   display: flex;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
+}
+@media (min-width: 1200px) {
+  #allNewsContainer .contentBox, #contactContainer .contentBox {
+    font-size: 1.3rem;
+  }
 }
 #allNewsContainer .contentBox > div, #contactContainer .contentBox > div {
   flex-basis: 50%;
@@ -742,8 +747,13 @@ li {
 #contactContainer .contentBox form button {
   grid-area: submit;
   color: ivory;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   text-align: left;
+}
+@media (min-width: 1200px) {
+  #contactContainer .contentBox form button {
+    font-size: 1.3rem;
+  }
 }
 
 .dot-pulse {

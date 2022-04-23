@@ -19,15 +19,15 @@ class MobileInterfece {
     }
     events(){
         this.mobileNavCaller.addEventListener('click', ()=>this.openNav())
-        this.formField.forEach((e)=> this.allOptionsPosition(e))
+        // this.formField.forEach((e)=> this.allOptionsPosition(e))
 
-        window.addEventListener('resize', ()=>{
-            this.formField.forEach((e)=> this.allOptionsPosition(e))
-        })
+        // window.addEventListener('resize', ()=>{
+        //     this.formField.forEach((e)=> this.allOptionsPosition(e))
+        // })
 
-        this.closeFormFieldClone.addEventListener('click', ()=> this.closeClone());
+        // this.closeFormFieldClone.addEventListener('click', ()=> this.closeClone());
 
-        this.clonedFormField.forEach(e=> e.addEventListener('keyup', this.simuTyping))
+        // this.clonedFormField.forEach(e=> e.addEventListener('keyup', this.simuTyping))
     }
 
     openNav(){
