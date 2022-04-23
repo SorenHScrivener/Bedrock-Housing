@@ -726,7 +726,12 @@ li {
   padding: 0;
 }
 #contactContainer .contentBox form input, #contactContainer .contentBox form select, #contactContainer .contentBox form textarea {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 1200px) {
+  #contactContainer .contentBox form input, #contactContainer .contentBox form select, #contactContainer .contentBox form textarea {
+    font-size: 1.2rem;
+  }
 }
 #contactContainer .contentBox form input, #contactContainer .contentBox form select {
   display: block;
@@ -741,7 +746,12 @@ li {
   }
 }
 #contactContainer .contentBox form select {
-  height: 2rem;
+  height: 2.6rem;
+}
+@media (min-width: 1200px) {
+  #contactContainer .contentBox form select {
+    height: 2rem;
+  }
 }
 #contactContainer .contentBox form textarea {
   width: 100%;

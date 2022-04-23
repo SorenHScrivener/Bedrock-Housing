@@ -215,7 +215,10 @@
                 padding: 0;
             }
             input, select, textarea{
-                font-size: 1.2rem;
+                font-size: 1.5rem;
+                @include mixins.atDesktop{
+                    font-size: 1.2rem;
+                }
             }
             input, select{
                 display: block;
@@ -228,7 +231,10 @@
                 }
             }
             select{
-                height: 2rem;
+                height: 2.6rem;
+                @include mixins.atDesktop{
+                    height: 2rem;
+                }
             }
             textarea{
                 width: 100%;
