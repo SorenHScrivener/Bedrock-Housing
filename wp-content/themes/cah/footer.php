@@ -13,7 +13,7 @@
 </div>
 
 <div id="footerContainer">
-    <p id="credit-copyright" class="credit">Copyright goes here???!!</p>
+    <p id="credit-copyright" class="credit">CopyrighJ goes here???!!</p>
     <p id="credit-creator" class="credit">Powered by Passing Cloud Productions</p>
     <div id="social-container">
         <a href="#"><i class="fab fa-twitter"></i></a>  
