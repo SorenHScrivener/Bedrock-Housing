@@ -1214,6 +1214,7 @@ header nav.opened {
 }
 
 #singleContainer {
+  width: 100%;
   top: 9.5%;
   display: grid;
   grid-template-areas: "main" "desc" "updates";
@@ -1225,7 +1226,6 @@ header nav.opened {
 }
 @media (min-width: 1200px) {
   #singleContainer {
-    width: 100%;
     height: 82%;
     grid-template-areas: "updates main desc";
     grid-template-rows: 100%;
@@ -1240,7 +1240,6 @@ header nav.opened {
 #singleContainer #mainImageAndStats {
   grid-area: main;
   height: 100%;
-  width: 24vw;
   text-align: center;
 }
 @media (min-width: 1200px) {
@@ -1276,7 +1275,6 @@ header nav.opened {
 }
 #singleContainer #singleInfo {
   grid-area: desc;
-  width: 40vw;
   display: grid;
   grid-template-rows: 7% 1fr;
   height: 100%;
@@ -1302,7 +1300,6 @@ header nav.opened {
 }
 #singleContainer #vidAndImgCol {
   height: 100%;
-  width: 16vw;
   overflow: auto;
   overflow-x: hidden;
   text-align: center;
