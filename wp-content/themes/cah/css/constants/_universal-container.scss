@@ -1,0 +1,47 @@
+@use "../base/mixins";
+
+//Consider moving all below 
+#overallContainer{
+    position: relative;
+    top: 0;
+    // display: flex;
+    // flex-direction: column;
+    &.faded{
+        filter: opacity(40%);
+    }
+}
+
+#openingContainer{
+    height: 99.5vh;
+    position: relative;
+    color: var(--opening-container-color);
+    display: flex;
+    justify-content: center;
+    h1{
+        font-size: 5.2rem;
+        @include mixins.atDesktop{
+            font-size: 6.5rem;
+        }
+    }
+    p{
+        font-size: 2.5rem;
+        @include mixins.atDesktop{
+            font-size: 2.7rem;
+        }
+        font-weight: 600;
+    }
+    #pageImage{
+        // display: none;
+        // display: flex;
+        // justify-content: center;
+        // position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        img{
+            height: 100%;
+            width: 100%;
+            filter: blur(.6rem) grayscale(50%);
+        }
+    }
+}

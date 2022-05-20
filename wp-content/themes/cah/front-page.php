@@ -246,42 +246,27 @@
                      
                     <div id="contact-name">
                         <label for="contactName">Name (*required)</label>
-                        <input class="form-field" type="text" name="contactName" id="contactName" maxlength="36" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="required requiredField" />
-                        <?php if($nameError != '') { ?>
-                            <span class="error"><?=$nameError;?></span>
-                        <?php } ?>
+                        <input class="form-field" type="text" name="contactName" id="contactName" maxlength="36">
                     </div>
                     <div id="contact-email">             
                         <label for="email">Email (*required)</label>
-                        <input class="form-field" type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="required requiredField" />
-                        <?php if($emailError != '') { ?>
-                            <span class="error"><?=$emailError;?></span>
-                        <?php } ?>
+                        <input class="form-field" type="text" name="email" id="email">
                     </div>
                     <div id="contact-phone">
                         <label for="phoneNumber">Phone Number (optional)</label>
-						<input class="form-field" title="Invalid Phone Number. Either correct or erase it." name="phoneNumber" id="phoneNumber" type="Tel" <?php if(isset($_POST['phoneNumber']))  echo $_POST['phoneNumber'];?>>  
-                        <?php if($phoneNumberError != '') { ?>
-                            <span class="error"><?=$phoneNumberError;?></span>
-                        <?php } ?>
+						<input class="form-field" title="Invalid Phone Number. Either correct or erase it." name="phoneNumber" id="phoneNumber" type="Tel">  
                     </div>
                     <div id="contact-subject">
                         <label for="subject">Subject (*required)</label>
-                        <select name="subject" id="subject" title="Please select something!" <?php if(isset($_POST['subject']))  echo $_POST['subject'];?>>
+                        <select name="subject" id="subject" title="Please select something!">
                             <option value="">-select one-</option>
                             <option value="Job Inquiry">Job Inquiry</option>
                             <option value="Further Information">Further Information</option> 
-                            <?php if($subjectError != '') { ?>
-                                <span class="error"><?=$subjectError;?></span>
-                            <?php } ?>
                         </select>
                     </div>
                     <div id="contact-message">
                         <label for="message">Your Inquiry (limit 1000 chars)</label>
-                        <textarea class="form-field" name="message" id="message" rows="20" cols="30" class="required requiredField" maxlength="1000"><?php if(isset($_POST['message'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['message']); } else { echo $_POST['message']; } } ?></textarea>
-                        <?php if($messageError != '') { ?>
-                            <span class="error"><?=$messageError;?></span>
-                        <?php } ?>
+                        <textarea class="form-field" name="message" id="message" rows="20" cols="30" class="required requiredField" maxlength="1000"></textarea>
                     </div>
 
                     <input type="hidden" name="submitted" id="submitted" value="true" />
@@ -308,10 +293,10 @@
 </div>
 
 <!-- Get bogger images,  it looks like sizes that exceed the image's dimensions cannot be created cannot be created-->
-<div id="news-media-display">
+<!-- <div id="news-media-display">
 
     <button id="news-media-close">Close</button>
-</div>
+</div> -->
 
 <div id="mobile-typing-container">
     <div>

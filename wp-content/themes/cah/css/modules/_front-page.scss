@@ -1,0 +1,520 @@
+// I could nth to do the pattern styling diffs if keep exact one
+@use "../base/mixins";
+
+#welcomeContainer{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    margin-top: 1%;
+    @include mixins.atDesktop{
+        margin-top: 2%;
+    }
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    img{
+        height: 6rem;    
+    }
+    div{
+        text-shadow: 1px 1px black;
+        width: 80%;
+        @include mixins.atDesktop{
+            width: 70%;
+        }
+    }
+}
+
+.contentContainer{
+    width: 100%;
+    margin: 4% 0;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    >div{
+        @include mixins.atTablet {
+            width: 95%;
+        }
+        @include mixins.atDesktop {
+            width: 85%;
+        }
+        display: flex;
+        justify-content: center;
+        padding-top: 6rem;
+
+        .titleAndTextBox, .contentBox{
+            position: relative;
+        }
+        
+        .titleAndTextBox{
+            margin-right: 5%;
+            .titleBox, .textBox{
+                height: 50%;
+                width: 18rem;
+            }
+            .titleBox{
+                padding: 10%;
+                background: transparent;
+                p{
+                    font-size: 1.95rem;
+                    @include mixins.atDesktop{
+                        font-size: 1.7rem;
+                    }
+                }
+                >*{
+                    height: 50%;
+                    width: 100%;
+                    margin: 0;
+                }
+                >:nth-child(2){
+                    display: flex;
+                    h2{
+                        align-self: flex-end;
+                        padding-bottom: 15%;
+                    }
+                }
+            }
+            .textBox{
+                //Put this on the right for tab landscape, like how i did in all news
+                //Will switch on a lefty toggle with title and text box
+                .content-pages{
+                    text-align: center;
+                    padding-left: .5rem;
+                    p{
+                        margin: .6rem 0;
+                        font-size: 1.7rem;
+                        @include mixins.atDesktop{
+                            font-size: 1.5rem;
+                        }
+                    } 
+                    a{
+                        font-size: 1.75rem;
+                    }
+                }
+            }
+        }
+
+        .contentBox{
+            width: 100%;
+            height: 100%;
+        
+            // display: flex;
+            // flex-direction: column;
+            // flex-wrap: wrap;
+            // justify-content: space-evenly;
+            &.properties> div, &.members> div{
+                // margin: 0% 2%;
+                width: 16.5rem; 
+                @include mixins.atDesktop{
+                    width: 13rem;
+                }   
+                // width: 210px;
+                .displaySquares{
+                    box-sizing: initial;
+                    position: relative;
+                    //when us backend, images will be set without this
+                    // height: 340px;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .interaction-prompt{
+                        text-align: center;
+                        position: absolute;
+                        background-color: var(--interaction-prompt_background-color);
+                        padding: .2rem .2rem;
+                        margin-top: 7.6rem;
+                        border-radius: 30%;
+                        font-size: 1.5rem;
+                        .click-prompt{
+                            @include mixins.atDesktop{
+                                display: none;
+                            }
+                        }
+                        .hover-prompt{
+                            display: none;
+                            @include mixins.atDesktop{
+                                display: block;
+                            }
+                        }
+                    }
+                    &-pageLinks{
+                        position: absolute;
+                        display: none;
+                        flex-direction: column;
+                        width: 100%;
+                        text-align: center;
+                        // opacity: 0;
+                        *{
+                            color: var(--whitish-gold);
+                            cursor: pointer;
+                            font-size: 1.5rem;
+                            @include mixins.atDesktop{
+                                font-size: 1.3rem;
+                            }
+                            margin-top: .7rem;
+                        }
+                        .fa-search-plus{
+                            font-size: 2rem;
+                            @include mixins.atDesktop{
+                                font-size: 1.4rem;
+                            }
+                        }
+                        *:hover{
+                            transform: scale(110%);
+                            filter: brightness(200%);
+                        }
+                        i{
+                            font-size: 1.4rem;
+                        }
+                    }
+                    .displaySquares-pageLinks__visible{
+                        display: flex;
+                    }
+                    div{
+                        p, a{
+                            margin: 2%;
+                        }
+                    }
+                }
+                .display-text{
+                    margin-top: -.3rem;
+                    text-align: center;
+                    font-size: 1.65rem;
+                    @include mixins.atDesktop{
+                        font-size: 1.2rem;
+                    }
+                    display: flex;
+                    flex-direction: column;
+                    gap: .2rem;
+                    p{
+                        margin: 0;
+                    }
+                    p:nth-of-type(2){
+                        font-weight: 700;
+                    }
+                }
+            }      
+        }
+
+        .contentBox.properties, .contentBox.members{
+            display: grid;
+            @include mixins.atTablet {
+                grid-template-columns: repeat(3, 33.3%);
+            }
+            @include mixins.atDesktop {    
+                grid-template-columns: repeat(4, 25%);
+            }
+            row-gap: .35rem;
+        }
+    }
+}
+
+
+#propertiesContainer, #membersContainer{
+    min-height: 58rem;
+    @include mixins.atDesktop{
+        height: 50rem;
+        min-height: initial;
+    }
+    >div{
+        .titleBox{
+            border: .35rem solid var(--title-box_border_color);
+        }
+    }
+    img{
+        width: 100%; 
+        height: 100%;
+        margin-bottom: 1rem;
+    }
+    img.pageLinks__visible{
+        filter: brightness(27%);
+    }
+}
+
+#allNewsContainer{
+    height: 62rem;
+    @include mixins.atDesktop{
+        height: 50.5rem;
+    }
+}
+
+#contactContainer{
+    height: 62.5rem;
+    @include mixins.atDesktop{
+        height: 50.5rem;
+    }
+}
+
+#allNewsContainer, #contactContainer{
+    background-color: var(--dark-content_background-color);
+    color: var(--dark-content_color);
+    >div{
+        .titleBox{
+            border: 4px solid var(--dark-title-box_border_color);
+        }
+    }
+    .contentBox{
+        display: flex;
+        font-size: 1.6rem;
+        @include mixins.atDesktop{
+            font-size: 1.3rem;
+        }
+        >div{
+            flex-basis: 50%;
+            height: 100%;
+            // padding-bottom: 1rem;
+            >div{
+                overflow: auto;
+                height: 92%;
+            }
+        }
+        .form-message{
+            height: auto;
+        }
+        h3{
+            text-align: center;
+            height: 8%;
+        }
+        ul{
+            padding: 0;
+            li{
+                display: inline;
+            }
+        } 
+        .news{
+            margin: 0 1%;
+            padding-top: 5%;
+            height: auto;
+            border: .1rem solid var(--news_border_color);
+            &::after{
+                content: " ";
+                display: block; 
+                height: 1rem; 
+                clear: both;
+            }
+            
+            p{
+                font-weight: 300;
+            }
+            img{
+                width: 13rem;
+                float: left;
+                margin-right: 2.5%;
+                cursor: pointer;
+            }
+            p{
+                font-size: 1.45rem;
+                line-height: 1.4rem;
+                @include mixins.atDesktop{
+                    font-size: 1.15rem;
+                    line-height: 1.1rem;
+                }
+            }
+        }
+        .news, form{
+            padding: 0 5%;
+        }
+        form{
+            display: grid;
+            column-gap: 1.2rem;
+            grid-template-areas:"contactName contactEmail"
+                                "contactPhone contactSubject"
+                                
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "contactMessage contactMessage"
+                                "submit ...";
+
+            #contact-name{
+                grid-area: contactName;
+            }
+            #contact-email{
+                grid-area: contactEmail;
+            }
+            #contact-phone{
+                grid-area: contactPhone;
+            }
+            #contact-subject{
+                grid-area: contactSubject;
+            }
+            #contact-message{        
+                grid-area: contactMessage;                
+            }
+        }
+    }
+}
+
+#contactContainer{
+    // background: black;
+    // color: white;
+    .contentBox{
+        column-gap: 3rem;
+        // width: 50%;
+        width: 85%;
+        @include mixins.atDesktop{
+            width: 70%;
+        }
+        display: flex;
+        padding-bottom: 1rem;
+        img{
+            filter: saturate(120%);
+            width: 45%;
+            margin-left: 2rem;
+            @include mixins.atDesktop {
+                width: 50%;
+                // width: 40%;
+                // @include mixins.atDesktop{
+                //     width: 50%;
+                // }
+                margin-left: 0;
+            }
+        }
+        label.error{
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--form-error_color);
+        }
+        form{
+            margin-top: 3rem;
+            // display: flex;
+            // flex-direction: column;
+            >div{
+                margin: 5% 0;
+                margin-top: 0;
+            }
+            label{
+                font-size: 1.8rem;
+                @include mixins.atDesktop{
+                    font-size: 1.4rem;
+                }
+            }
+            [type="radio"]{
+                width: 10%;
+                display: initial;
+            }
+            ul{
+                padding: 0;
+            }
+            input, select, textarea{
+                font-size: 1.5rem;
+                @include mixins.atDesktop{
+                    font-size: 1.2rem;
+                }
+            }
+            input, select{
+                display: block;
+                margin-top: 2%;
+            }
+            input{
+                height: 2.5rem;
+                @include mixins.atDesktop{
+                    height: 1.6rem;
+                }
+            }
+            select{
+                height: 2.6rem;
+                @include mixins.atDesktop{
+                    height: 2rem;
+                }
+            }
+            textarea{
+                width: 100%;
+                height: 20rem;
+                @include mixins.atDesktop{
+                    height: 16rem;
+                }
+            }
+            button{
+                grid-area: submit;
+                color: var(--form-button_color);
+                font-size: 1.8rem;
+                @include mixins.atDesktop{
+                    font-size: 1.3rem;
+                }
+                text-align: left;
+            }
+        }
+    }
+
+    // #mobile-typing-container{
+    //     .form-field-container_front{
+    //         display: none;
+    //     }
+    //     .form-field-container_front.opened{
+    //         display: block;
+    //     }
+    //     textarea{
+    //         width: 100%;
+    //         height: 18rem;
+    //     }
+    // }
+}
+
+#pop-up-display-box{
+    background-color: var(--pup_background-color);
+    width: 94vw;
+    height: 87vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 110;
+    position: fixed;
+    top: 8vh;
+    left: 3vw;
+    display: none;
+    // justify-content: space-evenly;
+    row-gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2.5rem;
+    img{
+        width: 34rem;
+        @include mixins.atDesktop{
+            width: 29rem
+        }
+    }
+    a, button{
+        font-size: 2rem;
+    }
+    #closeMagnify{
+        position: absolute;
+        right: 3rem;
+        top: 3rem;
+        font-size: 3.5rem;
+    }
+    button{
+        color: var(--pup-button_color);
+        cursor: pointer;
+    }
+    button:hover, a:hover{
+        filter: brightness(62%);
+    }
+    #content-holder{
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        width: 70%;
+        .pop-up-directional{
+            font-size: 2.5rem;
+        }
+    }
+  }
+
+// #news-media-display{
+//     background-color: rgba(44, 52, 77, 0.8);
+//     height: 88vh;
+//     width: 94vw;
+//     overflow-y: auto;
+//     overflow-x: hidden;
+//     z-index: 110;
+//     position: fixed;
+//     top: 7vh;
+//     left: 3vw;
+//     display: none;
+//     justify-content: space-around;
+//     align-items: center;
+//     flex-direction: column;
+// }

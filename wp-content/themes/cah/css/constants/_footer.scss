@@ -1,6 +1,7 @@
 @use "../base/mixins";
 #footerContainer{
-    background-color: rgb(39, 39, 39, .7);
+    color: var(--footer_color);
+    background-color: var(--footer_background-color);
     margin: 0;
     display: flex;
     position: fixed;
@@ -11,7 +12,6 @@
     align-items: center;
     padding-right: 2rem;
     padding-left: 2rem;
-    color: ivory;
     .credit{
         font-size: 1.5rem;
         @include mixins.atDesktop{
@@ -19,6 +19,7 @@
         }
     }
     #social-container{
+        color: var(--footer-symbols_color);
         a{
             font-size: 1.7rem;
             margin: 1rem;

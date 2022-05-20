@@ -821,6 +821,7 @@ class News {
                 //This needs to change to
                 this.toggleOptions.forEach(o => {o.classList.add('inactive');}); 
                 this.dateFilterOptions.forEach(f => {f.disabled = true});
+                this.newsSearch.disabled = true;
                 this.newsSearch.classList.add('inactive');
                 this.resetAll.classList.add('inactive');
                 this.fullDisplayContent = [];
@@ -1035,6 +1036,7 @@ class News {
             this.mainHeader.innerHTML = `${this.initialTitle}`;
         }
         this.toggleOptions.forEach(o => {o.classList.remove('inactive');}) 
+        this.newsSearch.disabled = '';
         this.dateFilterOptions.forEach(f => {f.disabled = ''})
         this.newsSearch.classList.remove('inactive');
         this.resetAll.classList.remove('inactive');

@@ -1,9 +1,11 @@
-<!DOCTYPE  html>
+<!DOCTYPE html>
 <html <?php language_attributes();?>>
     <head>
         <meta charset="<?php bloginfo('charset');?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
         <?php wp_head();?>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +47,9 @@
                 <?php }else{ ?>
                     <!-- use custom symbols for open and closed -->
                     <li id="mobile-nav-caller">
-                        <button>Open</button>
+                        <button>
+                            Open
+                        </button>
                     </li> 
                     <li>
                         <a href="#openingContainer">

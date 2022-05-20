@@ -9,17 +9,15 @@
     }
     width: 95%; 
     left: 2.5%; 
-    // border: 2px solid rgb(50, 50, 50); 
-    background-color: rgba(37, 35, 34, 0.75);
+    background-color: var(--single-container_background-color);
     position: absolute;
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: 100%;
-    // grid-template-areas:"selectedNewsContainer";
         @include mixins.atDesktop{
             grid-template-columns: 66% 34%;
         }
-    color: aliceblue;
+    color: var(--single-container_color);
     #filter-sort-toggle{
         display: block;
         @include mixins.atDesktop{
@@ -27,17 +25,16 @@
         }
     }
     button{
-        color: antiquewhite;
+        color: var(--single-container-button_color);
     }
     #media-container, #filters-and-links-container, #selected-news-container{        
         position: relative;
-        // height: 100%;
     }
     #filters-and-links-container.fade-in, #filters-and-links-container.fade-out{
         display: grid;
-        background-color: rgba(51, 49, 47, .9);
+        background-color: var(--flc_background-color);
         border-radius: 2%;
-        box-shadow: .2rem .2rem 1rem .4rem inset rgba(37, 33, 30, 0.85);
+        box-shadow: .2rem .2rem 1rem .4rem inset var(--flc_box-shadow_color);
         position: fixed;
         width: 90%;
         height: 80%;
@@ -76,7 +73,7 @@
             grid-template-areas:"realtimeFiltersAndSorting realtimeFiltersAndSorting realtimeFiltersAndSorting"
                                 "searchFilters searchFilters searchFilters"
                                 "... resetAll ...";
-            border: .2rem solid rgba(212, 193, 130, .4);
+            border: .2rem solid var(--flc_border_color);
             border-left: none;
         }
         padding-left: 1.5rem;
@@ -97,20 +94,11 @@
                                     "orderBy toggleType"
                                     "filterDate filterDate";
             }
-
-            // grid-template-columns: repeat(2, 300px);
-            // column-gap: 30px;
             width: 100%;
             button, label{
                 font-size: 1.8rem;
                 @include mixins.atDesktop{
                     font-size: 1.3rem;
-                }
-            }
-            button.inactive{
-                pointer-events: none;
-                span{
-                    color: red;
                 }
             }
             h2{
@@ -131,27 +119,12 @@
                     }
                 }
             }
-            // div{
-            //     width: 100%;
-            //     margin-top: 1.5rem;
-            // }
-            // >div>ul{
-            //     display: flex;
-            // }
-            // .realtime-options{
-            //     justify-content: space-evenly;
-            //     flex-direction: column;
-            // }
             ul{
                 padding-left: .3rem;
                 li{
-                    // list-style:disc;
                     margin-top: .5rem;
                 }
             }
-            // >*{
-            //     margin-bottom: 2rem;
-            // }
         }
         #search-filters{
             grid-area: searchFilters;
@@ -160,7 +133,6 @@
                                 "newsSearch newsSearch newsSearch"
                                 "caseSensitive fullWordOnly wordStartOnly"
                                 "includeTitle includeDescription ...";
-            // grid-template-columns: [newsSearch]20rem;
             h2{
                 grid-area: headingSF;
             }
@@ -175,7 +147,7 @@
                 grid-area: newsSearch;
                 #news-search.inactive{
                     pointer-events: none;
-                    background-color: gray;
+                    background-color: var(--flc-search_inactive);
                 }
             }
 
@@ -194,15 +166,6 @@
             #include-description{
                 grid-area: includeDescription;
             }
-            // #test{
-            //     grid-area: test;
-            // }
-            #word-start-only.inactive, button.inactive{
-                pointer-events: none;
-                span{
-                    color: red;
-                }
-            }
         }
         button, select, label{
             font-size: 1.3rem;
@@ -220,10 +183,6 @@
             }
             grid-area: resetAll;
         }
-        #reset-all.inactive{
-            pointer-events: none;
-            color: red;
-        }
         button{
             cursor: pointer;
         }
@@ -239,12 +198,7 @@
         }
     }
     #selected-news-container{
-        // grid-area: selectedNewsContainer;
         overflow: auto;
-        // width: 80%;
-        // @include mixins.atDesktop{
-        //     width: 66%;
-        // }
         display: grid;
         grid-template-rows: 10% 1fr;
         grid-template-columns: 93% 1fr;
@@ -257,7 +211,7 @@
                                 "ph";
             grid-template-columns: 100%;
         }
-        border: .2rem solid rgb(180, 174, 164);
+        border: .2rem solid var(--snc_border_color);
         #titleAndOptions{
             grid-area: tao;
             display: grid;
@@ -267,7 +221,7 @@
                 grid-template-columns: [mh]90% [ds]1fr;
                 grid-template-areas: "mh ds";
             }
-            border-bottom: .3rem solid rgb(185, 158, 122);
+            border-bottom: .3rem solid var(--tao_border_color);
             #main-header-container{
                 grid-area: mh;
                 display: flex;
@@ -275,7 +229,6 @@
                 #main-header{    
                     font-size: 2.3rem;
                     display: flex;
-                    // justify-content: center;
                     align-items: center;
                 }
                 button{
@@ -293,7 +246,7 @@
                     font-size: 1.2rem;
                 }
                 cursor: pointer;
-                border: .2rem solid rgba(212, 193, 130, 1);
+                border: .2rem solid var(--snc_border_color);
                 border-bottom: none;
                 border-top: none;
             }
@@ -302,10 +255,6 @@
                 @include mixins.atDesktop{
                     display: none;
                 }
-                // &.dismissed{
-                //     filter: contrast(20%);
-                //     pointer-events: none;
-                // }
             }
             #dismiss-selection{
                 grid-area: ds;
@@ -372,7 +321,6 @@
         }
     }
     #filters-and-links-container{
-        // width: 36%;
         padding-top: 1rem;
     }
     #pagination-holder{
@@ -380,13 +328,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border-left: .2rem solid rgba(212, 193, 130, .4);;
+        border-left: .2rem solid var(--pagination-holder_border_color);
         @include mixins.atDesktop{
             display: block;
             width: 100%;
             border: none;
         }          
-        // height: 10%;
         &.dismissed{
             display: none;
             pointer-events: none;
@@ -399,7 +346,6 @@
             @include mixins.atDesktop{
                 flex-direction: row;
             }
-            // border-top: 1px solid green;
                 a{
                     cursor: pointer;
                     font-size: 1.9rem;
@@ -411,33 +357,15 @@
                 a.hidden{
                     opacity: 0;
                 }
-                // a.selectedPage{
-                //     color: rgb(101, 138, 180);
-                //     filter: saturate(120%);
-                // }
         }
     }
-    // #pagination-holder_mobile{
-    //     grid-area: phMobile;
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: center;
-    //     align-items: center;
-    //     @include mixins.atDesktop{
-    //         display: none;
-    //     }
-    //     .content-pages{
-    //         display: flex;
-    //         flex-direction: column;
-    //     }
-    // }
 }
 
 #mobile-typing-container{
     display: none;
     justify-content: center;
     align-items: flex-end;
-    background-color: rgba(24, 23, 23, .9);
+    background-color: var(--mtc_background-color);
     height: 100%;
     width: 100%;
     position: fixed;
@@ -454,7 +382,7 @@
         }
         button{
             cursor: pointer;
-            color: antiquewhite;
+            color: var(--mtc-button_color);
         }
     }
 }
@@ -477,5 +405,12 @@
         font-size: 1.15rem;
         height: 2.3rem;
         width: 18rem;
+    }
+}
+
+#word-start-only.inactive, button.inactive{
+    pointer-events: none;
+    span{
+        color: var(--flc-button_inactive);
     }
 }

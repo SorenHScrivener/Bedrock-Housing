@@ -2,8 +2,6 @@
 //adjust to laptop? 
 @use "../base/mixins";
 #singleContainer{
-    // color: rgb(198, 198, 233);
-    // height: 54rem;
     height: 77%;
     min-width: 96%;
     top: 9.5%;
@@ -12,9 +10,6 @@
         height: 86%;
         // top: 9.5%;
     }
-    // left: 3rem;
-    
-    // margin-left: 12.5%;
     display: flex;
     // flex-direction: column;
     flex-wrap: wrap;
@@ -22,12 +17,12 @@
     z-index: 1;
     padding: 1.5rem 1rem;
     padding-bottom: 1rem;
-    background-color: rgba(37, 35, 34, 0.9);
+    background-color: var(--single-container_background-color);
     h4{
         font-size: 1.6rem;
     }
     h3, h4, .related-link{
-        color: rgb(241, 218, 189);
+        color: var(--single-container-header_color);
     }
     #mainImageAndStats{
         height: 100%;
@@ -86,12 +81,6 @@
             // height: 100%;
             padding: 0 1rem;
         }
-        // button{
-        //     color: antiquewhite;
-        //     font-size: 2rem;
-        //     align-self: start;
-        //     cursor: pointer;
-        // }
     }
     #vidAndImgCol{
         height: 100%;
@@ -125,7 +114,7 @@
                 font-size: 1.7rem;
             }
             a:hover{
-                color: white;
+                filter: brightness(180%);
             }
         }
         #news-reciever{

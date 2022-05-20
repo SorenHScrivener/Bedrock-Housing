@@ -242,6 +242,8 @@ function pageBanner($args = NULL){
 <?php }
 function cahFiles() {
     wp_enqueue_script('main-js-css', get_theme_file_uri('/dist/main.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('validationScript', get_theme_file_uri('/js/jquery.validate.min.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('validation', get_theme_file_uri('/js/validate.js'), array('jquery'), '1.0', true);
     wp_enqueue_style('exteriorStyles1', get_theme_file_uri('/css/downloads/css-loader.css'));
     // wp_register_style('Font_Awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
     // wp_enqueue_style('Font_Awesome');
@@ -484,74 +486,6 @@ function my_extra_gallery_fields( $args, $attachment_id, $field ){
 add_filter( 'acf_photo_gallery_image_fields', 'my_extra_gallery_fields', 10, 3 );
 
 add_action('admin_head', 'my_custom_fonts');
-
-if(isset($_POST['submitted'])) {
-
-
-	if(trim($_POST['contactName']) === '') {
-		$nameError = 'Please enter your name.';
-		$hasError = true;
-	} else {
-		$name = trim($_POST['contactName']);
-	}
-
-	if(trim($_POST['email']) === '')  {
-		$emailError = 'Please enter your email address.';
-		$hasError = true;
-	} else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))) {
-		$emailError = 'You entered an invalid email address.';
-		$hasError = true;
-	} else {
-		$email = trim($_POST['email']);
-	}
-
-    if(trim($_POST['phoneNumber']) === '') {
-		$phoneNumber = 'N/A';
-	}else if( is_numeric(trim($_POST['phoneNumber'])) === false) {
-		$phoneNumberError = 'Invalid Phone Number. Erase if by mistake...';
-		$hasError = true;
-	} 
-    else {
-		$phoneNumber = trim($_POST['phoneNumber']);
-	}
-
-    if(trim($_POST['subject']) === '') {
-		$subjectError = 'Please select a subject.';
-		$hasError = true;
-	} else {
-		$subject = trim($_POST['subject']);
-	}
-
-	if(trim($_POST['message']) === '') {
-		$commentError = 'Please enter a message.';
-		$hasError = true;
-	} else {
-		if(function_exists('stripslashes')) {
-			$message = stripslashes(trim($_POST['message']));
-		} else {
-			$message = trim($_POST['message']);
-		}
-	}
-
-	if(!isset($hasError)) {
-        echo "<script>console.log('was sent!')</script>";
-
-		$emailTo = get_option('tz_email');
-		if (!isset($emailTo) || ($emailTo == '') ){
-			$emailTo = get_option('admin_email');
-		}
-		// $subject = '[PHP Snippets] From '.$name;
-        $subject = $subject;
-		$body = "Name: $name \n\nEmail: $email \n\nPhone Number: $phoneNumber \n\nMessage: $message";
-		$headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
-
-		wp_mail($emailTo, $subject, $body, $headers);
-		$emailSent = true;
-	}else{
-        echo "<script>console.log('was not sent!')</script>";
-    }
-
-}
 
 function my_custom_fonts() {
   echo '<style>

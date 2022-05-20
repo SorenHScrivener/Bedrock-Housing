@@ -1,0 +1,90 @@
+.content-loader{
+    background-color: transparent;
+    height: 50%;
+    position: absolute;
+    .ball{
+      width: 1.2rem;
+      height: 1.2rem;
+      background-color: rgb(47, 163, 56);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      animation: moveBarPingPong2 .7s linear infinite alternate, moveBarPingPongColorShift2 .8s ease-in-out infinite alternate;
+    }
+    &.loader[data-text]::before{
+      position: absolute;
+    }
+    &.loader.is-active::before{
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      top: 39%;
+      font-size: 2.7rem;
+      color: rgb(195, 168, 126);
+      background-color: transparent;
+    }
+    &.loader-bar-ping-pong::after{
+      //make this a seperate div
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: rgb(101, 148, 187);
+        animation: moveBarPingPong .7s linear infinite alternate, moveBarPingPongColorShift .8s ease-in-out infinite alternate;
+    }
+    &.loader.is-active{
+      height: 97%;
+      z-index: 0;
+      background-color: #333138bf;
+      animation: blink 1.8s linear infinite alternate;
+    }
+}
+
+@keyframes blink{
+  0%{opacity:.5;}
+  50%{opacity: .75;}
+  100%{opacity:1;}
+}
+
+@keyframes moveBarPingPong{
+  0%{
+    left:40%;
+  }
+  100%{
+    left:60%;
+  }
+}
+@keyframes moveBarPingPongColorShift{
+  0%{
+    background-color: rgba(72, 68, 82, 0.75);
+  }
+  50%{
+    background-color: rgba(102, 78, 122, 0.75);
+  }
+  100%{
+    background-color: rgba(149, 93, 168, 0.75);
+  }
+}
+
+@keyframes moveBarPingPong2{
+  0%{
+    left:43%;
+  }
+  100%{
+    left:63%;
+  }
+}
+@keyframes moveBarPingPongColorShift2{
+  0%{
+    background-color: rgb(47, 163, 56);
+  }
+  50%{
+    background-color: rgb(87, 143, 56);
+  }
+  100%{
+    background-color: rgb(126, 131, 58);
+  }
+}
+
+.dot-pulse{
+  top: 20%;
+  left: 35%;
+}
