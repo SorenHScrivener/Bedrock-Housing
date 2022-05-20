@@ -1225,6 +1225,7 @@ header nav.opened {
 }
 @media (min-width: 1200px) {
   #singleContainer {
+    width: 100%;
     height: 82%;
     grid-template-areas: "updates main desc";
     grid-template-rows: 100%;
