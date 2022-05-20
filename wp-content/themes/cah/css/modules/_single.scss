@@ -2,15 +2,15 @@
 //adjust to laptop? 
 @use "../base/mixins";
 #singleContainer{
-    height: 77%;
-    min-width: 96%;
+    // height: 77%;
+    // min-width: 96%;
     top: 9.5%;
     display: grid;
     grid-template-areas:"main"
                         "desc"
                         "updates";
     @include mixins.atDesktop{
-        min-width: 60%; 
+        // min-width: 60%; 
         height: 82%;
         grid-template-areas: "updates main desc";
         grid-template-rows: 100%;
