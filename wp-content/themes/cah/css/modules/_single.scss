@@ -5,14 +5,17 @@
     height: 77%;
     min-width: 96%;
     top: 9.5%;
+    display: grid;
+    grid-template-areas:"main"
+                        "desc"
+                        "updates";
     @include mixins.atDesktop{
         min-width: 60%; 
-        height: 86%;
-        // top: 9.5%;
+        height: 82%;
+        grid-template-areas: "updates main desc";
+        grid-template-rows: 100%;
     }
-    display: flex;
-    // flex-direction: column;
-    flex-wrap: wrap;
+    // column-gap: 1rem;
     position: absolute;
     z-index: 1;
     padding: 1.5rem 1rem;
@@ -25,6 +28,7 @@
         color: var(--single-container-header_color);
     }
     #mainImageAndStats{
+        grid-area: main;
         height: 100%;
         width: 24vw;
         @include mixins.atDesktop{
@@ -60,6 +64,7 @@
         }
     }
     #singleInfo{
+        grid-area: desc;
         width: 40vw;
         @include mixins.atDesktop{
             width: 35vw;
@@ -98,6 +103,7 @@
     }
 
     #updates-col{
+        grid-area: updates;
         width: 26vw;
         @include mixins.atDesktop{
             width: 28vw;

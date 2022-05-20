@@ -1217,8 +1217,8 @@ header nav.opened {
   height: 77%;
   min-width: 96%;
   top: 9.5%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-areas: "main" "desc" "updates";
   position: absolute;
   z-index: 1;
   padding: 1.5rem 1rem;
@@ -1228,7 +1228,9 @@ header nav.opened {
 @media (min-width: 1200px) {
   #singleContainer {
     min-width: 60%;
-    height: 86%;
+    height: 82%;
+    grid-template-areas: "updates main desc";
+    grid-template-rows: 100%;
   }
 }
 #singleContainer h4 {
@@ -1238,6 +1240,7 @@ header nav.opened {
   color: var(--single-container-header_color);
 }
 #singleContainer #mainImageAndStats {
+  grid-area: main;
   height: 100%;
   width: 24vw;
   text-align: center;
@@ -1274,6 +1277,7 @@ header nav.opened {
   filter: brightness(115%);
 }
 #singleContainer #singleInfo {
+  grid-area: desc;
   width: 40vw;
   display: grid;
   grid-template-rows: 7% 1fr;
@@ -1310,6 +1314,7 @@ header nav.opened {
   margin: 1rem 0;
 }
 #singleContainer #updates-col {
+  grid-area: updates;
   width: 26vw;
   position: relative;
   height: 100%;
