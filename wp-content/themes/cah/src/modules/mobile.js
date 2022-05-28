@@ -25,7 +25,7 @@ class MobileInterface {
         if(window.innerWidth < 500){
             this.formField.forEach(f =>{
                 let target = f.offsetTop;
-                let test = this.html.scrollTop
+                let test = this.html.scrollTop;
                 let combined = test+target;
                 f.addEventListener('focus', ()=>{
                 console.log(test)
@@ -36,7 +36,7 @@ class MobileInterface {
                         window.scrollTo(0, 0);
                         this.html.scrollTo({
                             left: 0, 
-                            top: combined,
+                            top: 1000,
                             behavior: 'smooth'
                         })
                     // }else{
