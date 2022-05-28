@@ -35,7 +35,7 @@ class MobileInterface {
                         this.html.scrollTo({
                             left: 0, 
                             top: test+target,
-                            behavior: 'smooth'
+                            // behavior: 'smooth'
                         })
                     }else{
                         console.log('not FF')
