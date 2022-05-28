@@ -33,6 +33,7 @@ class MobileInterface {
                 //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
                 // console.log(target+(window.innerHeight/2))
                     // if(navigator.userAgent.indexOf("Firefox") != -1 ){
+                        window.scrollTo(0, 0);
                         this.html.scrollTo({
                             left: 0, 
                             top: combined,
