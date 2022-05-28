@@ -33,10 +33,10 @@ class MobileInterface {
                 //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
                 // console.log(target+(window.innerHeight/2))
                     // if(navigator.userAgent.indexOf("Firefox") != -1 ){
-                        this.html.scrollTo({
-                            left: 0, 
-                            top: 1000,
-                        })
+                        // this.html.scrollTo({
+                        //     left: 0, 
+                        //     top: 1000,
+                        // })
                     // }else{
                     //     console.log('not FF')
                     //     this.html.scrollTo({
