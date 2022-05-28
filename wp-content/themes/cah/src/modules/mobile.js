@@ -26,16 +26,16 @@ class MobileInterface {
             this.formField.forEach(f =>{
                 let target = f.offsetTop;
                 let test = this.html.scrollTop;
-                let combined = test+target;
+                let combined = test + target;
                 f.addEventListener('focus', ()=>{
-                console.log(test)
-                    console.log(target-(window.innerHeight/2)-100)
-                    console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
-                console.log(target+(window.innerHeight/2))
+                console.log(test, combined)
+                //     console.log(target-(window.innerHeight/2)-100)
+                //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
+                // console.log(target+(window.innerHeight/2))
                     // if(navigator.userAgent.indexOf("Firefox") != -1 ){
                         this.html.scrollTo({
                             left: 0, 
-                            top: 1000,
+                            top: combined,
                         })
                     // }else{
                     //     console.log('not FF')
