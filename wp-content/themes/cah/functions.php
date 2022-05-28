@@ -75,8 +75,19 @@ function pageBanner($args = NULL){
             <img src="<?php echo $args['photo']; ?>" alt="">
         </div>
         <div id="singleContainer">
+            <div aria-label="section-tabs" class="section-tabs">
+                <button id="mainImageAndStats-tab" class="activated">
+                    Stats
+                </button>
+                <button id="singleInfo-tab">
+                    Description
+                </button>
+                <button id="updates-col-tab">
+                    Updates
+                </button>
+            </div>
             
-            <div id="updates-col">
+            <div id="updates-col" class="section non-primary">
                 <h3>Most Recent News(<a class="related-link" href="<?php echo get_home_url(); ?>/all-news/#<?php echo get_the_ID();?>-related-<?php echo strtolower($postType->labels->name); ?>"">See All</a>)</h3>
                 <div id="news-reciever"></div>
                 <div id="pagination-holder"></div>
@@ -87,7 +98,7 @@ function pageBanner($args = NULL){
 
 
             ?>
-            <div id="mainImageAndStats">
+            <div id="mainImageAndStats" class="section">
                 <!-- <div class="media-card"> -->
                     <img data-post="none" data-id="<?php echo get_the_ID(); ?>" data-full="<?php echo $args['mainImgLarge']; ?>" src="<?php echo $args['mainImg']; ?>" alt="">
                 <!-- </div> -->
@@ -145,7 +156,7 @@ function pageBanner($args = NULL){
             </ul>
             </div>
             
-            <div id="singleInfo">
+            <div id="singleInfo" class="section  non-primary">
                 <div class="media-card">
                     <button data-id="<?php echo get_the_id(); ?>" data-post="<?php echo strtolower($postType->labels->name); ?>" data-full="<?php echo $imgInputLarge; ?>">View Gallery</button>
                 </div>
@@ -475,9 +486,15 @@ function my_extra_gallery_fields( $args, $attachment_id, $field ){
         'name' => 'video_url', 
         'value' => get_field($field . '_video_url', $attachment_id)
     );
+    $args['excerpt'] = array(
+        'type' => 'textarea', 
+        'label' => 'Excerpt', 
+        'name' => 'excerpt',
+        'value' => get_field($field . '_excerpt', $attachment_id)
+    );
     $args['desc'] = array(
         'type' => 'textarea', 
-        'label' => 'Video Description', 
+        'label' => 'Full Video Description', 
         'name' => 'desc',
         'value' => get_field($field . '_desc', $attachment_id)
     );

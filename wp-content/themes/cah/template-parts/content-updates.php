@@ -35,20 +35,22 @@
                         <?php echo get_the_date( 'm/d/y' ); ?>  
                     </p>
                     <?php if( $relatedPosts && is_front_page() ){ 
-                        echo '<ul><span>Related:</span> ';
-                        foreach($relatedPosts as $relatedPost){?>
-                              <?php
-                              if (next($relatedPosts )) {
-                                  $comma = ',';
-                                    
-                                }else{
-                                    $comma = ' ';
-                                }
-                            ?>
-                            <li><a href="<?php echo get_home_url(); ?>/all-news/#<?php echo $relatedPost -> ID; ?>-related-allNews"><?php echo get_the_title($relatedPost); echo $comma; ?>
-                        </a></li>
-                        <?php }
-                        echo '</ul>';
+                        echo '<div class="related-links">';
+                            echo '<span>Related:</span><ul> ';
+                            foreach($relatedPosts as $relatedPost){?>
+                                <?php
+                                if (next($relatedPosts )) {
+                                    $comma = ',';
+                                        
+                                    }else{
+                                        $comma = ' ';
+                                    }
+                                ?>
+                                <li><a class="related-link" href="<?php echo get_home_url(); ?>/all-news/#<?php echo $relatedPost -> ID; ?>-related-allNews"><?php echo get_the_title($relatedPost); echo $comma; ?>
+                            </a></li>
+                            <?php }
+                            echo '</ul>';
+                        echo '</div>';
                     }?>
 
                     <!-- figure out how to account for video. Perhaps draw from url field

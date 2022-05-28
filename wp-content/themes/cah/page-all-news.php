@@ -21,8 +21,10 @@
             <div id="main-header-container">
                 <h2 id="main-header">All News</h2><button class="dismissed" id="clear-search">[Clear]</button>
             </div>
-            <button class="options-switch">Options</button>
-            <button id="dismiss-selection" class="dismissed">Dismiss</button>
+            <div id="mobile-options-dismiss">
+                <button class="options-switch">Options</button>
+                <button id="dismiss-selection" class="dismissed">Dismiss</button>
+            </div>
         </div>
         <div id="selected-news-reciever">
             <div id="main-display"></div>
@@ -36,15 +38,20 @@
     <!-- <div id="filter-sort-toggle">
         <button>Open Filters and sorting</button>
     </div> -->
-    <div id="filters-and-links-container">
+    <div id="filters-and-sorting-container">
 
     <button class="options-switch">x</button>
+    
+    <div id="filters-and-sorting-tabs" class="section-tabs">
+        <button id="realtime-filters-and-sorting-tab" class="activated">RFaR</button>
+        <button id="search-filters-tab">Search</button>
+    </div>
                 <!--Might move all search and filters into here and get rid of top bar.
         Plus, that would mean, all filters and such would be hidden until single view is canceled
         (might add pointer events none just to be safe)--> 
         <!-- switch out -->
 
-        <div id="realtime-filters-and-sorting">
+        <div id="realtime-filters-and-sorting" class="section">
         
         <h2>Realtime Filter and Reorder</h2>
                         <!-- swap span display on click, ASC on as DESC is the default. Same for alpha-->
@@ -71,7 +78,7 @@
                 <h3>Toggle Types Allowed</h3>
                 <ul>
                     <li>
-                        <button class="toggle-options" id="include-property-updates">Property Updates(<span class="include">Included</span><span class="off">Excluded</span>)</button>
+                        <button class="toggle-options" id="include-property-updates">Property News(<span class="include">Included</span><span class="off">Excluded</span>)</button>
                     </li>
                     <li>
                         <button class="toggle-options" id="include-general-news">General News(<span class="include">Included</span><span class="off">Excluded</span>)</button>
@@ -122,7 +129,7 @@
      
         </div>
 
-        <div id="search-filters">
+        <div id="search-filters" class="section non-primary"> 
             <h2>Search Filters</h3>
             <!-- //Start only is standard and auto true when whole word is turned on(?) or simply buried in partial if -->
             <!-- //it should at least be inacessible on the frontend with visual cue -->
@@ -138,7 +145,7 @@
                 <!-- show only when partial is active -->
                 <button class="toggle-options" id="word-start-only"><span class="word-start-only">start of word only</span><span class="off">any part</span></button>
                 <!-- <h4>options for both</h4> -->
-                <button class="toggle-options" id="case-sensitive">case sensitive is <span class="case-sensitive">on</span><span class="off">off</span></button>
+                <button class="toggle-options" id="case-sensitive">case sensitive is: <span class="case-sensitive">on</span><span class="off">off</span></button>
                 <!-- Save for later, as need to figure out hw to get relationship -->
                 <button class="toggle-options" id="include-title">Title(<span class="include">Included</span><span class="off">Excluded</span>)</button>
                 <button class="toggle-options" id="include-description">Description(<span class="include">Included</span><span class="off">Excluded</span>)</button>

@@ -14,11 +14,24 @@ class RelatedNews{
             this.contentPageOptions;
             this.contentLoaded = false;
             this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+
+            // this.sections = document.querySelectorAll('.section');
+            // console.log(this.sections)
+            // this.sectionTabs = document.querySelectorAll('#section-tabs button');
+            // console.log(this.sectionTabs)
             this.events();
         }
     }
 
     events(){
+        // this.hideSections();
+
+        // this.sectionTabs.forEach(t=>{
+        //     t.addEventListener('click', ()=> {
+        //         // this.hideSections();
+        //         this.toggleSections(t)
+        //     })
+        // })
         this.fetchRelatedNews();
     }
 
@@ -54,7 +67,10 @@ class RelatedNews{
             }
                 this.populateNewsReciever();
 
-   
+                this.newsReciever.scrollTo({
+                    left: 0, 
+                    top: 0
+                })
         }catch(e){
             console.log(e);
         }
@@ -111,9 +127,30 @@ class RelatedNews{
                     })
                 })  
                 el.classList.add('selectedPage');
+
             }
         })
     }
+
+    // hideSections(){
+    //     this.sections.forEach(e=> e.style.display="none")
+    //     this.sectionTabs.forEach(t=>{
+    //         if(t.className.indexOf('active') > -1){
+    //             console.log(t)
+    //             let target = `#${t.id.replace('-tab', '')}`
+    //             console.log(target)
+    //             document.querySelector(target).style.display="grid";
+    //         }
+    //     });
+    // }
+
+    // toggleSections(t){
+    //     this.sectionTabs.forEach(e=>e.classList.remove('active'));
+    //     t.classList.add('active');
+    //     this.hideSections();
+    //     // let target = `#${t.id.replace('-tab', '')}`
+    //     // document.querySelector(target).classList.replace('active', 'hidden');
+    // }
 }
 
 export default RelatedNews 

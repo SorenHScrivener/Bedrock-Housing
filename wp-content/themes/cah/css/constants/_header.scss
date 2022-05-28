@@ -14,7 +14,7 @@ header{
     background-color: var(--header_background-color);
     box-shadow: .2rem .2rem 1rem .4rem inset var(--header_box-shadow_color);
     width: 100%;
-    height: 5.5rem;
+    height: var(--header_height);
     @include mixins.atDesktop{
         height: 4rem;
     }
@@ -40,7 +40,7 @@ header{
         
     // }
     #logo-symbol, #logo-text{
-        height: 4.5rem;
+        height: calc(var(--header_height)*.8);
             @include mixins.atDesktop{
                 height: 3rem;
             }
@@ -53,7 +53,7 @@ header{
     #logo-text{
         grid-area: logoText;
         margin-top: .6rem; 
-        padding-left: .2rem;
+        padding-left: 2.8rem;
     }
     img{
         height: 100%;
@@ -107,19 +107,15 @@ header{
                 }
                 a{
                   padding: .5rem 1rem;
-                  font-size: 1.8rem; 
+                  font-size: 1.2rem; 
                     @include mixins.atDesktop{
                         padding: 0;
                     } 
                 }
             }
-            // li:nth-of-type(2){
-            //     border: none;
-            // }
+            #return-home,
             #mobile-nav-caller{
-                // fix so adapts to height of bar, automatically
-                //use css vars
-                height: 5.5rem;
+                height: var(--header_height);
                 @include mixins.atDesktop{
                     height: 4rem;
                 }

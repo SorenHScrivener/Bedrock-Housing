@@ -12,7 +12,7 @@ class News {
     constructor(){
         // this.closeMediaButton = document.querySelector('#media-close');
     if(document.querySelector('#all-news-container')){
-        this.viewPortHeight = window.innerHeight
+        // this.viewPortHeight = window.innerHeight
         this.returnHome = document.querySelector('#return-home');
                  //Later, find way to make this not cause errors on other pages
         this.mainContainer = document.querySelector('#all-news-container');
@@ -20,7 +20,7 @@ class News {
         this.paginationHolder = document.querySelector('#pagination-holder')
         this.relationshipLinks;
         this.seeMore;
-        this.allOptions = document.querySelector('#filters-and-links-container')
+        this.allOptions = document.querySelector('#filters-and-sorting-container')
         this.optionsButton = document.querySelectorAll('.options-switch');
         this.allOptionsVisible = false;
         this.dismissButton = document.querySelector('#dismiss-selection');
@@ -159,6 +159,7 @@ class News {
     }
 
     events(target){
+
         window.addEventListener('resize', ()=>{
             setTimeout(()=>{
                 if(window.innerWidth >= 1200){
@@ -275,30 +276,36 @@ class News {
             console.log(`word start only is: ${target.wordStartOnly.isOn}`)
         }
 
-        this.caseSensitiveSwitch.onclick = ()=>{
+        this.caseSensitiveSwitch.addEventListener('click', e=>{
             if(target.isCaseSensitive.isOn){
                 target.isCaseSensitive.isOn = false;
+                // e.currentTarget.classList.remove('activated');
             }else{
                 target.isCaseSensitive.isOn = true;
+                // e.currentTarget.classList.add('activated');
             } 
             console.log(`case sensitive is: ${target.isCaseSensitive.isOn}`)
-        }
+        });
 
-        this.includeTitle.onclick = ()=>{
+        this.includeTitle.addEventListener('click', e=>{
             if(target.includeTitle.isOn){
                 target.includeTitle.isOn = false;
+                // e.currentTarget.classList.remove('activated');
             }else{
                 target.includeTitle.isOn = true;
+                // e.currentTarget.classList.add('activated');
             } 
-        };
+        });
 
-        this.includeDescription.onclick = ()=>{
+        this.includeDescription.addEventListener('click', e=>{
             if(target.includeDescription.isOn){
                 target.includeDescription.isOn = false;
+                // e.currentTarget.classList.remove('activated');
             }else{
                 target.includeDescription.isOn = true;
+                // e.currentTarget.classList.add('activated');
             } 
-        };
+        });
 
         // this.includeRelationship.onclick = ()=>{
         //     if(this.searchableFields.relationships){
@@ -386,8 +393,11 @@ class News {
         filterKeys.forEach(e=>{
             document.querySelectorAll(`#${target[e].ref} span`).forEach(i=>i.classList.add('hidden'))
             if(target[e].isOn){
+                // console.log(`#${target[e].ref}`)
+                document.querySelector(`#${target[e].ref}`).classList.add('activated');
                 document.querySelector(`#${target[e].ref} .${target[e].directive}`).classList.remove('hidden');
             }else{
+                document.querySelector(`#${target[e].ref}`).classList.remove('activated');
                 document.querySelector(`#${target[e].ref} .off`).classList.remove('hidden');
             }
         })
@@ -819,7 +829,8 @@ class News {
                 this.contentLoaded = true;
             }else{
                 //This needs to change to
-                this.toggleOptions.forEach(o => {o.classList.add('inactive');}); 
+                this.optionsButton.forEach(o=> o.classList.add('inactive')); 
+                this.toggleOptions.forEach(o=> o.classList.add('inactive')); 
                 this.dateFilterOptions.forEach(f => {f.disabled = true});
                 this.newsSearch.disabled = true;
                 this.newsSearch.classList.add('inactive');
@@ -1035,7 +1046,8 @@ class News {
         }else{
             this.mainHeader.innerHTML = `${this.initialTitle}`;
         }
-        this.toggleOptions.forEach(o => {o.classList.remove('inactive');}) 
+        this.optionsButton.forEach(o=> o.classList.remove('inactive')) 
+        this.toggleOptions.forEach(o=> o.classList.remove('inactive')) 
         this.newsSearch.disabled = '';
         this.dateFilterOptions.forEach(f => {f.disabled = ''})
         this.newsSearch.classList.remove('inactive');

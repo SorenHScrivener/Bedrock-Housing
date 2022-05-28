@@ -133,7 +133,7 @@ class Pagination {
             // this.displayBox.prepend(image);
             this.imageHolder.prepend(image);
             
-            this.displayBox.style.display = 'flex';
+            this.displayBox.classList.remove('hidden');
             this.openButton.forEach(e=>{
                 e.classList.add('hidden');
             })
@@ -144,7 +144,7 @@ class Pagination {
      this.closeMagnify.onclick = ()=>{
         this.imageHolder.querySelector('img').remove();
         this.displayBox.querySelector('.more-info-link').remove();
-        this.displayBox.style.display = 'none';
+        this.displayBox.classList.add('hidden');
         this.openButton.forEach(e=>{
             e.classList.remove('hidden');
         })
@@ -280,7 +280,9 @@ class Pagination {
                         this.insertContent(containerType[containerTypeLocation], contentShown, pageName)
                         
 
-                        paginationLocation = containerType[containerTypeLocation].previousElementSibling.querySelector('.textBox')
+                        // paginationLocation = containerType[containerTypeLocation].previousElementSibling.querySelector('.textBox')
+                        // console.log(containerType[containerTypeLocation].parentElement)
+                        paginationLocation = containerType[containerTypeLocation].parentElement;
                         this.insertPagination(paginationLocation, postPages, dataCount, pageCount, pageName)     
 
                         containerTypeLocation+= 1
@@ -393,11 +395,13 @@ class Pagination {
         "beforeend",
             `
             ${postPages.length ? '<div class="content-pages">' : ''}
-                ${postPages.length > 1  ? `<a id="${pageName}-prev" class="${pageName}-group ${pageName}-direction content-direction content-direction_previous">Prev</a>` : ''}
-            ${postPages.map((page)=>`
-                ${postPages.length > 1 ? `<a class="content-page ${pageName}-group" data-page="${dataCount++}"> ${pageCount += 1}</a>` : ''}
-            `).join('')}  
-                ${postPages.length > 1 ? `<a id="${pageName}-next" class="${pageName}-group ${pageName}-direction content-direction content-direction_next">Next</a>` : ''}
+                ${postPages.length ? '<div class="content-pages-sub">' : ''}
+                    ${postPages.length > 1  ? `<a id="${pageName}-prev" class="${pageName}-group ${pageName}-direction content-direction content-direction_previous">Prev</a>` : ''}
+                ${postPages.map((page)=>`
+                    ${postPages.length > 1 ? `<a class="content-page ${pageName}-group" data-page="${dataCount++}"> ${pageCount += 1}</a>` : ''}
+                `).join('')}  
+                    ${postPages.length > 1 ? `<a id="${pageName}-next" class="${pageName}-group ${pageName}-direction content-direction content-direction_next">Next</a>` : ''}
+                ${postPages.length ? '</div>' : ''} 
             ${postPages.length ? '</div>' : ''} 
 
         `);

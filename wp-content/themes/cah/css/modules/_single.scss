@@ -2,25 +2,31 @@
 //adjust to laptop? 
 @use "../base/mixins";
 #singleContainer{
-    // height: 77%;
+    // overflow: auto;
+    height: calc(100vh - var(--header_height) - var(--footer_height));
     // min-width: 96%;
     width: 100%;
-    top: 9.5%;
+    top: var(--header_height);
     display: grid;
-    grid-template-areas:"main"
-                        "desc"
-                        "updates";
+    // grid-template-areas:"tabs"
+    //                     "main"
+    //                     "desc"
+    //                     "updates";
+    grid-template-areas:"tabs"
+                        "section";
+    grid-template-rows: [tabs]13% [section]1fr;
+    justify-items: center;
     @include mixins.atDesktop{
         // min-width: 60%; 
         height: 82%;
         grid-template-areas: "updates main desc";
         grid-template-rows: 100%;
+        padding: 1.5rem 1rem;
+        padding-bottom: 1rem;
     }
     // column-gap: 1rem;
     position: absolute;
     z-index: 1;
-    padding: 1.5rem 1rem;
-    padding-bottom: 1rem;
     background-color: var(--single-container_background-color);
     h4{
         font-size: 1.6rem;
@@ -28,21 +34,73 @@
     h3, h4, .related-link{
         color: var(--single-container-header_color);
     }
-    #mainImageAndStats{
-        grid-area: main;
-        height: 100%;
-        // width: 24vw;
+    .section{
+        grid-area: section;
+        overflow: auto;
+        margin-top: 1rem;
         @include mixins.atDesktop{
-            width: 25vw;
+            grid-area: initial;
         }
-        text-align: center;
+    }
+    #mainImageAndStats.hidden, #updates-col.hidden, #singleInfo.hidden{
+        display: none;
+    }
+    .section-tabs{
+        grid-area: tabs;
+        margin: 1rem 0; 
+        width: 100%;
+        display: grid;
+        grid-template-areas: "stats desc updates";
+        // justify-content: space-evenly;
+        @include mixins.atDesktop{
+            display: none;
+        }
+        button{
+            padding: .5rem 0;
+            cursor: pointer;
+            color: var(--section-tabs_color);
+            font-size: 1.2rem;
+            border: .17rem solid var(--section-tabs_border-color);
+        }
+        button:hover{
+            filter: brightness(60%);
+        }
+        button.activated{
+            pointer-events: none;
+            color: var(--section-tabs-active_color);
+        }
+        #mainImageAndStats-tab{
+            grid-area: stats;
+        }
+        #singleInfo-tab{
+            grid-area: desc;
+        }
+        #updates-col-tab{
+            grid-area: updates;
+        }
+        // button.active{
+        //     color: ;
+        // }
+    }
+    #mainImageAndStats{
+        display: grid;
+        @include mixins.atDesktop{
+            grid-area: main;
+        }
+        // height: 100%;
+        grid-template-areas:"img"
+                            "ul";
+        grid-template-rows: [img]40% [ul]1fr;
+        justify-items: center;
         img{
-            height: 33%;
+            grid-area: img;
+            height: 100%;
             @include mixins.atDesktop{
                 height: 42%;
             }
         }
         ul{
+            grid-area: ul;
             padding-left: 20%;
             font-size: 1.4rem;
             @include mixins.atDesktop{
@@ -65,18 +123,18 @@
         }
     }
     #singleInfo{
-        grid-area: desc;
-        // width: 40vw;
+        width: 100%;
         @include mixins.atDesktop{
-            width: 35vw;
+            grid-area: desc;
+            // width: 35vw;
         }
         // width: 70%;
         display: grid;
-        grid-template-rows: 7% 1fr;
-        height: 100%;
+        grid-template-rows: 10% 1fr;
+        // height: 100%;
         p{
-            margin-top: 1.5rem;
-            font-size: 1.6rem;
+            margin-top: 1rem;
+            font-size: 1.1rem;
             @include mixins.atDesktop{
                 font-size: 1.7rem;
             }
@@ -86,6 +144,9 @@
             overflow: auto;
             // height: 100%;
             padding: 0 1rem;
+        }
+        .media-card{
+            display: flex;
         }
     }
     #vidAndImgCol{
@@ -104,21 +165,23 @@
     }
 
     #updates-col{
-        grid-area: updates;
-        width: 26vw;
-        @include mixins.atDesktop{
-            width: 28vw;
-        }
         position: relative;
-        height: 100%;
+        // height: 100%;
         overflow: auto;
-        padding: 0 1rem;
+        padding-left: 1rem;
         display: grid;
         grid-template-rows: 10% 1fr 4%;
+        @include mixins.atDesktop{
+            grid-area: updates;
+            padding: 0 1rem;
+        }
         h3{
-            font-size: 2rem;
+            font-size: 1.4rem;
+            @include mixins.atDesktop{
+                font-size: 2rem;
+            }
             a{
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
             a:hover{
                 filter: brightness(180%);
@@ -139,7 +202,7 @@
             position: absolute;
             bottom:0;
             width: 100%;
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             display: flex;
             justify-content: center;
         }

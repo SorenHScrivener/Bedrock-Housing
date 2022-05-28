@@ -1,17 +1,19 @@
-class MobileInterfece {
+class MobileInterface {
     constructor(){
+        this.html = document.querySelector('html');
         this.nav = document.querySelector('nav');
         this.opened = false;
         this.mobileNavCaller = document.querySelector('#mobile-nav-caller');
+        this.formContainer = document.querySelector('#test');
         this.formField = document.querySelectorAll('.form-field');
 
-        this.clonedFormFieldContainerOverall = document.querySelector('#mobile-typing-container');
+        // this.clonedFormFieldContainerOverall = document.querySelector('#mobile-typing-container');
 
-        this.clonedformFieldContainer = this.clonedFormFieldContainerOverall.querySelectorAll('.form-field-container_front');
-        console.log(this.clonedformFieldContainer)
-        this.clonedFormField = this.clonedFormFieldContainerOverall.querySelectorAll('.form-field_front');
+        // this.clonedformFieldContainer = this.clonedFormFieldContainerOverall.querySelectorAll('.form-field-container_front');
+        // console.log(this.clonedformFieldContainer)
+        // this.clonedFormField = this.clonedFormFieldContainerOverall.querySelectorAll('.form-field_front');
 
-        this.closeFormFieldClone = document.querySelector('#close-front-form');
+        // this.closeFormFieldClone = document.querySelector('#close-front-form');
 
         if(this.mobileNavCaller){
             this.events();   
@@ -19,15 +21,34 @@ class MobileInterfece {
     }
     events(){
         this.mobileNavCaller.addEventListener('click', ()=>this.openNav())
-        // this.formField.forEach((e)=> this.allOptionsPosition(e))
 
-        // window.addEventListener('resize', ()=>{
-        //     this.formField.forEach((e)=> this.allOptionsPosition(e))
-        // })
-
-        // this.closeFormFieldClone.addEventListener('click', ()=> this.closeClone());
-
-        // this.clonedFormField.forEach(e=> e.addEventListener('keyup', this.simuTyping))
+        if(window.innerWidth < 500){
+            this.formField.forEach(f =>{
+                let target = f.offsetTop;
+                let test = this.html.scrollTop
+                f.addEventListener('focus', ()=>{
+                console.log(test)
+                //     console.log(target-(window.innerHeight/2)-100)
+                //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
+                // console.log(target+(window.innerHeight/2))
+                    if(navigator.userAgent.indexOf("Firefox") != -1 ){
+                        this.html.scrollTo({
+                            left: 0, 
+                            top: test+target,
+                            behavior: 'smooth'
+                        })
+                    }else{
+                        console.log('not FF')
+                        this.html.scrollTo({
+                            left: 0, 
+                            top: target-(window.innerHeight/2 - (window.innerHeight*.1)),
+                            behavior: 'smooth'
+                        })
+                    }
+                })
+                
+            })
+            }
     }
 
     openNav(){
@@ -61,7 +82,7 @@ class MobileInterfece {
         clonedFormFieldContainerOverall.classList.add('opened');
         clonedFormFieldContainer.classList.add('opened');
         clonedFormField.focus();
-      }
+    }
 
       closeClone(){
         this.clonedformFieldContainer .forEach(e=>{e.classList.remove('opened')})
@@ -75,4 +96,4 @@ class MobileInterfece {
       }
 }
 
-export default MobileInterfece;
+export default MobileInterface;

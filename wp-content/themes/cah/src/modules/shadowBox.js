@@ -57,7 +57,7 @@ class ShadowBox {
         this.mediaPagination = document.querySelector('#media-pagination');
         this.galleryPosition = 0; 
         this.postField = 'gallery';
-        this.closeMediaButton = document.querySelector('#media-close');
+        
         this.newLoad = true;
 
         this.mediaLink.forEach(media=>{
@@ -65,14 +65,12 @@ class ShadowBox {
         })
 
         document.addEventListener("keydown", e => this.keyPressDispatcher(e))
-        this.closeMediaButton.addEventListener('click', ()=>this.closeMediaReciever())
-    
     }
 
         shadowBox(media){
             this.mediaReciever = document.querySelector('#media-reciever');
 
-            this.mediaReciever.style.display = "flex";
+            this.mediaReciever.style.display = "grid";
             this.isMediaRecieverOpen = true; 
             this.html.classList.add('freeze');
             
@@ -99,6 +97,7 @@ class ShadowBox {
                     console.log(results[dataType])
 
                     if(item.postType === 'property'){
+                        document.querySelector('#media-selection-interface').classList.add('has-menu');
                         this.mediaMenu.innerHTML = `
                             <a id="gallery" class="active">General</a>
                             <a id="interior">Interior</a>
@@ -160,7 +159,7 @@ class ShadowBox {
             //Have desc with 'read more' under active vid. Exerpt under selection, of exists, otherwise trim
 
             this.dataCount = 0;
-            this.postOutput = 1;
+            this.postOutput = 3;
             this.pageCount = 0;
             this.postPage = [];
             this.postPages = [];
@@ -200,7 +199,9 @@ class ShadowBox {
             if(this.newLoad === true){
                 console.log(this.newLoad);
                 this.renderCurrentMedia(item);
-                this.insertPagination(item, this.dataCount, this.pageCount);
+                if(this.postPages.length > 1){
+                    this.insertPagination(item, this.dataCount, this.pageCount);
+                }
             }
  
         }
@@ -223,10 +224,32 @@ class ShadowBox {
             }
             console.log(this.postField, this.galleryPosition)
 
-            this.currentMedia.innerHTML = `       
-                ${item[this.postField][this.galleryPosition].videoSource ? '<div id="play-button-container"><button id="play-button"><div></div></button></div>' : ''}
-                <img data-video="${item[this.postField][this.galleryPosition].videoSource}" src="${item[this.postField][this.galleryPosition].image}">
+            this.currentMedia.innerHTML = `  
+                <div id="media-display">
+                    ${item[this.postField][this.galleryPosition].videoSource ? '<div id="play-button-container"><button id="play-button"><div></div></button></div>' : ''}
+                    <img data-video="${item[this.postField][this.galleryPosition].videoSource}" src="${item[this.postField][this.galleryPosition].image}">
+                </div>     
+               
+                <div id="media-information">
+                    <div id="title-and-options">
+                        <p id="media-title">${item[this.postField][this.galleryPosition].title}<button id="toggle-desc"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up hidden"></i></button></p>
+                        <button id="media-close-alt" class="media-close">close</button>
+                    </div>
+                    <p id="media-partial-desc">${item[this.postField][this.galleryPosition].description}</p>
+                    <p id="media-full-desc" class="hidden">${item[this.postField][this.galleryPosition].fullDescription}</p>
+                </div>
             `;  
+
+            this.closeMediaButton = document.querySelectorAll('.media-close');
+            this.closeMediaButton.forEach(b=>b.addEventListener('click', ()=>this.closeMediaReciever()))
+
+            this.mediaDisplay = this.currentMedia.querySelector('#media-display');
+            this.toggleDesc = this.currentMedia.querySelector('#toggle-desc');
+            this.downArrow = this.currentMedia.querySelector('.fa-chevron-down');
+            this.upArrow = this.currentMedia.querySelector('.fa-chevron-up');
+            this.partialDesc = this.currentMedia.querySelector('#media-partial-desc');
+            this.fullDesc = this.currentMedia.querySelector('#media-full-desc');
+            let isFullDescVisible = false;
 
             this.videoSrc = this.currentMedia.querySelector('img').dataset.video.replace('watch?v=', 'embed/') + '?autoplay=1';
             
@@ -240,6 +263,24 @@ class ShadowBox {
                 // this.currentMedia.classList.remove('aspect-ratio');
                 this.currentMedia.classList.add('center-display');
             }
+
+            this.toggleDesc.addEventListener('click', ()=>{
+                if(!isFullDescVisible){
+                    this.fullDesc.classList.remove('hidden');
+                    this.partialDesc.classList.add('hidden');
+
+                    this.downArrow.classList.add('hidden');
+                    this.upArrow.classList.remove('hidden');
+                    isFullDescVisible = true;
+                }else{
+                    this.fullDesc.classList.add('hidden');
+                    this.partialDesc.classList.remove('hidden');
+
+                    this.downArrow.classList.remove('hidden');
+                    this.upArrow.classList.add('hidden');
+                    isFullDescVisible = false;
+                }
+            })
 
         }
 
@@ -282,17 +323,18 @@ class ShadowBox {
         }
 
         insertPagination(item, dataCount, pageCount){
+            console.log(this.postPages.length)
             this.mediaPagination.innerHTML = `
                 ${this.postPages.map((page)=>`
                     ${this.postPages.length > 1 ? `<a class="content-page" data-page="${dataCount++}"> ${pageCount += 1}</a>` : ''}
                 `).join('')}  
             `;
 
-            if(document.querySelector('.content-page[data-page="0"]')){
+            // if(document.querySelector('.content-page[data-page="0"]')){
                 this.firstPageButton = document.querySelector('#media-pagination .content-page[data-page="0"]');
                 console.log(document.querySelector('.content-page[data-page="0"]'))
                 this.firstPageButton.classList.add('selectedPage');
-            }
+            // }
 
             let contentPageOptions = document.querySelectorAll('#media-pagination .content-page');
 
@@ -362,7 +404,7 @@ class ShadowBox {
         playVideo(videoSrc){
             console.log(videoSrc)
 
-            this.currentMedia.innerHTML = `
+            this.mediaDisplay.innerHTML = `
                 <iframe allowfullscreen="allowfullscreen" src="${videoSrc}"></iframe>
             `;
         }

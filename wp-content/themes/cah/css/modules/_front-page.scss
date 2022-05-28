@@ -28,35 +28,47 @@
 .contentContainer{
     width: 100%;
     margin: 4% 0;
-    margin-bottom: 5%;
+    margin-bottom: var(--footer_height);
     display: flex;
     justify-content: center;
     >div{
+        display: grid;
+        // flex-direction: column;
+        // justify-content: center;
+        padding-top: var(--header_height);
         @include mixins.atTablet {
             width: 95%;
         }
         @include mixins.atDesktop {
             width: 85%;
         }
-        display: flex;
-        justify-content: center;
-        padding-top: 6rem;
 
         .titleAndTextBox, .contentBox{
             position: relative;
         }
         
         .titleAndTextBox{
-            margin-right: 5%;
+            grid-area: titleAndTextBox;
+            @include mixins.atDesktop{
+                margin-right: 5%;
+            }
             .titleBox, .textBox{
-                height: 50%;
-                width: 18rem;
+                @include mixins.atDesktop{
+                    height: 50%;
+                    width: 18rem;
+                }
             }
             .titleBox{
-                padding: 10%;
+                padding: 0 5%;
                 background: transparent;
+                @include mixins.atDesktop{
+                    padding: 10%;
+                }
+                h2, h2 a{
+                    font-size: 1.5rem;
+                }
                 p{
-                    font-size: 1.95rem;
+                    font-size: 1.15rem;
                     @include mixins.atDesktop{
                         font-size: 1.7rem;
                     }
@@ -75,11 +87,14 @@
                 }
             }
             .textBox{
+                p{
+                    margin: .5rem;
+                }
                 //Put this on the right for tab landscape, like how i did in all news
                 //Will switch on a lefty toggle with title and text box
                 .content-pages{
-                    text-align: center;
-                    padding-left: .5rem;
+                    // text-align: center;
+                    // padding-left: .5rem;
                     p{
                         margin: .6rem 0;
                         font-size: 1.7rem;
@@ -95,16 +110,20 @@
         }
 
         .contentBox{
+            grid-area: contentBox;
             width: 100%;
-            height: 100%;
+            @include mixins.atDesktop{
+                height: 100%;
+            }
         
             // display: flex;
             // flex-direction: column;
             // flex-wrap: wrap;
             // justify-content: space-evenly;
-            &.properties> div, &.members> div{
+            &.properties> .overall-squares, &.members> .overall-squares{
+                // grid-area: content;
                 // margin: 0% 2%;
-                width: 16.5rem; 
+                width: 90%; 
                 @include mixins.atDesktop{
                     width: 13rem;
                 }   
@@ -125,7 +144,7 @@
                         padding: .2rem .2rem;
                         margin-top: 7.6rem;
                         border-radius: 30%;
-                        font-size: 1.5rem;
+                        font-size: 1.1rem;
                         .click-prompt{
                             @include mixins.atDesktop{
                                 display: none;
@@ -148,14 +167,14 @@
                         *{
                             color: var(--whitish-gold);
                             cursor: pointer;
-                            font-size: 1.5rem;
+                            font-size: .9rem;
                             @include mixins.atDesktop{
                                 font-size: 1.3rem;
                             }
                             margin-top: .7rem;
                         }
                         .fa-search-plus{
-                            font-size: 2rem;
+                            font-size: 1.4rem;
                             @include mixins.atDesktop{
                                 font-size: 1.4rem;
                             }
@@ -180,7 +199,7 @@
                 .display-text{
                     margin-top: -.3rem;
                     text-align: center;
-                    font-size: 1.65rem;
+                    font-size: 1.05rem;
                     @include mixins.atDesktop{
                         font-size: 1.2rem;
                     }
@@ -199,13 +218,51 @@
 
         .contentBox.properties, .contentBox.members{
             display: grid;
+            grid-template-columns: repeat(2, 50%);
+            justify-items: center;
+            row-gap: 0.35rem;
+            // column-gap: 1rem;
             @include mixins.atTablet {
                 grid-template-columns: repeat(3, 33.3%);
             }
             @include mixins.atDesktop {    
                 grid-template-columns: repeat(4, 25%);
             }
-            row-gap: .35rem;
+        }
+
+        .content-pages{
+            grid-area: pagination;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+            // align-items: center;
+            // text-align: center;
+            // padding-left: .5rem;
+            &-sub{
+                position: sticky;
+                top: 30%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p{
+                    margin: .6rem 0;
+                    font-size: 1.7rem;
+                    @include mixins.atDesktop{
+                        font-size: 1.5rem;
+                    }
+                } 
+                a{
+                    font-size: 1.3rem;
+                }
+                // .content-direction{
+                //     writing-mode: vertical-lr;
+                //     // text-orientation: upright;
+                //     @include mixins.atDesktop{
+                //         writing-mode: initial;
+                //         // text-orientation: initial;
+                //     }
+                // }
+            }
         }
     }
 }
@@ -218,6 +275,9 @@
         min-height: initial;
     }
     >div{
+        grid-template-areas:"titleAndTextBox titleAndTextBox" 
+                            "contentBox pagination";
+        grid-template-columns: 83% 1fr;
         .titleBox{
             border: .35rem solid var(--title-box_border_color);
         }
@@ -233,16 +293,49 @@
 }
 
 #allNewsContainer{
-    height: 62rem;
+    // height: 62rem;
+    // height: calc(100% - var(--header_height) - var(--footer_height));
     @include mixins.atDesktop{
         height: 50.5rem;
+    }
+    >div{
+        grid-template-areas:"titleAndTextBox titleAndTextBox" 
+                            "contentBox tabs";
+        #news-type-tabs{
+            grid-area: tabs;
+            >div{
+                position: sticky;
+                top: 30%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                button{
+                    color: var(--section-tabs_color);
+                    font-size: 1.1rem;
+                }
+                button.activated{
+                    pointer-events: none;
+                    color: var(--section-tabs-active_color);
+                }
+            }
+        }
+        .contentBox{
+            height: 40rem;
+            >div.hidden{
+                display: none;
+            }
+        }
     }
 }
 
 #contactContainer{
-    height: 62.5rem;
+    // height: 62.5rem;
     @include mixins.atDesktop{
         height: 50.5rem;
+    }
+    >div{
+        grid-template-areas:"titleAndTextBox" 
+                            "contentBox";
     }
 }
 
@@ -253,123 +346,154 @@
         .titleBox{
             border: 4px solid var(--dark-title-box_border_color);
         }
-    }
-    .contentBox{
-        display: flex;
-        font-size: 1.6rem;
-        @include mixins.atDesktop{
-            font-size: 1.3rem;
-        }
-        >div{
-            flex-basis: 50%;
-            height: 100%;
-            // padding-bottom: 1rem;
+        .contentBox{
+            display: flex;
+            font-size: 1rem;
+            @include mixins.atDesktop{
+                font-size: 1.3rem;
+            }
+            h3{
+                font-size: 2rem;
+            }
             >div{
-                overflow: auto;
-                height: 92%;
-            }
-        }
-        .form-message{
-            height: auto;
-        }
-        h3{
-            text-align: center;
-            height: 8%;
-        }
-        ul{
-            padding: 0;
-            li{
-                display: inline;
-            }
-        } 
-        .news{
-            margin: 0 1%;
-            padding-top: 5%;
-            height: auto;
-            border: .1rem solid var(--news_border_color);
-            &::after{
-                content: " ";
-                display: block; 
-                height: 1rem; 
-                clear: both;
-            }
-            
-            p{
-                font-weight: 300;
-            }
-            img{
-                width: 13rem;
-                float: left;
-                margin-right: 2.5%;
-                cursor: pointer;
-            }
-            p{
-                font-size: 1.45rem;
-                line-height: 1.4rem;
+                display: grid;
                 @include mixins.atDesktop{
-                    font-size: 1.15rem;
-                    line-height: 1.1rem;
+                    height: 100%;
+                    flex-basis: 50%;
+                }
+                // padding-bottom: 1rem;
+                >div{
+                    overflow: auto;
+                    height: 95.5%;
+                    @include mixins.atDesktop{
+                        height: 92%;
+                    }
                 }
             }
-        }
-        .news, form{
-            padding: 0 5%;
-        }
-        form{
-            display: grid;
-            column-gap: 1.2rem;
-            grid-template-areas:"contactName contactEmail"
-                                "contactPhone contactSubject"
-                                
-                                "contactMessage contactMessage"
-                                "contactMessage contactMessage"
-                                "contactMessage contactMessage"
-                                "contactMessage contactMessage"
-                                "contactMessage contactMessage"
-                                "contactMessage contactMessage"
-                                "submit ...";
+            .form-message{
+                height: auto;
+            }
+            h3{
+                text-align: center;
+                height: auto;
+                padding: 1rem 0;
+                @include mixins.atDesktop{
+                    height: 8%;
+                }
+            }
+            ul{
+                padding: 0;
+                li{
+                    display: inline;
+                }
+            } 
+            .news{
+                margin: 0 1%;
+                padding-top: 5%;
+                height: auto;
+                border: .1rem solid var(--news_border_color);
+                .related-links{
+                    display: flex;
+                    margin-bottom: .7rem;
+                    ul{
+                        margin: 0;
+                        margin-left: .4rem;
+                    }
+                    .related-link{
+                        text-decoration: underline;
+                        color: var(--whitish-gold);
+                        font-size: 1.1rem;
+                    }
+                }
+                &::after{
+                    content: " ";
+                    display: block; 
+                    height: 1rem; 
+                    clear: both;
+                }
+                
+                p{
+                    font-weight: 300;
+                }
+                img{
+                    width: 9rem;
+                    float: left;
+                    margin-right: 2%;
+                    cursor: pointer;
+                    @include mixins.atDesktop{
+                        width: 13rem;
+                        margin-right: 2.5%;
+                    }
+                }
+                p{
+                    font-size: 1.1rem;
+                    line-height: 1.2rem;
+                    @include mixins.atDesktop{
+                        font-size: 1.15rem;
+                        line-height: 1.1rem;
+                    }
+                }
+            }
+            .news, form{
+                padding: 0 1.5%;
+                @include mixins.atDesktop{
+                    padding: 0 5%;
+                }
+            }
+            form{
+                display: grid;
+                padding: 0;
+                padding-bottom: 2rem;
+                column-gap: 1.2rem;
+                grid-template-areas:"contactName"
+                                    "contactEmail"
+                                    "contactPhone"
+                                    "contactSubject"                             
+                                    "contactMessage"
+                                    "submit";
+                @include mixins.atDesktop{
+                    grid-template-areas:"contactName contactEmail"
+                                        "contactPhone contactSubject"                             
+                                        "contactMessage contactMessage"
+                                        "submit ...";
+                }
 
-            #contact-name{
-                grid-area: contactName;
-            }
-            #contact-email{
-                grid-area: contactEmail;
-            }
-            #contact-phone{
-                grid-area: contactPhone;
-            }
-            #contact-subject{
-                grid-area: contactSubject;
-            }
-            #contact-message{        
-                grid-area: contactMessage;                
+                #contact-name{
+                    grid-area: contactName;
+                }
+                #contact-email{
+                    grid-area: contactEmail;
+                }
+                #contact-phone{
+                    grid-area: contactPhone;
+                }
+                #contact-subject{
+                    grid-area: contactSubject;
+                }
+                #contact-message{        
+                    grid-area: contactMessage;                
+                }
             }
         }
     }
 }
 
 #contactContainer{
-    // background: black;
-    // color: white;
-    .contentBox{
-        column-gap: 3rem;
-        // width: 50%;
-        width: 85%;
+    .contentBox{        
+        display: flex;
+        width: 94%;
+        padding-left: 1rem;
         @include mixins.atDesktop{
             width: 70%;
         }
-        display: flex;
-        padding-bottom: 1rem;
         img{
-            filter: saturate(120%);
-            width: 45%;
-            margin-left: 2rem;
+            display: none;
+            // filter: saturate(120%);
+            // width: 45%;
+            // margin-left: 2rem;
             @include mixins.atDesktop {
+                display: initial;
                 width: 50%;
-                // width: 40%;
-                // @include mixins.atDesktop{
-                //     width: 50%;
-                // }
                 margin-left: 0;
             }
         }
@@ -379,15 +503,12 @@
             color: var(--form-error_color);
         }
         form{
-            margin-top: 3rem;
-            // display: flex;
-            // flex-direction: column;
             >div{
                 margin: 5% 0;
                 margin-top: 0;
             }
             label{
-                font-size: 1.8rem;
+                font-size: 1.2rem;
                 @include mixins.atDesktop{
                     font-size: 1.4rem;
                 }
@@ -400,7 +521,8 @@
                 padding: 0;
             }
             input, select, textarea{
-                font-size: 1.5rem;
+                margin-top: .6rem;
+                font-size: 1.1rem;
                 @include mixins.atDesktop{
                     font-size: 1.2rem;
                 }
@@ -410,32 +532,45 @@
                 margin-top: 2%;
             }
             input{
-                height: 2.5rem;
+                // height: 2.5rem;
+                width: 100%;
                 @include mixins.atDesktop{
                     height: 1.6rem;
                 }
             }
             select{
-                height: 2.6rem;
+                // height: 2.6rem;
                 @include mixins.atDesktop{
                     height: 2rem;
                 }
             }
             textarea{
                 width: 100%;
-                height: 20rem;
+                height: 10rem;
                 @include mixins.atDesktop{
                     height: 16rem;
                 }
             }
             button{
                 grid-area: submit;
-                color: var(--form-button_color);
-                font-size: 1.8rem;
+                font-size: 1.2rem;
+                color: var(--muted-gold);
+                box-shadow: 0.2rem 0.2rem 1rem 0.6rem inset var(--nav-li_box-shadow_color);
+                border: 0.25rem solid var(--nav-li_border-bottom_color);
+                background-color: transparent;
+                border-radius: 8%;
+                padding: .9rem .7rem;
+                justify-self: center;
                 @include mixins.atDesktop{
                     font-size: 1.3rem;
                 }
                 text-align: left;
+            }
+            button:hover{
+                text-shadow: 0.1rem 0.1rem black;
+                background-color: var(--trans-black);
+                border: 0.25rem solid transparent;
+                box-shadow: 0.4rem 0.4rem 0.2rem inset var(--nav-li_box-shadow_color), -0.4rem -0.4rem 0.2rem inset var(--nav-li_box-shadow_color), 0.3rem 0rem 0.5rem var(--muted-gold), -0.3rem 0rem 0.5rem var(--muted-gold);
             }
         }
     }
@@ -456,51 +591,67 @@
 
 #pop-up-display-box{
     background-color: var(--pup_background-color);
-    width: 94vw;
-    height: 87vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+    top: var(--header_height);
+    padding-top: .6rem;
+    width: 100%;
+    height: calc(100vh - var(--header_height) - var(--footer_height));
+    overflow: auto;
     z-index: 110;
     position: fixed;
-    top: 8vh;
-    left: 3vw;
-    display: none;
-    // justify-content: space-evenly;
-    row-gap: 1rem;
+    display: grid;
+    grid-template-areas:"img img img"
+                        "prev more next";
+    // grid-template-rows: 75% 1fr;
+    justify-items: center;
     align-items: center;
-    flex-direction: column;
-    padding-top: 2.5rem;
     img{
-        width: 34rem;
+        width: 100%;
         @include mixins.atDesktop{
             width: 29rem
         }
     }
+    #image-holder{
+        width: 17rem;
+        grid-area: img;
+    }
+    #prev-image{
+        grid-area: prev;
+    }
+    #next-image{
+        grid-area: next;
+    }
+    .more-info-link{
+        grid-area: more;
+    }
     a, button{
-        font-size: 2rem;
+        align-self: baseline;
+        font-size: 1.1rem;
     }
     #closeMagnify{
         position: absolute;
-        right: 3rem;
-        top: 3rem;
-        font-size: 3.5rem;
+        right: .3rem;
+        padding: 0;
+        font-size: 3rem;
     }
     button{
         color: var(--pup-button_color);
         cursor: pointer;
     }
     button:hover, a:hover{
-        filter: brightness(62%);
+        filter: brightness(60%);
     }
-    #content-holder{
-        display: flex;
-        justify-content: space-evenly;
-        position: relative;
-        width: 70%;
-        .pop-up-directional{
-            font-size: 2.5rem;
-        }
-    }
+    // #content-holder{
+    //     display: flex;
+    //     justify-content: space-evenly;
+    //     position: relative;
+    //     width: 70%;
+    //     .pop-up-directional{
+    //         font-size: 2.5rem;
+    //     }
+    // }
+  }
+  #pop-up-display-box.hidden{
+      display: none;
   }
 
 // #news-media-display{

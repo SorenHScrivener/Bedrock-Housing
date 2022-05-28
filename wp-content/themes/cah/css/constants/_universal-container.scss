@@ -12,19 +12,20 @@
 }
 
 #openingContainer{
-    height: 99.5vh;
+    // top: var(--header_height);
+    // height: calc(100vh - var(--header_height) - var(--footer_height));
     position: relative;
     color: var(--opening-container-color);
     display: flex;
     justify-content: center;
     h1{
-        font-size: 5.2rem;
+        font-size: 2.2rem;
         @include mixins.atDesktop{
             font-size: 6.5rem;
         }
     }
     p{
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         @include mixins.atDesktop{
             font-size: 2.7rem;
         }

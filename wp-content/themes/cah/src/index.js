@@ -8,11 +8,13 @@ import Pagination from './modules/pagination';
 import News from './modules/all-news';
 import RelatedNews from './modules/singlePost';
 import ShadowBox from './modules/shadowBox';
-import MobileInterfece from './modules/mobile';
+import MobileInterface from './modules/mobile';
+import Tab from './modules/tabs';
 
 // const search = new Search();
 const pagination = new Pagination();
 const news = new News();
 const relatedNews = new RelatedNews();
 const shadowBox = new ShadowBox();
-const mobileInterfece = new MobileInterfece();
+const mobileInterface = new MobileInterface();
+const tab = new Tab();

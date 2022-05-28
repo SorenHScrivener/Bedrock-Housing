@@ -10,24 +10,24 @@
     // align-items: center;
     position: fixed;
     background-color: var(--media-reciever_background-color);
-    top: 7%;
+    top: var(--header_height);
     width: 100%;
-    height: 95%;
+    height: calc(100vh - var(--header_height));
     z-index: 1;
-
+    grid-template-areas:"media"
+                        "interface";
+                        // grid-template-rows: repeat(auto-fit, minmax(20%, 1fr));
+    // grid-template-rows: minmax(30%, 60%) 1fr;
+    // grid-template-rows: 50% 1fr;
+    grid-template-rows: auto minmax(0,1fr);
     #current-media{
-        // margin-top: 1rem;
-        // margin-right: 14rem;
-        margin-left: 6rem;
-        position: absolute;
-        top: 6rem;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
+        grid-area: media;
+        display: grid;
+        grid-template-areas:"media"
+                            "info";
+        grid-template-rows: calc(var(--current-media_width)/1.77) 1fr;
 
         //16:9 aspect ratio
-        width: 40rem;
-        height: 23.5rem;
         @include mixins.atDesktop{
             top: 4rem;
             margin-left: 8rem;
@@ -35,20 +35,40 @@
             height: 36rem;
         }
 
+        #media-information{
+            grid-area: info;
+            // overflow: auto;
+            #toggle-desc{
+                color: antiquewhite;
+                cursor: pointer;
+            }
+            #media-full-desc{
+                overflow: auto;
+                max-height: 15vh;
+            }
+            #title-and-options{
+                display: flex;
+                justify-content: space-between;
+                width: 100vw;
+                padding: 0 .5rem;
+            }
+        }
+
         iframe, img{
-            width: 100%;
-            height: 100%;
+            grid-area: media;
+            width: var(--current-media_width);
+            height: calc(var(--current-media_width)/1.77);
         }
         #play-button-container{
             display: flex;
             justify-content: center;
             align-items: center;
             position: absolute;
-            height: 100%;
-            width: 100%;
+            width: var(--current-media_width);
+            height: calc(var(--current-media_width)/1.77);
             #play-button{
-                height: 6rem;
-                width: 9rem;
+                height: 3rem;
+                width: 4.5rem;
                 background-color: var(--play-button_color);
                 position: absolute;
                 border-radius: 35%;
@@ -57,10 +77,19 @@
                 justify-content: center;
                 align-items: center;
                 transition: opacity .2s ease;
+                @include mixins.atDesktop{
+                    height: 6rem;
+                    width: 9rem;
+                }
                 div{
-                    border-left: 3rem solid var(--play-button-inner_color);
-                    border-top: 1.7rem solid transparent;
-                    border-bottom: 1.7rem solid transparent;
+                    border-left: 1.5rem solid var(--play-button-inner_color);
+                    border-top: .85rem solid transparent;
+                    border-bottom: .85rem solid transparent;
+                    @include mixins.atDesktop{
+                        border-left: 3rem solid var(--play-button-inner_color);
+                        border-top: 1.7rem solid transparent;
+                        border-bottom: 1.7rem solid transparent;
+                    }
                 }
             }
             #play-button:hover{
@@ -74,59 +103,86 @@
     //     height: 45rem;
     // }
 
-    #current-media.center-display{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    // #current-media.center-display{
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
 
     #media-selection-interface{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        height: 82%;
-        overflow: auto;
-        right: 2rem;
-        top: 3rem;
+        grid-area: interface;
+        display: grid;
+        //alter when no menu and/or when no pagination
+        grid-template-areas:"col"
+                            "pagination";
+        grid-template-rows: 88% 1fr;
+//         grid-template-areas:"menu"
+//         "col"
+//         "pagination";
+// grid-template-rows: 12% 76% 1fr;
+        // position: absolute;
+        // height: 100%;
+        // overflow: auto;
+        // right: 2rem;
+        // top: 3rem;
+        @include mixins.atDesktop{
+            flex-direction: column;
+        }
         #media-menu{
-            font-size: 1.2rem;
-            display: flex;
+            grid-area: menu;
+            font-size: 1.1rem;
+            // display: none;
             a{
                 color: var(--media-reciever-category-link);
                 margin-left: 2rem;
                 cursor: pointer;
             }
-            a:hover{
+            a:hover, a:focus{
                 filter: contrast(200%);
             }
             a.active{
-                filter: contrast(50%);
+                filter: brightness(50%);
                 pointer-events: none;
             }
         }
     
         #media-column{
-            width: 75%;
-            max-width: 380px;
+            grid-area: col;
             display: flex;
+            justify-content: flex-start;
             flex-direction: column;
+            padding-left: .5rem;
+            width: 100vw;
+            // height: 100%;
+            @include mixins.atDesktop{
+                width: 75%;
+                max-width: 380px;
+                flex-direction: column;
+            }
             overflow: auto;
             .media-selection{
                 display: flex;
+                column-gap: .5rem;
                 margin-top: 1rem;
-                width: 100%;
+                // width: 100%;
                 .media-thumb{
-                    width: 45%;
+                    width: 50%;
                     cursor: pointer;
                 }
                 .media-thumb.selected{
-                    filter: contrast(48%);
+                    filter: contrast(42%);
                     pointer-events: none;
+                }
+                .media-thumb:hover{
+                    filter: brightness(130%);
                 }
                 .media-information{
                     display: flex;
                     flex-direction: column;
-                    margin-left: 1rem;
+                    // margin-left: .5rem;
+                    @include mixins.atDesktop{
+                        margin-left: 1rem;
+                    }
                     width: 55%;
                     p{
                         margin: 0;
@@ -140,9 +196,10 @@
         }
 
         #media-pagination{
-            margin-top: 1.5rem;
+            grid-area: pagination;
+            // margin-top: 1.5rem;
             // color: aliceblue;
-            width: 100%;
+            // width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -152,18 +209,33 @@
             }
         }
     }
-
+    #media-selection-interface.has-menu{
+        grid-template-areas:"menu"
+                            "col"
+                            "pagination";
+        grid-template-rows: 2.8rem 72% 1fr;
+    }
+    .media-close{
+        color: var(--media-reciever-close);
+        cursor: pointer;
+    }
     #media-close{
         position: absolute;
-        color: var(--media-reciever-close);
+        font-size: 3.5rem;
         left: 1.5rem;
         top: 1.5rem;
-        font-size: 3.5rem;
+        display: none;
         @include mixins.atDesktop{
             left: 3.5rem;
             top: 3.5rem;
-            font-size: 3.5rem;
+            display: block;
         }
-        cursor: pointer;
+    }
+    #media-close-alt{
+        display: block;
+        font-size: 1.1rem;
+        @include mixins.atDesktop{
+            display: none;
+        }
     }
 }

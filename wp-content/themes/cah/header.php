@@ -8,9 +8,14 @@
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
         <?php wp_head();?>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></link>
+        <!-- organize after finalize fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Brawler:wght@400;700&family=Cormorant+SC:wght@300;400;500;600;700&family=Gilda+Display&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap;family=Roboto:wght@300;400&display=swap" rel="stylesheet"> 
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet"> 
     </head>
     <body>
 
@@ -21,13 +26,14 @@
             <!--conditional that when not on homepage, link to archives and front? Replace with 'return to home?-->
             <!--Background on scroll to accomadate color shifts. Also change when view other pages-->
             <div id="logo-symbol"><img src="<?php echo get_theme_file_uri('/images/logo_symbol_v1.png');?>" alt="company logo-symbol"></div>
-            <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2.png');?>" alt="company logo-type"></div>
+            <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2_mobile.png');?>" alt="company logo-type"></div>
             <!-- Also do alt function for mobile search button -->
+            <!-- /images/Logo_cracked2_mobile.png -->
             <nav>
                 <ul>       
                 <!--Have focus in contact container after press a tag. And jump onto news scroll when press its a tag-->    
                 <?php if(!is_front_page()){ ?>
-                    <li>
+                    <li id="return-home">
                         <?php 
                             $currentPost = get_post_type(); 
                             $post_type_obj = get_post_type_object( $currentPost );
@@ -42,7 +48,7 @@
                         ?>
                         <!--Have return also go back with set-up intact when called to page from all-news page-->
                         <!--Also get rid of background and border -->
-                        <a id="return-home" href="<?php echo esc_url(home_url()); ?>/#<?php echo $scrollTo ?>">Return</a>
+                        <a href="<?php echo esc_url(home_url()); ?>/#<?php echo $scrollTo ?>"><i class="fas fa-arrow-left"></i></a>
                     </li>
                 <?php }else{ ?>
                     <!-- use custom symbols for open and closed -->

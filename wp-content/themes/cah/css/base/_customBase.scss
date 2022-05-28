@@ -20,6 +20,7 @@
     --off-black: rgb(31, 27, 21);
 
     --header_color: var(--muted-gold);
+    --header_height: 4rem;
     --header_background-color: var(--blackish-brown_1_trans);
     --header_box-shadow_color: var(--blackish-brown_2_trans);
     --nav-li_background-color: var(--blackish-brown_1);
@@ -27,7 +28,7 @@
     --nav-li_border-bottom_color: var(--blackish-brown_2_trans_alt);
     --nav-mobile_color: var(--whitish-gold);
     
-    --body_color: antiquewhite;
+    --body_color: var(--whitish-gold);
     --body_background-color: var(--soft-brown);
 
     --interaction-prompt_background-color: var(--trans-main);
@@ -41,7 +42,7 @@
 
     --news_border_color: var(--off-white_trans);
 
-    --pup_background-color: var(--blackish-brown_2_trans_alt);
+    --pup_background-color: var(--blackish-brown_1_trans);
     --pup-button_color: --off-white;
 
     --form-error_color: red;
@@ -53,6 +54,9 @@
     --single-container_background-color: var(--blackish-brown_2_trans_alt);
     --single-container-button_color: var(--body_color);
     --single-container-header_color: var(--muted-gold);
+    --section-tabs_color: var(--off-white);
+    --section-tabs_border-color: var(--muted-gold);
+    --section-tabs-active_color: var(--bright-gold);
 
     --flc_background-color: var(--blackish-brown_1_trans);
     --flc_box-shadow_color: var(--trans-black_alt);
@@ -69,6 +73,7 @@
     --mtc_background-color: var(--trans-main);
     --mtc-button_color: var(--body_color);
 
+    --footer_height: 4.5rem;
     --footer_color: var(--whitish-gold);
     --footer_background-color: var(--trans-black);
     --footer-symbols_color: var(--off-white);
@@ -81,6 +86,7 @@
     --media-reciever-category-link: var(--bright-gold);
     --media-reciever-information_color: var(--off-white);
     --media-reciever-close: var(--whitish-gold);  
+    --current-media_width: 99vw;
     --play-button_color: rgba(99, 100, 179, .8);
     --play-button-inner_color: rgb(125, 150, 168);
 }
@@ -145,23 +151,21 @@ h3{
 a{
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 
 a:hover{
     filter: brightness(70%);
 }
 
-a{
-    cursor: pointer;
-}
-a.hidden, a.selectedPage{
-    pointer-events: none;
-}
-a.hidden{
-    opacity: 0;
-}
 a.selectedPage{
+    pointer-events: none;
     color: var(--a_selected);
+}
+
+*.selected{
+    filter: contrast(27%);
+    pointer-events: none;
 }
 
 *.hidden{
@@ -173,9 +177,14 @@ div, button{
     box-sizing: border-box;
 }
 
+a.hidden{
+    opacity: 0;
+}
+
 button{
     border: none;
     background: transparent;
+    cursor: pointer;
 }
 
 li{
@@ -202,11 +211,15 @@ h1, h2, h3, h4{
     font-family: 'Libre Caslon Display', serif;
 }
 
-.display-text, #welcomeContainer p, .titleBox p{
+.display-text, #welcomeContainer p, .titleBox p, .contentContainer h3{
     font-family: 'Cormorant SC', serif;
 }
 
-input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, 
-#search-filters button, #reset-all, .news p, .see-more-link{
+body, input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, 
+#search-filters button, #reset-all, .news p, .see-more-link, #section-tabs button, .content-pages a, #news-type-tabs>div button{
     font-family: 'Lora', serif;
+}
+
+.required{
+    color: rgb(250, 48, 48);
 }

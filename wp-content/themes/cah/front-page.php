@@ -24,7 +24,7 @@
 <!-- Get a loading spinner in here.-->
 
 <div id="propertiesContainer" class="contentContainer contentContainer_paginated">
-    <div>
+    <div class="inner-container">
         <div class="titleAndTextBox">
             <div class="titleBox">
                 <div>
@@ -105,7 +105,7 @@
 
 <div id="allNewsContainer" class=contentContainer>
     <!--make all images and vids clickable with box view bigger?-->
-    <div>
+    <div class="inner-container">
         <div class="titleAndTextBox">
             <div class="titleBox">
                 <div>
@@ -122,7 +122,7 @@
 
         <div class="contentBox">
       
-            <div id="genNews" >
+            <div id="genNews" class="section">
                 <h3>Latest General News</h3>
                 <div>
                     <?php
@@ -143,7 +143,7 @@
                 </div>
             </div>        
             
-        <div id="propNews">
+        <div id="propNews" class="non-primary section">
             <h3>Latest Property News</h3>   
                 <div>
                     <?php
@@ -164,11 +164,18 @@
                 </div>
         </div>
         </div>
+        <div id="news-type-tabs" class="section-tabs">
+            <div>
+                <button id="genNews-tab" class="activated">General</button>
+                <p><span class="required">*</span>diamond?</p>
+                <button id="propNews-tab">Properties</button>
+            </div>
+        </div>
     </div>
 </div>
 
 <div id="membersContainer" class="contentContainer contentContainer_paginated">
-    <div>
+    <div class="inner-container">
         <div class="titleAndTextBox">
             <div class="titleBox">
                 <div>
@@ -220,7 +227,7 @@
 </div>
 
 <div id="contactContainer" class=contentContainer>
-    <div>
+    <div class="inner-container">
         <div class="titleAndTextBox">
             <div class="titleBox">
                 <div>
@@ -231,13 +238,13 @@
                 </div>
             </div>
             <div class="textBox">
-                <p>We hope our site has been informative. We'll be glad to answer any further questions you may have. Depending on how busy we are, it may take one to two business days, so please be patient.</p>
+                <p>We hope our site has been informative. We'll be glad to answer any further questions you may have. Depending on how busy we are, it may take 3 to 4 business days, so please be patient.</p>
             </div>
         </div>
 
         
 
-        <div class="contentBox">
+        <div class="contentBox" id="test">
             <div id="generalInquiry">
                 <!-- Add captcha after put on hosting, as need that to use-->
                 <h3>Anything we can help with?</h3>
@@ -245,11 +252,11 @@
                 <form action="<?php echo esc_url(home_url()); ?>/contact" id="generalInquiryForm" class="form" method="POST" autocomplete="off">
                      
                     <div id="contact-name">
-                        <label for="contactName">Name (*required)</label>
+                        <label for="contactName">Name (<span class="required">*</span>required)</label>
                         <input class="form-field" type="text" name="contactName" id="contactName" maxlength="36">
                     </div>
                     <div id="contact-email">             
-                        <label for="email">Email (*required)</label>
+                        <label for="email">Email (<span class="required">*</span>required)</label>
                         <input class="form-field" type="text" name="email" id="email">
                     </div>
                     <div id="contact-phone">
@@ -257,7 +264,7 @@
 						<input class="form-field" title="Invalid Phone Number. Either correct or erase it." name="phoneNumber" id="phoneNumber" type="Tel">  
                     </div>
                     <div id="contact-subject">
-                        <label for="subject">Subject (*required)</label>
+                        <label for="subject">Subject (<span class="required">*</span>required)</label>
                         <select name="subject" id="subject" title="Please select something!">
                             <option value="">-select one-</option>
                             <option value="Job Inquiry">Job Inquiry</option>
@@ -280,15 +287,16 @@
 
     </div>
 </div>
-<div id="pop-up-display-box">
+<div id="pop-up-display-box" class="hidden">
     <!-- Maybe drop image between next and previous and have them offset off of it, rathe than the borders of the parent, 
     as to have even distance -->
-    <div id="content-holder">
-        <button id="prev-image" class="pop-up-directional">previous</button>
-        <div id="image-holder"></div>
-        <button id="next-image" class="pop-up-directional">next</button>
-    </div>
+    <!-- <div id="content-holder"> -->
 
+        <div id="image-holder"></div>
+<!-- 
+    </div> -->
+    <button id="prev-image" class="pop-up-directional">previous</button>
+    <button id="next-image" class="pop-up-directional">next</button>
     <button id="closeMagnify">x</button>
 </div>
 

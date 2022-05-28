@@ -48,7 +48,14 @@ function cahMediaResults($data){
                     $target= $image['target']; //Open normal or new tab
                     $videoUrl = get_field('gallery_video_url', $id); //Get the alt which is a extra field (See below how to add extra fields)
                     $desc = get_field('gallery_desc', $id); //Get the alt which is a extra field (See below how to add extra fields)
-       
+                    $excerpt = get_field('gallery_excerpt', $id);
+                    
+                    $description = null;
+                    if($excerpt){
+                        $description = $excerpt;
+                    } else{
+                        $description = wp_trim_words(get_field('gallery_desc', $id), 80);
+                    } 
                     array_push($newGallery, array(
                         'id' => $id,
                         'title' => $title,
@@ -56,7 +63,8 @@ function cahMediaResults($data){
                         'image' => $full_image_url,
                         'selectImage' => $select_image_url,
                         'videoSource' => $videoUrl,
-                        'description' => $desc
+                        'description' => $description,
+                        'fullDescription' => $desc
                     ));
                 }
             }
@@ -210,6 +218,7 @@ function cahMediaResults($data){
                 'permalink' => get_the_permalink(),
                 'id' => get_the_id(),
                 'gallery' => $newGallery,
+
                 'news' => []
             ));
         }
