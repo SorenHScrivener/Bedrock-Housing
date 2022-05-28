@@ -28,6 +28,7 @@ class MobileInterface {
                 let test = this.html.scrollTop
                 let combined = test+target;
                 f.addEventListener('focus', ()=>{
+                    window.alert('gkhj')
                 console.log(test)
                 //     console.log(target-(window.innerHeight/2)-100)
                 //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
