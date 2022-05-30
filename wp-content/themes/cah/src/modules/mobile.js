@@ -25,11 +25,10 @@ class MobileInterface {
         if(window.innerWidth < 500){
             this.formField.forEach(f =>{
                 let target = f.offsetTop;
-                let pageTop = this.html.scrollTop;
-                // let combined = pageTop + target;
-                let combined = pageTop*1.3 + target;
+                // let pageTop = this.html.scrollTop;
+                let combined = target + screen.availHeight;
                 f.addEventListener('focus', ()=>{
-                console.log(pageTop, target, combined)
+                console.log(target, screen.availHeight, combined)
                 //     console.log(target-(window.innerHeight/2)-100)
                 //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
                 // console.log(target+(window.innerHeight/2))
