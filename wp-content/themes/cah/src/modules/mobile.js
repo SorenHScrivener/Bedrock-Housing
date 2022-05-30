@@ -24,18 +24,25 @@ class MobileInterface {
 
         if(window.innerWidth < 500){
             this.formField.forEach(f =>{
+                this.html.scrollTo({
+                    left: 0, 
+                    top: 0,
+                    // behavior: 'smooth'
+                })
                 let target = f.offsetTop;
-                // let pageTop = this.html.scrollTop;
-                let combined = target + screen.availHeight;
+                let pageTop = this.html.scrollTop;
+                let combined = target + pageTop;
+                
+                let elDistanceToTop = window.pageYOffset + f.getBoundingClientRect().top
                 f.addEventListener('focus', ()=>{
-                console.log(target, screen.availHeight, combined)
+                console.log(elDistanceToTop)
                 //     console.log(target-(window.innerHeight/2)-100)
                 //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
                 // console.log(target+(window.innerHeight/2))
                     // if(navigator.userAgent.indexOf("Firefox") != -1 ){
                         this.html.scrollTo({
                             left: 0, 
-                            top: combined,
+                            top: elDistanceToTop + target,
                             // behavior: 'smooth'
                         })
                     // }else{
