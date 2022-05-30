@@ -24,11 +24,11 @@ class MobileInterface {
 
         if(window.innerWidth < 500){
             this.formField.forEach(f =>{
-                this.html.scrollTo({
-                    left: 0, 
-                    top: 0,
-                    // behavior: 'smooth'
-                })
+                // this.html.scrollTo({
+                //     left: 0, 
+                //     top: 0,
+                //     // behavior: 'smooth'
+                // })
                 let target = f.offsetTop;
                 let pageTop = this.html.scrollTop;
                 let combined = target + pageTop;
