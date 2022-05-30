@@ -27,9 +27,9 @@ class MobileInterface {
                 let target = f.offsetTop;
                 let pageTop = this.html.scrollTop;
                 // let combined = pageTop + target;
-                let combined = pageTop + target + (window.innerHeight/2);
+                let combined = pageTop*1.3 + target;
                 f.addEventListener('focus', ()=>{
-                console.log(pageTop, combined)
+                console.log(pageTop, target, combined)
                 //     console.log(target-(window.innerHeight/2)-100)
                 //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
                 // console.log(target+(window.innerHeight/2))
