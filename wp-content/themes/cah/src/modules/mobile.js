@@ -39,20 +39,20 @@ class MobileInterface {
                 //     console.log(target-(window.innerHeight/2)-100)
                 //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
                 // console.log(target+(window.innerHeight/2))
-                    // if(navigator.userAgent.indexOf("Firefox") != -1 ){
+                    if(navigator.userAgent.indexOf("Firefox") != -1 ){
                         this.html.scrollTo({
                             left: 0, 
                             top: elDistanceToTop + target,
                             // behavior: 'smooth'
                         })
-                    // }else{
-                    //     console.log('not FF')
-                    //     this.html.scrollTo({
-                    //         left: 0, 
-                    //         top: target-(window.innerHeight/2 - (window.innerHeight*.1)),
-                    //         behavior: 'smooth'
-                    //     })
-                    // }
+                    }else{
+                        console.log('not FF')
+                        this.html.scrollTo({
+                            left: 0, 
+                            top: elDistanceToTop + target - (target*.2),
+                            // behavior: 'smooth'
+                        })
+                    }
                 })
                 
             })
