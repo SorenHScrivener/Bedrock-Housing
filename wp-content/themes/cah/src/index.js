@@ -10,6 +10,7 @@ import RelatedNews from './modules/singlePost';
 import ShadowBox from './modules/shadowBox';
 import MobileInterface from './modules/mobile';
 import Tab from './modules/tabs';
+import DimensionCheck from './modules/dimension-checker';
 
 // const search = new Search();
 const pagination = new Pagination();
@@ -18,3 +19,4 @@ const relatedNews = new RelatedNews();
 const shadowBox = new ShadowBox();
 const mobileInterface = new MobileInterface();
 const tab = new Tab();
+const dimensionCheck = new DimensionCheck();

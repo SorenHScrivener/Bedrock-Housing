@@ -28,6 +28,9 @@ header{
     button{
         font-size: 1.8rem;
         width: 10rem;
+        @include mixins.atTablet{
+           font-size: var(--nav-button_font-size); 
+        }
         cursor: pointer;
         i{
           display: inline;  
@@ -41,9 +44,9 @@ header{
     // }
     #logo-symbol, #logo-text{
         height: calc(var(--header_height)*.8);
-            @include mixins.atDesktop{
-                height: 3rem;
-            }
+            // @include mixins.atDesktop{
+            //     height: 3rem;
+            // }
     }
     #logo-symbol{
         grid-area: logoSymbol;
@@ -106,11 +109,14 @@ header{
                     border: none;
                 }
                 a{
-                  padding: .5rem 1rem;
-                  font-size: 1.2rem; 
+                    padding: .5rem 1rem;
+                    font-size: 1.2rem;
+                    @include mixins.atTablet{
+                        font-size: var(--nav-a_font-size); 
+                    }
                     @include mixins.atDesktop{
                         padding: 0;
-                    } 
+                } 
                 }
             }
             #return-home,

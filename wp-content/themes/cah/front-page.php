@@ -227,6 +227,7 @@
 </div>
 
 <div id="contactContainer" class=contentContainer>
+    <!-- <div class="container-overlay"></div> -->
     <div class="inner-container">
         <div class="titleAndTextBox">
             <div class="titleBox">
@@ -275,8 +276,6 @@
                         <label for="message">Your Inquiry (limit 1000 chars)</label>
                         <textarea class="form-field" name="message" id="message" rows="20" cols="30" class="required requiredField" maxlength="1000"></textarea>
                     </div>
-
-                    <input type="hidden" name="submitted" id="submitted" value="true" />
                     
                     <button type="submit" name="email_submit">Submit Request</button>
 

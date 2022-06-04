@@ -12,6 +12,9 @@
                         "creator creator";
     justify-items: center;
     align-items: center;
+    @include mixins.atTablet{
+        grid-template-areas: var(--footer_grid-template-areas);
+    }
     @include mixins.atDesktop{
         display: flex;
         justify-content: space-between;
@@ -24,6 +27,9 @@
     }
     .credit{
         font-size: 1rem;
+        @include mixins.atTablet{
+            font-size: var(--footer-p_font-size);
+        }
         @include mixins.atDesktop{
             font-size: 1.2rem; 
         }
@@ -40,6 +46,9 @@
         a{
             font-size: 1.4rem;
             margin: 1rem;
+            @include mixins.atTablet{
+                font-size: var(--footer-symbols_font-size);
+            }
             @include mixins.atDesktop{
                 font-size: 1.3rem;
                 margin: .65rem; 

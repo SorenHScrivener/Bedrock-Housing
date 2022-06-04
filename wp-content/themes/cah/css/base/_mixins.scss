@@ -1,4 +1,4 @@
-@mixin atSmall {
+@mixin atShortPhoneLandscape {
     @media (min-width: 530px) {
       @content;
     }

@@ -159,6 +159,7 @@ function pageBanner($args = NULL){
             <div id="singleInfo" class="section  non-primary">
                 <div class="media-card">
                     <button data-id="<?php echo get_the_id(); ?>" data-post="<?php echo strtolower($postType->labels->name); ?>" data-full="<?php echo $imgInputLarge; ?>">View Gallery</button>
+                    <div id="thumbnail-column"></div>
                 </div>
  
                 <div class="prop-info">

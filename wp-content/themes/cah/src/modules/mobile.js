@@ -49,7 +49,7 @@ class MobileInterface {
                         console.log('not FF')
                         this.html.scrollTo({
                             left: 0, 
-                            top: elDistanceToTop + target - (target*.5),
+                            top: elDistanceToTop + target - (target*.6),
                             // behavior: 'smooth'
                         })
                     }

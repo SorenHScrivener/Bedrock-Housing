@@ -12,7 +12,7 @@ class Tab{
         this.events();
     }
     events(){
-        if(this.width < 767){
+        if(this.width < 1200){
             this.nonPrimary.forEach(n=>n.classList.add('hidden'));
         }
 

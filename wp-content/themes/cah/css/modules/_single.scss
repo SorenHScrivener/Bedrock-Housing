@@ -17,8 +17,7 @@
     grid-template-rows: [tabs]13% [section]1fr;
     justify-items: center;
     @include mixins.atDesktop{
-        // min-width: 60%; 
-        height: 82%;
+        //make more space for middle to allow img to be on the left of the list and shrink more in line
         grid-template-areas: "updates main desc";
         grid-template-rows: 100%;
         padding: 1.5rem 1rem;
@@ -84,17 +83,27 @@
     }
     #mainImageAndStats{
         display: grid;
-        @include mixins.atDesktop{
-            grid-area: main;
-        }
-        // height: 100%;
         grid-template-areas:"img"
                             "ul";
         grid-template-rows: [img]40% [ul]1fr;
         justify-items: center;
+        @include mixins.atTablet{
+            grid-template-areas:var(--mainImageAndStats_grid-template-areas);
+            grid-template-rows:var(--mainImageAndStats_grid-template-rows);
+            grid-template-columns:var(--mainImageAndStats_grid-template-columns);
+        }
+        @include mixins.atDesktop{
+            grid-area: main;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         img{
             grid-area: img;
             height: 100%;
+            @include mixins.atTablet{
+                height: var(--mainImageAndStats-img_height);
+            }
             @include mixins.atDesktop{
                 height: 42%;
             }
@@ -123,6 +132,7 @@
         }
     }
     #singleInfo{
+        //perhaps display img thumbs next to the 'view gallery', horizantal on comp and portrait, and vert on landscape 
         width: 100%;
         @include mixins.atDesktop{
             grid-area: desc;
@@ -188,6 +198,9 @@
             }
         }
         #news-reciever{
+            //use the floating/wrapping tehnique used in the other news things 
+            //put img at about 50% width
+            //perhaps change title and date to be outside of the scrollable area on all devices 
             overflow: auto;
             margin: 1rem 0;
             p{
