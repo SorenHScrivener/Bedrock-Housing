@@ -370,7 +370,7 @@ class Pagination {
                 ${type.map(item => `
                 <div class="overall-squares">
                     <div class="displaySquares">
-                        <p class="interaction-prompt"><span class="click-prompt">Touch</span><span class="hover-prompt">Hover</span></p>
+                        <p class="interaction-prompt"><span class="touch-prompt"><img src="${siteData.root_url}/wp-content/themes/cah/images/touch-symbol.png"></span><span class="hover-prompt"><img src="${siteData.root_url}/wp-content/themes/cah/images/hover-symbol.png"></span></p>
                         ${this.vw >= 1200 ? `<img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.image : item.projectedImage}" alt="${item.title}">`: ''}
                         ${this.vw < 1200 ? `<img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.imageMedium : item.projectedImageMedium}" alt="${item.title}">`: ''}
                         <div class="displaySquares-pageLinks">

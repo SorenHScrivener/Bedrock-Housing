@@ -74,7 +74,7 @@ function pageBanner($args = NULL){
         <div id="pageImage">
             <img src="<?php echo $args['photo']; ?>" alt="">
         </div>
-        <div id="singleContainer">
+        <div id="singleContainer" data-id="<?php echo get_the_id(); ?>" data-post="<?php echo strtolower($postType->labels->name); ?>">
             <div aria-label="section-tabs" class="section-tabs">
                 <button id="mainImageAndStats-tab" class="activated">
                     Stats
@@ -89,6 +89,7 @@ function pageBanner($args = NULL){
             
             <div id="updates-col" class="section non-primary">
                 <h3>Most Recent News(<a class="related-link" href="<?php echo get_home_url(); ?>/all-news/#<?php echo get_the_ID();?>-related-<?php echo strtolower($postType->labels->name); ?>"">See All</a>)</h3>
+                <div id="news-info-reciever"></div>
                 <div id="news-reciever"></div>
                 <div id="pagination-holder"></div>
             </div>
@@ -158,8 +159,9 @@ function pageBanner($args = NULL){
             
             <div id="singleInfo" class="section  non-primary">
                 <div class="media-card">
-                    <button data-id="<?php echo get_the_id(); ?>" data-post="<?php echo strtolower($postType->labels->name); ?>" data-full="<?php echo $imgInputLarge; ?>">View Gallery</button>
+                    <button data-full="<?php echo $imgInputLarge; ?>" data-id="<?php echo get_the_id(); ?>" data-post="<?php echo strtolower($postType->labels->name); ?>">View Gallery</button>
                     <div id="thumbnail-column"></div>
+                    <div id="additional-count"></div>
                 </div>
  
                 <div class="prop-info">

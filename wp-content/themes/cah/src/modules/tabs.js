@@ -8,12 +8,16 @@ class Tab{
         // this.searchFilters = document.querySelector('#search-filters');
         // this.propNews = document.querySelector('#propNews');
         this.nonPrimary = document.querySelectorAll('.non-primary');
-        console.log(this.nonPrimary)
         this.events();
     }
     events(){
-        if(this.width < 1200){
+        if(this.width < 767){
             this.nonPrimary.forEach(n=>n.classList.add('hidden'));
+        }
+        if(this.width < 1200){
+            document.querySelectorAll('#singleContainer .non-primary').forEach(c=>{
+                c.classList.add('hidden');
+            })
         }
 
         this.tabs.forEach(t=>t.addEventListener('click', t=> this.toggleSections(t)));

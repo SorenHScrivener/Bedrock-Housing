@@ -4,17 +4,21 @@ import ShadowBox from './shadowBox';
 class RelatedNews{
     constructor(){
         if(document.querySelector('#singleContainer')){
+            this.newsInfoReciever = document.querySelector('#news-info-reciever');
             this.newsReciever = document.querySelector('#news-reciever');
             this.paginationHolder = document.querySelector('#pagination-holder');
             //interferes with SB. Figure out how to prevent on pages where invalid.
             //Also with all-news if only 1 page
-            this.currentPostID = document.querySelector('#mainImageAndStats img').dataset.id;
+            this.currentPostType = document.querySelector('#singleContainer').dataset.post;
+            this.currentPostID = document.querySelector('#singleContainer').dataset.id;
             this.currentPage = 0;
             this.contentShown;
             this.contentPageOptions;
             this.contentLoaded = false;
             this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
+            this.thumbnailColumn = document.querySelector('#thumbnail-column');
+            this.additionalCount = document.querySelector('#additional-count');
             // this.sections = document.querySelectorAll('.section');
             // console.log(this.sections)
             // this.sectionTabs = document.querySelectorAll('#section-tabs button');
@@ -32,31 +36,81 @@ class RelatedNews{
         //         this.toggleSections(t)
         //     })
         // })
+        this.fetchMedia();
         this.fetchRelatedNews();
+    }
+
+    async fetchMedia(){
+        const posts = await axios.get(siteData.root_url + '/wp-json/cah/v1/media?related');
+        const postResults = posts.data;
+
+        const allPosts = postResults[this.currentPostType];
+            
+        let allMedia;
+        const mediaCol = [];
+        let mediaColLength = 2;
+        let mediaColLimit = mediaColLength; 
+        let mediaCount = 0
+
+        allPosts.forEach(post=>{
+            if(post.id === parseInt(this.currentPostID)){
+                if(this.currentPostType === "property"){
+                    allMedia = post.gallery.concat(post.interior, post.buildingPlans, post.floorPlans);
+                }else{
+                    allMedia = post.gallery;
+                }
+            }
+        })
+
+        allMedia.forEach(media=>{
+            mediaCount+=1
+            if(mediaColLimit >= 1){
+                mediaColLimit-=1;
+                mediaCol.push(media);
+            }
+        })
+
+        let additionalCount = `${mediaCount - mediaColLength}`;
+        let additionalCountText = `+${additionalCount}`
+
+        this.populateThumbnailColumn(mediaCol);   
+
+        if(additionalCount>'0'){
+            console.log(additionalCount)
+            this.additionalCount.innerHTML = `${additionalCountText}`;  
+        }
     }
 
     async fetchRelatedNews(){
         try{
-            const response = await axios.get(siteData.root_url + '/wp-json/cah/v1/media?related'); 
-            const results = response.data;
-            const allNews = results.updates.concat(results.news);
+            const related = await axios.get(siteData.root_url + '/wp-json/cah/v1/media?related'); 
+            const relatedResults = related.data;
+
+            const allNews = relatedResults.updates.concat(relatedResults.news);
+            
             const relatedNews = []; 
             let limit = 1;
 
             let dataCount = 0;
             let pageCount = 0;
-            //Organize the news that's thrown into relatedNews, in date order
-            //Consider performing the date order on backend, though could annoyong, given less php experience, but could be beneficial to progress over all 
+
+            allNews.sort((a, b) => new Date(a.date) - new Date(b.date));
+            allNews.reverse();
+
             if(!this.contentLoaded){
+
                 allNews.forEach(news =>{
                     news.relationships.forEach(r=>{
-                        if(r.ID === parseInt(this.currentPostID) && limit <= 2){
-                            limit+=1
-                            relatedNews.push(news);
-                        } 
+                        if(r.ID === parseInt(this.currentPostID)){
+                            if(limit <= 2){
+                                limit+=1;
+                                relatedNews.push(news);
+                            }
+                        }
+
                     })
                 })
-    
+
                 if(relatedNews.length){      
                     this.contentShown = JSON.parse(JSON.stringify(relatedNews));
                 }else{
@@ -71,6 +125,7 @@ class RelatedNews{
                     left: 0, 
                     top: 0
                 })
+
         }catch(e){
             console.log(e);
         }
@@ -78,9 +133,11 @@ class RelatedNews{
 
     populateNewsReciever(){
         console.log(this.contentShown[this.currentPage])
-        this.newsReciever.innerHTML = `
+        this.newsInfoReciever.innerHTML = `
             <h4>${this.contentShown[this.currentPage].title}</h4>
             <p>${this.contentShown[this.currentPage].caption ? `${this.contentShown[this.currentPage].caption} -` : ''} ${this.contentShown[this.currentPage].date}</p>
+        `;
+        this.newsReciever.innerHTML = `
             <div class="media-card"><img data-post="${this.contentShown[this.currentPage].postTypePlural}" data-id="${this.contentShown[this.currentPage].id}" src="${this.vw >= 1200 ? `${this.contentShown[this.currentPage].gallery[0].image}` : `${this.contentShown[this.currentPage].gallery[0].selectImage}`}"></div>
             <p>${this.contentShown[this.currentPage].fullDescription}</p>
         `;
@@ -132,6 +189,15 @@ class RelatedNews{
         })
     }
 
+    populateThumbnailColumn(imgs){
+        console.log(imgs)
+        this.thumbnailColumn.innerHTML = `
+            ${imgs.map(img=>`
+                    <img src="${img.selectImage}">
+                `
+            ).join('')}
+        `
+    }
     // hideSections(){
     //     this.sections.forEach(e=> e.style.display="none")
     //     this.sectionTabs.forEach(t=>{

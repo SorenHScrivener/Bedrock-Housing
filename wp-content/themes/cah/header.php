@@ -29,6 +29,11 @@
             <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2_mobile.png');?>" alt="company logo-type"></div>
             <!-- Also do alt function for mobile search button -->
             <!-- /images/Logo_cracked2_mobile.png -->
+            <div id="additional-buttons">
+                <button id="more-options">Options</button>
+                <button id="media-close-alt" class="media-close">Close</button>  
+            </div>
+
             <nav>
                 <ul>       
                 <!--Have focus in contact container after press a tag. And jump onto news scroll when press its a tag-->    

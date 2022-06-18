@@ -8,7 +8,8 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    grid-template-areas:"copyright social"
+    grid-template-areas:"additionalButtons additionalButtons"
+                        "copyright social"
                         "creator creator";
     justify-items: center;
     align-items: center;
@@ -16,6 +17,8 @@
         grid-template-areas: var(--footer_grid-template-areas);
     }
     @include mixins.atDesktop{
+        grid-template-areas:"copyright social"
+                            "creator creator";
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -25,7 +28,10 @@
     p{
         margin: 0;
     }
-    .credit{
+    #additional-buttons-alt button{
+        color: var(--footer_color);
+    }
+    .credit, #additional-buttons-alt button{
         font-size: 1rem;
         @include mixins.atTablet{
             font-size: var(--footer-p_font-size);

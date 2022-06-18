@@ -1,18 +1,32 @@
+@use "../base/mixins";
 .media-card{
     button{
         color: var(--whitish-gold);
         cursor: pointer; 
-        font-size: 1.5rem;
+        font-size: 1.2rem;  
+        @include mixins.atTablet{
+          font-size: var(--media-card_font-size);  
+        }
     }
+    // background-image: url("../images/Logo_cracked2_mobile.png");
 }
 
-.media-card:hover, .property-media-card:hover{
+.media-card:hover, .property-media-card:hover, .media-card:focus, .property-media-card:focus{
     img{
         filter: brightness(50%);
         cursor: pointer;
     }
-    h3, p, button{
+    #thumbnail-column{
+        img{
+            filter: none;
+            cursor: initial;
+        }
+    }
+    h3, p{
         filter: contrast(40%);
         cursor: pointer;
     }
+    // *:not(#thumbnail-column){
+
+    // }
 }

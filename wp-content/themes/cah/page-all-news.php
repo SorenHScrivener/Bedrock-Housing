@@ -154,8 +154,10 @@
                 [match dependent on partial or whole, case setting, and what part of word is valid]-->
             <!-- </div> -->
         </div>
+        <div id="reset-container">
+            <button id="reset-all">Reset All</button>
+        </div>
 
-        <button id="reset-all">Reset All</button>
     </div>
     <!-- <div class="pagination-holder" id="pagination-holder_mobile"></div> -->
 </div>

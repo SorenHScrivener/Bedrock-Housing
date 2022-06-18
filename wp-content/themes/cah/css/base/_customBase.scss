@@ -75,7 +75,10 @@
     --mtc_background-color: var(--trans-main);
     --mtc-button_color: var(--body_color);
 
-    --footer_height: 4.5rem;
+    --footer_height: 6.5rem;    
+    @include mixins.atDesktop{
+        --footer_height: 4.5rem;
+    }
     --footer_color: var(--whitish-gold);
     --footer_background-color: var(--trans-black);
     // --footer-p_font-size: 1rem; 
@@ -150,10 +153,27 @@
 
     --overall-squares_width: 80%;
 
+    --section_margin-top: 0rem;
+
     --mainImageAndStats_grid-template-areas:"img ul";
     --mainImageAndStats_grid-template-rows: initial;
     --mainImageAndStats_grid-template-columns: repeat(2, 50%);
     --mainImageAndStats-img_height: initial;
+
+    // --single-info_grid-template-rows: 15% 1fr;
+    --single-info_grid-template-rows: initial;
+    --single-info_grid-template-areas: 'info media';
+    --prop-info_margin-top: 0;
+    --media-card_font-size: 1.5rem;
+    --media-card_column-gap: 0;
+    --media-card_row-gap: .7rem;
+    --media-card_flex-direction: column;
+    --thumb_width: 8rem;
+
+    --updates-col-h3_font-size: 1.8rem;
+    --updates-col-img_width: 52%;
+
+    --current-media_width: 70vw;
 
     --footer_height: 3rem;
     --footer-p_font-size: 1.1rem;
@@ -163,6 +183,10 @@
 
 .tabletPortrait{
     // --base-font: 2.4vw;
+}
+
+.phonePortrait{
+    --current-media_width: 99vw;
 }
 
 html{
@@ -289,7 +313,7 @@ h1, h2, h3, h4{
     font-family: 'Cormorant SC', serif;
 }
 
-body, input, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, 
+body, input, button, .read-more, .news li a, header li a, #realtimeFiltersAndSorting button, 
 #search-filters button, #reset-all, .news p, .see-more-link, #section-tabs button, .content-pages a, #news-type-tabs>div button{
     font-family: 'Lora', serif;
 }

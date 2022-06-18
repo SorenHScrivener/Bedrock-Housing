@@ -12,14 +12,18 @@
     <button id="media-close" class="media-close">x</button>
 </div>
 
-<div id="footerContainer">
+<footer id="footerContainer">
+    <div id="additional-buttons-alt">
+        <button id="more-options">Options</button>
+         <!-- Add dark/light slider? -->
+    </div>
     <p id="credit-copyright" class="credit">Copyright here</p>
     <p id="credit-creator" class="credit">Powered by Passing Cloud Productions</p>
     <div id="social-container">
         <a href="#"><i class="fab fa-twitter"></i></a>  
         <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
-</div>
+</footer>
 
 <?php wp_footer(); ?>
 

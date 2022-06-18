@@ -195,6 +195,7 @@ function cahMediaResults($data){
     
             array_push($results['news'], array(
                 'postType' => get_post_type(),
+                'postTypePlural' => strtolower(get_post_type_object(get_post_type())->labels->name),
                 'title' => get_the_title(),
                 'permalink' => get_the_permalink(),
                 'caption' => get_field('caption'),
@@ -214,6 +215,7 @@ function cahMediaResults($data){
 
             array_push($results['members'], array(
                 'postType' => get_post_type(),
+                'postTypePlural' => strtolower(get_post_type_object(get_post_type())->labels->name),
                 'title' => get_the_title(),
                 'permalink' => get_the_permalink(),
                 'id' => get_the_id(),
@@ -226,6 +228,7 @@ function cahMediaResults($data){
         if(get_post_type() === 'property'){
             array_push($results['properties'], array(
                 'postType' => get_post_type(),
+                'postTypePlural' => strtolower(get_post_type_object(get_post_type())->labels->name),
                 'title' => get_the_title(),
                 'permalink' => get_the_permalink(),
                 'id' => get_the_id(),

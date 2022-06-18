@@ -2,14 +2,18 @@
 header{
     color: var(--muted-gold);
     display: grid;
-    grid-template-columns: [logoSymbol]6% [logoText]29% [navigation]1fr;
+    grid-template-columns: [logoSymbol]20% [logoText]40% [navigation]1fr;
     grid-template-areas: "logoSymbol logoText navigation"; 
-    grid-auto-flow: column;
+    // grid-auto-flow: column;
     // justify-self: end;
+    @include mixins.atTablet{
+        grid-template-columns: [logoSymbol]10% [logoText]29% [additionalButtons]36% [navigation]1fr;
+        grid-template-areas: "logoSymbol logoText additionalButtons navigation"; 
+    }
     @include mixins.atDesktop{
-        grid-auto-flow: row;
-        grid-template-columns: [logoSymbol]4% [logoText]25% [navigation]1fr;
-        grid-template-areas: "logoSymbol logoText navigation"; 
+        // grid-auto-flow: row;
+        grid-template-columns: [logoSymbol]5% [logoText]25% [additionalButtons]25% [navigation]1fr;
+        grid-template-areas: "logoSymbol logoText additionalButtons navigation"; 
     }
     background-color: var(--header_background-color);
     box-shadow: .2rem .2rem 1rem .4rem inset var(--header_box-shadow_color);
@@ -26,10 +30,10 @@ header{
         display: none;
     }
     button{
-        font-size: 1.8rem;
-        width: 10rem;
+        font-size: 1.4rem;
         @include mixins.atTablet{
-           font-size: var(--nav-button_font-size); 
+            font-size: 1.8rem;
+            font-size: var(--nav-button_font-size); 
         }
         cursor: pointer;
         i{
@@ -56,7 +60,9 @@ header{
     #logo-text{
         grid-area: logoText;
         margin-top: .6rem; 
-        padding-left: 2.8rem;
+        @include mixins.atTablet{
+            padding-left: 2.8rem;
+        }
     }
     img{
         height: 100%;

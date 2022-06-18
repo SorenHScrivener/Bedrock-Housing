@@ -42,6 +42,12 @@
         position: fixed;
         width: 100%;
         height: calc(100% - var(--header_height) - var(--footer_height));
+        @include mixins.atTablet{
+            grid-template-rows: 43% 43% 1fr;
+            grid-template-areas:"realtimeFiltersAndSorting realtimeFiltersAndSorting realtimeFiltersAndSorting"
+                                "searchFilters searchFilters searchFilters"
+                                "... resetAll ...";
+        }
         #filters-and-sorting-tabs{
             // grid-area: rst;
             display: flex;
@@ -51,6 +57,9 @@
             top: 25%;
             button.activated{
                 pointer-events: none;
+            }
+            @include mixins.atTablet{
+                display: none;
             }
         }
     }
@@ -174,8 +183,12 @@
                                 "orderBy"
                                 "toggleType"
                                 "filterDate";
-            // grid-template-areas:"headingRFS headingRFS headingRFS" 
-            //                     "orderBy toggleType filterDate";
+            @include mixins.atTablet{
+                grid-area: realtimeFiltersAndSorting;
+                grid-template-areas:"headingRFS headingRFS" 
+                                    "orderBy toggleType"
+                                    "filterDate filterDate";
+            }
             @include mixins.atDesktop{
                 grid-area: realtimeFiltersAndSorting;
                 grid-template-areas:"headingRFS headingRFS" 
@@ -227,6 +240,10 @@
             // grid-template-rows: repeat(4, 4rem);
             // column-gap: .5rem;
             justify-items: baseline;
+            @include mixins.atTablet{
+                grid-area: searchFilters;
+                align-content: space-around;
+            }
             @include mixins.atDesktop{
                 grid-area: searchFilters;
             }
@@ -234,9 +251,12 @@
                 grid-area: headingSF;
             }
             button{
-                text-align: left;
+                // text-align: left;
                 // border: .2rem solid white;
                 height: 50%;
+                @include mixins.atTablet{
+                    height: initial;
+                }
             }
             #news-search-container{
                 grid-area: newsSearch;
@@ -280,13 +300,22 @@
         label{
             margin-right: .5rem;
         }
-        #reset-all{
-            font-size: 1.25rem;
-            height: 85%;
-            @include mixins.atDesktop{
-                font-size: 1.4rem;
-            }
+        #reset-container{
             grid-area: resetAll;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            #reset-all{
+                font-size: 1.25rem;
+                // height: 85%;
+                @include mixins.atTablet{
+                    font-size: 1.35rem;
+                    padding: .35rem;
+                }
+                @include mixins.atDesktop{
+                    font-size: 1.4rem;
+                }
+            }
         }
         button{
             cursor: pointer;
@@ -358,6 +387,8 @@
             .options-switch, #dismiss-selection{
                 height: 50%;
                 font-size: 1.2rem;
+                box-shadow: .4rem .4rem .45rem .1rem inset var(--trans-black);
+                background-color: var(--blackish-brown_1_trans);
                 @include mixins.atDesktop{
                     font-size: 1.2rem;
                     border: .2rem solid var(--snc_border_color);
@@ -365,6 +396,9 @@
                     border-top: none;
                 }
                 cursor: pointer;
+            }
+            .options-switch:hover, #dismiss-selection:hover, .options-switch:focus, #dismiss-selection:focus{
+                    filter: brightness(70%);
             }
             .options-switch:not(.inactive), #dismiss-selection:not(.dismissed){
                 text-shadow: .15rem .15rem black;
@@ -379,7 +413,7 @@
                     display: none;
                 }
                 &.inactive{
-                    filter: contrast(20%);
+                    opacity: 0;
                     pointer-events: none;
                 }
             }
@@ -390,7 +424,7 @@
                 //     border: none;
                 // }
                 &.dismissed{
-                    filter: contrast(20%);
+                    opacity: 0;
                     pointer-events: none;
                 }
             }
@@ -446,6 +480,16 @@
             ul{
                 li{
                     list-style-type: circle;
+                    .see-more-link{
+                        text-decoration: underline;
+                        @include mixins.atTablet{
+                            font-size: 1.05rem;
+                        }
+                    }
+                    .see-more-link:hover, .see-more-link:focus{
+                        text-decoration: none;
+                        filter: brightness(70%);
+                    }
                     .see-more-link, .relationship-link{
                         cursor: pointer;
                     }
@@ -502,17 +546,18 @@
     justify-content: center;
     align-items: flex-end;
     background-color: var(--mtc_background-color);
-    height: 100%;
+    height: calc(100vh - var(--header_height) - var(--footer_height));
+    margin-top: var(--header_height);
     width: 100%;
     position: fixed;
     top: 0;
     div{
         width: 50%;
-        margin-bottom: 8rem;
         display: flex;
         justify-content: center;
         column-gap: 1rem;
         align-items: center;
+        margin-bottom: .5rem;
         button, label{
             font-size: 1.2rem;
         }
@@ -537,6 +582,11 @@
     font-size: 1rem;
     height: 1.7rem;
     width: 10rem;
+    @include mixins.atTablet{
+        font-size: 1.15rem;
+        height: 2.3rem;
+        width: 15rem;
+    }
     @include mixins.atDesktop{
         font-size: 1.15rem;
         height: 2.3rem;

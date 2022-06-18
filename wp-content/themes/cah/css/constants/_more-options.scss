@@ -1,0 +1,23 @@
+@use "../base/mixins";
+#additional-buttons, #additional-buttons-alt{
+    grid-area: additionalButtons;
+    .togglable.hidden{
+        display: none;
+        pointer-events: none;
+    }
+}
+
+#additional-buttons{
+    height: var(--header_height);
+    display: none;
+    @include mixins.atTablet{
+        display: flex;
+    }
+}
+
+#additional-buttons-alt{
+    display: flex;
+    @include mixins.atTablet{
+        display: none;
+    }
+}

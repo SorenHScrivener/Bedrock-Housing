@@ -20,6 +20,11 @@
     // grid-template-rows: minmax(30%, 60%) 1fr;
     // grid-template-rows: 50% 1fr;
     grid-template-rows: auto minmax(0,1fr);
+    // @include mixins.atTablet{
+    //     grid-template-areas:"media interface";
+    //     grid-template-rows: 100%;
+    //     grid-template-columns: 60% 1fr;
+    // }
     #current-media{
         grid-area: media;
         display: grid;
@@ -58,6 +63,7 @@
             grid-area: media;
             width: var(--current-media_width);
             height: calc(var(--current-media_width)/1.77);
+            margin-left: calc((100vw - var(--current-media_width))/2);
         }
         #play-button-container{
             display: flex;
@@ -66,6 +72,7 @@
             position: absolute;
             width: var(--current-media_width);
             height: calc(var(--current-media_width)/1.77);
+            margin-left: calc((100vw - var(--current-media_width))/2);
             #play-button{
                 height: 3rem;
                 width: 4.5rem;
@@ -168,6 +175,9 @@
                 .media-thumb{
                     width: 50%;
                     cursor: pointer;
+                    @include mixins.atTablet{
+                        width: 35%;
+                    }
                 }
                 .media-thumb.selected{
                     filter: contrast(42%);
@@ -215,27 +225,27 @@
                             "pagination";
         grid-template-rows: 2.8rem 72% 1fr;
     }
-    .media-close{
-        color: var(--media-reciever-close);
-        cursor: pointer;
-    }
-    #media-close{
-        position: absolute;
-        font-size: 3.5rem;
-        left: 1.5rem;
-        top: 1.5rem;
-        display: none;
-        @include mixins.atDesktop{
-            left: 3.5rem;
-            top: 3.5rem;
-            display: block;
-        }
-    }
-    #media-close-alt{
+}
+.media-close{
+    color: var(--media-reciever-close);
+    cursor: pointer;
+}
+#media-close{
+    position: absolute;
+    font-size: 3.5rem;
+    left: 1.5rem;
+    top: 1.5rem;
+    display: none;
+    @include mixins.atDesktop{
+        left: 3.5rem;
+        top: 3.5rem;
         display: block;
-        font-size: 1.1rem;
-        @include mixins.atDesktop{
-            display: none;
-        }
     }
+}
+#media-close-alt{
+    display: none;
+    // font-size: 1.6rem;
+    // @include mixins.atDesktop{
+    //     display: none;
+    // }
 }

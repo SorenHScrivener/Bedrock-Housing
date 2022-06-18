@@ -3,8 +3,10 @@ import axios from 'axios';
 
 class ShadowBox {
     constructor(){
+        this.mediaLink = document.querySelectorAll('.media-card *');
 
         this.html;
+        this.width = screen.availWidth;
         this.mediaLink;
 
         this.mediaReciever;
@@ -44,6 +46,8 @@ class ShadowBox {
     }
 
     events(){
+        this.togglableElement = document.querySelector('.togglable');
+        this.closeAlt = document.querySelector('#media-close-alt');
         this.contentShown;
         this.currentPages = 0;
         this.html = document.querySelector('html');
@@ -61,13 +65,17 @@ class ShadowBox {
         this.newLoad = true;
 
         this.mediaLink.forEach(media=>{
-            media.addEventListener('click', ()=> this.shadowBox(media))
+            if(media.id !== 'thumbnail-column' && media.id !== 'additional-count'){
+                media.addEventListener('click', ()=> this.shadowBox(media)); 
+            }
         })
 
         document.addEventListener("keydown", e => this.keyPressDispatcher(e))
     }
 
         shadowBox(media){
+            this.togglableElement.classList.add('hidden');
+            this.closeAlt.style.display = "block";
             this.mediaReciever = document.querySelector('#media-reciever');
 
             this.mediaReciever.style.display = "grid";
@@ -232,8 +240,7 @@ class ShadowBox {
                
                 <div id="media-information">
                     <div id="title-and-options">
-                        <p id="media-title">${item[this.postField][this.galleryPosition].title}<button id="toggle-desc"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up hidden"></i></button></p>
-                        <button id="media-close-alt" class="media-close">close</button>
+                        <p id="media-title">${item[this.postField][this.galleryPosition].title}<button id="toggle-desc"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up hidden"></i></button></p>                
                     </div>
                     <p id="media-partial-desc">${item[this.postField][this.galleryPosition].description}</p>
                     <p id="media-full-desc" class="hidden">${item[this.postField][this.galleryPosition].fullDescription}</p>
@@ -370,6 +377,8 @@ class ShadowBox {
         }
     
         closeMediaReciever(){
+            this.togglableElement.classList.remove('hidden');
+            this.closeAlt.style.display = "none";
             while (this.mediaMenu.firstChild) {
                 this.mediaMenu.removeChild(this.mediaMenu.firstChild);
             }
@@ -407,6 +416,10 @@ class ShadowBox {
             this.mediaDisplay.innerHTML = `
                 <iframe allowfullscreen="allowfullscreen" src="${videoSrc}"></iframe>
             `;
+        }
+
+        test(){
+            console.log('red');
         }
 }
 

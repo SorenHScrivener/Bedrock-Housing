@@ -11,6 +11,7 @@ import ShadowBox from './modules/shadowBox';
 import MobileInterface from './modules/mobile';
 import Tab from './modules/tabs';
 import DimensionCheck from './modules/dimension-checker';
+import MoreOptions from './modules/moreOptions';
 
 // const search = new Search();
 const pagination = new Pagination();
@@ -20,3 +21,4 @@ const shadowBox = new ShadowBox();
 const mobileInterface = new MobileInterface();
 const tab = new Tab();
 const dimensionCheck = new DimensionCheck();
+const moreOptions = new MoreOptions();

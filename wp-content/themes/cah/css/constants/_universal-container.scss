@@ -24,7 +24,7 @@
         }
     }
     p{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         @include mixins.atTablet{
             font-size: var(--opening-container-p_font-size);
         }

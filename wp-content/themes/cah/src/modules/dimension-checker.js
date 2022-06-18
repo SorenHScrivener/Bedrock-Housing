@@ -1,3 +1,4 @@
+import ShadowBox from "./shadowBox";
 class DimensionCheck{
     constructor(){
         this.height = screen.availHeight;
@@ -6,7 +7,7 @@ class DimensionCheck{
 
         this.html = document.querySelector('html');
         this.header = document.querySelector('header');
-        this.footer = document.querySelector('footer');
+        // this.footer = document.querySelector('footer');
 
         // this.darkModeTogglerHeader = document.querySelector('#dark-mode-toggle_header');
         // console.log(this.darkModeTogglerHeader)
@@ -28,12 +29,20 @@ class DimensionCheck{
             this.html.classList.add('tabletPortrait');
             this.html.classList.remove('tabletLandscape');
 
-            this.footer.querySelector('#dark-mode-toggle_footer').style.display = "flex";
+            // this.footer.querySelector('#dark-mode-toggle_footer').style.display = "flex";
         }else if(this.height < this.width && this.width > 767 && this.width < 1200){
             this.html.classList.remove('tabletPortrait');
             this.html.classList.add('tabletLandscape');
 
             // this.footer.querySelector('#dark-mode-toggle_footer').style.display = "none";
+        }
+        if(this.height > this.width && this.height < 1200 && this.width < 576){
+            this.html.classList.remove('tabletPortrait');
+            this.html.classList.remove('tabletLandscape');
+            this.html.classList.add('phonePortrait');
+            document.querySelector('#more-options').classList.add('togglable');
+            
+            console.log(ShadowBox.prototype.events)
         }
     }
 }
