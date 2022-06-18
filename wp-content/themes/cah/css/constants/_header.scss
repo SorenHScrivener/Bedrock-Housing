@@ -2,7 +2,7 @@
 header{
     color: var(--muted-gold);
     display: grid;
-    grid-template-columns: [logoSymbol]20% [logoText]40% [navigation]1fr;
+    grid-template-columns: [logoSymbol]20% [logoText]37% [navigation]1fr;
     grid-template-areas: "logoSymbol logoText navigation"; 
     // grid-auto-flow: column;
     // justify-self: end;

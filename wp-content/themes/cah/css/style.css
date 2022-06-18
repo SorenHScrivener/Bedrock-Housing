@@ -269,7 +269,7 @@ body, input, button, .read-more, .news li a, header li a, #realtimeFiltersAndSor
 header {
   color: var(--muted-gold);
   display: grid;
-  grid-template-columns: [logoSymbol] 20% [logoText] 40% [navigation] 1fr;
+  grid-template-columns: [logoSymbol] 20% [logoText] 37% [navigation] 1fr;
   grid-template-areas: "logoSymbol logoText navigation";
   background-color: var(--header_background-color);
   box-shadow: 0.2rem 0.2rem 1rem 0.4rem inset var(--header_box-shadow_color);
