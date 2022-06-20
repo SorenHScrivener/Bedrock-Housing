@@ -3,7 +3,7 @@
 @use "../base/mixins";
 #singleContainer{
     // overflow: auto;
-    height: calc(100vh - var(--header_height) - var(--footer_height));
+    height: calc(100vh - var(--header_height) - var(--footer_height) - 3rem);
     // min-width: 96%;
     width: 100%;
     top: var(--header_height);
@@ -16,6 +16,9 @@
                         "section";
     grid-template-rows: [tabs]13% [section]1fr;
     justify-items: center;
+    @include mixins.atTablet{
+        height: calc(100vh - var(--header_height) - var(--footer_height));
+    }
     @include mixins.atDesktop{
         //make more space for middle to allow img to be on the left of the list and shrink more in line
         grid-template-areas: "updates main desc";

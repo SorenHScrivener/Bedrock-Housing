@@ -1697,7 +1697,7 @@ header nav.opened {
 }
 
 #singleContainer {
-  height: calc(100vh - var(--header_height) - var(--footer_height));
+  height: calc(100vh - var(--header_height) - var(--footer_height) - 3rem);
   width: 100%;
   top: var(--header_height);
   display: grid;
@@ -1707,6 +1707,11 @@ header nav.opened {
   position: absolute;
   z-index: 1;
   background-color: var(--single-container_background-color);
+}
+@media (min-width: 767px) {
+  #singleContainer {
+    height: calc(100vh - var(--header_height) - var(--footer_height));
+  }
 }
 @media (min-width: 1200px) {
   #singleContainer {
