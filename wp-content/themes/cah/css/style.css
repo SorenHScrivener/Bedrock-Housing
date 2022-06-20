@@ -441,7 +441,7 @@ header nav.opened {
   height: var(--footer_height);
   color: var(--footer_color);
   background-color: var(--footer_background-color);
-  background-color: rgb(166, 116, 136);
+  background-color: rgb(240, 175, 43);
   margin: 0;
   display: grid;
   position: fixed;
@@ -521,6 +521,7 @@ header nav.opened {
 }
 
 #openingContainer {
+  height: 100%;
   position: relative;
   color: var(--opening-container-color);
   display: flex;
