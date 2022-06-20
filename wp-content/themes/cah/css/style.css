@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+  --browser-bar: calc(100vh - 100%);
   --trans-main: rgba(10, 10, 10, .98);
   --trans-black: rgb(39, 39, 39, .7);
   --trans-black_alt: rgb(33, 33, 33, .85);
@@ -440,7 +441,7 @@ header nav.opened {
   height: var(--footer_height);
   color: var(--footer_color);
   background-color: var(--footer_background-color);
-  background-color: fuchsia;
+  background-color: forestgreen;
   margin: 0;
   display: grid;
   position: fixed;
@@ -1700,6 +1701,7 @@ header nav.opened {
 
 #singleContainer {
   height: calc(100% - var(--header_height) - var(--footer_height));
+  height: calc(100vh - var(--header_height) - var(--browser-bar));
   width: 100%;
   top: var(--header_height);
   display: grid;

@@ -2,6 +2,8 @@
 @use "mixins";
 // put in dark moe slider or auto media query
 :root{
+    --browser-bar: calc(100vh - 100%);
+
     --trans-main: rgba(10, 10, 10, .98);
     --trans-black: rgb(39, 39, 39, .7);
     --trans-black_alt: rgb(33, 33, 33, .85);
