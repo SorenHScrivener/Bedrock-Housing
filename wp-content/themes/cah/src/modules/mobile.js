@@ -20,9 +20,11 @@ class MobileInterface {
         this.nav = document.querySelector('nav');
         this.mobileNavCaller = document.querySelector('#mobile-nav-caller');
         this.opened = false;
-
-        this.mobileNavCaller.addEventListener('click', ()=>this.toggleNav())
-
+        
+        if(this.mobileNavCaller){
+            this.mobileNavCaller.addEventListener('click', ()=>this.toggleNav())
+        }
+      
         if(window.innerWidth < 500){
             // Can't get this to work, so scrapping until later, as is not all that important
 
