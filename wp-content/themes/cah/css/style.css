@@ -441,7 +441,7 @@ header nav.opened {
   height: var(--footer_height);
   color: var(--footer_color);
   background-color: var(--footer_background-color);
-  background-color: rgb(107, 145, 175);
+  background-color: rgb(107, 175, 147);
   margin: 0;
   display: grid;
   position: fixed;
