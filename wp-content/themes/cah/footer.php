@@ -13,10 +13,10 @@
 </div>
 
 <footer id="footerContainer">
-    <div id="additional-buttons-alt">
-        <button id="more-options">Options</button>
+    <!-- <div id="additional-buttons-alt">
+        <button id="more-options">Options</button> -->
          <!-- Add dark/light slider? -->
-    </div>
+    <!-- </div> -->
     <p id="credit-copyright" class="credit">Copyright here</p>
     <p id="credit-creator" class="credit">Powered by Passing Cloud Productions</p>
     <div id="social-container">

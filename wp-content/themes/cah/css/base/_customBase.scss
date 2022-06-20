@@ -75,7 +75,7 @@
     --mtc_background-color: var(--trans-main);
     --mtc-button_color: var(--body_color);
 
-    --footer_height: 6.5rem;    
+    --footer_height: 5rem;    
     @include mixins.atDesktop{
         --footer_height: 4.5rem;
     }
