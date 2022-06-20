@@ -3,7 +3,7 @@
 @use "../base/mixins";
 #singleContainer{
     // overflow: auto;
-    height: calc(100% - var(--header_height));
+    height: calc(100% - var(--header_height) - var(--footer_height));
     // min-width: 96%;
     width: 100%;
     top: var(--header_height);
