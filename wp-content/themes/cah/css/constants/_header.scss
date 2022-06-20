@@ -2,8 +2,8 @@
 header{
     color: var(--muted-gold);
     display: grid;
-    grid-template-columns: [logoSymbol]17.3% [logoText]38% [additionalButtons]auto [navigation]minmax(6%, 3rem);
-    grid-template-areas: "logoSymbol logoText additionalButtons navigation"; 
+    grid-template-columns: [logos]auto [additionalButtons]1fr [navigation]auto;
+    grid-template-areas: "logos additionalButtons navigation"; 
     // grid-auto-flow: column;
     // justify-self: end;
     @include mixins.atTablet{
@@ -30,7 +30,7 @@ header{
         display: none;
     }
     button{
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         @include mixins.atTablet{
             font-size: 1.8rem;
             font-size: var(--nav-button_font-size); 
@@ -46,22 +46,29 @@ header{
     // label{
         
     // }
-    #logo-symbol, #logo-text{
-        height: calc(var(--header_height)*.8);
-            // @include mixins.atDesktop{
-            //     height: 3rem;
-            // }
-    }
-    #logo-symbol{
-        grid-area: logoSymbol;
-        margin-top: .3rem;
-        padding-left: .5rem;
-    }
-    #logo-text{
-        grid-area: logoText;
-        margin-top: .6rem; 
-        @include mixins.atTablet{
-            padding-left: 2.8rem;
+    #logos-container{
+        padding-left: .4rem;
+        display: flex;
+        align-items: center;
+        column-gap: .3rem;
+        grid-area: logos;
+        height: var(--header_height);
+        #logo-symbol, #logo-text{
+            height: calc(var(--header_height)*.65);
+                // @include mixins.atDesktop{
+                //     height: 3rem;
+                // }
+        }
+        #logo-symbol{
+            grid-area: logoSymbol;
+            margin-top: .3rem;
+        }
+        #logo-text{
+            grid-area: logoText;
+            margin-top: .6rem; 
+            @include mixins.atTablet{
+                padding-left: 2.8rem;
+            }
         }
     }
     img{
@@ -115,9 +122,10 @@ header{
                     border: none;
                 }
                 a{
-                    padding: .5rem 1rem;
-                    font-size: 1.2rem;
+                    padding: .5rem .5rem;
+                    font-size: 1.15rem;
                     @include mixins.atTablet{
+                        padding: .5rem 1rem;
                         font-size: var(--nav-a_font-size); 
                     }
                     @include mixins.atDesktop{

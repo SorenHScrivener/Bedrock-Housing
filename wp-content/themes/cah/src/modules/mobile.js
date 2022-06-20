@@ -1,9 +1,6 @@
 class MobileInterface {
     constructor(){
         this.html = document.querySelector('html');
-        this.nav = document.querySelector('nav');
-        this.opened = false;
-        this.mobileNavCaller = document.querySelector('#mobile-nav-caller');
         this.formContainer = document.querySelector('#test');
         this.formField = document.querySelectorAll('.form-field');
 
@@ -20,7 +17,11 @@ class MobileInterface {
         }
     }
     events(){
-        this.mobileNavCaller.addEventListener('click', ()=>this.openNav())
+        this.nav = document.querySelector('nav');
+        this.mobileNavCaller = document.querySelector('#mobile-nav-caller');
+        this.opened = false;
+
+        this.mobileNavCaller.addEventListener('click', ()=>this.toggleNav())
 
         if(window.innerWidth < 500){
             // Can't get this to work, so scrapping until later, as is not all that important
@@ -61,7 +62,7 @@ class MobileInterface {
             }
     }
 
-    openNav(){
+    toggleNav(){
         if(!this.opened){
             this.nav.classList.add('opened');
             this.opened = true;

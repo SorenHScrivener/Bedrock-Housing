@@ -11,12 +11,12 @@
     justify-content: center;
     height: var(--header_height);
     display: flex;
-    #more-options{
-        display: none;
-        @include mixins.atTablet{
-            display: initial;
-        }
-    }
+    // #more-options{
+    //     display: none;
+    //     @include mixins.atTablet{
+    //         display: initial;
+    //     }
+    // }
 }
 
 #additional-buttons-alt{

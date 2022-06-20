@@ -25,12 +25,16 @@
     
             <!--conditional that when not on homepage, link to archives and front? Replace with 'return to home?-->
             <!--Background on scroll to accomadate color shifts. Also change when view other pages-->
-            <div id="logo-symbol"><img src="<?php echo get_theme_file_uri('/images/logo_symbol_v1.png');?>" alt="company logo-symbol"></div>
-            <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2_mobile.png');?>" alt="company logo-type"></div>
+            <div id="logos-container">
+               
+                    <div id="logo-symbol"><img src="<?php echo get_theme_file_uri('/images/logo_symbol_v1.png');?>" alt="company logo-symbol"></div>
+              
+                <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2_mobile.png');?>" alt="company logo-type"></div>
+            </div>
             <!-- Also do alt function for mobile search button -->
             <!-- /images/Logo_cracked2_mobile.png -->
             <div id="additional-buttons">
-                <button id="more-options">Options</button>
+                <button id="more-options"><i class="fas fa-plus"></i></button>
                 <button id="media-close-alt" class="media-close">Close</button>  
             </div>
 
@@ -59,7 +63,7 @@
                     <!-- use custom symbols for open and closed -->
                     <li id="mobile-nav-caller">
                         <button>
-                            Open
+                            <i class="fas fa-bars"></i>
                         </button>
                     </li> 
                     <li>

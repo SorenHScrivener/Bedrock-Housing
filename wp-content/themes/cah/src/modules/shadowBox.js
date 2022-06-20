@@ -1,4 +1,5 @@
 import axios from 'axios';
+import MobileInterface from './mobile';
 //Combine with other pagination?
 
 class ShadowBox {
@@ -7,7 +8,7 @@ class ShadowBox {
 
         this.html;
         this.width = screen.availWidth;
-        this.mediaLink;
+        // this.mediaLink;
 
         this.mediaReciever;
         this.isMediaRecieverOpen;
@@ -46,7 +47,6 @@ class ShadowBox {
     }
 
     events(){
-        this.togglableElement = document.querySelector('.togglable');
         this.closeAlt = document.querySelector('#media-close-alt');
         this.contentShown;
         this.currentPages = 0;
@@ -74,7 +74,14 @@ class ShadowBox {
     }
 
         shadowBox(media){
+            this.togglableElement = document.querySelector('.togglable');
+            this.nav = document.querySelector('nav');
+            MobileInterface.prototype.events();
+            MobileInterface.prototype.opened = true;
+            MobileInterface.prototype.toggleNav();
+
             this.togglableElement.classList.add('hidden');
+            this.nav.classList.add('hidden');
             this.closeAlt.style.display = "block";
             this.mediaReciever = document.querySelector('#media-reciever');
 
@@ -378,6 +385,7 @@ class ShadowBox {
     
         closeMediaReciever(){
             this.togglableElement.classList.remove('hidden');
+            this.nav.classList.remove('hidden');
             this.closeAlt.style.display = "none";
             while (this.mediaMenu.firstChild) {
                 this.mediaMenu.removeChild(this.mediaMenu.firstChild);
