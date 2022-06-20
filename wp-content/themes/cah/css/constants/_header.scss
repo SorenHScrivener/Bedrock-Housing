@@ -2,8 +2,8 @@
 header{
     color: var(--muted-gold);
     display: grid;
-    grid-template-columns: [logoSymbol]20% [logoText]37% [navigation]1fr;
-    grid-template-areas: "logoSymbol logoText navigation"; 
+    grid-template-columns: [logoSymbol]20% [logoText]37.5% [additionalButtons]auto [navigation]minmax(6%, 3rem);
+    grid-template-areas: "logoSymbol logoText additionalButtons navigation"; 
     // grid-auto-flow: column;
     // justify-self: end;
     @include mixins.atTablet{
@@ -30,7 +30,7 @@ header{
         display: none;
     }
     button{
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         @include mixins.atTablet{
             font-size: 1.8rem;
             font-size: var(--nav-button_font-size); 

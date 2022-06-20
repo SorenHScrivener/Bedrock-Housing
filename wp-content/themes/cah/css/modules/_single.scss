@@ -147,7 +147,6 @@
         }
         // width: 70%;
         display: grid;
-        grid-template-rows: 12% 1fr;
         grid-template-areas:'media'
                             'info';
         // --single-info_grid-template-rows: initial;
@@ -260,6 +259,7 @@
                             "newsInfo"
                             "news"
                             "pagination";
+        grid-template-rows: 8% auto 1fr 6.5%;
         @include mixins.atTablet{
             grid-template-rows: 8% 12% 1fr 4%;
         } 
@@ -293,7 +293,7 @@
         #news-info-reciever{
             grid-area: newsInfo;
             margin-top: 1rem;
-            margin-bottom: .7rem;
+            // margin-bottom: .7rem;
             h4{
                 margin: 0;
             }

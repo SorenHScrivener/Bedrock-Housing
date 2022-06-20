@@ -23,39 +23,41 @@ class MobileInterface {
         this.mobileNavCaller.addEventListener('click', ()=>this.openNav())
 
         if(window.innerWidth < 500){
-            this.formField.forEach(f =>{
-                // this.html.scrollTo({
-                //     left: 0, 
-                //     top: 0,
-                //     // behavior: 'smooth'
-                // })
-                let target = f.offsetTop;
-                let pageTop = this.html.scrollTop;
-                let combined = target + pageTop;
+            // Can't get this to work, so scrapping until later, as is not all that important
+
+            // this.formField.forEach(f =>{
+            //     // this.html.scrollTo({
+            //     //     left: 0, 
+            //     //     top: 0,
+            //     //     // behavior: 'smooth'
+            //     // })
+            //     let target = f.offsetTop;
+            //     let pageTop = this.html.scrollTop;
+            //     let combined = target + pageTop;
                 
-                let elDistanceToTop = window.pageYOffset + f.getBoundingClientRect().top
-                f.addEventListener('focus', ()=>{
-                console.log(elDistanceToTop)
-                //     console.log(target-(window.innerHeight/2)-100)
-                //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
-                // console.log(target+(window.innerHeight/2))
-                    if(navigator.userAgent.indexOf("Firefox") != -1 ){
-                        this.html.scrollTo({
-                            left: 0, 
-                            top: elDistanceToTop + target,
-                            // behavior: 'smooth'
-                        })
-                    }else{
-                        console.log('not FF')
-                        this.html.scrollTo({
-                            left: 0, 
-                            top: elDistanceToTop + target - (target*.6),
-                            // behavior: 'smooth'
-                        })
-                    }
-                })
+            //     let elDistanceToTop = window.pageYOffset + f.getBoundingClientRect().top
+            //     f.addEventListener('focus', ()=>{
+            //     console.log(elDistanceToTop)
+            //     //     console.log(target-(window.innerHeight/2)-100)
+            //     //     console.log(target-(window.innerHeight/2)+(window.innerHeight*.1))
+            //     // console.log(target+(window.innerHeight/2))
+            //         if(navigator.userAgent.indexOf("Firefox") != -1 ){
+            //             this.html.scrollTo({
+            //                 left: 0, 
+            //                 top: elDistanceToTop + target,
+            //                 // behavior: 'smooth'
+            //             })
+            //         }else{
+            //             console.log('not FF')
+            //             this.html.scrollTo({
+            //                 left: 0, 
+            //                 top: elDistanceToTop + target - (target*.6),
+            //                 // behavior: 'smooth'
+            //             })
+            //         }
+            //     })
                 
-            })
+            // })
             }
     }
 
