@@ -440,7 +440,7 @@ header nav.opened {
   height: var(--footer_height);
   color: var(--footer_color);
   background-color: var(--footer_background-color);
-  background-color: blue;
+  background-color: green;
   margin: 0;
   display: grid;
   position: fixed;
@@ -511,6 +511,7 @@ header nav.opened {
 }
 
 #overallContainer {
+  height: 100%;
   position: relative;
   top: 0;
 }
