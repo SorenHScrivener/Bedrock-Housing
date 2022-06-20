@@ -34,6 +34,7 @@
             <!-- Also do alt function for mobile search button -->
             <!-- /images/Logo_cracked2_mobile.png -->
             <div id="additional-buttons">
+                <!-- Additional with also hold cross site nav on mobile, allowing me to get rid of the back arrow on all devices-->
                 <button id="more-options"><i class="fas fa-plus"></i></button>
                 <button id="media-close-alt" class="media-close">Close</button>  
             </div>
