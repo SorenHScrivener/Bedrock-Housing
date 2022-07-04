@@ -12,6 +12,13 @@ import MobileInterface from './modules/mobile';
 import Tab from './modules/tabs';
 import DimensionCheck from './modules/dimension-checker';
 import MoreOptions from './modules/moreOptions';
+import CustomLoaderLogic from './modules/custom-loader-logic';
+
+import RandomColor from './random/random-color';
+import RandomBall from './random/random-ball';
+// *Important to note that the import doesn't need to be done here if don't want to be independently activated
+// import RandomAnimation from './random/random-animation';
+// import MovementRecord from './random/movement-tracker';
 
 // const search = new Search();
 const pagination = new Pagination();
@@ -22,3 +29,11 @@ const mobileInterface = new MobileInterface();
 const tab = new Tab();
 const dimensionCheck = new DimensionCheck();
 const moreOptions = new MoreOptions();
+
+const customLoaderLogic = new CustomLoaderLogic();
+
+
+// const randomColor = new RandomColor();
+// const randomBall = new RandomBall();
+// const movementRecord = new MovementRecord();
+// const randomAnimation = new RandomAnimation();

@@ -3,67 +3,78 @@
 // put in dark moe slider or auto media query
 :root{
     --browser-bar: calc(100vh - 100%);
+    --adjusted-font-size: 0px;
 
-    --trans-main: rgba(10, 10, 10, .98);
-    --trans-black: rgb(39, 39, 39, .7);
-    --trans-black_alt: rgb(33, 33, 33, .85);
-    --off-white_trans: rgb(224, 224, 224, .4);
-
-    --blackish-brown_1: rgba(70, 62, 55);
-    --blackish-brown_1_trans: rgba(70, 62, 55, 0.95);
-    --blackish-brown_2_trans: rgba(49, 43, 39, 0.75);
-    --blackish-brown_2_trans_alt: rgba(51, 45, 40, 0.85);
-    --soft-brown: rgb(100, 92, 82);
-    --whitish-gold: rgb(255, 247, 212);
-    --muted-gold: rgb(199, 187, 156);
-    --bright-gold: rgb(197, 182, 116);
-    // --silver: rgb(189, 189, 189);
-    --off-white: rgb(224, 224, 224);
-    --off-black: rgb(31, 27, 21);
-
-    --header_color: var(--muted-gold);
-    --header_height: 4rem;
-    --header_background-color: var(--blackish-brown_1_trans);
-    --header_box-shadow_color: var(--blackish-brown_2_trans);
-    --nav-li_background-color: var(--blackish-brown_1);
-    --nav-li_box-shadow_color: var(--blackish-brown_2_trans);
-    --nav-li_border-bottom_color: var(--blackish-brown_2_trans_alt);
-    --nav-button_font-size: 1.8rem;
-    --nav-a_font-size: 1.2rem;
-    --nav-mobile_color: var(--whitish-gold);
+    --trans-main: 10, 10, 10, .98;
     
-    --body_color: var(--whitish-gold);
-    --body_background-color: var(--soft-brown);
+    --trans-black: 39, 39, 39, .7;
+    --trans-black_alt: 33, 33, 33, .85;
+    --trans-black_alt_2: 22, 22, 22, .85;
 
-    --interaction-prompt_background-color: var(--trans-main);
-    --page-links: var(--off-white);
+    --off-white_trans: 224, 224, 224, .4;
 
-    --title-box_border_color: var(--muted-gold);
-    --dark-title-box_border_color: var(--muted-gold);
+    --blackish-brown_1: 70, 62, 55;
+    --blackish-brown_1_trans: 70, 62, 55, 0.95;
+    --blackish-brown_2_trans: 49, 43, 39, 0.75;
+    --blackish-brown_2_trans_alt: 51, 45, 40, 0.85;
+    
+    --soft-brown: 100, 92, 82;
+    --whitish-gold: 255, 247, 212;
+    --muted-gold: 199, 187, 156;
+    --bright-gold:197, 182, 116;
+    --off-white: 224, 224, 224;
+    --off-black: 31, 27, 21;
 
-    --dark-content_background-color: var(--off-black);
-    --dark-content_color: var(--off-white);
+    --lt-green: 172, 189, 90;
+    --lt-green-glow: 251, 255, 112;
 
-    --news_border_color: var(--off-white_trans);
+    --dk-green: 91, 163, 105;
+    --dk-green-glow: 133, 255, 157;
 
-    --pup_background-color: var(--blackish-brown_1_trans);
+    --header_color: rgb(var(--muted-gold));
+    --header_height: 4rem;
+    --header_background-color: rgba(var(--blackish-brown_1_trans));
+    --header_box-shadow_color: rgba(var(--blackish-brown_2_trans));
+    --nav-li_background-color: rgba(var(--blackish-brown_1));
+    --nav-li_box-shadow_color: rgba(var(--blackish-brown_2_trans));
+    --nav-li_border-bottom_color: rgba(var(--blackish-brown_2_trans_alt));
+    --nav-button_font-size: 1.8rem;
+    --nav-a_font-size: 1.4rem;
+    --nav-mobile_color: rgb(var(--whitish-gold));
+    
+    --body_color: rgb(var(--whitish-gold));
+    --body_background-color: rgb(var(--soft-brown));
+
+    --interaction-prompt_background-color: rgba(var(--trans-main));
+    --interaction-prompt_size: 3.5rem;
+    --page-links: rgb(var(--off-white));
+
+    --title-box_border_color: rgb(var(--muted-gold));
+    --dark-title-box_border_color: rgb(var(--muted-gold));
+
+    --dark-content_background-color: rgb(var(--off-black));
+    --dark-content_color: rgb(var(--off-white));
+
+    --news_border_color: rgba(var(--off-white_trans));
+
+    --pup_background-color: rgba(var(--blackish-brown_1_trans));
     --pup-button_color: --off-white;
 
     --form-error_color: red;
-    --form-button_color: var(--off-white);
+    --form-button_color: rgb(var(--off-white));
 
-    --opening-container-color: var(--off-white);
+    --opening-container-color: rgb(var(--off-white));
 
-    --single-container_color: var(--off-white);
-    --single-container_background-color: var(--blackish-brown_2_trans_alt);
+    --single-container_color: rgb(var(--off-white));
+    --single-container_background-color: rgba(var(--blackish-brown_2_trans_alt));
     --single-container-button_color: var(--body_color);
-    --single-container-header_color: var(--muted-gold);
-    --section-tabs_color: var(--off-white);
-    --section-tabs_border-color: var(--muted-gold);
-    --section-tabs-active_color: var(--bright-gold);
+    --single-container-header_color: rgb(var(--muted-gold));
+    --section-tabs_color: rgb(var(--off-white));
+    --section-tabs_border-color: rgb(var(--muted-gold));
+    --section-tabs-active_color: rgb(var(--bright-gold));
 
-    --flc_background-color: var(--blackish-brown_1_trans);
-    --flc_box-shadow_color: var(--trans-black_alt);
+    --flc_background-color: rgba(var(--blackish-brown_1_trans));
+    --flc_box-shadow_color: rgba(var(--trans-black_alt));
     --flc_border_color: rgba(212, 193, 130, .4);
     --flc-button_inactive: red;
     --flc-search_inactive: gray;
@@ -74,26 +85,26 @@
 
     --pagination-holder_border_color: rgba(212, 193, 130, .4);
 
-    --mtc_background-color: var(--trans-main);
+    --mtc_background-color: rgba(var(--trans-main));
     --mtc-button_color: var(--body_color);
 
     --footer_height: 5rem;    
     @include mixins.atDesktop{
         --footer_height: 4.5rem;
     }
-    --footer_color: var(--whitish-gold);
-    --footer_background-color: var(--trans-black);
+    --footer_color: rgb(var(--whitish-gold));
+    --footer_background-color: rgba(var(--trans-black));
     // --footer-p_font-size: 1rem; 
-    --footer-symbols_color: var(--off-white);
+    --footer-symbols_color: rgb(var(--off-white));
 
-    --pagination_color: var(--muted-gold);
+    --pagination_color: rgb(var(--muted-gold));
 
-    --a_selected: var(--bright-gold);
+    --a_selected: rgb(var(--bright-gold));
 
-    --media-reciever_background-color: var(--trans-main);
-    --media-reciever-category-link: var(--bright-gold);
-    --media-reciever-information_color: var(--off-white);
-    --media-reciever-close: var(--whitish-gold);  
+    --media-reciever_background-color: rgba(var(--trans-main));
+    --media-reciever-category-link: rgb(var(--bright-gold));
+    --media-reciever-information_color: rgb(var(--off-white));
+    --media-reciever-close: rgb(var(--whitish-gold));  
     --current-media_width: 99vw;
     --play-button_color: rgba(99, 100, 179, .8);
     --play-button-inner_color: rgb(125, 150, 168);
@@ -133,6 +144,8 @@
     --display-content-box_grid-template-columns: repeat(3, 33%);
     --content-box-h3_padding-top: 0;
     --content-box-h3_font-size: 1.8rem;
+
+    --interaction-prompt_size: 2.5rem;
 
     --all-news-content-box_height: 100%;
     --all-news-content-box_display: grid;
@@ -189,6 +202,7 @@
 
 .phonePortrait{
     --current-media_width: 99vw;
+    --interaction-prompt_size: 2.5rem;
 }
 
 html{
@@ -284,7 +298,6 @@ a.hidden{
 button{
     border: none;
     background: transparent;
-    cursor: pointer;
 }
 
 li{
@@ -304,7 +317,7 @@ h1, h2, h3, h4{
 }
 
 .content-pages{
-    color: var(--off-white);
+    color: rgb(var(--off-white));
 }
 
 .textBox p, #relationship-link, #single-link{

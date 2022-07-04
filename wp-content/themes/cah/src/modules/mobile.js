@@ -12,9 +12,7 @@ class MobileInterface {
 
         // this.closeFormFieldClone = document.querySelector('#close-front-form');
 
-        if(this.mobileNavCaller){
-            this.events();   
-        }
+        this.events();   
     }
     events(){
         this.nav = document.querySelector('nav');
@@ -23,6 +21,7 @@ class MobileInterface {
         
         if(this.mobileNavCaller){
             this.mobileNavCaller.addEventListener('click', ()=>this.toggleNav())
+            console.log('red')
         }
       
         if(window.innerWidth < 500){

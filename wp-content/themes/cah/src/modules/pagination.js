@@ -1,9 +1,17 @@
 // Spit out Apts in order of most recent
 
 import axios from "axios"
+import CustomLoaderLogic from "./custom-loader-logic";
 
 class Pagination {
     constructor(){
+        this.cll = CustomLoaderLogic.prototype;
+        
+        const letterLoader = document.querySelector('#custom-loader_1');
+        const buildingLoader = document.querySelector('#custom-loader_2');
+        const sliderLoader = document.querySelector('#custom-loader_3');
+        this.loaders = [letterLoader, buildingLoader, sliderLoader];
+
         this.targetedElement;
 
         this.html = document.querySelector('html');

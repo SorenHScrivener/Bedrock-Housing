@@ -1,90 +1,226 @@
-.content-loader{
-    background-color: transparent;
-    height: 50%;
-    position: absolute;
-    .ball{
-      width: 1.2rem;
-      height: 1.2rem;
-      background-color: rgb(47, 163, 56);
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      animation: moveBarPingPong2 .7s linear infinite alternate, moveBarPingPongColorShift2 .8s ease-in-out infinite alternate;
-    }
-    &.loader[data-text]::before{
-      position: absolute;
-    }
-    &.loader.is-active::before{
-      position: absolute;
-      width: 50%;
-      left: 25%;
-      top: 39%;
-      font-size: 2.7rem;
-      color: rgb(195, 168, 126);
-      background-color: transparent;
-    }
-    &.loader-bar-ping-pong::after{
-      //make this a seperate div
-        width: 1.2rem;
-        height: 1.2rem;
-        background-color: rgb(101, 148, 187);
-        animation: moveBarPingPong .7s linear infinite alternate, moveBarPingPongColorShift .8s ease-in-out infinite alternate;
-    }
-    &.loader.is-active{
-      height: 97%;
-      z-index: 0;
-      background-color: #333138bf;
-      animation: blink 1.8s linear infinite alternate;
-    }
+#page-loader{
+  display: none;
 }
+// .myLoader{
+//       width: 14rem;
+//       height: 14rem;
+//       background-color: rgba(95, 143, 95, 0.5);
+//       border-radius: 36%;
+//       top: 25%;
+//       left: 40%;
+//       position: absolute;
+//       box-shadow: .5rem .5rem .7rem rgba(20, 31, 24, 0.5), .3rem .4rem .5rem .6rem inset rgba(57, 73, 98, 0.6), -.3rem -.4rem .5rem .6rem inset rgba(57, 73, 98, 0.6);
+//       // border: 2px solid rgba(66, 100, 61, 0.4);
+//       display: flex;
+//       align-items: center;
+//       flex-direction: column;
+//       // animation: test 1.7s 1.7s ease-in-out infinite;
+//       .innerCircleHolder{
+//           height: 90%;
+//           width: 35%;
+//           background-color: rgba(170, 162, 91, .7);
+//           border: rgb(122, 122, 73);
+//           border-radius: 45%;
+//           position: relative;
+//           transform: rotate(45deg);
+//           display:flex;
+//           flex-direction: column;
+//           align-items: center;
+//           justify-content: space-evenly;
+//           // animation: test3 1.6s 1.7s ease-in infinite;
+//           // box-shadow: .2rem .2rem .6rem .5rem rgb(214, 200, 140);
+//           div{
+//               width: 3rem;
+//               height: 3rem;
+//               background-color: rgb(177, 145, 87);
+//               border-radius: 50%;
+//               position: relative;
+//               z-index: 1;
+//           }
+//       }
+//       .innerCircleHolder_second{
+//           height: 90%;
+//           width: 35%;
+//           background-color: rgba(170, 162, 91, .7);
+//           border: rgb(122, 122, 73);
+//           border-radius: 45%;
+//           position: absolute;
+//           transform: rotate(-45deg);
+//           display:flex;
+//           flex-direction: column;
+//           align-items: center;
+//           justify-content: space-evenly;
+//           // animation: test2 1.6s 1.7s ease-out infinite;
+//           // box-shadow: .2rem .2rem .6rem .5rem rgb(194, 106, 54);
+//           div{
+//               width: 3rem;
+//               height: 3rem;
+//               background-color: rgb(177, 145, 87);
+//               border-radius: 50%;
+//               position: relative;
+//               z-index: 1;
+//           }
+//       }
+//   }
+  
+//   @keyframes test{
+//       0% {
+//           transform: rotate(0deg); 
+//           opacity: .6;
+//       }
+//       20% {
+//           transform: rotate(0deg); 
+//           opacity: .4;
+//       }
+//         25% {
+//           transform: rotate(-90deg); 
+//           opacity: .8;
+//       }
+//         50% {
+//           transform: rotate(-135deg); 
+//           opacity: .5;
+//       }
+//       60% {
+//           transform: rotate(-135deg); 
+//           opacity: .7;
+//       }
+//         75% {
+//           transform: rotate(90deg); 
+//           opacity: 1;
+//       }
+//         100% {
+//           transform: rotate(0deg); 
+//           opacity: .7;
+//       }
+//   }
+  
+//   @keyframes test2{
+//       0% {
+//           transform: rotate(35deg); }
+//         25% {
+//           transform: rotate(90deg); }
+//         50% {
+//           transform: rotate(135deg); }
+//         75% {
+//           transform: rotate(-90deg); }
+//         100% {
+//           transform: rotate(0deg); }
+//   }
+//   @keyframes test2{
+//       0% {
+//           transform: rotate(0deg); }
+//         25% {
+//           transform: rotate(45deg); }
+//         50% {
+//           transform: rotate(145deg); }
+//         75% {
+//           transform: rotate(-45deg); }
+//         100% {
+//           transform: rotate(25deg); }
+//   }
+  
+//   #page-loader{
+//     background-color: transparent;
+//     height: 50%;
+//     &::before{
+//       color: rgb(17, 79, 160);
+//     }
+//     &::after{
+//       color: rgb(152, 199, 207);
+//     }
+//   }
+  
+//   // Make my own, off of this 
+//   //In fact, do more than one of these simple things and randomize which gets used
+//   //Have a fade class/animation for smoothly taking it away after content comes inh gets used
+// //Have a fade class/animation for smoothly taking it away after content comes in
+// .content-loader{
+//     background-color: transparent;
+//     height: 50%;
+//     position: absolute;
+//     .ball{
+//       width: 1.2rem;
+//       height: 1.2rem;
+//       background-color: rgb(47, 163, 56);
+//       border-radius: 50%;
+//       position: absolute;
+//       top: 50%;
+//       animation: moveBarPingPong2 .7s linear infinite alternate, moveBarPingPongColorShift2 .8s ease-in-out infinite alternate;
+//     }
+//     &.loader[data-text]::before{
+//       position: absolute;
+//     }
+//     &.loader.is-active::before{
+//       position: absolute;
+//       width: 50%;
+//       left: 25%;
+//       top: 39%;
+//       font-size: 2.7rem;
+//       color: rgb(195, 168, 126);
+//       background-color: transparent;
+//     }
+//     &.loader-bar-ping-pong::after{
+//       //make this a seperate div
+//         width: 1.2rem;
+//         height: 1.2rem;
+//         background-color: rgb(101, 148, 187);
+//         animation: moveBarPingPong .7s linear infinite alternate, moveBarPingPongColorShift .8s ease-in-out infinite alternate;
+//     }
+//     &.loader.is-active{
+//       height: 97%;
+//       z-index: 0;
+//       background-color: #333138bf;
+//       animation: blink 1.8s linear infinite alternate;
+//     }
+// }
 
-@keyframes blink{
-  0%{opacity:.5;}
-  50%{opacity: .75;}
-  100%{opacity:1;}
-}
+// @keyframes blink{
+//   0%{opacity:.5;}
+//   50%{opacity: .75;}
+//   100%{opacity:1;}
+// }
 
-@keyframes moveBarPingPong{
-  0%{
-    left:40%;
-  }
-  100%{
-    left:60%;
-  }
-}
-@keyframes moveBarPingPongColorShift{
-  0%{
-    background-color: rgba(72, 68, 82, 0.75);
-  }
-  50%{
-    background-color: rgba(102, 78, 122, 0.75);
-  }
-  100%{
-    background-color: rgba(149, 93, 168, 0.75);
-  }
-}
+// @keyframes moveBarPingPong{
+//   0%{
+//     left:40%;
+//   }
+//   100%{
+//     left:60%;
+//   }
+// }
+// @keyframes moveBarPingPongColorShift{
+//   0%{
+//     background-color: rgba(72, 68, 82, 0.75);
+//   }
+//   50%{
+//     background-color: rgba(102, 78, 122, 0.75);
+//   }
+//   100%{
+//     background-color: rgba(149, 93, 168, 0.75);
+//   }
+// }
 
-@keyframes moveBarPingPong2{
-  0%{
-    left:43%;
-  }
-  100%{
-    left:63%;
-  }
-}
-@keyframes moveBarPingPongColorShift2{
-  0%{
-    background-color: rgb(47, 163, 56);
-  }
-  50%{
-    background-color: rgb(87, 143, 56);
-  }
-  100%{
-    background-color: rgb(126, 131, 58);
-  }
-}
+// @keyframes moveBarPingPong2{
+//   0%{
+//     left:43%;
+//   }
+//   100%{
+//     left:63%;
+//   }
+// }
+// @keyframes moveBarPingPongColorShift2{
+//   0%{
+//     background-color: rgb(47, 163, 56);
+//   }
+//   50%{
+//     background-color: rgb(87, 143, 56);
+//   }
+//   100%{
+//     background-color: rgb(126, 131, 58);
+//   }
+// }
 
-.dot-pulse{
-  top: 20%;
-  left: 35%;
-}
+// .dot-pulse{
+//   top: 20%;
+//   left: 35%;
+// }

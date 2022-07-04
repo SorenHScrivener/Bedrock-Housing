@@ -1,0 +1,31 @@
+setInterval(()=> {
+    if(interval < 18000){
+        // console.log('red')
+        interval+= 1000;
+        ballsArray.forEach(b=>{
+            //grab the dim of the balls and +/-3px(?) to get the collision range
+            ballsArray.forEach(c=>{
+                if(b.id !== c.id){
+                    // console.log(`${b.offsetTop} and ${c.offsetTop}`, `${b.offsetLeft} and ${c.offsetLeft}`)
+                    // if((b.offsetTop === maxH || b.offsetTop === min || b.offsetTop === maxV || b.offsetLeft === min) && (c.offsetTop === maxH || c.offsetTop === min || c.offsetTop === maxV || c.offsetLeft === min)){
+                        if(b.offsetTop === c.offsetTop || b.offsetLeft === c.offsetLeft){
+                            console.log("hit!")
+                            let index = ballsArray.indexOf(b);
+                            let index2 = ballsArray.indexOf(c);
+                            b.remove();
+                            c.remove()
+                            ballsArray.splice(index, 1)
+                            ballsArray.splice(index2, 1)
+
+                            index = undefined; // unset
+                            // delete(index);
+                            index2 = undefined;
+                            // delete(index2)
+                            console.log(`${b.id} is ${b.offsetTop} and ${c.id} is ${c.offsetTop}`, `${b.id} is ${b.offsetLeft} and ${c.id} is ${c.offsetLeft}`)
+                        }
+                    // }
+                }
+            })
+        })
+    }
+}, interval)

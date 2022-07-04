@@ -28,7 +28,7 @@
         <div class="titleAndTextBox">
             <div class="titleBox">
                 <div>
-                    <p>Beauty. Affordabiity.</p>
+                    <p>Beauty. Affordability.</p>
                 </div>
                 <div>
                     <h2>Our Properties</h2>
@@ -40,7 +40,308 @@
         </div>             
 
         <div class="contentBox">
-           <!--  <div class="myLoader">
+
+            <div class="custom-box">
+              
+                <div id="custom-loader_1" class="custom-loader inactive">
+                    <div class="L">
+                        <div id="vertical-boxes">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                        <div id="horizantal-boxes">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                    </div>
+                    <div class="o">
+                        <div class="inner">
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                        </div>
+                        <div class="outer">
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                        </div>
+                    </div>
+                    <div class="a">
+                        <div class="circle">
+                            <div class="inner">
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                            </div>
+                            <div class="outer">
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                            </div>
+                        </div>
+                        <div class="rectangle">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                    </div>
+                    <div class="d">
+                        <div class="circle">
+                            <div class="inner">
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                            </div>
+                            <div class="outer">
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                            </div>
+                        </div>
+                        <div class="rectangle">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                    </div>
+                    <div class="i">
+                        <div class="circle">
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                        </div>
+                        <div class="rectangle">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                    </div>
+                    <div class="n">
+                        <div class="circle">
+                            <div class="outer">
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                            </div>
+                        </div>
+                        <div class="rectangle">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                    </div>
+                    <div class="g">
+                        <div class="circle">
+                            <div class="inner">
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                            </div>
+                            <div class="outer">
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                                <div class="letter-box"></div>
+                                <div class="letter-box corners"></div>
+                            </div>
+                        </div>
+                        <div class="rectangle">
+                            <div class="letter-box">
+                                <div class="sub-box"></div>
+                                <div class="sub-box"></div>
+                            </div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box">
+                                <div class="sub-box"></div>
+                                <div class="sub-box"></div>
+                            </div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box corners"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                    </div>
+                    <div class="dot">
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                    </div>
+                    <div class="dot">
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                    </div>
+                    <div class="dot">
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                        <div class="letter-box"></div>
+                    </div>
+                </div>  
+                <div id="custom-loader_2" class="custom-loader inactive">
+                    <div class="buildings-container">
+                        <div class="building_1 buildings">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window unseen"></div>
+
+                            <div class="window"></div>
+                            <div class="window unseen"></div>
+                            <div class="window"></div>
+                            <div class="window unseen"></div>
+                            <div class="window"></div>
+                            <div class="window unseen"></div>
+                        </div>
+                        <div class="building_2 buildings">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                        </div>
+                        <div class="building_3 buildings">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                        </div>
+                    </div>
+                    <div class="hammer-and-nail-container">
+                        <img class="hammer" src="<?php echo get_theme_file_uri('/images/hammer.png');?>" alt="">
+                        <img class="nail" src="<?php echo get_theme_file_uri('/images/nail.png');?>" alt="">
+                    </div>
+                </div>
+                <div id="custom-loader_3" class="custom-loader inactive">
+                    <div class="slider-track">
+                        <div class="slider-after-leftward_3 after"></div>
+                        <div class="slider-after-leftward_2 after"></div>
+                        <div class="slider-after-leftward_1 after"></div>
+
+                        <div class="slider-after-rightward_3 after"></div>
+                        <div class="slider-after-rightward_2 after"></div>
+                        <div class="slider-after-rightward_1 after"></div>
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                            <!-- ball going back and forth across a container, with 'after-images' as it moves[transparent, circles, progressively stacked, that fade along the way]-->
+            <!-- Use dark/light slider as inspiration-->
+            <!-- <div class="ball-slider_after-image custom-box"></div> -->
+            </div>
+
+            <!-- random 'bouncing' direction off the walls of the box and rgb color, with the later being a slow, smooth transition
+            [prevent from being color too close to background] -->
+            <!-- add another ball everytime it hits a wall, just for fun-->
+            <!-- Or if bump into each other, with seemingly 'hitting' and bouncing in opposite directions [can test with 'fixed path collision']-->
+            <!-- have cose that keeps track of each bew ball, as well as the first, with a limit on ball creation[20?]-->
+            <!--Add in a border and a small 'css line'[flex for the window rows?] building that blinks when hit, without producting another ball-->
+            <!--Add in a tracker for each ball, wherein, whenever it hits a bulding, it gains one 'death point, with 3(?) killing it-->
+            <!-- Might have ability for building to be desatroyed and respawn in random location, at least a few px away from sides, or have multi, 
+                with the destruction of all, yielding a 'game over' to appear-->
+            <!-- Have a  number inside each ball, with death allowing threre to nbe higher numbers than the limit, but minusing from the limit tracker, 
+            but not the count-->
+            <!-- Can make into a sort of game by having the balls be spawned by clicking or tapping, and can even increase the buildings with each 'level'
+            And I can even have your 'score'[total balls used] be tracked via local storage-->
+
+            <!--Button to change from random to click-spawn to location?-->
+
+            <!-- <div class="random-ball-loader custom-box">
+                <div class="initial-ball balls" id="ball1"></div>
+            </div> -->
+            
+            <!-- Simulate rudimentary comp-player pong game using random number ranges for each and keeping track of score on each side-->
+            <!-- I could also make it playable by mapping up and down to 'wasd' and arrow keys for 2 players[comp only] or to verse comp with one, with touch and drag as 
+                sub for phones and tablets-->
+            <!-- increase comp diff by shrinking movement range-->
+            <!-- Make so can do two player pong with teamviewer-->
+            <!--3-5 zones that dictate a range of bounce direction on the paddles? More up or down with each suessive zone up or down, 
+            with center having least angle of return? Is there any change based on angle of approach?-->
+
+            <!-- Mat=ybe add free, 'collision noises' -->
+            <!-- <div class="auto-pong custom-box"></div> -->
+            
+            <!-- <div class="myLoader">
                 <div class="innerCircleHolder">
                     <div></div>
                     <div></div>
@@ -52,15 +353,17 @@
                     <div></div>
                 </div>
             </div> -->
+
+            <!-- <div class="sbl-circ-ripple"></div> -->
+
+
             <!-- <div class="sbl-circ"></div>
             <div class="sbl-circ-path"></div> -->
-           <div class="sbl-circ-ripple"></div>
              <!-- <div class="sbl-seven-circles"></div>
             <div class="sbl-meter"></div>
             <div class="sbl-puzzle"></div>
             <div class="sbl-pushing-shapes"></div>
             <div class="sbl-square-to-circle"></div>
-
             <div class="sbl-rect-spin-fill"></div>
             <div class="sbl-dot-slide"></div>
             <div class="sbl-cirle-balance"></div>
@@ -281,8 +584,15 @@
 
                 </form>
             </div>
-            <img src="<?php echo get_theme_file_uri('/images/contact.jpg');?>" alt="">
+            <!-- <img src="<?php echo get_theme_file_uri('/images/contact.jpg');?>" alt=""> -->
         </div>
+        <!-- <div id="contact-info">
+            Or:
+            <ul>
+                <li>Call us at: [insert number here]</li>
+                <li>Email us at: [insert email here]</li>
+            </ul>
+        </div> -->
 
     </div>
 </div>

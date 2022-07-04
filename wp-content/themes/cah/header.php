@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes();?>>
     <head>
+
         <meta charset="<?php bloginfo('charset');?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
@@ -16,6 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet"> 
+
+        <style id="random-animations"></style>
     </head>
     <body>
 
@@ -27,9 +30,9 @@
             <!--Background on scroll to accomadate color shifts. Also change when view other pages-->
             <div id="logos-container">
                
-                    <div id="logo-symbol"><img src="<?php echo get_theme_file_uri('/images/logo_symbol_v1.png');?>" alt="company logo-symbol"></div>
+                <div id="logo-symbol"><img src="<?php echo get_theme_file_uri('/images/logo_symbol_v1.png');?>" alt="company logo-symbol"></div>
               
-                <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2_mobile.png');?>" alt="company logo-type"></div>
+                <div id="logo-text"><img src="<?php echo get_theme_file_uri('/images/Logo_cracked2.png');?>" alt="company logo-type"></div>
             </div>
             <!-- Also do alt function for mobile search button -->
             <!-- /images/Logo_cracked2_mobile.png -->

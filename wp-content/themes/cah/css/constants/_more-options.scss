@@ -11,6 +11,9 @@
     justify-content: center;
     height: var(--header_height);
     display: flex;
+    @include mixins.atDesktop{
+        justify-content: space-around;
+    }
     // #more-options{
     //     display: none;
     //     @include mixins.atTablet{

@@ -1,19 +1,19 @@
 @use "../base/mixins";
 header{
-    color: var(--muted-gold);
+    color: rgb(var(--muted-gold));
     display: grid;
     grid-template-columns: [logos]auto [additionalButtons]1fr [navigation]auto;
     grid-template-areas: "logos additionalButtons navigation"; 
     // grid-auto-flow: column;
     // justify-self: end;
     @include mixins.atTablet{
-        grid-template-columns: [logoSymbol]10% [logoText]29% [additionalButtons]36% [navigation]1fr;
-        grid-template-areas: "logoSymbol logoText additionalButtons navigation"; 
+        grid-template-columns: [logos]auto [additionalButtons]1fr [navigation]auto;
+        grid-template-areas: "logos additionalButtons navigation"; 
     }
     @include mixins.atDesktop{
         // grid-auto-flow: row;
-        grid-template-columns: [logoSymbol]5% [logoText]25% [additionalButtons]25% [navigation]1fr;
-        grid-template-areas: "logoSymbol logoText additionalButtons navigation"; 
+        grid-template-columns: [logos]auto [additionalButtons]1fr [navigation]auto;
+        grid-template-areas: "logos additionalButtons navigation"; 
     }
     background-color: var(--header_background-color);
     box-shadow: .2rem .2rem 1rem .4rem inset var(--header_box-shadow_color);
@@ -52,12 +52,14 @@ header{
         align-items: center;
         column-gap: .3rem;
         grid-area: logos;
-        height: var(--header_height);
+        @include mixins.atTablet{
+            column-gap: .6rem;
+        }
         #logo-symbol, #logo-text{
             height: calc(var(--header_height)*.65);
-                // @include mixins.atDesktop{
-                //     height: 3rem;
-                // }
+            @include mixins.atDesktop{
+                height: calc(var(--header_height)*.75);
+            }
         }
         #logo-symbol{
             grid-area: logoSymbol;
@@ -66,9 +68,6 @@ header{
         #logo-text{
             grid-area: logoText;
             margin-top: .6rem; 
-            @include mixins.atTablet{
-                padding-left: 2.8rem;
-            }
         }
     }
     img{

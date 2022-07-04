@@ -4,10 +4,10 @@
     top: var(--header_height);
     width: 100%;
     height: calc(100vh - var(--header_height) - var(--footer_height));
-    @include mixins.atDesktop{
-        height: 78%; 
-        top: 7.3rem; 
-    }
+    // @include mixins.atDesktop{
+    //     height: 78%; 
+    //     top: 7.3rem; 
+    // }
     // width: 95%; 
     // left: 2.5%; 
     background-color: var(--single-container_background-color);
@@ -31,6 +31,19 @@
     #media-container, #filters-and-sorting-container, #selected-news-container{        
         position: relative;
     }
+    #filters-and-sorting-tabs{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 5%;
+        top: 25%;
+        button.activated{
+            pointer-events: none;
+        }
+        @include mixins.atTablet{
+            display: none;
+        }
+    }
     #filters-and-sorting-container.fade-in, #filters-and-sorting-container.fade-out{
         display: grid;
         grid-template-areas:"section section section"
@@ -47,20 +60,6 @@
             grid-template-areas:"realtimeFiltersAndSorting realtimeFiltersAndSorting realtimeFiltersAndSorting"
                                 "searchFilters searchFilters searchFilters"
                                 "... resetAll ...";
-        }
-        #filters-and-sorting-tabs{
-            // grid-area: rst;
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            right: 5%;
-            top: 25%;
-            button.activated{
-                pointer-events: none;
-            }
-            @include mixins.atTablet{
-                display: none;
-            }
         }
     }
     // #filters-and-sorting-container.fade-in.rfs, #filters-and-sorting-container.fade-out.rfs{
@@ -109,6 +108,9 @@
         h2{
             font-size: 1.25rem;
             text-shadow: .1rem .1rem black;
+            @include mixins.atDesktop{
+                font-size: 1.5rem;
+            }
         }
         h3{
             font-size: 1.1rem;
@@ -120,14 +122,14 @@
             padding: .2rem;
             box-shadow: .2rem .2rem 1rem .6rem var(--nav-li_box-shadow_color);
             border: .2rem solid var(--nav-li_border-bottom_color);
-            background-color: var(--blackish-brown_2_trans_alt);
+            background-color: rgba(var(--blackish-brown_2_trans_alt));
             border-radius: 8%;
         }
         button.activated{
             filter: none;
             text-shadow: .1rem .1rem black;
-            color: var(--bright-gold);
-            background-color: var(--trans-black_alt);
+            color: rgb(var(--bright-gold));
+            background-color: rgba(var(--trans-black_alt_2));
             box-shadow: .2rem .2rem .2rem inset var(--nav-li_box-shadow_color),  -.2rem -.2rem .2rem inset var(--nav-li_box-shadow_color);
             border: .2rem solid transparent;
         }
@@ -136,30 +138,30 @@
             color: var(--single-container-button_color);
             box-shadow: .2rem .2rem 1rem .6rem var(--nav-li_box-shadow_color);
             border: .2rem solid var(--nav-li_border-bottom_color);
-            background-color: var(--blackish-brown_2_trans_alt);
+            background-color: rgba(var(--blackish-brown_2_trans_alt));
         }
         button:hover:not(.options-switch), button:focus:not(.options-switch){
-            color: var(--muted-gold);
+            color: rgb(var(--muted-gold));
             text-shadow: .1rem .1rem black;
-            background-color: var(--soft-brown);
+            background-color: rgb(var(--soft-brown));
             border: .2rem solid transparent;
             box-shadow: .2rem .2rem .2rem inset var(--nav-li_box-shadow_color),  -.2rem -.2rem .2rem inset var(--nav-li_box-shadow_color);
         }
         button.activated:focus:not(:focus-visible):not(:hover){
             filter: none;
             text-shadow: .1rem .1rem black;
-            color: var(--bright-gold);
-            background-color: var(--trans-black_alt);
+            color: rgb(var(--bright-gold));
+            background-color: rgba(var(--trans-black_alt));
             box-shadow: .2rem .2rem .2rem inset var(--nav-li_box-shadow_color),  -.2rem -.2rem .2rem inset var(--nav-li_box-shadow_color);
             border: .2rem solid transparent;
         }
         #word-start-only.inactive, button.inactive{
             pointer-events: none;
-            background-color: var(--blackish-brown_2_trans);
+            background-color: rgba(var(--blackish-brown_2_trans));
             // border: none;
             box-shadow: none;
             border: .1rem solid rgba(#000, .05);
-            box-shadow: .1rem .1rem .15rem inset var(--trans-black);
+            box-shadow: .1rem .1rem .15rem inset rgba(var(--trans-black));
             border-radius: 0;
             span{
                 color: var(--flc-button_inactive);
@@ -204,7 +206,10 @@
             // }
             h2{
                 grid-area: headingRFS;
-                font-size: 1.25rem
+                font-size: 1.25rem;
+                @include mixins.atDesktop{
+                    font-size: 1.5rem;
+                }
             }
             #order-by{
                 grid-area: orderBy;
@@ -266,6 +271,11 @@
                 #news-search.inactive{
                     pointer-events: none;
                     background-color: var(--flc-search_inactive);
+                }
+                @include mixins.atDesktop{
+                    flex-direction: row;
+                    align-items: center;
+                    margin-top: .5rem;
                 }
             }
 
@@ -349,8 +359,8 @@
             // grid-template-areas: "mh os ds";
             grid-template-areas: "mh os-ds";
             @include mixins.atDesktop{
-                grid-template-columns: [mh]90% [ds]1fr;
-                grid-template-areas: "mh ds";
+                grid-template-columns: [mh]90% [os-ds]1fr;
+                grid-template-areas: "mh os-ds";
             }
             border-bottom: .3rem solid var(--tao_border_color);
             #main-header-container{
@@ -359,9 +369,14 @@
                 justify-content: center;
                 #main-header{    
                     //have diff font-size based on sentence length or least have a class that is only on for main header, so can be prominent(1.75rem)
-                    font-size: 1.2rem;
+                    font-size: calc(1.5rem - var(--adjusted-font-size));
                     display: flex;
                     align-items: center;
+                    width: 100%;
+                    justify-content: center;
+                    @include mixins.atDesktop{
+                        font-size: 1.9rem;
+                    }
                 }
                 button{
                     cursor: pointer;
@@ -390,13 +405,13 @@
             .options-switch, #dismiss-selection{
                 height: 50%;
                 font-size: 1.2rem;
-                box-shadow: .4rem .4rem .45rem .1rem inset var(--trans-black);
-                background-color: var(--blackish-brown_1_trans);
+                box-shadow: .4rem .4rem .45rem .1rem inset rgba(var(--trans-black));
+                background-color: rgba(var(--blackish-brown_1_trans));
                 @include mixins.atDesktop{
                     font-size: 1.2rem;
                     border: .2rem solid var(--snc_border_color);
-                    border-bottom: none;
-                    border-top: none;
+                    box-shadow: none;
+                    background-color: transparent;
                 }
                 cursor: pointer;
             }
@@ -423,9 +438,9 @@
             #dismiss-selection{
                 grid-area: ds;
                 border-top: .1rem solid var(--snc_border_color);
-                // @include mixins.atDesktop{
-                //     border: none;
-                // }
+                @include mixins.atDesktop{
+                    border: none;
+                }
                 &.dismissed{
                     opacity: 0;
                     pointer-events: none;

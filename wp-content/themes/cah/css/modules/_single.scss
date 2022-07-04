@@ -145,10 +145,6 @@
     #singleInfo{
         //perhaps display img thumbs next to the 'view gallery', horizantal on comp and portrait, and vert on landscape 
         width: 100%;
-        @include mixins.atDesktop{
-            grid-area: desc;
-            // width: 35vw;
-        }
         // width: 70%;
         display: grid;
         grid-template-areas:'media'
@@ -160,10 +156,15 @@
             grid-template-areas: var(--single-info_grid-template-areas);
             grid-template-rows: var(--single-info_grid-template-rows);
         }
+        @include mixins.atDesktop{
+            grid-area: desc;
+            grid-template-areas:'media'
+                                'info';
+        }
         p{
             font-size: 1.1rem;
             @include mixins.atDesktop{
-                font-size: 1.7rem;
+                font-size: 1.4rem;
             }
             height: 99%;
         }
@@ -192,19 +193,28 @@
                 row-gap: var(--media-card_row-gap);
                 column-gap: var(--media-card_column-gap);
             }
+            @include mixins.atDesktop{
+                flex-direction: row;
+                row-gap: .4rem;
+                column-gap: .4rem;
+            }
             button, #thumbnail-column{
                 // border: .1rem solid var(--section-tabs_border-color);
                 padding: .5rem;
             }
             button{
-                background-color: var(--blackish-brown_1);
+                background-color: rgba(var(--blackish-brown_1));
                 box-shadow: .2rem .2rem .3rem inset rgba(22, 22, 22, 0.75), -.2rem -.2rem .3rem inset rgba(22, 22, 22, 0.75);
+                @include mixins.atDesktop{
+                    height: 50%;
+                    align-self: center;
+                }
             }
             button:hover, button:focus{
                 // border-radius: 4%;
-                color: var(--bright-gold);
+                color: rgb(var(--bright-gold));
                 filter: none;
-                background-color: var(--soft-brown);
+                background-color: rgb(var(--soft-brown));
                 // box-shadow: .2rem .2rem .3rem rgba(22, 22, 22, 0.75), -.2rem -.2rem .3rem rgba(22, 22, 22, 0.75);
             }
             #thumbnail-column{
@@ -216,6 +226,9 @@
                     row-gap: var(--media-card_row-gap);
                     column-gap: var(--media-card_column-gap);
                     // align-items: center;
+                }
+                @include mixins.atDesktop{
+                    column-gap: .4rem;
                 }
             }
             #additional-count{
@@ -234,6 +247,10 @@
                 @include mixins.atTablet{
                     height: initial;
                     width: var(--thumb_width);
+                }
+                @include mixins.atDesktop{
+                    height: 4rem;
+                    width: initial;
                 }
             }
         }
@@ -288,7 +305,7 @@
                 text-decoration: underline;
             }
             a:hover, a:focus{
-                color: var(--bright-gold);
+                color: rgb(var(--bright-gold));
                 filter: brightness(130%);
                 text-decoration: none;
                 text-decoration: 1px 1px solid black;
@@ -305,6 +322,9 @@
                 margin-top: .5rem;
                 @include mixins.atTablet{
                     margin-bottom: 0;
+                }
+                @include mixins.atDesktop{
+                    font-size: 2rem;
                 }
             }
         }
@@ -330,6 +350,10 @@
                     float: left;
                     margin-right: .8rem;
                     width: var(--updates-col-img_width);
+                }
+                @include mixins.atTablet{
+                    width: 70%;
+                    margin-bottom: .4rem;
                 }
             }
         }

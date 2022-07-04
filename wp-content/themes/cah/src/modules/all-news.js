@@ -6,11 +6,18 @@
 //Exterior calls will select it
 //Also, might want to move reset-all when on tab and below
 
+//Later add in symbol searches, such as "adir + promotion" to look for articles where both words appear seperately
+//[add in tip that talks about these diff techniques]
+
 import axios from "axios"
 import ShadowBox from './shadowBox';
 class News {
     constructor(){
         // this.closeMediaButton = document.querySelector('#media-close');
+        
+        this.root = document.documentElement;
+        this.startingAdjusted = getComputedStyle(this.root).getPropertyValue('--adjusted-font-size');
+
     if(document.querySelector('#all-news-container')){
         // this.viewPortHeight = window.innerHeight
         this.returnHome = document.querySelector('#return-home');
@@ -40,12 +47,15 @@ class News {
         this.contentLoaded = false;
 
         this.mainHeader = document.querySelector('#main-header');
+        this.baseFont = window.getComputedStyle(this.mainHeader, null).getPropertyValue('font-size');
+        this.baseFontNumber = this.baseFont.replace('px', '');
 
         this.newsSearch = document.querySelector("#news-search")
         this.newsDelivery = '';
         this.isSpinnerVisible = false
         this.previousValue = "";
         this.typingTimer;
+        this.titleTimer;
         this.clearSearch = document.querySelector('#clear-search')
         this.cleared = false;
 
@@ -183,8 +193,6 @@ class News {
             target = this.toggableSettings; 
             console.log(this.toggableSettings.dateOrder, target.dateOrder)
             this.wordSearchPosition.classList.remove('inactive');
-            // console.log(defaultSwitchSettings.isCaseSensitive)
-            // this.mainHeader.innerHTML = `${this.initialTitle}`;
             this.currentReport = '';
             this.contentLoaded = false;
             this.newsReciever.innerHTML = '<div class="spinner-loader"></div>';
@@ -419,26 +427,32 @@ class News {
     typingLogic() {
         //Automatically dismiss single or have this and other buttons frozen and/or hidden until dismissed
         //Leaning towards the latter, as far less complicated
+
         if (this.newsSearch.value !== this.previousValue) {
             this.fullDisplay = false;
             this.dismissSelection();
             this.contentLoaded = false;
             clearTimeout(this.typingTimer)
+            clearTimeout(this.titleTimer)
     
           if(this.newsSearch.value) {
               if(!this.newsSearch.value.startsWith('#')){
                 this.storedPages = 0;
-              }else{
-                this.clearSearch.classList.remove('dismissed');
               }
+            //   else{
+            //     this.clearSearch.classList.remove('dismissed');
+            //   }
             if (!this.isSpinnerVisible) {
               this.newsReciever.innerHTML = '<div class="spinner-loader"></div>'
               this.isSpinnerVisible = true
             }
-            this.newsDelivery = this.newsSearch.value;
-            this.mainHeader.innerHTML = `Showing Results for: ${this.newsDelivery}`;
+
             this.currentPages = 0;
-            this.typingTimer = setTimeout(this.gatherNews.bind(this), 750);
+
+            let deliveryDelay = 750; 
+
+            this.typingTimer = setTimeout(this.gatherNews.bind(this), deliveryDelay);
+            this.titleTimer = setTimeout(this.titleLogic.bind(this), deliveryDelay)
           } else {
             this.newsDelivery = "";
             this.clearSearch.classList.add('dismissed');
@@ -450,6 +464,19 @@ class News {
         }
     
         this.previousValue = this.newsSearch.value
+      }
+
+      titleLogic(){
+        this.clearSearch.classList.remove('dismissed');
+        // if(this.newsSearch.value.length >= 10){
+            console.log(this.newsSearch.value.length)
+            this.root.style.setProperty('--adjusted-font-size', this.newsSearch.value.length/4 + "px");
+        // }else{
+            // this.root.style.setProperty('--adjusted-font-size', 0 + "px");
+        // }
+        this.newsDelivery = this.newsSearch.value;
+        // console.log(this.newsSearch.value.length)
+        this.mainHeader.innerHTML = `Showing Results for: ${this.newsDelivery}`;
       }
 
       openClone(){
@@ -636,7 +663,6 @@ class News {
                 let rel = [];
 
                 if(this.newsDelivery !== ''){
-                    console.log('red')
 
                     if(this.newsDelivery.startsWith('#')){
                         let requestedId = this.newsDelivery.replace('#', '')
@@ -808,7 +834,6 @@ class News {
 
                 if(newsPages.length && !this.cleared){                
                     contentShown = newsPages[this.currentPages];
-                    console.log(this.currentPages)
                 }else if(newsPages.length && this.cleared){
                     contentShown = newsPages[this.storedPages];
                 }else{
@@ -855,6 +880,12 @@ class News {
                     if(this.calledIds.includes(parseInt(this.currentReport))){
                         this.fullDisplayContent.push(news);
                         this.mainHeader.innerHTML = `${news.title}`;
+
+                        let x = this.mainHeader.innerHTML.length
+                        // console.log(this.baseFont, x, x/2, this.baseFontNumber-(x/2))
+                        if(x >= 20){
+                            this.root.style.setProperty('--adjusted-font-size', x/5 + "px");
+                        }
                     }
                     this.calledIds = [];
                 }
@@ -1009,7 +1040,7 @@ class News {
                     this.firstPageButton.classList.add('selectedPage')
                 }else{
                     console.log(this.currentPages, 'cleared')
-                    //clearSearch
+
                     let r = document.querySelector(`.content-page[data-page="${this.storedPages}"]`)
                     console.log(this.storedPages, document.querySelector(`.content-page[data-page="${this.storedPages}"]`))
                     r.classList.add('selectedPage');
@@ -1041,9 +1072,12 @@ class News {
 
     dismissSelection(){
         if(this.newsDelivery !== ''){
-            this.mainHeader.innerHTML = `${this.storedTitle}`;
+            if(this.storedTitle){
+                this.mainHeader.innerHTML = `${this.storedTitle}`;
+            }
             this.clearSearch.classList.remove('dismissed');
         }else{
+            this.root.style.setProperty('--adjusted-font-size', 0 + "px");
             this.mainHeader.innerHTML = `${this.initialTitle}`;
         }
         this.optionsButton.forEach(o=> o.classList.remove('inactive')) 

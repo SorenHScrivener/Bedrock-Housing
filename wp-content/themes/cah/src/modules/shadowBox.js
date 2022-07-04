@@ -80,7 +80,10 @@ class ShadowBox {
             MobileInterface.prototype.opened = true;
             MobileInterface.prototype.toggleNav();
 
-            this.togglableElement.classList.add('hidden');
+            if(this.togglableElement){
+              this.togglableElement.classList.add('hidden');  
+            }
+            
             this.nav.classList.add('hidden');
             this.closeAlt.style.display = "block";
             this.mediaReciever = document.querySelector('#media-reciever');
@@ -384,7 +387,9 @@ class ShadowBox {
         }
     
         closeMediaReciever(){
-            this.togglableElement.classList.remove('hidden');
+            if(this.togglableElement){
+                this.togglableElement.classList.remove('hidden');  
+              }
             this.nav.classList.remove('hidden');
             this.closeAlt.style.display = "none";
             while (this.mediaMenu.firstChild) {
