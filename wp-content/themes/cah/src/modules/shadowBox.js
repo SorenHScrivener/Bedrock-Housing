@@ -85,7 +85,9 @@ class ShadowBox {
             }
             
             this.nav.classList.add('hidden');
-            this.closeAlt.style.display = "block";
+            if(this.width < 1200){
+                this.closeAlt.style.display = "block";
+            }
             this.mediaReciever = document.querySelector('#media-reciever');
 
             this.mediaReciever.style.display = "grid";
