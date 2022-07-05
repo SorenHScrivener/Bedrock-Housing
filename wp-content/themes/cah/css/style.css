@@ -3341,6 +3341,7 @@ header nav.opened {
   #singleContainer #updates-col {
     grid-area: updates;
     padding: 0 1rem;
+    grid-template-rows: 8% 12% 1fr 6%;
   }
 }
 #singleContainer #updates-col h3 {
@@ -3434,6 +3435,11 @@ header nav.opened {
   font-size: 1.3rem;
   display: flex;
   justify-content: center;
+}
+@media (min-width: 1200px) {
+  #singleContainer #updates-col #pagination-holder {
+    font-size: 1.8rem;
+  }
 }
 
 #all-news-container {
