@@ -24,7 +24,6 @@
         justify-content: space-between;
         align-items: center;
         padding-right: 2rem;
-        padding-left: 2rem;
     }
     p{
         margin: 0;
@@ -43,6 +42,9 @@
     }
     #credit-copyright{
         grid-area: copyright;
+        @include mixins.atDesktop{
+            margin-left: 2rem;
+        }
     }
     #credit-creator{
         grid-area: creator;
@@ -59,6 +61,7 @@
             @include mixins.atDesktop{
                 font-size: 1.3rem;
                 margin: .65rem; 
+                margin-right: 2rem;
             }
         }
     }

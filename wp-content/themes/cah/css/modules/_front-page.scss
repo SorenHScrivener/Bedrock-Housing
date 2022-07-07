@@ -132,10 +132,23 @@
 
         .contentBox{
             grid-area: contentBox;
-            width: 100%;
+            // width: 100%;
             @include mixins.atDesktop{
                 height: 100%;
-            }    
+            } 
+            .spinner-loader-holder{
+                position: absolute;
+                align-self: center;
+                @include mixins.atDesktop{
+                    margin-bottom: 2rem;
+                }
+                .spinner-loader{
+                    width: 6rem;
+                    height: 6rem;
+                    border: 0.5rem solid rgba(var(--muted-gold), 0.2);
+                    border-top-color: rgb(var(--muted-gold));
+                }
+            }   
         }
 
         .content-pages{
@@ -180,6 +193,9 @@
                 } 
                 a{
                     font-size: 1.3rem;
+                    @include mixins.atDesktop{
+                        font-size: 1.7rem;
+                    }
                 }
                 // .content-direction{
                 //     writing-mode: vertical-lr;
@@ -256,15 +272,22 @@
                     align-items: center;
                     justify-content: center;
                     .interaction-prompt{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         position: absolute;
                         background-color: var(--interaction-prompt_background-color);
-                        padding: .2rem .2rem;
-                        border-radius: 30%;
+                        // padding: .2rem .2rem;
+                        // border-radius: 50%;
                         // font-size: 1.1rem;
                         height: var(--interaction-prompt_size);
                         width: var(--interaction-prompt_size);
-                        opacity: .7;
+                        // opacity: .7;
+                        margin: 0;
+                        top: 0;
+                        left: 0;
                         .touch-prompt{
+                            height: calc(var(--interaction-prompt_size)/1.3);
                             @include mixins.atDesktop{
                                 display: none;
                             }
@@ -273,6 +296,8 @@
                             display: none;
                             @include mixins.atDesktop{
                                 display: block;
+                                font-size: calc(var(--interaction-prompt_size)/1.5);
+                                color: rgb(212, 202, 149);
                             }
                         }
                     }
@@ -452,7 +477,7 @@
                     line-height: 1.2rem;
                     @include mixins.atDesktop{
                         font-size: 1.15rem;
-                        line-height: 1.1rem;
+                        line-height: 1.4rem;
                     }
                 }
             }

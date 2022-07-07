@@ -19,7 +19,7 @@
         shuffle($mainLoaderText);
 ?>
 
-<div id="page-loader" class="loader loader-curtain is-active" data-curtain-text="<?php echo $mainLoaderText[0]; ?>" data-colorful=""></div>
+<!-- <div id="page-loader" class="loader loader-curtain is-active" data-curtain-text="<?php echo $mainLoaderText[0]; ?>" data-colorful=""></div> -->
 
 <!-- Get a loading spinner in here.-->
 
@@ -41,9 +41,9 @@
 
         <div class="contentBox">
 
-            <div class="custom-box">
+            <!-- <div class="custom-box"> -->
               
-                <div id="custom-loader_1" class="custom-loader inactive">
+                <!--<div id="custom-loader_1" class="custom-loader inactive">
                     <div class="L">
                         <div id="vertical-boxes">
                             <div class="letter-box"></div>
@@ -305,10 +305,10 @@
                         <div class="slider"></div>
                     </div>
                 </div>
-                            <!-- ball going back and forth across a container, with 'after-images' as it moves[transparent, circles, progressively stacked, that fade along the way]-->
+                            ball going back and forth across a container, with 'after-images' as it moves[transparent, circles, progressively stacked, that fade along the way]-->
             <!-- Use dark/light slider as inspiration-->
             <!-- <div class="ball-slider_after-image custom-box"></div> -->
-            </div>
+            <!-- </div> -->
 
             <!-- random 'bouncing' direction off the walls of the box and rgb color, with the later being a slow, smooth transition
             [prevent from being color too close to background] -->
@@ -494,9 +494,9 @@
         </div>             
         <div class="contentBox">
             <!-- <div class="dot-pulse"></div> -->
-            <div class="loader loader-bar-ping-pong content-loader" data-rounded="" data-blink="" data-text="Right away...">
+            <!-- <div class="loader loader-bar-ping-pong content-loader" data-rounded="" data-blink="" data-text="Right away...">
                 <div class="ball"></div>
-            </div>
+            </div> -->
                 <noscript>
                     <?php
                         $members = new WP_Query(array(

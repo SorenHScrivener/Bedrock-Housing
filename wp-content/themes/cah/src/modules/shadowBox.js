@@ -63,9 +63,10 @@ class ShadowBox {
         this.postField = 'gallery';
         
         this.newLoad = true;
-
+        
         this.mediaLink.forEach(media=>{
-            if(media.id !== 'thumbnail-column' && media.id !== 'additional-count'){
+            if(media.id !== 'thumbnail-column' && media.id !== 'additional-count' && media.className.indexOf('primed') < 0){
+                media.classList.add('primed');
                 media.addEventListener('click', ()=> this.shadowBox(media)); 
             }
         })
@@ -228,7 +229,7 @@ class ShadowBox {
 
         renderIsolatedMedia(media){
             // this.currentMedia.classList.remove('aspect-ratio');
-            this.currentMedia.classList.add('center-display');
+            this.currentMedia.classList.add('center-display')
             this.currentMedia.innerHTML = `
                 <img src="${media.dataset.full}">
             `;  
@@ -241,8 +242,8 @@ class ShadowBox {
         renderCurrentMedia(item){
             if(this.newLoad === true){
                 this.galleryPosition = 0;
+                console.log(this.postField, this.galleryPosition)
             }
-            console.log(this.postField, this.galleryPosition)
 
             this.currentMedia.innerHTML = `  
                 <div id="media-display">
@@ -300,7 +301,7 @@ class ShadowBox {
                     isFullDescVisible = false;
                 }
             })
-
+            this.newLoad = false;
         }
 
         populateMediaColumn(item, content){
@@ -370,7 +371,6 @@ class ShadowBox {
                     console.log(this.currentSelection)
 
                     this.currentPages = parseInt(selectedPage.dataset.page);
-                    // this.initialMediaPopulation(item);
                     this.populateMediaColumn(item, this.contentShown[this.currentPages]);
 
                     contentPageOptions.forEach(i =>{                          

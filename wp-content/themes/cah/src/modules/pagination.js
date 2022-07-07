@@ -1,16 +1,16 @@
 // Spit out Apts in order of most recent
 
 import axios from "axios"
-import CustomLoaderLogic from "./custom-loader-logic";
+// import CustomLoaderLogic from "./custom-loader-logic";
 
 class Pagination {
     constructor(){
-        this.cll = CustomLoaderLogic.prototype;
+        // this.cll = CustomLoaderLogic.prototype;
         
-        const letterLoader = document.querySelector('#custom-loader_1');
-        const buildingLoader = document.querySelector('#custom-loader_2');
-        const sliderLoader = document.querySelector('#custom-loader_3');
-        this.loaders = [letterLoader, buildingLoader, sliderLoader];
+        // const letterLoader = document.querySelector('#custom-loader_1');
+        // const buildingLoader = document.querySelector('#custom-loader_2');
+        // const sliderLoader = document.querySelector('#custom-loader_3');
+        // this.loaders = [letterLoader, buildingLoader, sliderLoader];
 
         this.targetedElement;
 
@@ -23,7 +23,7 @@ class Pagination {
         this.closeMagnify = document.querySelector('#closeMagnify');
         // this.overallContainer = document.querySelector('#overallContainer');
         // For now, this will be how I prevent errors on other pages 
-        this.frontTest = document.querySelector('.contentContainer_paginated') 
+        this.frontTest = document.querySelector('.contentContainer_paginated'); 
         this.vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
         this.vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
@@ -59,18 +59,17 @@ class Pagination {
         this.contentDirection;
 
         this.pageLoader = document.querySelector('#page-loader');
+        this.spinnerLoader = '<div class="spinner-loader-holder"><div class="spinner-loader"></div></div>';
         this.contentLoaded = false;
         // this.isSpinnerVisible = true;
         //spinner false before the prev is true
 
         //Do smaller ones for paginate and for the form submits, as well as search on the all news page and any other pagination 
-            
+        this.paginatedContainers = document.querySelectorAll('.contentContainer_paginated  .contentBox');
         this.events();
     }
 
     events(){
-        // this.html.style.fontSize = `${this.vh*.017}px`;
-        // console.log(this.vh*.017)
         if(this.frontTest){
             // const mainLoaderText = ["One Moment Please...", "Perfection takes time", "Groaning only makes this slower...", "I'm watching you... :)"
             // , "Commencing Hack ;)", "One Moment. Retrieving your SSN", "Shaving your cat...", "You like Scary Movies...? >:)"];
@@ -81,9 +80,11 @@ class Pagination {
 
             // this.pageLoader.setAttribute('data-curtain-text', `${result}`)
     
-            this.contentLoader = document.querySelector('.content-loader');
-
-             this.paginate();
+            // this.contentLoader = document.querySelector('.content-loader');
+            this.paginatedContainers.forEach(c=>{
+                c.innerHTML = this.spinnerLoader;
+            })
+            setTimeout(()=>this.paginate(), 300);
         }
         
     }
@@ -279,18 +280,18 @@ class Pagination {
                         contentShown = [];
                     }
 
-                    console.log(postPages[0])
+                    // console.log(postPages[0])
 
                         let pageName = type;
 
                         containerType[containerTypeLocation].classList.add(type)
 
                         this.insertContent(containerType[containerTypeLocation], contentShown, pageName)
-                        
 
                         // paginationLocation = containerType[containerTypeLocation].previousElementSibling.querySelector('.textBox')
                         // console.log(containerType[containerTypeLocation].parentElement)
                         paginationLocation = containerType[containerTypeLocation].parentElement;
+  
                         this.insertPagination(paginationLocation, postPages, dataCount, pageCount, pageName)     
 
                         containerTypeLocation+= 1
@@ -302,8 +303,9 @@ class Pagination {
                 }
             }else{
                 //temp until change set-up to make section loader work
-                this.pageLoader.classList.add('is-active')
+                // this.pageLoader.classList.add('is-active')
                 post = results[this.groupName]
+                // console.log(this.groupName)
 
                 if(post.length <= postOutput){
                     let page = postPages.concat(post);
@@ -326,18 +328,20 @@ class Pagination {
                 contentShown = postPages[this.currentPages[this.groupName]];
                 
                 let target = document.querySelector(`.contentBox.${this.groupName}`)
-
-                this.insertContent(target, contentShown, this.groupName);
+                target.innerHTML = this.spinnerLoader;
+                setTimeout(()=>{
+                    this.insertContent(target, contentShown, this.groupName);
+                },300) 
 
                 this.contentNextAndPrevious(); 
                 this.contentNextActivation(); 
 
                 //change to adding fade-class, before removing active, so goes away smoother
-                setTimeout(()=>this.pageLoader.classList.remove('is-active'), 810);
+                // setTimeout(()=>this.pageLoader.classList.remove('is-active'), 810);
 
             }
             this.contentLoaded = true;
-            setTimeout(()=>this.pageLoader.classList.remove('is-active'), 810); 
+            // setTimeout(()=>this.pageLoader.classList.remove('is-active'), 810); 
      
             //Can I loop through the diff results, using variable(s) before the innerHtml and the map, as well as the page container?
             
@@ -371,14 +375,11 @@ class Pagination {
     }
 
     insertContent(destination, type, pageName){
-            //Change desitination set-up to accomadate loader
-            console.log(pageName)
-            //replace word interaction prompts, with custom, drawn symbols
             destination.innerHTML = `
                 ${type.map(item => `
                 <div class="overall-squares">
                     <div class="displaySquares">
-                        <p class="interaction-prompt"><span class="touch-prompt"><img src="${siteData.root_url}/wp-content/themes/cah/images/touch-symbol.png"></span><span class="hover-prompt"><img src="${siteData.root_url}/wp-content/themes/cah/images/hover-symbol.png"></span></p>
+                        <p class="interaction-prompt"><span class="touch-prompt"><img src="${siteData.root_url}/wp-content/themes/cah/images/touch-symbol.png"></span><span class="hover-prompt"><i class="fas fa-mouse"></i></span></p>
                         ${this.vw >= 1200 ? `<img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.image : item.projectedImage}" alt="${item.title}">`: ''}
                         ${this.vw < 1200 ? `<img class="displayImages" data-name="${item.title.replaceAll(' ', '')}" src="${item.isCompleted || item.postType === 'member' ? item.imageMedium : item.projectedImageMedium}" alt="${item.title}">`: ''}
                         <div class="displaySquares-pageLinks">

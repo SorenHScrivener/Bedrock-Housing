@@ -45,8 +45,8 @@
     --body_color: rgb(var(--whitish-gold));
     --body_background-color: rgb(var(--soft-brown));
 
-    --interaction-prompt_background-color: rgba(var(--trans-main));
-    --interaction-prompt_size: 3.5rem;
+    --interaction-prompt_background-color: rgba(var(--trans-black_alt));
+    --interaction-prompt_size: 2.5rem;
     --page-links: rgb(var(--off-white));
 
     --title-box_border_color: rgb(var(--muted-gold));
@@ -106,6 +106,9 @@
     --media-reciever-information_color: rgb(var(--off-white));
     --media-reciever-close: rgb(var(--whitish-gold));  
     --current-media_width: 99vw;
+    @include mixins.atDesktop{
+        --current-media_width: 50vw;
+    }
     --play-button_color: rgba(99, 100, 179, .8);
     --play-button-inner_color: rgb(125, 150, 168);
 }

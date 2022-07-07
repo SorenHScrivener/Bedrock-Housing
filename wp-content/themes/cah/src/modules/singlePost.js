@@ -23,6 +23,9 @@ class RelatedNews{
             // console.log(this.sections)
             // this.sectionTabs = document.querySelectorAll('#section-tabs button');
             // console.log(this.sectionTabs)
+
+            this.spinnerLoader = '<div class="spinner-loader-holder"><div class="spinner-loader"></div></div>';
+
             this.events();
         }
     }
@@ -36,6 +39,15 @@ class RelatedNews{
         //         this.toggleSections(t)
         //     })
         // })
+
+        this.newsReciever.innerHTML = this.spinnerLoader;
+        this.newsInfoReciever.innerHTML = this.spinnerLoader;
+        this.thumbnailColumn.innerHTML = this.spinnerLoader; 
+        
+        // let deliveryDelay = 700;
+        // this.mediaTimer = setTimeout(this.fetchMedia.bind(this), deliveryDelay); 
+        // this.relatedNewsTimer = setTimeout(this.fetchRelatedNews.bind(this), deliveryDelay);  
+ 
         this.fetchMedia();
         this.fetchRelatedNews();
     }
@@ -132,7 +144,7 @@ class RelatedNews{
     }
 
     populateNewsReciever(){
-        console.log(this.contentShown[this.currentPage])
+        // console.log(this.contentShown[this.currentPage])
         this.newsInfoReciever.innerHTML = `
             <h4>${this.contentShown[this.currentPage].title}</h4>
             <p>${this.contentShown[this.currentPage].caption ? `${this.contentShown[this.currentPage].caption} -` : ''} ${this.contentShown[this.currentPage].date}</p>
@@ -143,7 +155,6 @@ class RelatedNews{
         `;
   
         ShadowBox.prototype.events();
-        // console.log(ShadowBox.prototype.mediaLink)
     }
 
     populatePaginationHolder(dataCount, pageCount){
@@ -170,11 +181,12 @@ class RelatedNews{
 
     paginationFunctionality(){
         this.contentPageOptions.forEach(el => {
-            el.onclick = (e) => {
+            el.addEventListener('click', (e) => {
                 let selectedPage = e.currentTarget;
 
                 this.currentPage = parseInt(selectedPage.dataset.page);
-
+                this.newsReciever.innerHTML = this.spinnerLoader;
+                this.newsInfoReciever.innerHTML = this.spinnerLoader;
                 this.fetchRelatedNews()
 
                 this.contentPageOptions.forEach(i =>{ 
@@ -185,12 +197,12 @@ class RelatedNews{
                 })  
                 el.classList.add('selectedPage');
 
-            }
+            })
         })
     }
 
     populateThumbnailColumn(imgs){
-        console.log(imgs)
+        // console.log(imgs)
         this.thumbnailColumn.innerHTML = `
             ${imgs.map(img=>`
                     <img src="${img.selectImage}">

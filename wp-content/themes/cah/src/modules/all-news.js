@@ -381,7 +381,9 @@ class News {
         this.clearSearch.addEventListener('click', e=>{
             this.newsSearch.value = '';
             this.newsSearchClone.value = '';
-            this.cleared = true;   
+            this.cleared = true;
+            this.newsReciever.innerHTML = '<div class="spinner-loader"></div>';
+            this.isSpinnerVisible = true;   
             this.typingLogic();
             e.currentTarget.classList.add('dismissed');
         })
@@ -427,7 +429,7 @@ class News {
     typingLogic() {
         //Automatically dismiss single or have this and other buttons frozen and/or hidden until dismissed
         //Leaning towards the latter, as far less complicated
-
+        // console.log(this.newsSearch.value, this.previousValue)
         if (this.newsSearch.value !== this.previousValue) {
             this.fullDisplay = false;
             this.dismissSelection();
@@ -450,14 +452,15 @@ class News {
             this.currentPages = 0;
 
             let deliveryDelay = 750; 
-
+            
+            this.titleTimer = setTimeout(this.titleLogic.bind(this), deliveryDelay);
             this.typingTimer = setTimeout(this.gatherNews.bind(this), deliveryDelay);
-            this.titleTimer = setTimeout(this.titleLogic.bind(this), deliveryDelay)
           } else {
             this.newsDelivery = "";
             this.clearSearch.classList.add('dismissed');
             this.mainHeader.innerHTML = `${this.initialTitle}`;
-            this.isSpinnerVisible = false;
+            this.newsReciever.innerHTML = '<div class="spinner-loader"></div>';
+            this.isSpinnerVisible = true;   
 
             this.gatherNews()
           }
@@ -469,8 +472,8 @@ class News {
       titleLogic(){
         this.clearSearch.classList.remove('dismissed');
         // if(this.newsSearch.value.length >= 10){
-            console.log(this.newsSearch.value.length)
-            this.root.style.setProperty('--adjusted-font-size', this.newsSearch.value.length/4 + "px");
+            // console.log(this.newsSearch.value.length)
+        this.root.style.setProperty('--adjusted-font-size', this.newsSearch.value.length/4 + "px");
         // }else{
             // this.root.style.setProperty('--adjusted-font-size', 0 + "px");
         // }
@@ -518,7 +521,7 @@ class News {
             const splitDates = [];
             // const years = [];
 
-            console.log(results)
+            // console.log(results)
 
             results.updatesAndNews.forEach(news=>{
                 if (!dates.includes(new Date(news.date).toLocaleDateString('en-us', {month: 'long', year: 'numeric'}))) {
@@ -531,7 +534,7 @@ class News {
                 splitDates.push(e.split(' '))
             })
 
-            console.log(splitDates)
+            // console.log(splitDates)
 
             splitDates.forEach(date=>{
 
@@ -556,7 +559,7 @@ class News {
                 })
             })
             
-            console.log(this.yearList)
+            // console.log(this.yearList)
 
             let allMonths = ['January','February','March', 'April','May','June','July','August','September','October','November','December'];
 
@@ -650,13 +653,6 @@ class News {
             // //if symbol entered as only thing, it'll my logic, sometimes. Remedy this.
             
             if(!this.fullDisplay || this.backgroundCall){
-                //Do start vs anywhere in the word
-                //Start only is standard and auto true when whole word is turned on(?) or simply buried in partial if
-                //it should at least be inacessible on the frontend with visual cue
-
-                //Do a more thorough test of those later after rel and 'dislay-quality' articles created 
-
-                //Do basic month and year and range picking, before looking into pop-up and figuring out how to get info from what is selected on it
                 let fullList = [];
                 let titles = [];
                 let desc = [];
@@ -673,14 +669,14 @@ class News {
                                 if(r.id === parseInt(requestedId)){
                                     associatedNews.push(news);
                                     name = r.title;
-                                    console.log(associatedNews)
+                                    // console.log(associatedNews)
                                 }
                             })
                         })
                         allNews = associatedNews;
 
                         if(this.externalCall){
-                            console.log(this.origin)
+                            // console.log(this.origin)
                             this.externalCall = false;
                             this.previousValue = this.newsSearch.value;
                             this.gatherNews();
@@ -912,8 +908,7 @@ class News {
 
     deliverNews(contentShown, destination = this.newsReciever){
         destination.innerHTML = `
-            ${contentShown.length ? `<ul>`  : 'No articles match your criteria'}
-            ${!contentShown.length ? `<button id="searchReset">Please try a different query or change your filters.</button>`  : ''}
+            ${contentShown.length ? `<ul>`  : '<p id="no-results-message">No articles match your criteria. <span>Please try a different query or change your filters.</span></p>'}
                 ${contentShown.map(report => `
                 <li>
                     <div class="news">                           
@@ -1039,10 +1034,10 @@ class News {
                 
                     this.firstPageButton.classList.add('selectedPage')
                 }else{
-                    console.log(this.currentPages, 'cleared')
+                    // console.log(this.currentPages, 'cleared')
 
                     let r = document.querySelector(`.content-page[data-page="${this.storedPages}"]`)
-                    console.log(this.storedPages, document.querySelector(`.content-page[data-page="${this.storedPages}"]`))
+                    // console.log(this.storedPages, document.querySelector(`.content-page[data-page="${this.storedPages}"]`))
                     r.classList.add('selectedPage');
                     this.cleared = false;
                 }

@@ -455,12 +455,25 @@
             overflow: auto;
             ul{
                 padding: 0 1.5rem;
-                // width: 100%;
+                align-self: flex-start;
             }
         }
-        // #full-display-container{
-        //     padding-left: 2rem;
-        // }
+        .spinner-loader{
+            width: 5rem;
+            height: 5rem;
+        }
+        #main-display{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            #no-results-message{
+                font-size: 1.4rem;
+            }
+            #no-results-message span{
+                color: var(--body_color);
+            }
+        }
         #main-display, #full-display-container{
             &.dismissed{
                 display: none;
